@@ -15,6 +15,7 @@ kmpCompose = "1.7.1"
 koin = "4.0.0"
 kotlin = "2.0.21"
 kotlinter = "4.5.0"
+kotlinxDatetime = "0.6.1"
 ksp = "2.0.21-1.0.28"
 ktor = "3.0.1"
 leakCanary = "2.14"
@@ -48,6 +49,7 @@ google-testparameterinjector = { module = "com.google.testparameterinjector:test
 junit = { module = "junit:junit", version.ref = "junit" }
 koin-core = { module = "io.insert-koin:koin-core", version.ref = "koin" }
 koin-test = { module = "io.insert-koin:koin-test", version.ref = "koin" }
+kotlinx-datetime = { module = "org.jetbrains.kotlinx:kotlinx-datetime", version.ref = "kotlinxDatetime" }
 ktor-client-android = { module = "io.ktor:ktor-client-android", version.ref = "ktor" }
 ktor-client-content-negotiation = { module = "io.ktor:ktor-client-content-negotiation", version.ref = "ktor" }
 ktor-client-core = { module = "io.ktor:ktor-client-core", version.ref = "ktor" }
