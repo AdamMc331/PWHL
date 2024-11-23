@@ -55,3 +55,17 @@ tasks {
         buildUponDefaultConfig = false
     }
 }
+
+/**
+ * The most basic list of validations so we can run checks locally when CI isn't running,
+ * given this is a private project and has limited Actions resources.
+ */
+tasks.register<GradleBuild>("prChecks") {
+    tasks = listOf(
+        "assembleDebug",
+        "linkDebugFrameworkIosSimulatorArm64",
+        "detektAll",
+        "lintKotlin",
+        "test",
+    )
+}
