@@ -6,7 +6,6 @@ import org.jmailen.gradle.kotlinter.tasks.LintTask
 plugins {
     alias(libs.plugins.android.library)
     alias(libs.plugins.apollo.graphql)
-    alias(libs.plugins.cash.paparazzi)
     alias(libs.plugins.cash.sqldelight)
     alias(libs.plugins.compose.compiler)
     alias(libs.plugins.kotlin.compose)
@@ -76,7 +75,7 @@ kotlin {
 
 compose.resources {
     publicResClass = false
-    packageOfResClass = "template.shared"
+    packageOfResClass = "com.pwhl.mobile.shared"
     generateResClass = auto
 }
 
@@ -95,13 +94,13 @@ android {
         targetCompatibility = JavaVersion.VERSION_17
     }
 
-    namespace = "template.shared"
+    namespace = "com.pwhl.mobile.shared"
 }
 
 sqldelight {
     databases {
         create("AppDatabase") {
-            packageName.set("template.shared")
+            packageName.set("com.pwhl.mobile.shared")
         }
     }
 }
@@ -109,7 +108,7 @@ sqldelight {
 // NOTE: Replace the template schema.json with the schema for your apollo api.
 apollo {
     service("service") {
-        packageName.set("template.shared")
+        packageName.set("com.pwhl.mobile.shared")
     }
 }
 
