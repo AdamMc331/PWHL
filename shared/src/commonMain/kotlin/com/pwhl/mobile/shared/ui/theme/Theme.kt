@@ -1,4 +1,4 @@
-package com.pwhl.mobile.shared.theme
+package com.pwhl.mobile.shared.ui.theme
 
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material3.MaterialTheme

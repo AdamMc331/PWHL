@@ -1,4 +1,4 @@
-package com.pwhl.mobile.shared
+package com.pwhl.mobile.shared.data.remote
 
 import io.ktor.client.HttpClient
 import io.ktor.client.call.body
