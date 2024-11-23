@@ -12,23 +12,30 @@ class HockeyTechPWHLService(
     override suspend fun fetchGames(request: GameListRequest): Result<List<Game>> {
         val endpoint = "feed/index.php"
 
-        val params = mapOf(
-            "feed" to "modulekit",
-            "key" to "1234",
-            "client_code" to "pwhl",
-            "view" to "scorebar",
-            "numberofdaysahead" to "6",
-            "numberofdaysback" to "0",
-            "limit" to "1000",
-            "fmt" to "json",
-            "site_id" to "0",
-            "league_id" to "1",
+        val gameListParams = mapOf(
+            PARAM_KEY_FEED to PARAM_VALUE_MODULE_KIT,
+            PARAM_KEY_VIEW to PARAM_VALUE_SCORE_BAR,
+            PARAM_KEY_DAYS_AHEAD to "6",
+            PARAM_KEY_DAYS_BACK to "0",
         )
+
+        val params = HockeyTechKtorClient.baseHockeyTechParams + gameListParams
 
         return apiClient
             .getResponse<HockeyTechScoreBarResponseDTO>(
-                endpoint,
-                params,
-            ).map(HockeyTechScoreBarResponseDTO::parseGames)
+                endpoint = endpoint,
+                params = params,
+            )
+            .map(HockeyTechScoreBarResponseDTO::parseGames)
+    }
+
+    companion object {
+        private const val PARAM_KEY_FEED = "feed"
+        private const val PARAM_KEY_VIEW = "view"
+        private const val PARAM_KEY_DAYS_AHEAD = "numberofdaysahead"
+        private const val PARAM_KEY_DAYS_BACK = "numberofdaysback"
+
+        private const val PARAM_VALUE_MODULE_KIT = "modulekit"
+        private const val PARAM_VALUE_SCORE_BAR = "scorebar"
     }
 }
