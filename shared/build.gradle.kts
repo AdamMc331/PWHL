@@ -1,11 +1,15 @@
+import com.codingfeline.buildkonfig.compiler.FieldSpec.Type.STRING
 import org.jetbrains.kotlin.gradle.ExperimentalKotlinGradlePluginApi
 import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 import org.jmailen.gradle.kotlinter.tasks.FormatTask
 import org.jmailen.gradle.kotlinter.tasks.LintTask
+import java.io.FileInputStream
+import java.util.Properties
 
 plugins {
     alias(libs.plugins.android.library)
     alias(libs.plugins.apollo.graphql)
+    alias(libs.plugins.buildKonfig)
     alias(libs.plugins.cash.sqldelight)
     alias(libs.plugins.compose.compiler)
     alias(libs.plugins.kotlin.compose)
@@ -111,6 +115,17 @@ sqldelight {
 apollo {
     service("service") {
         packageName.set("com.pwhl.mobile.shared")
+    }
+}
+
+buildkonfig {
+    packageName = "com.pwhl.mobile.shared"
+
+    val properties = Properties()
+    properties.load(FileInputStream(project.rootProject.file("local.properties")))
+
+    defaultConfigs {
+        buildConfigField(STRING, "PWHL_API_KEY", properties["PWHL_API_KEY"].toString())
     }
 }
 
