@@ -15,7 +15,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import com.pwhl.mobile.shared.displaymodels.GameDisplayModel
 import com.pwhl.mobile.shared.displaymodels.ImageDisplayModel
-import com.pwhl.mobile.shared.displaymodels.TeamDisplayModel
+import com.pwhl.mobile.shared.displaymodels.TeamGameResultDisplayModel
 
 @Composable
 fun GameListItem(
@@ -52,28 +52,21 @@ private fun TeamRows(
         verticalArrangement = Arrangement.spacedBy(8.dp),
         modifier = modifier,
     ) {
-        TeamRow(
-            team = game.homeTeam,
-            goals = game.homeGoals,
-        )
+        TeamRow(game.homeTeam)
 
-        TeamRow(
-            team = game.awayTeam,
-            goals = game.awayGoals,
-        )
+        TeamRow(game.awayTeam)
     }
 }
 
 @Composable
 private fun TeamRow(
-    team: TeamDisplayModel,
-    goals: Int,
+    teamGameResult: TeamGameResultDisplayModel,
 ) {
     Row(
         verticalAlignment = Alignment.CenterVertically,
     ) {
         ImageWrapper(
-            image = team.image ?: ImageDisplayModel.Placeholder,
+            image = teamGameResult.team.image ?: ImageDisplayModel.Placeholder,
             contentDescription = null,
             modifier = Modifier
                 .size(24.dp),
@@ -85,7 +78,7 @@ private fun TeamRow(
         )
 
         Text(
-            text = team.name,
+            text = teamGameResult.team.name,
         )
 
         Spacer(
@@ -94,7 +87,7 @@ private fun TeamRow(
         )
 
         Text(
-            text = goals.toString(),
+            text = teamGameResult.goals.toString(),
         )
     }
 }

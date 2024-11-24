@@ -136,25 +136,14 @@ data class HockeyTechScoreBarItemDTO(
     val visitorWins: String? = null,
 ) {
     fun parseGame(): Game {
-        val isComplete = (gameStatusString == "Final")
-
-        val statusString = if (isComplete) {
-            // This accounts for the case where the status is
-            // something like `Final 1st OT` and we want the OT
-            // information to be on the second line
-            gameStatusStringLong?.replaceFirst(' ', '\n')
-        } else {
-            gameStatusStringLong
-        }
-
         return Game(
             id = iD.orEmpty(),
             homeTeam = parseHomeTeam(),
             awayTeam = parseAwayTeam(),
             homeGoals = homeGoals?.toIntOrNull() ?: 0,
             awayGoals = visitorGoals?.toIntOrNull() ?: 0,
-            gameTime = Instant.parse(gameDateISO8601.orEmpty()),
-            status = statusString.orEmpty(),
+            time = Instant.parse(gameDateISO8601.orEmpty()),
+            status = gameStatusStringLong.orEmpty(),
         )
     }
 
