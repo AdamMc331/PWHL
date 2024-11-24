@@ -142,7 +142,8 @@ data class HockeyTechScoreBarItemDTO(
             awayTeam = parseAwayTeam(),
             homeGoals = homeGoals?.toIntOrNull() ?: 0,
             awayGoals = visitorGoals?.toIntOrNull() ?: 0,
-            gameTime = Instant.parse(gameDateISO8601.orEmpty()),
+            time = Instant.parse(gameDateISO8601.orEmpty()),
+            status = gameStatusStringLong.orEmpty(),
         )
     }
 

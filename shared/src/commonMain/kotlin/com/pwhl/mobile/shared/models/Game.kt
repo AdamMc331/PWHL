@@ -8,5 +8,6 @@ data class Game(
     val awayTeam: Team,
     val homeGoals: Int,
     val awayGoals: Int,
-    val gameTime: Instant,
+    val time: Instant,
+    val status: String,
 )

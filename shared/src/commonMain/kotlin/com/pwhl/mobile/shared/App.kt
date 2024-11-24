@@ -1,64 +1,51 @@
 package com.pwhl.mobile.shared
 
-import androidx.compose.animation.AnimatedVisibility
-import androidx.compose.foundation.Image
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.material3.Button
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.items
+import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Surface
-import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.setValue
-import androidx.compose.ui.Alignment
-import androidx.compose.ui.Modifier
+import com.pwhl.mobile.shared.data.hockeytech.HockeyTechPWHLService
+import com.pwhl.mobile.shared.data.requests.GameListRequest
+import com.pwhl.mobile.shared.displaymodels.GameDisplayModel
+import com.pwhl.mobile.shared.ui.components.GameListItem
 import com.pwhl.mobile.shared.ui.theme.PWHLTheme
-import org.jetbrains.compose.resources.painterResource
+import kotlinx.coroutines.launch
+import kotlinx.datetime.Clock
 import org.jetbrains.compose.ui.tooling.preview.Preview
+import kotlin.time.Duration.Companion.days
 
 @Preview
 @Composable
 fun App() {
+    var games by remember {
+        mutableStateOf(emptyList<GameDisplayModel>())
+    }
+
+    val service = HockeyTechPWHLService()
+    rememberCoroutineScope().launch {
+        val request = GameListRequest(
+            beforeDate = Clock.System.now().plus(6.days),
+            afterDate = Clock.System.now().minus(3.days),
+            teamId = null,
+        )
+        val gamesList = service.fetchGames(request).getOrNull()
+
+        games = gamesList?.map(::GameDisplayModel).orEmpty()
+    }
+
     PWHLTheme {
-        var showContent by remember {
-            mutableStateOf(false)
-        }
-
         Surface {
-            Column(
-                horizontalAlignment = Alignment.CenterHorizontally,
-                modifier = Modifier.fillMaxWidth(),
-            ) {
-                Button(
-                    onClick = {
-                        showContent = !showContent
-                    },
-                ) {
-                    Text(
-                        text = "Click me!",
-                    )
-                }
+            LazyColumn {
+                items(games) { game ->
+                    GameListItem(game)
 
-                AnimatedVisibility(showContent) {
-                    val greeting = remember {
-                        Greeting().greet()
-                    }
-
-                    Column(
-                        horizontalAlignment = Alignment.CenterHorizontally,
-                        modifier = Modifier
-                            .fillMaxWidth(),
-                    ) {
-                        Image(
-                            painter = painterResource(Res.drawable.compose_multiplatform),
-                            contentDescription = null,
-                        )
-                        Text(
-                            text = "Compose: $greeting",
-                        )
-                    }
+                    HorizontalDivider()
                 }
             }
         }

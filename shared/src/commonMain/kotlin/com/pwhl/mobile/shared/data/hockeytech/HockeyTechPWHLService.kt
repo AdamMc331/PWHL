@@ -14,7 +14,9 @@ class HockeyTechPWHLService(
     private val apiClient: BaseKtorClient = HockeyTechKtorClient,
     private val timeProvider: TimeProvider = SystemTimeProvider,
 ) : PWHLRepository {
-    override suspend fun fetchGames(request: GameListRequest): Result<List<Game>> {
+    override suspend fun fetchGames(
+        request: GameListRequest,
+    ): Result<List<Game>> {
         val endpoint = "feed/index.php"
 
         val now = timeProvider.now()
