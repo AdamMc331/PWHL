@@ -2,6 +2,7 @@ package com.pwhl.mobile.shared.data.hockeytech.dto
 
 import com.pwhl.mobile.shared.models.Game
 import com.pwhl.mobile.shared.models.Team
+import com.pwhl.mobile.shared.models.TeamGameResult
 import kotlinx.datetime.Instant
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
@@ -135,15 +136,37 @@ data class HockeyTechScoreBarItemDTO(
     @SerialName("VisitorWins")
     val visitorWins: String? = null,
 ) {
+    private val isComplete = (gameStatusString == "Final")
+    private val homeTeamGoalsScored = homeGoals?.toIntOrNull() ?: 0
+    private val awayTeamGoalsScored = visitorGoals?.toIntOrNull() ?: 0
+
+    private val homeTeamWins: Boolean = (isComplete && homeTeamGoalsScored > awayTeamGoalsScored)
+    private val awayTeamWins: Boolean = (isComplete && awayTeamGoalsScored > homeTeamGoalsScored)
+
     fun parseGame(): Game {
         return Game(
             id = iD.orEmpty(),
-            homeTeam = parseHomeTeam(),
-            awayTeam = parseAwayTeam(),
-            homeGoals = homeGoals?.toIntOrNull() ?: 0,
-            awayGoals = visitorGoals?.toIntOrNull() ?: 0,
+            homeTeam = parseHomeTeamResult(),
+            awayTeam = parseAwayTeamResult(),
             time = Instant.parse(gameDateISO8601.orEmpty()),
             status = gameStatusStringLong.orEmpty(),
+            isComplete = isComplete,
+        )
+    }
+
+    private fun parseHomeTeamResult(): TeamGameResult {
+        return TeamGameResult(
+            team = parseHomeTeam(),
+            goals = homeTeamGoalsScored,
+            isWinner = homeTeamWins,
+        )
+    }
+
+    private fun parseAwayTeamResult(): TeamGameResult {
+        return TeamGameResult(
+            team = parseAwayTeam(),
+            goals = awayTeamGoalsScored,
+            isWinner = awayTeamWins,
         )
     }
 

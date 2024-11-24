@@ -11,12 +11,10 @@ data class GameDisplayModel(
     constructor(game: Game) : this(
         id = game.id,
         homeTeam = TeamGameResultDisplayModel(
-            team = TeamDisplayModel(game.homeTeam),
-            goals = game.homeGoals,
+            teamGameResult = game.homeTeam,
         ),
         awayTeam = TeamGameResultDisplayModel(
-            team = TeamDisplayModel(game.awayTeam),
-            goals = game.awayGoals,
+            teamGameResult = game.awayTeam,
         ),
         status = game.status,
     )

@@ -4,10 +4,9 @@ import kotlinx.datetime.Instant
 
 data class Game(
     val id: String,
-    val homeTeam: Team,
-    val awayTeam: Team,
-    val homeGoals: Int,
-    val awayGoals: Int,
+    val homeTeam: TeamGameResult,
+    val awayTeam: TeamGameResult,
     val time: Instant,
     val status: String,
+    val isComplete: Boolean,
 )
