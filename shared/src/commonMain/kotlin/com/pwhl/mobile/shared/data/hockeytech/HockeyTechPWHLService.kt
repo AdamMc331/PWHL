@@ -7,6 +7,8 @@ import com.pwhl.mobile.shared.data.requests.GameListRequest
 import com.pwhl.mobile.shared.models.Game
 import com.pwhl.mobile.shared.time.SystemTimeProvider
 import com.pwhl.mobile.shared.time.TimeProvider
+import kotlinx.datetime.TimeZone
+import kotlinx.datetime.daysUntil
 
 class HockeyTechPWHLService(
     private val apiClient: BaseKtorClient = HockeyTechKtorClient,
@@ -16,8 +18,8 @@ class HockeyTechPWHLService(
         val endpoint = "feed/index.php"
 
         val now = timeProvider.now()
-        val daysBack = (now - request.after).inWholeDays
-        val daysAhead = (request.before - now).inWholeDays
+        val daysBack = request.afterDate.daysUntil(now, TimeZone.currentSystemDefault())
+        val daysAhead = now.daysUntil(request.beforeDate, TimeZone.currentSystemDefault())
 
         val gameListParams = mapOf(
             PARAM_KEY_FEED to PARAM_VALUE_MODULE_KIT,
