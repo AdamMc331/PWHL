@@ -26,6 +26,7 @@ class HockeyTechPWHLService(
             PARAM_KEY_VIEW to PARAM_VALUE_SCORE_BAR,
             PARAM_KEY_DAYS_AHEAD to daysAhead.toString(),
             PARAM_KEY_DAYS_BACK to daysBack.toString(),
+            PARAM_KEY_TEAM_ID to request.teamId.orEmpty(),
         )
 
         val params = HockeyTechKtorClient.baseHockeyTechParams + gameListParams
@@ -43,6 +44,7 @@ class HockeyTechPWHLService(
         private const val PARAM_KEY_VIEW = "view"
         private const val PARAM_KEY_DAYS_AHEAD = "numberofdaysahead"
         private const val PARAM_KEY_DAYS_BACK = "numberofdaysback"
+        private const val PARAM_KEY_TEAM_ID = "team_id"
 
         private const val PARAM_VALUE_MODULE_KIT = "modulekit"
         private const val PARAM_VALUE_SCORE_BAR = "scorebar"
