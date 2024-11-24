@@ -9,4 +9,5 @@ data class Game(
     val homeGoals: Int,
     val awayGoals: Int,
     val gameTime: Instant,
+    val status: String,
 )
