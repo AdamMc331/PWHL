@@ -5,14 +5,13 @@ import com.pwhl.mobile.shared.data.remote.BaseKtorClient
 import com.pwhl.mobile.shared.data.repositories.PWHLRepository
 import com.pwhl.mobile.shared.data.requests.GameListRequest
 import com.pwhl.mobile.shared.models.Game
-import com.pwhl.mobile.shared.time.SystemTimeProvider
 import com.pwhl.mobile.shared.time.TimeProvider
 import kotlinx.datetime.TimeZone
 import kotlinx.datetime.daysUntil
 
 class HockeyTechPWHLService(
-    private val apiClient: BaseKtorClient = HockeyTechKtorClient,
-    private val timeProvider: TimeProvider = SystemTimeProvider,
+    private val apiClient: BaseKtorClient,
+    private val timeProvider: TimeProvider,
 ) : PWHLRepository {
     override suspend fun fetchGames(
         request: GameListRequest,
