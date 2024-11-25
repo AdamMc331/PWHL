@@ -11,14 +11,13 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.setValue
 import com.pwhl.mobile.shared.data.hockeytech.HockeyTechPWHLService
-import com.pwhl.mobile.shared.data.requests.GameListRequest
 import com.pwhl.mobile.shared.displaymodels.GameDisplayModel
+import com.pwhl.mobile.shared.domain.usecases.FetchUpcomingGamesUseCase
+import com.pwhl.mobile.shared.time.SystemTimeProvider
 import com.pwhl.mobile.shared.ui.components.GameListItem
 import com.pwhl.mobile.shared.ui.theme.PWHLTheme
 import kotlinx.coroutines.launch
-import kotlinx.datetime.Clock
 import org.jetbrains.compose.ui.tooling.preview.Preview
-import kotlin.time.Duration.Companion.days
 
 @Preview
 @Composable
@@ -29,12 +28,10 @@ fun App() {
 
     val service = HockeyTechPWHLService()
     rememberCoroutineScope().launch {
-        val request = GameListRequest(
-            beforeDate = Clock.System.now().plus(6.days),
-            afterDate = Clock.System.now().minus(3.days),
-            teamId = null,
-        )
-        val gamesList = service.fetchGames(request).getOrNull()
+        val gamesList = FetchUpcomingGamesUseCase(
+            repository = service,
+            timeProvider = SystemTimeProvider,
+        ).invoke().getOrNull()
 
         games = gamesList?.map(::GameDisplayModel).orEmpty()
     }
