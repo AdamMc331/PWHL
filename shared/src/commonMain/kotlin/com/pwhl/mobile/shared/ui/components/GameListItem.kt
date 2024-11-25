@@ -7,39 +7,51 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
+import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import com.pwhl.mobile.shared.displaymodels.GameDisplayModel
 import com.pwhl.mobile.shared.displaymodels.ImageDisplayModel
 import com.pwhl.mobile.shared.displaymodels.TeamGameResultDisplayModel
+import com.pwhl.mobile.shared.ui.theme.PWHLTeamTheme
 
 @Composable
 fun GameListItem(
     game: GameDisplayModel,
     modifier: Modifier = Modifier,
 ) {
-    Row(
-        verticalAlignment = Alignment.CenterVertically,
-        horizontalArrangement = Arrangement.spacedBy(16.dp),
-        modifier = modifier
-            .padding(16.dp),
+    // Will remove this custom team theme
+    // in the future, just fun to play with right now.
+    // Or maybe use winning team ID?
+    PWHLTeamTheme(
+        teamId = game.homeTeam.team.id,
     ) {
-        TeamRows(
-            game = game,
-            modifier = Modifier
-                .weight(2F),
-        )
+        Surface {
+            Row(
+                verticalAlignment = Alignment.CenterVertically,
+                horizontalArrangement = Arrangement.spacedBy(16.dp),
+                modifier = modifier
+                    .padding(16.dp),
+            ) {
+                TeamRows(
+                    game = game,
+                    modifier = Modifier
+                        .weight(2F),
+                )
 
-        Text(
-            text = game.status,
-            textAlign = TextAlign.Center,
-            modifier = Modifier
-                .weight(1F),
-        )
+                Text(
+                    text = game.status,
+                    textAlign = TextAlign.Center,
+                    modifier = Modifier
+                        .weight(1F),
+                )
+            }
+        }
     }
 }
 
@@ -62,6 +74,10 @@ private fun TeamRows(
 private fun TeamRow(
     teamGameResult: TeamGameResultDisplayModel,
 ) {
+    val fontWeight = FontWeight.Bold.takeIf {
+        teamGameResult.isWinner
+    }
+
     Row(
         verticalAlignment = Alignment.CenterVertically,
     ) {
@@ -79,6 +95,7 @@ private fun TeamRow(
 
         Text(
             text = teamGameResult.team.name,
+            fontWeight = fontWeight,
         )
 
         Spacer(
@@ -88,6 +105,7 @@ private fun TeamRow(
 
         Text(
             text = teamGameResult.goals.toString(),
+            fontWeight = fontWeight,
         )
     }
 }
