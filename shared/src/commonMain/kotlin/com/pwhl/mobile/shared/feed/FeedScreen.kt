@@ -12,12 +12,13 @@ import org.koin.compose.viewmodel.koinViewModel
 @Composable
 fun FeedScreen(
     modifier: Modifier = Modifier,
+    viewModel: FeedViewModel = koinViewModel(),
 ) {
-    val viewModel: FeedViewModel = koinViewModel()
-    viewModel.fetchData()
     val state = viewModel.state.collectAsState()
 
-    LazyColumn {
+    LazyColumn(
+        modifier = modifier,
+    ) {
         items(state.value.recentGames) { game ->
             GameListItem(game)
 

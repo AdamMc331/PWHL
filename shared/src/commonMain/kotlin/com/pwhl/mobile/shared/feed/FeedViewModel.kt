@@ -19,13 +19,19 @@ class FeedViewModel(
     )
     val state = mutableState.asStateFlow()
 
-    fun fetchData() {
+    init {
+        fetchRecentGames()
+    }
+
+    private fun fetchRecentGames() {
         viewModelScope.launch {
-            val x = recentGamesUseCase.invoke()
-            println("ADAMLOG - $x")
-            val gameList = x.getOrNull()?.map { game ->
-                GameDisplayModel(game)
-            }
+            val result = recentGamesUseCase.invoke()
+
+            val gameList = result
+                .getOrNull()
+                .orEmpty()
+                .map(::GameDisplayModel)
+
             mutableState.update { currentState ->
                 currentState.copy(
                     recentGames = gameList.orEmpty(),
