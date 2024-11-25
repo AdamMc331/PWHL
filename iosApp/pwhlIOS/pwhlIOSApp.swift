@@ -9,6 +9,11 @@ import SwiftUI
 
 @main
 struct pwhlIOSApp: App {
+
+    init() {
+        KoinInitializerKt.initKoin()
+    }
+
     var body: some Scene {
         WindowGroup {
             ContentView()
