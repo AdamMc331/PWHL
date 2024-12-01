@@ -14,6 +14,7 @@ class FeedViewModel(
 ) : ViewModel() {
     private val mutableState = MutableStateFlow(
         FeedState(
+            isLoading = false,
             recentGames = emptyList(),
         ),
     )
@@ -25,6 +26,12 @@ class FeedViewModel(
 
     private fun fetchRecentGames() {
         viewModelScope.launch {
+            mutableState.update { currentState ->
+                currentState.copy(
+                    isLoading = true,
+                )
+            }
+
             val result = recentGamesUseCase.invoke()
 
             val gameList = result
@@ -34,7 +41,8 @@ class FeedViewModel(
 
             mutableState.update { currentState ->
                 currentState.copy(
-                    recentGames = gameList.orEmpty(),
+                    isLoading = false,
+                    recentGames = gameList,
                 )
             }
         }
