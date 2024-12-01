@@ -13,7 +13,7 @@ fun FeedContent(
     state: FeedState,
     modifier: Modifier = Modifier,
 ) {
-    if (state.isLoading) {
+    if (state.loadingRecentGames || state.loadingUpcomingGames) {
         LoadingScreen(modifier)
     } else {
         SuccessContent(modifier, state)
@@ -29,6 +29,12 @@ private fun SuccessContent(
         modifier = modifier,
     ) {
         items(state.recentGames) { game ->
+            GameListItem(game)
+
+            HorizontalDivider()
+        }
+
+        items(state.upcomingGames) { game ->
             GameListItem(game)
 
             HorizontalDivider()
