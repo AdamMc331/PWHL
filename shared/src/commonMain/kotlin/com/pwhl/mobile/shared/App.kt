@@ -4,8 +4,6 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.Surface
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.navigation.compose.NavHost
-import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.pwhl.mobile.shared.di.appModules
 import com.pwhl.mobile.shared.ui.theme.PWHLTheme
@@ -22,28 +20,13 @@ fun App() {
     ) {
         PWHLTheme {
             Surface {
-                AppNavContainer(
+                val navController = rememberNavController()
+
+                AppNavHost(
+                    navController = navController,
                     modifier = Modifier
                         .fillMaxSize(),
                 )
-            }
-        }
-    }
-}
-
-@Composable
-private fun AppNavContainer(
-    modifier: Modifier = Modifier,
-) {
-    val navController = rememberNavController()
-
-    NavHost(
-        navController = navController,
-        startDestination = Screens.Feed.route,
-    ) {
-        Screens.entries.forEach { screen ->
-            composable(screen.route) {
-                screen.render(modifier)
             }
         }
     }

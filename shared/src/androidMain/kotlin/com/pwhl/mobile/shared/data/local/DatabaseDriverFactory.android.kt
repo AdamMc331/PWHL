@@ -1,10 +1,11 @@
 @file:Suppress("ktlint:standard:filename")
 
-package com.pwhl.mobile.shared
+package com.pwhl.mobile.shared.data.local
 
 import android.content.Context
 import app.cash.sqldelight.db.SqlDriver
 import app.cash.sqldelight.driver.android.AndroidSqliteDriver
+import com.pwhl.mobile.shared.AppDatabase
 
 /**
  * Create an instance of a [SqlDriver] for the Android platform.
