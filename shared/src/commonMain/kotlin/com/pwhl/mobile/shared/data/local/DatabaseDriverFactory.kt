@@ -1,4 +1,4 @@
-package com.pwhl.mobile.shared
+package com.pwhl.mobile.shared.data.local
 
 import app.cash.sqldelight.db.SqlDriver
 
