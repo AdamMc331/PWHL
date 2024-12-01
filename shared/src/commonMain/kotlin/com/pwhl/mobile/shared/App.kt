@@ -8,7 +8,6 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.pwhl.mobile.shared.di.appModules
-import com.pwhl.mobile.shared.feed.FeedScreen
 import com.pwhl.mobile.shared.ui.theme.PWHLTheme
 import org.jetbrains.compose.ui.tooling.preview.Preview
 import org.koin.compose.KoinApplication
@@ -40,10 +39,12 @@ private fun AppNavContainer(
 
     NavHost(
         navController = navController,
-        startDestination = "feed",
+        startDestination = Screens.Feed.route,
     ) {
-        composable("feed") {
-            FeedScreen(modifier)
+        Screens.entries.forEach { screen ->
+            composable(screen.route) {
+                screen.render(modifier)
+            }
         }
     }
 }
