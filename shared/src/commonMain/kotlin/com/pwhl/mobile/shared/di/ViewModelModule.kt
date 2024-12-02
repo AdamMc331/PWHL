@@ -8,6 +8,7 @@ val viewModelModule = module {
     viewModel {
         FeedViewModel(
             recentGamesUseCase = get(),
+            upcomingGamesUseCase = get(),
         )
     }
 }
