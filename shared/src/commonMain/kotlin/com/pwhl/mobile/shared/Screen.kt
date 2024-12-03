@@ -4,7 +4,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import com.pwhl.mobile.shared.feed.FeedScreen
 
-enum class Screens(
+enum class Screen(
     val route: String,
     val title: String,
     val render: @Composable (Modifier) -> Unit,

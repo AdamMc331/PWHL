@@ -1,4 +1,4 @@
-package com.pwhl.mobile.shared
+package com.pwhl.mobile.shared.appbars
 
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Text
