@@ -13,9 +13,9 @@ fun AppNavHost(
 ) {
     NavHost(
         navController = navController,
-        startDestination = Screens.Feed.route,
+        startDestination = Screen.Feed.route,
     ) {
-        Screens.entries.forEach { screen ->
+        Screen.entries.forEach { screen ->
             composable(screen.route) {
                 screen.render(modifier)
             }
