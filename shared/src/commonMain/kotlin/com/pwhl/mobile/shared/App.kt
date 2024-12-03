@@ -29,10 +29,9 @@ fun App() {
     ) {
         PWHLTheme {
             val navController = rememberNavController()
-
             val currentBackStackEntry = navController.currentBackStackEntryFlow.collectAsState(null)
 
-            var selectedTab by remember {
+            var selectedHomeTab by remember {
                 mutableStateOf(HomeTab.Feed)
             }
 
@@ -45,9 +44,10 @@ fun App() {
                 bottomBar = {
                     PWHLBottomBar(
                         tabs = HomeTab.entries,
-                        selectedTab = selectedTab,
+                        selectedTab = selectedHomeTab,
                         onTabClicked = { tab ->
-                            selectedTab = tab
+                            selectedHomeTab = tab
+                            navController.navigate(tab.screen.route)
                         },
                     )
                 },

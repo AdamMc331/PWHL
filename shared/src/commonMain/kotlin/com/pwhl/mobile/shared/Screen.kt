@@ -3,6 +3,9 @@ package com.pwhl.mobile.shared
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import com.pwhl.mobile.shared.feed.FeedScreen
+import com.pwhl.mobile.shared.news.NewsScreen
+import com.pwhl.mobile.shared.profile.ProfileScreen
+import com.pwhl.mobile.shared.standings.StandingsScreen
 
 enum class Screen(
     val route: String,
@@ -14,6 +17,27 @@ enum class Screen(
         title = "Feed",
         render = { modifier ->
             FeedScreen(modifier)
+        },
+    ),
+    News(
+        route = "news",
+        title = "Nes",
+        render = { modifier ->
+            NewsScreen(modifier)
+        },
+    ),
+    Standings(
+        route = "standings",
+        title = "Standings",
+        render = { modifier ->
+            StandingsScreen(modifier)
+        },
+    ),
+    Profile(
+        route = "profile",
+        title = "Profile",
+        render = { modifier ->
+            ProfileScreen(modifier)
         },
     ),
 }

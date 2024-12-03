@@ -26,7 +26,7 @@ fun PWHLBottomBar(
                 icon = {
                     Icon(
                         imageVector = tab.icon,
-                        contentDescription = tab.label,
+                        contentDescription = tab.screen.title,
                     )
                 },
             )
