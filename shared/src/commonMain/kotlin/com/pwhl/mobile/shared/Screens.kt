@@ -6,10 +6,12 @@ import com.pwhl.mobile.shared.feed.FeedScreen
 
 enum class Screens(
     val route: String,
+    val title: String,
     val render: @Composable (Modifier) -> Unit,
 ) {
     Feed(
         route = "feed",
+        title = "Feed",
         render = { modifier ->
             FeedScreen(modifier)
         },
