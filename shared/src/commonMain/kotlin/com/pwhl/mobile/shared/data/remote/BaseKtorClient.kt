@@ -10,8 +10,21 @@ import io.ktor.client.plugins.logging.SIMPLE
 import io.ktor.client.request.HttpRequestBuilder
 import io.ktor.client.request.get
 import io.ktor.client.request.parameter
+import io.ktor.client.statement.HttpResponseContainer
+import io.ktor.client.statement.HttpResponsePipeline
 import io.ktor.http.ContentType
 import io.ktor.serialization.kotlinx.KotlinxSerializationConverter
+import io.ktor.util.pipeline.PipelinePhase
+import io.ktor.utils.io.ByteReadChannel
+import io.ktor.utils.io.copyTo
+import io.ktor.utils.io.readByte
+import io.ktor.utils.io.readRemaining
+import io.ktor.utils.io.writeByte
+import io.ktor.utils.io.writeFully
+import io.ktor.utils.io.writer
+import kotlinx.coroutines.DelicateCoroutinesApi
+import kotlinx.coroutines.GlobalScope
+import kotlinx.io.readByteArray
 import kotlinx.serialization.json.Json
 
 /**
@@ -61,6 +74,17 @@ open class BaseKtorClient(
         endpoint: String,
         params: RemoteParams = emptyMap(),
     ): Result<T> {
+        val beforeTransform = PipelinePhase("BeforeTransform")
+        httpClient.responsePipeline.insertPhaseBefore(HttpResponsePipeline.Transform, beforeTransform)
+        httpClient.responsePipeline.intercept(beforeTransform) { (typeInfo, body) ->
+            // Decrypt the body here and then pass it to proceedWith(...)
+            if (body is ByteReadChannel) {
+                proceedWith(HttpResponseContainer(typeInfo, body.transform()))
+            } else {
+                proceedWith(HttpResponseContainer(typeInfo, body))
+            }
+        }
+
         val url = "$baseURL$endpoint"
 
         return try {
@@ -86,4 +110,41 @@ fun HttpRequestBuilder.addParams(
             this.parameter(key, value)
         }
     }
+}
+
+@OptIn(DelicateCoroutinesApi::class)
+suspend fun ByteReadChannel.transform(): ByteReadChannel {
+    val body = this
+
+    val first = body.readByte()
+    val second = body.readByte()
+
+    if (first != '('.code.toByte() || second != '['.code.toByte()) {
+        return GlobalScope.writer {
+            channel.writeByte(first)
+            channel.writeByte(second)
+            body.copyTo(channel)
+        }.channel
+    }
+
+    return GlobalScope.writer {
+        while (!body.isClosedForRead) {
+            val arr = body.readRemaining(8 * 1024).readByteArray()
+
+            if (body.isClosedForRead && arr.size >= 2) {
+                val first = arr[arr.size - 2]
+                val second = arr[arr.size - 1]
+
+                if (first == ']'.code.toByte() && second == ')'.code.toByte()) {
+                    channel.writeFully(arr, 0, arr.size - 2)
+                    break
+                } else {
+                    channel.writeFully(arr)
+                    continue
+                }
+            }
+
+            channel.writeFully(arr)
+        }
+    }.channel
 }
