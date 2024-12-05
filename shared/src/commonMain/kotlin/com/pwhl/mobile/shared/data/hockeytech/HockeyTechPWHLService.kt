@@ -1,10 +1,13 @@
 package com.pwhl.mobile.shared.data.hockeytech
 
+import com.pwhl.mobile.shared.BuildKonfig
 import com.pwhl.mobile.shared.data.hockeytech.dto.HockeyTechScoreBarResponseDTO
+import com.pwhl.mobile.shared.data.hockeytech.dto.HockeyTechStandingsListResponseDTO
 import com.pwhl.mobile.shared.data.remote.BaseKtorClient
 import com.pwhl.mobile.shared.data.repositories.PWHLRepository
 import com.pwhl.mobile.shared.data.requests.GameListRequest
 import com.pwhl.mobile.shared.models.Game
+import com.pwhl.mobile.shared.models.StandingsRow
 import com.pwhl.mobile.shared.time.TimeProvider
 import kotlinx.datetime.TimeZone
 import kotlinx.datetime.daysUntil
@@ -38,6 +41,34 @@ class HockeyTechPWHLService(
                 params = params,
             )
             .map(HockeyTechScoreBarResponseDTO::parseGames)
+    }
+
+    override suspend fun fetchStandings(): Result<List<StandingsRow>> {
+        val endpoint =
+            "feed/index.php" +
+                "?feed=statviewfeed" +
+                "&view=teams" +
+                "&groupTeamsBy=division" +
+                "&context=overall" +
+                "&site_id=0" +
+                "&season=5" +
+                "&special=false" +
+                "&key=${BuildKonfig.PWHL_API_KEY}" +
+                "&client_code=pwhl" +
+                "&league_id=1" +
+                "&conference=-1" +
+                "&division=-1" +
+                "&sort=points" +
+                "&lang=en" +
+                "&fmt=json"
+
+        return apiClient.getResponse<HockeyTechStandingsListResponseDTO>(
+            endpoint = endpoint,
+        ).map { standingsList ->
+            standingsList.sections?.firstOrNull()?.data?.mapNotNull { data ->
+                data?.parseStandingsRow()
+            }.orEmpty()
+        }
     }
 
     companion object {
