@@ -77,9 +77,8 @@ open class BaseKtorClient(
         val beforeTransform = PipelinePhase("BeforeTransform")
         httpClient.responsePipeline.insertPhaseBefore(HttpResponsePipeline.Transform, beforeTransform)
         httpClient.responsePipeline.intercept(beforeTransform) { (typeInfo, body) ->
-            // Decrypt the body here and then pass it to proceedWith(...)
             if (body is ByteReadChannel) {
-                proceedWith(HttpResponseContainer(typeInfo, body.transform()))
+                proceedWith(HttpResponseContainer(typeInfo, body.removeJsonPadding()))
             } else {
                 proceedWith(HttpResponseContainer(typeInfo, body))
             }
@@ -112,9 +111,13 @@ fun HttpRequestBuilder.addParams(
     }
 }
 
+/**
+ * Transforms the [ByteReadChannel] to remove any leading/trailing `([])` syntax that
+ * appears in some of the PWHL api requests.
+ */
 @OptIn(DelicateCoroutinesApi::class)
 @Suppress("MagicNumber", "LoopWithTooManyJumpStatements")
-suspend fun ByteReadChannel.transform(): ByteReadChannel {
+suspend fun ByteReadChannel.removeJsonPadding(): ByteReadChannel {
     val body = this
 
     val first = body.readByte()

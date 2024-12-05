@@ -11,12 +11,5 @@ class FetchStandingsUseCase(
             .map { standingsList ->
                 standingsList.map(::StandingsRowDisplayModel)
             }
-            .also { list ->
-                val teams = list.getOrNull().orEmpty().map {
-                    it.team
-                }.map { (it.id to it.name) }
-
-                println("ADAMLOG - $teams")
-            }
     }
 }

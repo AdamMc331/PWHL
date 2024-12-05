@@ -6,7 +6,7 @@ import kotlinx.serialization.Serializable
 @Serializable
 data class HockeyTechStandingsSectionDTO(
     @SerialName("data")
-    val `data`: List<HockeyTechStandingsDataDTO?>? = null,
+    val data: List<HockeyTechStandingsDataDTO?>? = null,
     @SerialName("title")
     val title: String? = null,
 )
