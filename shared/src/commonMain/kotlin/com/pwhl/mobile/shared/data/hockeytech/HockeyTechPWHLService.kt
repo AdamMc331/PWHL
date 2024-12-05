@@ -45,7 +45,22 @@ class HockeyTechPWHLService(
 
     override suspend fun fetchStandings(): Result<List<StandingsRow>> {
         val endpoint =
-            "feed/index.php?feed=statviewfeed&view=teams&groupTeamsBy=division&context=overall&site_id=0&season=5&special=false&key=${BuildKonfig.PWHL_API_KEY}&client_code=pwhl&league_id=1&conference=-1&division=-1&sort=points&lang=en&fmt=json"
+            "feed/index.php" +
+                "?feed=statviewfeed" +
+                "&view=teams" +
+                "&groupTeamsBy=division" +
+                "&context=overall" +
+                "&site_id=0" +
+                "&season=5" +
+                "&special=false" +
+                "&key=${BuildKonfig.PWHL_API_KEY}" +
+                "&client_code=pwhl" +
+                "&league_id=1" +
+                "&conference=-1" +
+                "&division=-1" +
+                "&sort=points" +
+                "&lang=en" +
+                "&fmt=json"
 
         return apiClient.getResponse<HockeyTechStandingsListResponseDTO>(
             endpoint = endpoint,

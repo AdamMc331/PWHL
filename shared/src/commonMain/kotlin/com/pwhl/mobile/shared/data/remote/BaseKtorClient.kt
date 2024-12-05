@@ -113,6 +113,7 @@ fun HttpRequestBuilder.addParams(
 }
 
 @OptIn(DelicateCoroutinesApi::class)
+@Suppress("MagicNumber", "LoopWithTooManyJumpStatements")
 suspend fun ByteReadChannel.transform(): ByteReadChannel {
     val body = this
 
