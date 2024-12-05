@@ -39,7 +39,7 @@ data class HockeyTechStandingsDataDTO(
             name = teamName,
             city = "",
             shortCode = teamCode,
-            imageUrl = "",
+            imageUrl = null,
         )
     }
 }

@@ -25,6 +25,8 @@ class StandingsViewModel(
                 .getOrNull()
                 .orEmpty()
 
+            println("ADAMLOG - STANDINGS: $standings")
+
             mutableState.update { currentState ->
                 currentState.copy(
                     standings = standings,

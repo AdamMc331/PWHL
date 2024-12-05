@@ -1,6 +1,5 @@
 package com.pwhl.mobile.shared.standings
 
-import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Modifier
@@ -13,8 +12,5 @@ fun StandingsScreen(
 ) {
     val state = viewModel.state.collectAsState()
 
-    Text(
-        text = "Standings Screen Stub",
-        modifier = modifier,
-    )
+    StandingsContent(state.value, modifier)
 }

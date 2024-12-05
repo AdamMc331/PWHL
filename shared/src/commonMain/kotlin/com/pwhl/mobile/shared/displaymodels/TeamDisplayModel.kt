@@ -15,7 +15,7 @@ data class TeamDisplayModel(
     val city: String,
     val name: String,
     val shortCode: String,
-    val image: ImageDisplayModel?,
+    val image: ImageDisplayModel,
 ) {
     constructor(team: Team) : this(
         id = team.id,

@@ -30,4 +30,7 @@ data class StandingsRowDisplayModel(
         goalsFor = standingsRow.goalsFor,
         goalsAgainst = standingsRow.goalsAgainst,
     )
+
+    val record: String
+        get() = "$regulationWins-$overtimeWins-$overtimeLosses-$regulationLosses"
 }
