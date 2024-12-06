@@ -19,6 +19,12 @@ class StandingsViewModel(
     }
 
     private fun fetchStandings() {
+        mutableState.update { currentState ->
+            currentState.copy(
+                isLoading = true,
+            )
+        }
+
         viewModelScope.launch {
             val standings = fetchStandingsUseCase
                 .invoke()
@@ -27,6 +33,7 @@ class StandingsViewModel(
 
             mutableState.update { currentState ->
                 currentState.copy(
+                    isLoading = false,
                     standings = standings,
                 )
             }

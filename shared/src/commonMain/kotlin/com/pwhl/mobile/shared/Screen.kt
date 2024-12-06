@@ -21,7 +21,7 @@ enum class Screen(
     ),
     News(
         route = "news",
-        title = "Nes",
+        title = "News",
         render = { modifier ->
             NewsScreen(modifier)
         },
