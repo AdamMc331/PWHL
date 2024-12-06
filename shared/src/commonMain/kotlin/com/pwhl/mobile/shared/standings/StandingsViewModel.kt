@@ -19,16 +19,21 @@ class StandingsViewModel(
     }
 
     private fun fetchStandings() {
+        mutableState.update { currentState ->
+            currentState.copy(
+                isLoading = true,
+            )
+        }
+
         viewModelScope.launch {
             val standings = fetchStandingsUseCase
                 .invoke()
                 .getOrNull()
                 .orEmpty()
 
-            println("ADAMLOG - STANDINGS: $standings")
-
             mutableState.update { currentState ->
                 currentState.copy(
+                    isLoading = false,
                     standings = standings,
                 )
             }
