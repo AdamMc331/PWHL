@@ -15,10 +15,8 @@ import com.pwhl.mobile.shared.appbars.PWHLBottomBar
 import com.pwhl.mobile.shared.appbars.PWHLTopBar
 import com.pwhl.mobile.shared.di.appModules
 import com.pwhl.mobile.shared.ui.theme.PWHLTheme
-import org.jetbrains.compose.ui.tooling.preview.Preview
 import org.koin.compose.KoinApplication
 
-@Preview
 @Composable
 fun App() {
     KoinApplication(
