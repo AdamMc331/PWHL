@@ -1,7 +1,7 @@
 package com.pwhl.mobile.shared.standings
 
 import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.foundation.lazy.itemsIndexed
+import androidx.compose.foundation.lazy.items
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
@@ -27,12 +27,10 @@ private fun SuccessContent(
     LazyColumn(
         modifier = modifier,
     ) {
-        itemsIndexed(state.standings) { index, standingsRow ->
+        items(state.standings) { standingsRow ->
             StandingsRowListItem(standingsRow)
 
-            if (index != state.standings.lastIndex) {
-                HorizontalDivider()
-            }
+            HorizontalDivider()
         }
     }
 }

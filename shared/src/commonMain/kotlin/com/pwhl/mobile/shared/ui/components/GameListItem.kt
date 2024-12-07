@@ -18,39 +18,31 @@ import androidx.compose.ui.unit.dp
 import com.pwhl.mobile.shared.displaymodels.GameDisplayModel
 import com.pwhl.mobile.shared.displaymodels.ImageDisplayModel
 import com.pwhl.mobile.shared.displaymodels.TeamGameResultDisplayModel
-import com.pwhl.mobile.shared.ui.theme.PWHLTeamTheme
 
 @Composable
 fun GameListItem(
     game: GameDisplayModel,
     modifier: Modifier = Modifier,
 ) {
-    // Will remove this custom team theme
-    // in the future, just fun to play with right now.
-    // Or maybe use winning team ID?
-    PWHLTeamTheme(
-        teamId = game.homeTeam.team.id,
-    ) {
-        Surface {
-            Row(
-                verticalAlignment = Alignment.CenterVertically,
-                horizontalArrangement = Arrangement.spacedBy(16.dp),
-                modifier = modifier
-                    .padding(16.dp),
-            ) {
-                TeamRows(
-                    game = game,
-                    modifier = Modifier
-                        .weight(2F),
-                )
+    Surface {
+        Row(
+            verticalAlignment = Alignment.CenterVertically,
+            horizontalArrangement = Arrangement.spacedBy(16.dp),
+            modifier = modifier
+                .padding(16.dp),
+        ) {
+            TeamRows(
+                game = game,
+                modifier = Modifier
+                    .weight(2F),
+            )
 
-                Text(
-                    text = game.status,
-                    textAlign = TextAlign.Center,
-                    modifier = Modifier
-                        .weight(1F),
-                )
-            }
+            Text(
+                text = game.status,
+                textAlign = TextAlign.Center,
+                modifier = Modifier
+                    .weight(1F),
+            )
         }
     }
 }
