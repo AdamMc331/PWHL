@@ -61,9 +61,15 @@ class HockeyTechPWHLService(
             endpoint = endpoint,
             params = params,
         ).map { standingsList ->
-            standingsList.sections?.firstOrNull()?.data?.mapNotNull { data ->
-                data?.parseStandingsRow()
-            }.orEmpty()
+            standingsList
+                .firstOrNull()
+                ?.sections
+                ?.firstOrNull()
+                ?.data
+                ?.mapNotNull { data ->
+                    data?.parseStandingsRow()
+                }
+                .orEmpty()
         }
     }
 }
