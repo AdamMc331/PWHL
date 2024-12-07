@@ -123,7 +123,7 @@ suspend fun ByteReadChannel.removeJsonPadding(): ByteReadChannel {
     val first = body.readByte()
     val second = body.readByte()
 
-    if (first != '('.code.toByte() || second != '['.code.toByte()) {
+    if (first != '('.code.toByte() || second != '{'.code.toByte()) {
         return GlobalScope.writer {
             channel.writeByte(first)
             channel.writeByte(second)
@@ -139,7 +139,7 @@ suspend fun ByteReadChannel.removeJsonPadding(): ByteReadChannel {
                 val first = arr[arr.size - 2]
                 val second = arr[arr.size - 1]
 
-                if (first == ']'.code.toByte() && second == ')'.code.toByte()) {
+                if (first == '}'.code.toByte() && second == ')'.code.toByte()) {
                     channel.writeFully(arr, 0, arr.size - 2)
                     break
                 } else {
