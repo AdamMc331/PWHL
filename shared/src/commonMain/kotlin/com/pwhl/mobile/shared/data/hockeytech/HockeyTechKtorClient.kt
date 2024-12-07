@@ -10,7 +10,8 @@ object HockeyTechKtorClient : BaseKtorClient(
         HockeyTechParameterKeys.API_KEY to BuildKonfig.PWHL_API_KEY,
         HockeyTechParameterKeys.CLIENT_CODE to HockeyTechParameterValues.CLIENT_CODE,
         HockeyTechParameterKeys.FORMAT to HockeyTechParameterValues.JSON_FORMAT,
-        HockeyTechParameterKeys.SITE_ID to HockeyTechParameterValues.SITE_ID,
+        HockeyTechParameterKeys.LANGUAGE to HockeyTechParameterValues.ENGLISH,
         HockeyTechParameterKeys.LEAGUE_ID to HockeyTechParameterValues.LEAGUE_ID,
+        HockeyTechParameterKeys.SITE_ID to HockeyTechParameterValues.SITE_ID,
     )
 }

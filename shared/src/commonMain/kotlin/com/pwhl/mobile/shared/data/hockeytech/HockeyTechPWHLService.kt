@@ -1,7 +1,5 @@
 package com.pwhl.mobile.shared.data.hockeytech
 
-import com.pwhl.mobile.shared.BuildKonfig
-import com.pwhl.mobile.shared.data.hockeytech.dto.HockeyTechParameterKeys
 import com.pwhl.mobile.shared.data.hockeytech.dto.HockeyTechScoreBarResponseDTO
 import com.pwhl.mobile.shared.data.hockeytech.dto.HockeyTechStandingsListResponseDTO
 import com.pwhl.mobile.shared.data.remote.BaseKtorClient
@@ -45,26 +43,23 @@ class HockeyTechPWHLService(
     }
 
     override suspend fun fetchStandings(): Result<List<StandingsRow>> {
-        val endpoint =
-            "feed/index.php" +
-                "?feed=statviewfeed" +
-                "&view=teams" +
-                "&groupTeamsBy=division" +
-                "&context=overall" +
-                "&site_id=0" +
-                "&season=5" +
-                "&special=false" +
-                "&key=${BuildKonfig.PWHL_API_KEY}" +
-                "&client_code=pwhl" +
-                "&league_id=1" +
-                "&conference=-1" +
-                "&division=-1" +
-                "&sort=points" +
-                "&lang=en" +
-                "&fmt=json"
+        val endpoint = "feed/index.php"
+
+        val standingsParams = mapOf(
+            HockeyTechParameterKeys.FEED to "statviewfeed",
+            HockeyTechParameterKeys.VIEW to "teams",
+            HockeyTechParameterKeys.GROUP_TEAMS_BY to "division",
+            HockeyTechParameterKeys.CONTEXT to "overall",
+            HockeyTechParameterKeys.SEASON to "5", // TODO: Needed?
+            HockeyTechParameterKeys.SPECIAL to "false", // TODO: What?
+            HockeyTechParameterKeys.SORT to "points",
+        )
+
+        val params = HockeyTechKtorClient.baseHockeyTechParams + standingsParams
 
         return apiClient.getResponse<HockeyTechStandingsListResponseDTO>(
             endpoint = endpoint,
+            params = params,
         ).map { standingsList ->
             standingsList.sections?.firstOrNull()?.data?.mapNotNull { data ->
                 data?.parseStandingsRow()
