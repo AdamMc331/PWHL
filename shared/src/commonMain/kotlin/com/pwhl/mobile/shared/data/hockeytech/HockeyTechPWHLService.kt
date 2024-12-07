@@ -1,7 +1,7 @@
 package com.pwhl.mobile.shared.data.hockeytech
 
 import com.pwhl.mobile.shared.data.hockeytech.dto.HockeyTechScoreBarResponseDTO
-import com.pwhl.mobile.shared.data.hockeytech.dto.HockeyTechStandingsResponseDTO
+import com.pwhl.mobile.shared.data.hockeytech.dto.HockeyTechStandingsListResponseDTO
 import com.pwhl.mobile.shared.data.remote.BaseKtorClient
 import com.pwhl.mobile.shared.data.repositories.PWHLRepository
 import com.pwhl.mobile.shared.data.requests.GameListRequest
@@ -57,7 +57,7 @@ class HockeyTechPWHLService(
 
         val params = HockeyTechKtorClient.baseHockeyTechParams + standingsParams
 
-        return apiClient.getResponse<HockeyTechStandingsResponseDTO>(
+        return apiClient.getResponse<HockeyTechStandingsListResponseDTO>(
             endpoint = endpoint,
             params = params,
         ).map { standingsList ->
