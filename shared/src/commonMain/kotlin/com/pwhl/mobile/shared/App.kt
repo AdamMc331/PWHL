@@ -6,11 +6,10 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.navigation.NavBackStackEntry
+import androidx.navigation.NavGraph.Companion.findStartDestination
 import androidx.navigation.compose.rememberNavController
 import com.pwhl.mobile.shared.appbars.PWHLBottomBar
 import com.pwhl.mobile.shared.appbars.PWHLTopBar
@@ -31,10 +30,6 @@ fun App() {
             val navController = rememberNavController()
             val currentBackStackEntry = navController.currentBackStackEntryFlow.collectAsState(null)
 
-            var selectedHomeTab by remember {
-                mutableStateOf(HomeTab.Feed)
-            }
-
             Scaffold(
                 topBar = {
                     PWHLTopBar(
@@ -44,10 +39,23 @@ fun App() {
                 bottomBar = {
                     PWHLBottomBar(
                         tabs = HomeTab.entries,
-                        selectedTab = selectedHomeTab,
+                        selectedTab = currentBackStackEntry.value?.homeTab() ?: HomeTab.Feed,
                         onTabClicked = { tab ->
-                            selectedHomeTab = tab
-                            navController.navigate(tab.screen.route)
+                            navController.navigate(tab.screen.route) {
+                                // Pop up to the start destination of the graph to
+                                // avoid building up a large stack of destinations
+                                // on the back stack as users select items
+                                popUpTo(navController.graph.findStartDestination().route.orEmpty()) {
+                                    saveState = true
+                                }
+
+                                // Avoid multiple copies of the same destination when
+                                // reselecting the same item
+                                launchSingleTop = true
+
+                                // Restore state when reselecting a previously selected item
+                                restoreState = true
+                            }
                         },
                     )
                 },
@@ -63,10 +71,18 @@ fun App() {
     }
 }
 
-private fun NavBackStackEntry.title(): String {
-    val screen = Screen.entries.firstOrNull { screen ->
+private fun NavBackStackEntry.homeTab(): HomeTab? {
+    return HomeTab.entries.firstOrNull { tab ->
+        tab.screen == this.screen()
+    }
+}
+
+private fun NavBackStackEntry.screen(): Screen? {
+    return Screen.entries.firstOrNull { screen ->
         screen.route == destination.route
     }
+}
 
-    return screen?.title.orEmpty()
+private fun NavBackStackEntry.title(): String {
+    return this.screen()?.title.orEmpty()
 }

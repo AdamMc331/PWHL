@@ -18,6 +18,7 @@ class FeedViewModel(
     val state = mutableState.asStateFlow()
 
     init {
+        println("ADAMLOG - INIT FEED VM")
         fetchRecentGames()
         fetchUpcomingGames()
     }
