@@ -8,7 +8,6 @@ import org.koin.dsl.module
 
 val viewModelModule = module {
     viewModel {
-        println("ADAMLOG - ???")
         FeedViewModel(
             recentGamesUseCase = get(),
             upcomingGamesUseCase = get(),
@@ -16,7 +15,6 @@ val viewModelModule = module {
     }
 
     viewModel { parameters ->
-        println("ADAMLOG - PARAMS: $parameters")
         GameDetailViewModel(
             gameId = parameters.get(),
         )
