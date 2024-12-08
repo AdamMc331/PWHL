@@ -60,7 +60,9 @@ class HockeyTechPWHLService(
         return apiClient.getResponse<HockeyTechStandingsListResponseDTO>(
             endpoint = endpoint,
             params = params,
-        ).map { standingsList ->
+        ).onFailure { exception ->
+            println("ADAMLOG - Error fetching standings: $exception")
+        }.map { standingsList ->
             standingsList
                 .firstOrNull()
                 ?.sections
