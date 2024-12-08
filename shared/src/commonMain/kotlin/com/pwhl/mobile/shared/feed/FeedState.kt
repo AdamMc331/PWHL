@@ -4,16 +4,16 @@ import com.pwhl.mobile.shared.displaymodels.GameDisplayModel
 
 data class FeedState(
     val loadingRecentGames: Boolean,
-    val recentGames: List<GameDisplayModel>,
+    val recentGames: Map<String, List<GameDisplayModel>>,
     val loadingUpcomingGames: Boolean,
-    val upcomingGames: List<GameDisplayModel>,
+    val upcomingGames: Map<String, List<GameDisplayModel>>,
 ) {
     companion object {
         val Default = FeedState(
             loadingRecentGames = false,
-            recentGames = emptyList(),
+            recentGames = emptyMap(),
             loadingUpcomingGames = false,
-            upcomingGames = emptyList(),
+            upcomingGames = emptyMap(),
         )
     }
 }

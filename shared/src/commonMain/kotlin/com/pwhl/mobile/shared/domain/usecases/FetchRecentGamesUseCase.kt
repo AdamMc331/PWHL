@@ -12,7 +12,7 @@ class FetchRecentGamesUseCase(
 ) {
     suspend fun invoke(): Result<List<Game>> {
         val now = timeProvider.now()
-        val afterDate = now.minus(3.days)
+        val afterDate = now.minus(7.days)
         val request = GameListRequest(
             beforeDate = now,
             afterDate = afterDate,
