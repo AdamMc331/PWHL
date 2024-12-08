@@ -7,7 +7,6 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.navigation.compose.rememberNavController
 import com.pwhl.mobile.shared.appbars.PWHLBottomBar
-import com.pwhl.mobile.shared.appbars.PWHLTopBar
 import com.pwhl.mobile.shared.di.appModules
 import com.pwhl.mobile.shared.ui.theme.PWHLTheme
 import org.koin.compose.KoinApplication
@@ -23,13 +22,10 @@ fun App() {
             val navController = rememberNavController()
 
             Scaffold(
-                topBar = {
-                    PWHLTopBar(
-                        title = "TODO",
-                    )
-                },
                 bottomBar = {
-                    PWHLBottomBar(navController)
+                    PWHLBottomBar(
+                        navController = navController,
+                    )
                 },
             ) { scaffoldPadding ->
                 AppNavHost(

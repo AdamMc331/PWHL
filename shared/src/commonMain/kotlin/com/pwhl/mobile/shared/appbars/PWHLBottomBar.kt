@@ -7,7 +7,6 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.navigation.NavController
-import androidx.navigation.NavDestination.Companion.hierarchy
 import androidx.navigation.NavGraph.Companion.findStartDestination
 import androidx.navigation.compose.currentBackStackEntryAsState
 import com.pwhl.mobile.shared.HomeTab
@@ -33,7 +32,7 @@ fun PWHLBottomBar(
         modifier = modifier,
     ) {
         tabs.forEach { tab ->
-            val isSelected = currentDestination?.hierarchy?.any { it.route == tab.route::class.qualifiedName } == true
+            val isSelected = (currentDestination?.route == tab.route::class.qualifiedName)
 
             NavigationBarItem(
                 selected = isSelected,
