@@ -55,7 +55,6 @@ kotlin {
             implementation(libs.coil.ktor)
             implementation(libs.koin.compose)
             implementation(libs.koin.compose.viewmodel)
-            implementation(libs.koin.compose.viewmodel.navigation)
             implementation(libs.koin.core)
             implementation(libs.kotlinx.datetime)
             implementation(libs.ktor.client.content.negotiation)

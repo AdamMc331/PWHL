@@ -2,16 +2,18 @@ package com.pwhl.mobile.shared
 
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
+import androidx.navigation.toRoute
 import com.pwhl.mobile.shared.feed.FeedScreen
 import com.pwhl.mobile.shared.gamedetail.GameDetailScreen
+import com.pwhl.mobile.shared.gamedetail.GameDetailViewModel
 import com.pwhl.mobile.shared.news.NewsScreen
 import com.pwhl.mobile.shared.profile.ProfileScreen
 import com.pwhl.mobile.shared.standings.StandingsScreen
 import org.koin.compose.viewmodel.koinViewModel
+import org.koin.core.parameter.parametersOf
 
 @Composable
 fun AppNavHost(
@@ -28,7 +30,6 @@ fun AppNavHost(
                 onGameClicked = { gameId ->
                     navController.navigate(GameDetailScreen(gameId))
                 },
-                viewModel = koinViewModel(),
             )
         }
 
@@ -37,17 +38,25 @@ fun AppNavHost(
         }
 
         composable<StandingsScreen> {
-            StandingsScreen(
-                viewModel = koinViewModel(),
-            )
+            StandingsScreen()
         }
 
         composable<ProfileScreen> {
             ProfileScreen()
         }
 
-        composable<GameDetailScreen> {
-            GameDetailScreen()
+        composable<GameDetailScreen> { backStackEntry ->
+            val screen: GameDetailScreen = backStackEntry.toRoute()
+
+            val viewModel: GameDetailViewModel = koinViewModel(
+                parameters = {
+                    parametersOf(screen.gameId)
+                },
+            )
+
+            GameDetailScreen(
+                viewModel = viewModel,
+            )
         }
     }
 }

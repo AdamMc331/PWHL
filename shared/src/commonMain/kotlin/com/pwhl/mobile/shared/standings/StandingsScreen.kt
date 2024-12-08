@@ -4,14 +4,14 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Modifier
 import kotlinx.serialization.Serializable
-import org.koin.compose.viewmodel.koinNavViewModel
+import org.koin.compose.viewmodel.koinViewModel
 import org.koin.core.annotation.KoinExperimentalAPI
 
 @Composable
 @OptIn(KoinExperimentalAPI::class)
 fun StandingsScreen(
     modifier: Modifier = Modifier,
-    viewModel: StandingsViewModel = koinNavViewModel(),
+    viewModel: StandingsViewModel = koinViewModel(),
 ) {
     val state = viewModel.state.collectAsState()
 

@@ -9,6 +9,7 @@ import com.pwhl.mobile.shared.news.NewsScreen
 import com.pwhl.mobile.shared.profile.ProfileScreen
 import com.pwhl.mobile.shared.standings.StandingsScreen
 import kotlinx.serialization.Serializable
+import org.koin.compose.viewmodel.koinViewModel
 
 @Serializable
 enum class Screen(
@@ -53,7 +54,10 @@ enum class Screen(
         route = "game/{gameId}",
         title = "Game Detail",
         render = { modifier, _ ->
-            GameDetailScreen(modifier)
+            GameDetailScreen(
+                viewModel = koinViewModel(),
+                modifier = modifier,
+            )
         },
     ),
 }

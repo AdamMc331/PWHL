@@ -4,7 +4,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Modifier
 import kotlinx.serialization.Serializable
-import org.koin.compose.viewmodel.koinNavViewModel
+import org.koin.compose.viewmodel.koinViewModel
 import org.koin.core.annotation.KoinExperimentalAPI
 
 @Composable
@@ -12,7 +12,7 @@ import org.koin.core.annotation.KoinExperimentalAPI
 fun FeedScreen(
     onGameClicked: (String) -> Unit,
     modifier: Modifier = Modifier,
-    viewModel: FeedViewModel = koinNavViewModel(),
+    viewModel: FeedViewModel = koinViewModel(),
 ) {
     val state = viewModel.state.collectAsState()
 
