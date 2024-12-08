@@ -14,8 +14,8 @@ val viewModelModule = module {
         )
     }
 
-    viewModel {
-        GameDetailViewModel()
+    viewModel { (gameId: String) ->
+        GameDetailViewModel(gameId)
     }
 
     viewModel {

@@ -3,12 +3,15 @@ package com.pwhl.mobile.shared.gamedetail
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Modifier
-import org.koin.compose.viewmodel.koinViewModel
+import kotlinx.serialization.Serializable
+import org.koin.compose.viewmodel.koinNavViewModel
+import org.koin.core.annotation.KoinExperimentalAPI
 
 @Composable
+@OptIn(KoinExperimentalAPI::class)
 fun GameDetailScreen(
     modifier: Modifier = Modifier,
-    viewModel: GameDetailViewModel = koinViewModel(),
+    viewModel: GameDetailViewModel = koinNavViewModel(),
 ) {
     val state = viewModel.state.collectAsState()
 
@@ -17,3 +20,8 @@ fun GameDetailScreen(
         modifier = modifier,
     )
 }
+
+@Serializable
+data class GameDetailScreen(
+    val gameId: String,
+)
