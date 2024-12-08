@@ -1,8 +1,10 @@
 package com.pwhl.mobile.shared.standings
 
+import androidx.compose.foundation.layout.padding
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Modifier
+import com.pwhl.mobile.shared.ui.components.PWHLScreenScaffold
 import kotlinx.serialization.Serializable
 import org.koin.compose.viewmodel.koinViewModel
 import org.koin.core.annotation.KoinExperimentalAPI
@@ -15,7 +17,16 @@ fun StandingsScreen(
 ) {
     val state = viewModel.state.collectAsState()
 
-    StandingsContent(state.value, modifier)
+    PWHLScreenScaffold(
+        title = "Standings",
+        modifier = modifier,
+    ) { scaffoldPadding ->
+        StandingsContent(
+            state = state.value,
+            modifier = Modifier
+                .padding(scaffoldPadding),
+        )
+    }
 }
 
 @Serializable
