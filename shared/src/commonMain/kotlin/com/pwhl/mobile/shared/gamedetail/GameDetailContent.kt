@@ -1,19 +1,16 @@
-package com.pwhl.mobile.shared.news
+package com.pwhl.mobile.shared.gamedetail
 
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import kotlinx.serialization.Serializable
 
 @Composable
-fun NewsScreen(
+fun GameDetailContent(
+    state: GameDetailState,
     modifier: Modifier = Modifier,
 ) {
     Text(
-        text = "News Screen Stub",
+        text = "Game Detail Stub",
         modifier = modifier,
     )
 }
-
-@Serializable
-object NewsScreen

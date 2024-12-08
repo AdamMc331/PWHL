@@ -1,22 +1,26 @@
-package com.pwhl.mobile.shared.standings
+package com.pwhl.mobile.shared.gamedetail
 
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Modifier
 import kotlinx.serialization.Serializable
-import org.koin.compose.viewmodel.koinViewModel
 import org.koin.core.annotation.KoinExperimentalAPI
 
 @Composable
 @OptIn(KoinExperimentalAPI::class)
-fun StandingsScreen(
+fun GameDetailScreen(
+    viewModel: GameDetailViewModel,
     modifier: Modifier = Modifier,
-    viewModel: StandingsViewModel = koinViewModel(),
 ) {
     val state = viewModel.state.collectAsState()
 
-    StandingsContent(state.value, modifier)
+    GameDetailContent(
+        state = state.value,
+        modifier = modifier,
+    )
 }
 
 @Serializable
-object StandingsScreen
+data class GameDetailScreen(
+    val gameId: String,
+)

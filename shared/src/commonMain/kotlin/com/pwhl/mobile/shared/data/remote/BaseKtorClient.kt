@@ -137,7 +137,7 @@ suspend fun ByteReadChannel.removeJsonPadding(): ByteReadChannel {
                 val first = arr[arr.size - 1]
 
                 if (first == ')'.code.toByte()) {
-                    channel.writeFully(arr, 0, arr.size - 2)
+                    channel.writeFully(arr, 0, arr.size - 1)
                     break
                 } else {
                     channel.writeFully(arr)
