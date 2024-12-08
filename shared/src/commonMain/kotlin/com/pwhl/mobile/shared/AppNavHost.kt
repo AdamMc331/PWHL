@@ -17,7 +17,7 @@ fun AppNavHost(
     ) {
         Screen.entries.forEach { screen ->
             composable(screen.route) {
-                screen.render(modifier)
+                screen.render(modifier, navController)
             }
         }
     }
