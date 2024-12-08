@@ -1,5 +1,11 @@
 package com.pwhl.mobile.shared
 
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.AccountCircle
+import androidx.compose.material.icons.filled.BarChart
+import androidx.compose.material.icons.filled.Newspaper
+import androidx.compose.material.icons.filled.SportsHockey
+import androidx.compose.ui.graphics.vector.ImageVector
 import com.pwhl.mobile.shared.feed.FeedScreen
 import com.pwhl.mobile.shared.news.NewsScreen
 import com.pwhl.mobile.shared.profile.ProfileScreen
@@ -21,4 +27,22 @@ sealed class HomeTab<T>(
 
     @Serializable
     data object Profile : HomeTab<ProfileScreen>(ProfileScreen)
+
+    fun getTitle(): String {
+        return when (this) {
+            Feed -> "Feed"
+            News -> "News"
+            Standings -> "Standings"
+            Profile -> "Profile"
+        }
+    }
+
+    fun getIcon(): ImageVector {
+        return when (this) {
+            Feed -> Icons.Default.SportsHockey
+            News -> Icons.Default.Newspaper
+            Standings -> Icons.Default.BarChart
+            Profile -> Icons.Default.AccountCircle
+        }
+    }
 }
