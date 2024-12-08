@@ -1,11 +1,14 @@
 package com.pwhl.mobile.shared.feed
 
-import androidx.compose.foundation.clickable
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.material3.HorizontalDivider
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.unit.dp
 import com.pwhl.mobile.shared.ui.components.GameListItem
 import com.pwhl.mobile.shared.ui.components.LoadingScreen
 
@@ -35,24 +38,60 @@ private fun SuccessContent(
     LazyColumn(
         modifier = modifier,
     ) {
-        items(state.recentGames) { game ->
-            GameListItem(
-                game = game,
+        item {
+            Text(
+                text = "Upcoming Games",
+                style = MaterialTheme.typography.titleLarge,
                 modifier = Modifier
-                    .clickable(
-                        onClick = {
-                            onGameClicked(game.id)
-                        },
-                    ),
+                    .padding(8.dp),
             )
-
-            HorizontalDivider()
         }
 
-        items(state.upcomingGames) { game ->
-            GameListItem(game)
+        state.upcomingGames.entries.forEach { (dateString, games) ->
+            item {
+                Text(
+                    text = dateString,
+                    style = MaterialTheme.typography.titleSmall,
+                    modifier = Modifier
+                        .padding(8.dp),
+                )
+            }
 
-            HorizontalDivider()
+            itemsIndexed(games) { index, game ->
+                GameListItem(game)
+
+                if (index != games.lastIndex) {
+                    HorizontalDivider()
+                }
+            }
+        }
+
+        item {
+            Text(
+                text = "Recent Games",
+                style = MaterialTheme.typography.titleLarge,
+                modifier = Modifier
+                    .padding(8.dp),
+            )
+        }
+
+        state.recentGames.entries.forEach { (dateString, games) ->
+            item {
+                Text(
+                    text = dateString,
+                    style = MaterialTheme.typography.titleSmall,
+                    modifier = Modifier
+                        .padding(8.dp),
+                )
+            }
+
+            itemsIndexed(games) { index, game ->
+                GameListItem(game)
+
+                if (index != games.lastIndex) {
+                    HorizontalDivider()
+                }
+            }
         }
     }
 }

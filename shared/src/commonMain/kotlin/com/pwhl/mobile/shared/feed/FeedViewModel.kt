@@ -32,15 +32,16 @@ class FeedViewModel(
 
             val result = recentGamesUseCase.invoke()
 
-            val gameList = result
+            val recentGamesMap = result
                 .getOrNull()
                 .orEmpty()
                 .map(::GameDisplayModel)
+                .groupBy(GameDisplayModel::dateString)
 
             mutableState.update { currentState ->
                 currentState.copy(
                     loadingRecentGames = false,
-                    recentGames = gameList,
+                    recentGames = recentGamesMap,
                 )
             }
         }
@@ -56,15 +57,16 @@ class FeedViewModel(
 
             val result = upcomingGamesUseCase.invoke()
 
-            val gameList = result
+            val upcomingGameListMap = result
                 .getOrNull()
                 .orEmpty()
                 .map(::GameDisplayModel)
+                .groupBy(GameDisplayModel::dateString)
 
             mutableState.update { currentState ->
                 currentState.copy(
                     loadingUpcomingGames = false,
-                    upcomingGames = gameList,
+                    upcomingGames = upcomingGameListMap,
                 )
             }
         }
