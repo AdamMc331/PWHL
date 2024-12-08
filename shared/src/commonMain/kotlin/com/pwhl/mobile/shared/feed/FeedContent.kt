@@ -20,6 +20,7 @@ import com.pwhl.mobile.shared.ui.components.LoadingScreen
 fun FeedContent(
     state: FeedState,
     onGameClicked: (String) -> Unit,
+    contentPadding: PaddingValues,
     modifier: Modifier = Modifier,
 ) {
     if (state.loadingRecentGames || state.loadingUpcomingGames) {
@@ -28,6 +29,7 @@ fun FeedContent(
         SuccessContent(
             state = state,
             onGameClicked = onGameClicked,
+            contentPadding = contentPadding,
             modifier = modifier,
         )
     }
@@ -37,12 +39,11 @@ fun FeedContent(
 private fun SuccessContent(
     state: FeedState,
     onGameClicked: (String) -> Unit,
+    contentPadding: PaddingValues,
     modifier: Modifier,
 ) {
     LazyColumn(
-        contentPadding = PaddingValues(
-            vertical = 16.dp,
-        ),
+        contentPadding = contentPadding,
         modifier = modifier,
     ) {
         upcomingGamesHeader()
@@ -77,12 +78,7 @@ private fun LazyListScope.gamesByDateGroup(
 ) {
     gamesByDate.entries.forEach { (dateString, games) ->
         item {
-            Text(
-                text = dateString,
-                style = MaterialTheme.typography.titleSmall,
-                modifier = Modifier
-                    .padding(8.dp),
-            )
+            SmallHeader(dateString)
         }
 
         gameList(games, onGameClicked)
