@@ -34,7 +34,8 @@ private fun Game.dateString(): String {
         char(',')
         char(' ')
         monthName(MonthNames.ENGLISH_ABBREVIATED)
-        dayOfMonth(padding = Padding.SPACE)
+        char(' ')
+        dayOfMonth(padding = Padding.NONE)
     }
 
     return this.time.format(gameDateFormat)

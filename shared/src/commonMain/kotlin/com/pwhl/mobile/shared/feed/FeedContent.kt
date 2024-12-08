@@ -1,5 +1,7 @@
 package com.pwhl.mobile.shared.feed
 
+import androidx.compose.foundation.clickable
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.itemsIndexed
@@ -36,6 +38,9 @@ private fun SuccessContent(
     modifier: Modifier,
 ) {
     LazyColumn(
+        contentPadding = PaddingValues(
+            vertical = 16.dp,
+        ),
         modifier = modifier,
     ) {
         item {
@@ -58,7 +63,13 @@ private fun SuccessContent(
             }
 
             itemsIndexed(games) { index, game ->
-                GameListItem(game)
+                GameListItem(
+                    game = game,
+                    modifier = Modifier
+                        .clickable {
+                            onGameClicked.invoke(game.id)
+                        },
+                )
 
                 if (index != games.lastIndex) {
                     HorizontalDivider()
@@ -86,7 +97,13 @@ private fun SuccessContent(
             }
 
             itemsIndexed(games) { index, game ->
-                GameListItem(game)
+                GameListItem(
+                    game = game,
+                    modifier = Modifier
+                        .clickable {
+                            onGameClicked.invoke(game.id)
+                        },
+                )
 
                 if (index != games.lastIndex) {
                     HorizontalDivider()
