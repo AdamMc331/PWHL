@@ -1,6 +1,6 @@
 package com.pwhl.mobile.shared.data.hockeytech.dto
 
-import com.pwhl.mobile.shared.models.Game
+import com.pwhl.mobile.shared.models.GameDetail
 import com.pwhl.mobile.shared.models.Team
 import com.pwhl.mobile.shared.models.TeamGameResult
 import kotlinx.datetime.Instant
@@ -143,8 +143,8 @@ data class HockeyTechScoreBarItemDTO(
     private val homeTeamWins: Boolean = (isComplete && homeTeamGoalsScored > awayTeamGoalsScored)
     private val awayTeamWins: Boolean = (isComplete && awayTeamGoalsScored > homeTeamGoalsScored)
 
-    fun parseGame(): Game {
-        return Game(
+    fun parseGame(): GameDetail {
+        return GameDetail(
             id = iD.orEmpty(),
             homeTeam = parseHomeTeamResult(),
             awayTeam = parseAwayTeamResult(),

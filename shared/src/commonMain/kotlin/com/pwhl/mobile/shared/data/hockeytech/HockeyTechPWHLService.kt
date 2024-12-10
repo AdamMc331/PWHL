@@ -1,11 +1,13 @@
 package com.pwhl.mobile.shared.data.hockeytech
 
+import com.pwhl.mobile.shared.data.hockeytech.dto.HockeyTechGameSummaryDTO
 import com.pwhl.mobile.shared.data.hockeytech.dto.HockeyTechScoreBarResponseDTO
 import com.pwhl.mobile.shared.data.hockeytech.dto.HockeyTechStandingsListResponseDTO
 import com.pwhl.mobile.shared.data.remote.BaseKtorClient
 import com.pwhl.mobile.shared.data.repositories.PWHLRepository
 import com.pwhl.mobile.shared.data.requests.GameListRequest
-import com.pwhl.mobile.shared.models.Game
+import com.pwhl.mobile.shared.models.GameDetail
+import com.pwhl.mobile.shared.models.GameSummary
 import com.pwhl.mobile.shared.models.StandingsRow
 import com.pwhl.mobile.shared.time.TimeProvider
 import kotlinx.datetime.TimeZone
@@ -17,7 +19,7 @@ class HockeyTechPWHLService(
 ) : PWHLRepository {
     override suspend fun fetchGames(
         request: GameListRequest,
-    ): Result<List<Game>> {
+    ): Result<List<GameDetail>> {
         val endpoint = "feed/index.php"
 
         val now = timeProvider.now()
@@ -71,5 +73,24 @@ class HockeyTechPWHLService(
                 }
                 .orEmpty()
         }
+    }
+
+    override suspend fun fetchGameSummary(
+        gameId: String,
+    ): Result<GameSummary> {
+        val endpoint = "feed/index.php"
+
+        val gameParams = mapOf(
+            HockeyTechParameterKeys.FEED to "statviewfeed",
+            HockeyTechParameterKeys.VIEW to "gameSummary",
+            HockeyTechParameterKeys.GAME_ID to gameId,
+        )
+
+        val params = HockeyTechKtorClient.baseHockeyTechParams + gameParams
+
+        return apiClient.getResponse<HockeyTechGameSummaryDTO>(
+            endpoint = endpoint,
+            params = params,
+        ).map(HockeyTechGameSummaryDTO::parseGameSummary)
     }
 }

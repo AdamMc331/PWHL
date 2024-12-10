@@ -10,6 +10,7 @@ object HockeyTechParameterKeys {
     const val DIVISION = "division"
     const val FEED = "feed"
     const val FORMAT = "fmt"
+    const val GAME_ID = "game_id"
     const val GROUP_TEAMS_BY = "groupTeamsBy"
     const val LANGUAGE = "lang"
     const val LEAGUE_ID = "league_id"

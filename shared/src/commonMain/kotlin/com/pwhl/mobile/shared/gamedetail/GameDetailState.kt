@@ -1,10 +1,10 @@
 package com.pwhl.mobile.shared.gamedetail
 
-import com.pwhl.mobile.shared.displaymodels.GameDisplayModel
+import com.pwhl.mobile.shared.displaymodels.GameSummaryDisplayModel
 
 data class GameDetailState(
     val isLoading: Boolean,
-    val game: GameDisplayModel?,
+    val game: GameSummaryDisplayModel?,
 ) {
     companion object {
         val Default = GameDetailState(
