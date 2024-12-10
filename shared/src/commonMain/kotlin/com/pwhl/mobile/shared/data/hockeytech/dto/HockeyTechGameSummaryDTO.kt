@@ -15,13 +15,18 @@ data class HockeyTechGameSummaryDTO(
     val visitingTeam: HockeyTechGameSummaryTeamDTO? = null,
 ) {
     fun parseGameSummary(): GameSummary {
-        val homeTeam = homeTeam?.parseTeam() ?: throw IllegalArgumentException("Cannot parse game without home team.")
-        val visitingTeam = visitingTeam?.parseTeam() ?: throw IllegalArgumentException("Cannot parse game without visiting team.")
+        require(homeTeam != null) {
+            "Cannot parse game summary without home team."
+        }
+
+        require(visitingTeam != null) {
+            "Cannot parse game summary without visiting team."
+        }
 
         return GameSummary(
             id = details?.id?.toString().orEmpty(),
-            homeTeam = homeTeam,
-            awayTeam = visitingTeam,
+            homeTeam = homeTeam.parseTeam(),
+            awayTeam = visitingTeam.parseTeam(),
             time = Instant.parse(details?.gameDateISO8601.orEmpty()),
             status = details?.status.orEmpty(),
             isComplete = details?.status == "Final",
