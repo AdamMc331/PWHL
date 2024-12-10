@@ -10,7 +10,7 @@ fun GameDetailContent(
     modifier: Modifier = Modifier,
 ) {
     Text(
-        text = "Game Detail Stub",
+        text = "Game Detail Stub: ${state.game}",
         modifier = modifier,
     )
 }
