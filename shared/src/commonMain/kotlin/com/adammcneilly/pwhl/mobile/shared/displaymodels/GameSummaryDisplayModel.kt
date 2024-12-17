@@ -10,18 +10,18 @@ import kotlinx.datetime.format.char
 
 data class GameSummaryDisplayModel(
     val id: String,
-    val homeTeam: TeamDisplayModel,
-    val awayTeam: TeamDisplayModel,
+    val homeTeam: TeamGameResultDisplayModelV2,
+    val awayTeam: TeamGameResultDisplayModelV2,
     val status: String,
     val dateString: String,
 ) {
     constructor(game: GameSummary) : this(
         id = game.id,
-        homeTeam = TeamDisplayModel(
-            team = game.homeTeam,
+        homeTeam = TeamGameResultDisplayModelV2(
+            teamGameResult = game.homeTeam,
         ),
-        awayTeam = TeamDisplayModel(
-            team = game.awayTeam,
+        awayTeam = TeamGameResultDisplayModelV2(
+            teamGameResult = game.awayTeam,
         ),
         status = game.status,
         dateString = game.dateString(),

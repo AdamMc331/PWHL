@@ -1,0 +1,2517 @@
+{
+  "details": {
+    "id": 105,
+    "date": "Saturday, November 30, 2024",
+    "gameNumber": "1",
+    "venue": "Coca-Cola Coliseum",
+    "attendance": 8089,
+    "startTime": "2:15 pm EST",
+    "endTime": "4:40 pm EST",
+    "duration": "2:25",
+    "gameReportUrl": "https:\/\/lscluster.hockeytech.com\/game_reports\/official-game-report.php?lang_id=1&client_code=pwhl&game_id=105",
+    "textBoxscoreUrl": "https:\/\/lscluster.hockeytech.com\/game_reports\/text-game-report.php?lang_id=1&client_code=pwhl&game_id=105",
+    "ticketsUrl": "https:\/\/www.ticketmaster.ca\/event\/10006158073B440D",
+    "started": "1",
+    "final": "1",
+    "publicNotes": "",
+    "status": "Final",
+    "seasonId": "5",
+    "floHockeyUrl": "",
+    "GameDateISO8601": "2024-11-30T14:00:00-05:00"
+  },
+  "referees": [
+    {
+      "firstName": "Grace",
+      "lastName": "Barlow",
+      "jerseyNumber": 22,
+      "role": "Referee"
+    },
+    {
+      "firstName": "Jenn",
+      "lastName": "Berezowski",
+      "jerseyNumber": 4,
+      "role": "Referee"
+    }
+  ],
+  "linesmen": [
+    {
+      "firstName": "Adam",
+      "lastName": "Burnett",
+      "jerseyNumber": 94,
+      "role": "Linesperson"
+    },
+    {
+      "firstName": "Erin",
+      "lastName": "Zach",
+      "jerseyNumber": 60,
+      "role": "Linesperson"
+    }
+  ],
+  "scorekeepers": [],
+  "mostValuablePlayers": [
+    {
+      "team": {
+        "id": 6,
+        "name": "Toronto Sceptres",
+        "city": "Toronto",
+        "nickname": "Sceptres",
+        "abbreviation": "TOR",
+        "logo": "https:\/\/assets.leaguestat.com\/pwhl\/logos\/6_5.png",
+        "divisionName": "PWHL"
+      },
+      "player": {
+        "info": {
+          "id": 89,
+          "firstName": "Hannah",
+          "lastName": "Miller",
+          "jerseyNumber": 34,
+          "position": "F",
+          "birthDate": "1996-02-16",
+          "playerImageURL": "https:\/\/assets.leaguestat.com\/pwhl\/120x160\/89.jpg"
+        },
+        "stats": {
+          "goals": 1,
+          "assists": 0,
+          "points": 1,
+          "penaltyMinutes": 0,
+          "plusMinus": 0,
+          "faceoffAttempts": 9,
+          "faceoffWins": 3,
+          "shots": 2,
+          "hits": 0,
+          "blockedShots": 1,
+          "toi": "15:14"
+        },
+        "starting": 0,
+        "status": ""
+      },
+      "isGoalie": false,
+      "playerImage": "https:\/\/assets.leaguestat.com\/pwhl\/240x240\/89.jpg"
+    },
+    {
+      "team": {
+        "id": 1,
+        "name": "Boston Fleet",
+        "city": "Boston",
+        "nickname": "Fleet",
+        "abbreviation": "BOS",
+        "logo": "https:\/\/assets.leaguestat.com\/pwhl\/logos\/1_5.png",
+        "divisionName": "PWHL"
+      },
+      "player": {
+        "info": {
+          "id": 6,
+          "firstName": "Aerin",
+          "lastName": "Frankel",
+          "jerseyNumber": 31,
+          "position": "G",
+          "birthDate": "1999-05-24",
+          "playerImageURL": "https:\/\/assets.leaguestat.com\/pwhl\/120x160\/6.jpg"
+        },
+        "stats": {
+          "goals": 0,
+          "assists": 0,
+          "points": 0,
+          "penaltyMinutes": 0,
+          "plusMinus": 0,
+          "faceoffAttempts": 0,
+          "faceoffWins": 0,
+          "timeOnIce": "58:46",
+          "shotsAgainst": 40,
+          "goalsAgainst": 2,
+          "saves": 38
+        },
+        "starting": 1,
+        "status": ""
+      },
+      "isGoalie": true,
+      "playerImage": "https:\/\/assets.leaguestat.com\/pwhl\/240x240\/6.jpg"
+    },
+    {
+      "team": {
+        "id": 6,
+        "name": "Toronto Sceptres",
+        "city": "Toronto",
+        "nickname": "Sceptres",
+        "abbreviation": "TOR",
+        "logo": "https:\/\/assets.leaguestat.com\/pwhl\/logos\/6_5.png",
+        "divisionName": "PWHL"
+      },
+      "player": {
+        "info": {
+          "id": 75,
+          "firstName": "Sarah",
+          "lastName": "Nurse",
+          "jerseyNumber": 20,
+          "position": "F",
+          "birthDate": "1995-01-04",
+          "playerImageURL": "https:\/\/assets.leaguestat.com\/pwhl\/120x160\/75.jpg"
+        },
+        "stats": {
+          "goals": 1,
+          "assists": 0,
+          "points": 1,
+          "penaltyMinutes": 0,
+          "plusMinus": 1,
+          "faceoffAttempts": 16,
+          "faceoffWins": 12,
+          "shots": 5,
+          "hits": 1,
+          "blockedShots": 0,
+          "toi": "17:37"
+        },
+        "starting": 0,
+        "status": ""
+      },
+      "isGoalie": false,
+      "playerImage": "https:\/\/assets.leaguestat.com\/pwhl\/240x240\/75.jpg"
+    }
+  ],
+  "hasShootout": false,
+  "homeTeam": {
+    "info": {
+      "id": 6,
+      "name": "Toronto Sceptres",
+      "city": "Toronto",
+      "nickname": "Sceptres",
+      "abbreviation": "TOR",
+      "logo": "https:\/\/assets.leaguestat.com\/pwhl\/logos\/6_5.png",
+      "divisionName": "PWHL"
+    },
+    "stats": {
+      "shots": 41,
+      "goals": 3,
+      "hits": 22,
+      "powerPlayGoals": 1,
+      "powerPlayOpportunities": 4,
+      "goalCount": 3,
+      "assistCount": 4,
+      "penaltyMinuteCount": 6,
+      "infractionCount": 3
+    },
+    "media": {
+      "audioUrl": "",
+      "videoUrl": "",
+      "webcastUrl": ""
+    },
+    "coaches": [],
+    "skaters": [
+      {
+        "info": {
+          "id": 71,
+          "firstName": "Jocelyne",
+          "lastName": "Larocque",
+          "jerseyNumber": 3,
+          "position": "D",
+          "birthDate": "1988-05-19",
+          "playerImageURL": "https:\/\/assets.leaguestat.com\/pwhl\/120x160\/71.jpg"
+        },
+        "stats": {
+          "goals": 0,
+          "assists": 0,
+          "points": 0,
+          "penaltyMinutes": 0,
+          "plusMinus": 2,
+          "faceoffAttempts": 0,
+          "faceoffWins": 0,
+          "shots": 3,
+          "hits": 1,
+          "blockedShots": 0,
+          "toi": "26:59"
+        },
+        "starting": 1,
+        "status": "A"
+      },
+      {
+        "info": {
+          "id": 68,
+          "firstName": "Kali",
+          "lastName": "Flanagan",
+          "jerseyNumber": 6,
+          "position": "D",
+          "birthDate": "1995-09-19",
+          "playerImageURL": "https:\/\/assets.leaguestat.com\/pwhl\/120x160\/68.jpg"
+        },
+        "stats": {
+          "goals": 0,
+          "assists": 0,
+          "points": 0,
+          "penaltyMinutes": 0,
+          "plusMinus": 0,
+          "faceoffAttempts": 0,
+          "faceoffWins": 0,
+          "shots": 2,
+          "hits": 0,
+          "blockedShots": 0,
+          "toi": "20:21"
+        },
+        "starting": 0,
+        "status": ""
+      },
+      {
+        "info": {
+          "id": 209,
+          "firstName": "Izzy",
+          "lastName": "Daniel",
+          "jerseyNumber": 8,
+          "position": "F",
+          "birthDate": "2000-09-29",
+          "playerImageURL": "https:\/\/assets.leaguestat.com\/pwhl\/120x160\/209.jpg"
+        },
+        "stats": {
+          "goals": 0,
+          "assists": 0,
+          "points": 0,
+          "penaltyMinutes": 2,
+          "plusMinus": 0,
+          "faceoffAttempts": 0,
+          "faceoffWins": 0,
+          "shots": 1,
+          "hits": 0,
+          "blockedShots": 0,
+          "toi": "15:52"
+        },
+        "starting": 0,
+        "status": ""
+      },
+      {
+        "info": {
+          "id": 63,
+          "firstName": "Daryl",
+          "lastName": "Watts",
+          "jerseyNumber": 9,
+          "position": "F",
+          "birthDate": "1999-05-15",
+          "playerImageURL": "https:\/\/assets.leaguestat.com\/pwhl\/120x160\/63.jpg"
+        },
+        "stats": {
+          "goals": 0,
+          "assists": 2,
+          "points": 2,
+          "penaltyMinutes": 0,
+          "plusMinus": 0,
+          "faceoffAttempts": 2,
+          "faceoffWins": 0,
+          "shots": 5,
+          "hits": 1,
+          "blockedShots": 0,
+          "toi": "16:41"
+        },
+        "starting": 0,
+        "status": ""
+      },
+      {
+        "info": {
+          "id": 74,
+          "firstName": "Allie",
+          "lastName": "Munroe",
+          "jerseyNumber": 12,
+          "position": "D",
+          "birthDate": "1997-04-20",
+          "playerImageURL": "https:\/\/assets.leaguestat.com\/pwhl\/120x160\/74.jpg"
+        },
+        "stats": {
+          "goals": 0,
+          "assists": 0,
+          "points": 0,
+          "penaltyMinutes": 2,
+          "plusMinus": 0,
+          "faceoffAttempts": 0,
+          "faceoffWins": 0,
+          "shots": 2,
+          "hits": 3,
+          "blockedShots": 3,
+          "toi": "14:44"
+        },
+        "starting": 0,
+        "status": ""
+      },
+      {
+        "info": {
+          "id": 67,
+          "firstName": "Renata",
+          "lastName": "Fast",
+          "jerseyNumber": 14,
+          "position": "D",
+          "birthDate": "1994-10-06",
+          "playerImageURL": "https:\/\/assets.leaguestat.com\/pwhl\/120x160\/67.jpg"
+        },
+        "stats": {
+          "goals": 0,
+          "assists": 1,
+          "points": 1,
+          "penaltyMinutes": 0,
+          "plusMinus": 2,
+          "faceoffAttempts": 0,
+          "faceoffWins": 0,
+          "shots": 1,
+          "hits": 1,
+          "blockedShots": 2,
+          "toi": "26:21"
+        },
+        "starting": 1,
+        "status": "A"
+      },
+      {
+        "info": {
+          "id": 65,
+          "firstName": "Jesse",
+          "lastName": "Compher",
+          "jerseyNumber": 18,
+          "position": "F",
+          "birthDate": "1999-07-01",
+          "playerImageURL": "https:\/\/assets.leaguestat.com\/pwhl\/120x160\/65.jpg"
+        },
+        "stats": {
+          "goals": 0,
+          "assists": 0,
+          "points": 0,
+          "penaltyMinutes": 0,
+          "plusMinus": 0,
+          "faceoffAttempts": 1,
+          "faceoffWins": 0,
+          "shots": 4,
+          "hits": 0,
+          "blockedShots": 0,
+          "toi": "12:28"
+        },
+        "starting": 0,
+        "status": ""
+      },
+      {
+        "info": {
+          "id": 207,
+          "firstName": "Lauren",
+          "lastName": "Bernard",
+          "jerseyNumber": 19,
+          "position": "D",
+          "birthDate": "2001-07-15",
+          "playerImageURL": "https:\/\/assets.leaguestat.com\/pwhl\/120x160\/207.jpg"
+        },
+        "stats": {
+          "goals": 0,
+          "assists": 0,
+          "points": 0,
+          "penaltyMinutes": 0,
+          "plusMinus": 0,
+          "faceoffAttempts": 0,
+          "faceoffWins": 0,
+          "shots": 1,
+          "hits": 0,
+          "blockedShots": 0,
+          "toi": "9:05"
+        },
+        "starting": 0,
+        "status": ""
+      },
+      {
+        "info": {
+          "id": 75,
+          "firstName": "Sarah",
+          "lastName": "Nurse",
+          "jerseyNumber": 20,
+          "position": "F",
+          "birthDate": "1995-01-04",
+          "playerImageURL": "https:\/\/assets.leaguestat.com\/pwhl\/120x160\/75.jpg"
+        },
+        "stats": {
+          "goals": 1,
+          "assists": 0,
+          "points": 1,
+          "penaltyMinutes": 0,
+          "plusMinus": 1,
+          "faceoffAttempts": 16,
+          "faceoffWins": 12,
+          "shots": 5,
+          "hits": 1,
+          "blockedShots": 0,
+          "toi": "17:37"
+        },
+        "starting": 0,
+        "status": ""
+      },
+      {
+        "info": {
+          "id": 66,
+          "firstName": "Maggie",
+          "lastName": "Connors",
+          "jerseyNumber": 22,
+          "position": "F",
+          "birthDate": "2000-10-22",
+          "playerImageURL": "https:\/\/assets.leaguestat.com\/pwhl\/120x160\/66.jpg"
+        },
+        "stats": {
+          "goals": 0,
+          "assists": 0,
+          "points": 0,
+          "penaltyMinutes": 2,
+          "plusMinus": 0,
+          "faceoffAttempts": 1,
+          "faceoffWins": 0,
+          "shots": 1,
+          "hits": 2,
+          "blockedShots": 0,
+          "toi": "8:39"
+        },
+        "starting": 0,
+        "status": ""
+      },
+      {
+        "info": {
+          "id": 73,
+          "firstName": "Emma",
+          "lastName": "Maltais",
+          "jerseyNumber": 27,
+          "position": "F",
+          "birthDate": "1999-11-04",
+          "playerImageURL": "https:\/\/assets.leaguestat.com\/pwhl\/120x160\/73.jpg"
+        },
+        "stats": {
+          "goals": 1,
+          "assists": 0,
+          "points": 1,
+          "penaltyMinutes": 0,
+          "plusMinus": 1,
+          "faceoffAttempts": 4,
+          "faceoffWins": 3,
+          "shots": 2,
+          "hits": 2,
+          "blockedShots": 0,
+          "toi": "20:00"
+        },
+        "starting": 1,
+        "status": ""
+      },
+      {
+        "info": {
+          "id": 128,
+          "firstName": "Kaitlin",
+          "lastName": "Willoughby",
+          "jerseyNumber": 28,
+          "position": "F",
+          "birthDate": "1995-03-26",
+          "playerImageURL": "https:\/\/assets.leaguestat.com\/pwhl\/120x160\/128.jpg"
+        },
+        "stats": {
+          "goals": 0,
+          "assists": 0,
+          "points": 0,
+          "penaltyMinutes": 0,
+          "plusMinus": 0,
+          "faceoffAttempts": 0,
+          "faceoffWins": 0,
+          "shots": 0,
+          "hits": 0,
+          "blockedShots": 0,
+          "toi": "4:35"
+        },
+        "starting": 0,
+        "status": ""
+      },
+      {
+        "info": {
+          "id": 89,
+          "firstName": "Hannah",
+          "lastName": "Miller",
+          "jerseyNumber": 34,
+          "position": "F",
+          "birthDate": "1996-02-16",
+          "playerImageURL": "https:\/\/assets.leaguestat.com\/pwhl\/120x160\/89.jpg"
+        },
+        "stats": {
+          "goals": 1,
+          "assists": 0,
+          "points": 1,
+          "penaltyMinutes": 0,
+          "plusMinus": 0,
+          "faceoffAttempts": 9,
+          "faceoffWins": 3,
+          "shots": 2,
+          "hits": 0,
+          "blockedShots": 1,
+          "toi": "15:14"
+        },
+        "starting": 0,
+        "status": ""
+      },
+      {
+        "info": {
+          "id": 76,
+          "firstName": "Blayre",
+          "lastName": "Turnbull",
+          "jerseyNumber": 40,
+          "position": "F",
+          "birthDate": "1993-07-15",
+          "playerImageURL": "https:\/\/assets.leaguestat.com\/pwhl\/120x160\/76.jpg"
+        },
+        "stats": {
+          "goals": 0,
+          "assists": 0,
+          "points": 0,
+          "penaltyMinutes": 0,
+          "plusMinus": 1,
+          "faceoffAttempts": 13,
+          "faceoffWins": 5,
+          "shots": 4,
+          "hits": 5,
+          "blockedShots": 2,
+          "toi": "17:41"
+        },
+        "starting": 1,
+        "status": "C"
+      },
+      {
+        "info": {
+          "id": 125,
+          "firstName": "Victoria",
+          "lastName": "Bach",
+          "jerseyNumber": 51,
+          "position": "F",
+          "birthDate": "1996-07-12",
+          "playerImageURL": "https:\/\/assets.leaguestat.com\/pwhl\/120x160\/125.jpg"
+        },
+        "stats": {
+          "goals": 0,
+          "assists": 0,
+          "points": 0,
+          "penaltyMinutes": 0,
+          "plusMinus": 1,
+          "faceoffAttempts": 8,
+          "faceoffWins": 3,
+          "shots": 3,
+          "hits": 0,
+          "blockedShots": 0,
+          "toi": "14:29"
+        },
+        "starting": 0,
+        "status": ""
+      },
+      {
+        "info": {
+          "id": 232,
+          "firstName": "Rylind",
+          "lastName": "MacKinnon",
+          "jerseyNumber": 55,
+          "position": "D",
+          "birthDate": "2000-03-05",
+          "playerImageURL": "https:\/\/assets.leaguestat.com\/pwhl\/120x160\/232.jpg"
+        },
+        "stats": {
+          "goals": 0,
+          "assists": 1,
+          "points": 1,
+          "penaltyMinutes": 0,
+          "plusMinus": 1,
+          "faceoffAttempts": 0,
+          "faceoffWins": 0,
+          "shots": 1,
+          "hits": 1,
+          "blockedShots": 1,
+          "toi": "13:29"
+        },
+        "starting": 0,
+        "status": ""
+      },
+      {
+        "info": {
+          "id": 214,
+          "firstName": "Noemi",
+          "lastName": "Neubauerov\u00e1",
+          "jerseyNumber": 61,
+          "position": "F",
+          "birthDate": "1999-12-15",
+          "playerImageURL": "https:\/\/assets.leaguestat.com\/pwhl\/120x160\/214.jpg"
+        },
+        "stats": {
+          "goals": 0,
+          "assists": 0,
+          "points": 0,
+          "penaltyMinutes": 0,
+          "plusMinus": 0,
+          "faceoffAttempts": 1,
+          "faceoffWins": 1,
+          "shots": 0,
+          "hits": 0,
+          "blockedShots": 1,
+          "toi": "6:04"
+        },
+        "starting": 0,
+        "status": ""
+      },
+      {
+        "info": {
+          "id": 86,
+          "firstName": "Emma",
+          "lastName": "Woods",
+          "jerseyNumber": 67,
+          "position": "F",
+          "birthDate": "1995-12-18",
+          "playerImageURL": "https:\/\/assets.leaguestat.com\/pwhl\/120x160\/86.jpg"
+        },
+        "stats": {
+          "goals": 0,
+          "assists": 0,
+          "points": 0,
+          "penaltyMinutes": 0,
+          "plusMinus": 0,
+          "faceoffAttempts": 0,
+          "faceoffWins": 0,
+          "shots": 0,
+          "hits": 2,
+          "blockedShots": 0,
+          "toi": "14:17"
+        },
+        "starting": 1,
+        "status": ""
+      },
+      {
+        "info": {
+          "id": 210,
+          "firstName": "Julia",
+          "lastName": "Gosling",
+          "jerseyNumber": 88,
+          "position": "F",
+          "birthDate": "2001-02-21",
+          "playerImageURL": "https:\/\/assets.leaguestat.com\/pwhl\/120x160\/210.jpg"
+        },
+        "stats": {
+          "goals": 0,
+          "assists": 0,
+          "points": 0,
+          "penaltyMinutes": 0,
+          "plusMinus": 0,
+          "faceoffAttempts": 0,
+          "faceoffWins": 0,
+          "shots": 4,
+          "hits": 3,
+          "blockedShots": 0,
+          "toi": "14:24"
+        },
+        "starting": 0,
+        "status": ""
+      }
+    ],
+    "goalies": [
+      {
+        "info": {
+          "id": 211,
+          "firstName": "Raygan",
+          "lastName": "Kirk",
+          "jerseyNumber": 1,
+          "position": "G",
+          "birthDate": "2001-03-11",
+          "playerImageURL": "https:\/\/assets.leaguestat.com\/pwhl\/120x160\/211.jpg"
+        },
+        "stats": {
+          "goals": 0,
+          "assists": 0,
+          "points": 0,
+          "penaltyMinutes": 0,
+          "plusMinus": 0,
+          "faceoffAttempts": 0,
+          "faceoffWins": 0,
+          "timeOnIce": null,
+          "shotsAgainst": 0,
+          "goalsAgainst": 0,
+          "saves": 0
+        },
+        "starting": 0,
+        "status": ""
+      },
+      {
+        "info": {
+          "id": 64,
+          "firstName": "Kristen",
+          "lastName": "Campbell",
+          "jerseyNumber": 50,
+          "position": "G",
+          "birthDate": "1997-11-30",
+          "playerImageURL": "https:\/\/assets.leaguestat.com\/pwhl\/120x160\/64.jpg"
+        },
+        "stats": {
+          "goals": 0,
+          "assists": 0,
+          "points": 0,
+          "penaltyMinutes": 0,
+          "plusMinus": 0,
+          "faceoffAttempts": 0,
+          "faceoffWins": 0,
+          "timeOnIce": "59:53",
+          "shotsAgainst": 19,
+          "goalsAgainst": 1,
+          "saves": 18
+        },
+        "starting": 1,
+        "status": ""
+      }
+    ],
+    "goalieLog": [
+      {
+        "info": {
+          "id": 64,
+          "firstName": "Kristen",
+          "lastName": "Campbell",
+          "jerseyNumber": 50,
+          "position": "G",
+          "birthDate": "",
+          "playerImageURL": "https:\/\/assets.leaguestat.com\/pwhl\/120x160\/64.jpg"
+        },
+        "stats": {
+          "goals": 0,
+          "assists": 0,
+          "points": 0,
+          "penaltyMinutes": 0,
+          "plusMinus": 0,
+          "faceoffAttempts": 0,
+          "faceoffWins": 0,
+          "timeOnIce": "57:49",
+          "shotsAgainst": 19,
+          "goalsAgainst": 1,
+          "saves": 18
+        },
+        "periodStart": {
+          "id": "1",
+          "shortName": "1",
+          "longName": "1st"
+        },
+        "timeStart": "0:00",
+        "periodEnd": {
+          "id": "3",
+          "shortName": "3",
+          "longName": "3rd"
+        },
+        "timeEnd": "17:49",
+        "result": "W"
+      },
+      {
+        "info": {
+          "id": 64,
+          "firstName": "Kristen",
+          "lastName": "Campbell",
+          "jerseyNumber": 50,
+          "position": "G",
+          "birthDate": "",
+          "playerImageURL": "https:\/\/assets.leaguestat.com\/pwhl\/120x160\/64.jpg"
+        },
+        "stats": {
+          "goals": 0,
+          "assists": 0,
+          "points": 0,
+          "penaltyMinutes": 0,
+          "plusMinus": 0,
+          "faceoffAttempts": 0,
+          "faceoffWins": 0,
+          "timeOnIce": "02:04",
+          "shotsAgainst": 0,
+          "goalsAgainst": 0,
+          "saves": 0
+        },
+        "periodStart": {
+          "id": "3",
+          "shortName": "3",
+          "longName": "3rd"
+        },
+        "timeStart": "17:56",
+        "periodEnd": {
+          "id": "3",
+          "shortName": "3",
+          "longName": "3rd"
+        },
+        "timeEnd": "20:00",
+        "result": "W"
+      }
+    ],
+    "seasonStats": {
+      "seasonId": null,
+      "teamRecord": {
+        "wins": 1,
+        "losses": 0,
+        "ties": 0,
+        "OTWins": 0,
+        "OTLosses": 0,
+        "SOLosses": 0,
+        "formattedRecord": "1-0-0-0"
+      },
+      "teamStats": []
+    }
+  },
+  "visitingTeam": {
+    "info": {
+      "id": 1,
+      "name": "Boston Fleet",
+      "city": "Boston",
+      "nickname": "Fleet",
+      "abbreviation": "BOS",
+      "logo": "https:\/\/assets.leaguestat.com\/pwhl\/logos\/1_5.png",
+      "divisionName": "PWHL"
+    },
+    "stats": {
+      "shots": 19,
+      "goals": 1,
+      "hits": 37,
+      "powerPlayGoals": 1,
+      "powerPlayOpportunities": 2,
+      "goalCount": 1,
+      "assistCount": 2,
+      "penaltyMinuteCount": 10,
+      "infractionCount": 5
+    },
+    "media": {
+      "audioUrl": "",
+      "videoUrl": "",
+      "webcastUrl": ""
+    },
+    "coaches": [
+      {
+        "firstName": "Courtney",
+        "lastName": "Kessel",
+        "role": "Head Coach"
+      }
+    ],
+    "skaters": [
+      {
+        "info": {
+          "id": 2,
+          "firstName": "Emily",
+          "lastName": "Brown",
+          "jerseyNumber": 2,
+          "position": "D",
+          "birthDate": "1998-12-30",
+          "playerImageURL": "https:\/\/assets.leaguestat.com\/pwhl\/120x160\/2.jpg"
+        },
+        "stats": {
+          "goals": 0,
+          "assists": 0,
+          "points": 0,
+          "penaltyMinutes": 0,
+          "plusMinus": 0,
+          "faceoffAttempts": 0,
+          "faceoffWins": 0,
+          "shots": 0,
+          "hits": 6,
+          "blockedShots": 3,
+          "toi": "19:25"
+        },
+        "starting": 0,
+        "status": ""
+      },
+      {
+        "info": {
+          "id": 12,
+          "firstName": "Megan",
+          "lastName": "Keller",
+          "jerseyNumber": 5,
+          "position": "D",
+          "birthDate": "1996-05-01",
+          "playerImageURL": "https:\/\/assets.leaguestat.com\/pwhl\/120x160\/12.jpg"
+        },
+        "stats": {
+          "goals": 0,
+          "assists": 1,
+          "points": 1,
+          "penaltyMinutes": 2,
+          "plusMinus": -2,
+          "faceoffAttempts": 0,
+          "faceoffWins": 0,
+          "shots": 1,
+          "hits": 5,
+          "blockedShots": 1,
+          "toi": "22:50"
+        },
+        "starting": 1,
+        "status": ""
+      },
+      {
+        "info": {
+          "id": 167,
+          "firstName": "Sidney",
+          "lastName": "Morin",
+          "jerseyNumber": 7,
+          "position": "D",
+          "birthDate": "1995-06-06",
+          "playerImageURL": "https:\/\/assets.leaguestat.com\/pwhl\/120x160\/167.jpg"
+        },
+        "stats": {
+          "goals": 0,
+          "assists": 0,
+          "points": 0,
+          "penaltyMinutes": 0,
+          "plusMinus": 0,
+          "faceoffAttempts": 0,
+          "faceoffWins": 0,
+          "shots": 1,
+          "hits": 0,
+          "blockedShots": 0,
+          "toi": "17:36"
+        },
+        "starting": 0,
+        "status": ""
+      },
+      {
+        "info": {
+          "id": 18,
+          "firstName": "Sophie",
+          "lastName": "Shirley",
+          "jerseyNumber": 9,
+          "position": "F",
+          "birthDate": "1999-06-30",
+          "playerImageURL": "https:\/\/assets.leaguestat.com\/pwhl\/120x160\/18.jpg"
+        },
+        "stats": {
+          "goals": 0,
+          "assists": 0,
+          "points": 0,
+          "penaltyMinutes": 0,
+          "plusMinus": 0,
+          "faceoffAttempts": 0,
+          "faceoffWins": 0,
+          "shots": 0,
+          "hits": 0,
+          "blockedShots": 0,
+          "toi": "9:41"
+        },
+        "starting": 0,
+        "status": ""
+      },
+      {
+        "info": {
+          "id": 15,
+          "firstName": "Alina",
+          "lastName": "M\u00fcller",
+          "jerseyNumber": 11,
+          "position": "F",
+          "birthDate": "1998-03-12",
+          "playerImageURL": "https:\/\/assets.leaguestat.com\/pwhl\/120x160\/15.jpg"
+        },
+        "stats": {
+          "goals": 0,
+          "assists": 0,
+          "points": 0,
+          "penaltyMinutes": 0,
+          "plusMinus": -2,
+          "faceoffAttempts": 17,
+          "faceoffWins": 8,
+          "shots": 2,
+          "hits": 3,
+          "blockedShots": 1,
+          "toi": "19:59"
+        },
+        "starting": 1,
+        "status": ""
+      },
+      {
+        "info": {
+          "id": 180,
+          "firstName": "Sydney",
+          "lastName": "Bard",
+          "jerseyNumber": 15,
+          "position": "D",
+          "birthDate": "2001-01-15",
+          "playerImageURL": "https:\/\/assets.leaguestat.com\/pwhl\/120x160\/180.jpg"
+        },
+        "stats": {
+          "goals": 0,
+          "assists": 0,
+          "points": 0,
+          "penaltyMinutes": 0,
+          "plusMinus": -2,
+          "faceoffAttempts": 1,
+          "faceoffWins": 0,
+          "shots": 0,
+          "hits": 5,
+          "blockedShots": 1,
+          "toi": "24:04"
+        },
+        "starting": 1,
+        "status": ""
+      },
+      {
+        "info": {
+          "id": 110,
+          "firstName": "Amanda",
+          "lastName": "Pelkey",
+          "jerseyNumber": 16,
+          "position": "F",
+          "birthDate": "1993-05-29",
+          "playerImageURL": "https:\/\/assets.leaguestat.com\/pwhl\/120x160\/110.jpg"
+        },
+        "stats": {
+          "goals": 0,
+          "assists": 0,
+          "points": 0,
+          "penaltyMinutes": 0,
+          "plusMinus": 0,
+          "faceoffAttempts": 0,
+          "faceoffWins": 0,
+          "shots": 1,
+          "hits": 2,
+          "blockedShots": 1,
+          "toi": "7:51"
+        },
+        "starting": 0,
+        "status": ""
+      },
+      {
+        "info": {
+          "id": 9,
+          "firstName": "Taylor",
+          "lastName": "Girard",
+          "jerseyNumber": 17,
+          "position": "F",
+          "birthDate": "1998-07-17",
+          "playerImageURL": "https:\/\/assets.leaguestat.com\/pwhl\/120x160\/9.jpg"
+        },
+        "stats": {
+          "goals": 0,
+          "assists": 0,
+          "points": 0,
+          "penaltyMinutes": 4,
+          "plusMinus": 0,
+          "faceoffAttempts": 2,
+          "faceoffWins": 2,
+          "shots": 0,
+          "hits": 2,
+          "blockedShots": 1,
+          "toi": "7:07"
+        },
+        "starting": 0,
+        "status": ""
+      },
+      {
+        "info": {
+          "id": 181,
+          "firstName": "Hannah",
+          "lastName": "Bilka",
+          "jerseyNumber": 19,
+          "position": "F",
+          "birthDate": "2001-03-24",
+          "playerImageURL": "https:\/\/assets.leaguestat.com\/pwhl\/120x160\/181.jpg"
+        },
+        "stats": {
+          "goals": 0,
+          "assists": 1,
+          "points": 1,
+          "penaltyMinutes": 0,
+          "plusMinus": -2,
+          "faceoffAttempts": 2,
+          "faceoffWins": 0,
+          "shots": 2,
+          "hits": 4,
+          "blockedShots": 1,
+          "toi": "17:33"
+        },
+        "starting": 1,
+        "status": ""
+      },
+      {
+        "info": {
+          "id": 1,
+          "firstName": "Hannah",
+          "lastName": "Brandt",
+          "jerseyNumber": 20,
+          "position": "F",
+          "birthDate": "1993-11-27",
+          "playerImageURL": "https:\/\/assets.leaguestat.com\/pwhl\/120x160\/1.jpg"
+        },
+        "stats": {
+          "goals": 0,
+          "assists": 0,
+          "points": 0,
+          "penaltyMinutes": 0,
+          "plusMinus": 0,
+          "faceoffAttempts": 17,
+          "faceoffWins": 9,
+          "shots": 2,
+          "hits": 2,
+          "blockedShots": 3,
+          "toi": "15:12"
+        },
+        "starting": 0,
+        "status": ""
+      },
+      {
+        "info": {
+          "id": 13,
+          "firstName": "Hilary",
+          "lastName": "Knight",
+          "jerseyNumber": 21,
+          "position": "F",
+          "birthDate": "1989-07-12",
+          "playerImageURL": "https:\/\/assets.leaguestat.com\/pwhl\/120x160\/13.jpg"
+        },
+        "stats": {
+          "goals": 1,
+          "assists": 0,
+          "points": 1,
+          "penaltyMinutes": 2,
+          "plusMinus": -2,
+          "faceoffAttempts": 2,
+          "faceoffWins": 1,
+          "shots": 3,
+          "hits": 0,
+          "blockedShots": 0,
+          "toi": "20:38"
+        },
+        "starting": 1,
+        "status": ""
+      },
+      {
+        "info": {
+          "id": 5,
+          "firstName": "Jessica",
+          "lastName": "Digirolamo",
+          "jerseyNumber": 22,
+          "position": "D",
+          "birthDate": "1999-02-13",
+          "playerImageURL": "https:\/\/assets.leaguestat.com\/pwhl\/120x160\/5.jpg"
+        },
+        "stats": {
+          "goals": 0,
+          "assists": 0,
+          "points": 0,
+          "penaltyMinutes": 2,
+          "plusMinus": 0,
+          "faceoffAttempts": 0,
+          "faceoffWins": 0,
+          "shots": 3,
+          "hits": 0,
+          "blockedShots": 1,
+          "toi": "17:40"
+        },
+        "starting": 0,
+        "status": ""
+      },
+      {
+        "info": {
+          "id": 118,
+          "firstName": "Emma",
+          "lastName": "Greco",
+          "jerseyNumber": 25,
+          "position": "D",
+          "birthDate": "1995-03-06",
+          "playerImageURL": "https:\/\/assets.leaguestat.com\/pwhl\/120x160\/118.jpg"
+        },
+        "stats": {
+          "goals": 0,
+          "assists": 0,
+          "points": 0,
+          "penaltyMinutes": 0,
+          "plusMinus": 0,
+          "faceoffAttempts": 2,
+          "faceoffWins": 2,
+          "shots": 2,
+          "hits": 3,
+          "blockedShots": 0,
+          "toi": "14:57"
+        },
+        "starting": 0,
+        "status": ""
+      },
+      {
+        "info": {
+          "id": 183,
+          "firstName": "Shay",
+          "lastName": "Maloney",
+          "jerseyNumber": 27,
+          "position": "F",
+          "birthDate": "1999-08-31",
+          "playerImageURL": "https:\/\/assets.leaguestat.com\/pwhl\/120x160\/183.jpg"
+        },
+        "stats": {
+          "goals": 0,
+          "assists": 0,
+          "points": 0,
+          "penaltyMinutes": 0,
+          "plusMinus": 0,
+          "faceoffAttempts": 0,
+          "faceoffWins": 0,
+          "shots": 0,
+          "hits": 2,
+          "blockedShots": 0,
+          "toi": "8:22"
+        },
+        "starting": 0,
+        "status": ""
+      },
+      {
+        "info": {
+          "id": 8,
+          "firstName": "Loren",
+          "lastName": "Gabel",
+          "jerseyNumber": 36,
+          "position": "F",
+          "birthDate": "1997-07-24",
+          "playerImageURL": "https:\/\/assets.leaguestat.com\/pwhl\/120x160\/8.jpg"
+        },
+        "stats": {
+          "goals": 0,
+          "assists": 0,
+          "points": 0,
+          "penaltyMinutes": 0,
+          "plusMinus": 0,
+          "faceoffAttempts": 0,
+          "faceoffWins": 0,
+          "shots": 0,
+          "hits": 1,
+          "blockedShots": 0,
+          "toi": "12:30"
+        },
+        "starting": 0,
+        "status": ""
+      },
+      {
+        "info": {
+          "id": 17,
+          "firstName": "Theresa",
+          "lastName": "Schafzahl",
+          "jerseyNumber": 37,
+          "position": "F",
+          "birthDate": "2000-04-12",
+          "playerImageURL": "https:\/\/assets.leaguestat.com\/pwhl\/120x160\/17.jpg"
+        },
+        "stats": {
+          "goals": 0,
+          "assists": 0,
+          "points": 0,
+          "penaltyMinutes": 0,
+          "plusMinus": 0,
+          "faceoffAttempts": 3,
+          "faceoffWins": 2,
+          "shots": 1,
+          "hits": 0,
+          "blockedShots": 3,
+          "toi": "13:29"
+        },
+        "starting": 0,
+        "status": ""
+      },
+      {
+        "info": {
+          "id": 16,
+          "firstName": "Jamie Lee",
+          "lastName": "Rattray",
+          "jerseyNumber": 47,
+          "position": "F",
+          "birthDate": "1992-09-30",
+          "playerImageURL": "https:\/\/assets.leaguestat.com\/pwhl\/120x160\/16.jpg"
+        },
+        "stats": {
+          "goals": 0,
+          "assists": 0,
+          "points": 0,
+          "penaltyMinutes": 0,
+          "plusMinus": 0,
+          "faceoffAttempts": 0,
+          "faceoffWins": 0,
+          "shots": 0,
+          "hits": 1,
+          "blockedShots": 0,
+          "toi": "14:37"
+        },
+        "starting": 0,
+        "status": ""
+      },
+      {
+        "info": {
+          "id": 78,
+          "firstName": "Susanna",
+          "lastName": "Tapani",
+          "jerseyNumber": 77,
+          "position": "F",
+          "birthDate": "1993-03-02",
+          "playerImageURL": "https:\/\/assets.leaguestat.com\/pwhl\/120x160\/78.jpg"
+        },
+        "stats": {
+          "goals": 0,
+          "assists": 0,
+          "points": 0,
+          "penaltyMinutes": 0,
+          "plusMinus": -1,
+          "faceoffAttempts": 6,
+          "faceoffWins": 4,
+          "shots": 1,
+          "hits": 1,
+          "blockedShots": 1,
+          "toi": "15:14"
+        },
+        "starting": 0,
+        "status": ""
+      },
+      {
+        "info": {
+          "id": 49,
+          "firstName": "Lexie",
+          "lastName": "Adzija",
+          "jerseyNumber": 88,
+          "position": "F",
+          "birthDate": "2000-06-30",
+          "playerImageURL": "https:\/\/assets.leaguestat.com\/pwhl\/120x160\/49.jpg"
+        },
+        "stats": {
+          "goals": 0,
+          "assists": 0,
+          "points": 0,
+          "penaltyMinutes": 0,
+          "plusMinus": 0,
+          "faceoffAttempts": 3,
+          "faceoffWins": 0,
+          "shots": 0,
+          "hits": 0,
+          "blockedShots": 2,
+          "toi": "9:05"
+        },
+        "starting": 0,
+        "status": ""
+      }
+    ],
+    "goalies": [
+      {
+        "info": {
+          "id": 19,
+          "firstName": "Emma",
+          "lastName": "S\u00f6derberg",
+          "jerseyNumber": 30,
+          "position": "G",
+          "birthDate": "1998-02-18",
+          "playerImageURL": "https:\/\/assets.leaguestat.com\/pwhl\/120x160\/19.jpg"
+        },
+        "stats": {
+          "goals": 0,
+          "assists": 0,
+          "points": 0,
+          "penaltyMinutes": 0,
+          "plusMinus": 0,
+          "faceoffAttempts": 0,
+          "faceoffWins": 0,
+          "timeOnIce": null,
+          "shotsAgainst": 0,
+          "goalsAgainst": 0,
+          "saves": 0
+        },
+        "starting": 0,
+        "status": ""
+      },
+      {
+        "info": {
+          "id": 6,
+          "firstName": "Aerin",
+          "lastName": "Frankel",
+          "jerseyNumber": 31,
+          "position": "G",
+          "birthDate": "1999-05-24",
+          "playerImageURL": "https:\/\/assets.leaguestat.com\/pwhl\/120x160\/6.jpg"
+        },
+        "stats": {
+          "goals": 0,
+          "assists": 0,
+          "points": 0,
+          "penaltyMinutes": 0,
+          "plusMinus": 0,
+          "faceoffAttempts": 0,
+          "faceoffWins": 0,
+          "timeOnIce": "58:46",
+          "shotsAgainst": 40,
+          "goalsAgainst": 2,
+          "saves": 38
+        },
+        "starting": 1,
+        "status": ""
+      }
+    ],
+    "goalieLog": [
+      {
+        "info": {
+          "id": 6,
+          "firstName": "Aerin",
+          "lastName": "Frankel",
+          "jerseyNumber": 31,
+          "position": "G",
+          "birthDate": "",
+          "playerImageURL": "https:\/\/assets.leaguestat.com\/pwhl\/120x160\/6.jpg"
+        },
+        "stats": {
+          "goals": 0,
+          "assists": 0,
+          "points": 0,
+          "penaltyMinutes": 0,
+          "plusMinus": 0,
+          "faceoffAttempts": 0,
+          "faceoffWins": 0,
+          "timeOnIce": "58:34",
+          "shotsAgainst": 40,
+          "goalsAgainst": 2,
+          "saves": 38
+        },
+        "periodStart": {
+          "id": "1",
+          "shortName": "1",
+          "longName": "1st"
+        },
+        "timeStart": "0:00",
+        "periodEnd": {
+          "id": "3",
+          "shortName": "3",
+          "longName": "3rd"
+        },
+        "timeEnd": "18:34",
+        "result": "L"
+      },
+      {
+        "info": {
+          "id": 6,
+          "firstName": "Aerin",
+          "lastName": "Frankel",
+          "jerseyNumber": 31,
+          "position": "G",
+          "birthDate": "",
+          "playerImageURL": "https:\/\/assets.leaguestat.com\/pwhl\/120x160\/6.jpg"
+        },
+        "stats": {
+          "goals": 0,
+          "assists": 0,
+          "points": 0,
+          "penaltyMinutes": 0,
+          "plusMinus": 0,
+          "faceoffAttempts": 0,
+          "faceoffWins": 0,
+          "timeOnIce": "00:12",
+          "shotsAgainst": 0,
+          "goalsAgainst": 0,
+          "saves": 0
+        },
+        "periodStart": {
+          "id": "3",
+          "shortName": "3",
+          "longName": "3rd"
+        },
+        "timeStart": "19:48",
+        "periodEnd": {
+          "id": "3",
+          "shortName": "3",
+          "longName": "3rd"
+        },
+        "timeEnd": "20:00",
+        "result": "L"
+      }
+    ],
+    "seasonStats": {
+      "seasonId": null,
+      "teamRecord": {
+        "wins": 0,
+        "losses": 1,
+        "ties": 0,
+        "OTWins": 0,
+        "OTLosses": 0,
+        "SOLosses": 0,
+        "formattedRecord": "0-1-0-0"
+      },
+      "teamStats": []
+    }
+  },
+  "periods": [
+    {
+      "info": {
+        "id": "1",
+        "shortName": "1",
+        "longName": "1st"
+      },
+      "stats": {
+        "homeGoals": "1",
+        "homeShots": "9",
+        "visitingGoals": "1",
+        "visitingShots": "12"
+      },
+      "goals": [
+        {
+          "game_goal_id": "502",
+          "team": {
+            "id": 1,
+            "name": "Boston Fleet",
+            "city": "Boston",
+            "nickname": "Fleet",
+            "abbreviation": "BOS",
+            "logo": "https:\/\/assets.leaguestat.com\/pwhl\/logos\/1_5.png",
+            "divisionName": "PWHL"
+          },
+          "period": {
+            "id": "1",
+            "shortName": "",
+            "longName": "1st"
+          },
+          "time": "3:00",
+          "scorerGoalNumber": "1",
+          "scoredBy": {
+            "id": 13,
+            "firstName": "Hilary",
+            "lastName": "Knight",
+            "jerseyNumber": 21,
+            "position": "F",
+            "birthDate": "",
+            "playerImageURL": "https:\/\/assets.leaguestat.com\/pwhl\/120x160\/13.jpg"
+          },
+          "assists": [
+            {
+              "id": 12,
+              "firstName": "Megan",
+              "lastName": "Keller",
+              "jerseyNumber": 5,
+              "position": "D",
+              "birthDate": "",
+              "playerImageURL": "https:\/\/assets.leaguestat.com\/pwhl\/120x160\/12.jpg"
+            },
+            {
+              "id": 181,
+              "firstName": "Hannah",
+              "lastName": "Bilka",
+              "jerseyNumber": 19,
+              "position": "F",
+              "birthDate": "",
+              "playerImageURL": "https:\/\/assets.leaguestat.com\/pwhl\/120x160\/181.jpg"
+            }
+          ],
+          "assistNumbers": [
+            "1",
+            "1"
+          ],
+          "properties": {
+            "isPowerPlay": "1",
+            "isShortHanded": "0",
+            "isEmptyNet": "0",
+            "isPenaltyShot": "0",
+            "isInsuranceGoal": "0",
+            "isGameWinningGoal": "0"
+          },
+          "plus_players": [
+            {
+              "id": 12,
+              "firstName": "Megan",
+              "lastName": "Keller",
+              "jerseyNumber": 5,
+              "position": "D",
+              "birthDate": "",
+              "playerImageURL": "https:\/\/assets.leaguestat.com\/pwhl\/120x160\/12.jpg"
+            },
+            {
+              "id": 15,
+              "firstName": "Alina",
+              "lastName": "M\u00fcller",
+              "jerseyNumber": 11,
+              "position": "F",
+              "birthDate": "",
+              "playerImageURL": "https:\/\/assets.leaguestat.com\/pwhl\/120x160\/15.jpg"
+            },
+            {
+              "id": 180,
+              "firstName": "Sydney",
+              "lastName": "Bard",
+              "jerseyNumber": 15,
+              "position": "D",
+              "birthDate": "",
+              "playerImageURL": "https:\/\/assets.leaguestat.com\/pwhl\/120x160\/180.jpg"
+            },
+            {
+              "id": 181,
+              "firstName": "Hannah",
+              "lastName": "Bilka",
+              "jerseyNumber": 19,
+              "position": "F",
+              "birthDate": "",
+              "playerImageURL": "https:\/\/assets.leaguestat.com\/pwhl\/120x160\/181.jpg"
+            },
+            {
+              "id": 13,
+              "firstName": "Hilary",
+              "lastName": "Knight",
+              "jerseyNumber": 21,
+              "position": "F",
+              "birthDate": "",
+              "playerImageURL": "https:\/\/assets.leaguestat.com\/pwhl\/120x160\/13.jpg"
+            }
+          ],
+          "minus_players": [
+            {
+              "id": 71,
+              "firstName": "Jocelyne",
+              "lastName": "Larocque",
+              "jerseyNumber": 3,
+              "position": "D",
+              "birthDate": "",
+              "playerImageURL": "https:\/\/assets.leaguestat.com\/pwhl\/120x160\/71.jpg"
+            },
+            {
+              "id": 67,
+              "firstName": "Renata",
+              "lastName": "Fast",
+              "jerseyNumber": 14,
+              "position": "D",
+              "birthDate": "",
+              "playerImageURL": "https:\/\/assets.leaguestat.com\/pwhl\/120x160\/67.jpg"
+            },
+            {
+              "id": 125,
+              "firstName": "Victoria",
+              "lastName": "Bach",
+              "jerseyNumber": 51,
+              "position": "F",
+              "birthDate": "",
+              "playerImageURL": "https:\/\/assets.leaguestat.com\/pwhl\/120x160\/125.jpg"
+            },
+            {
+              "id": 214,
+              "firstName": "Noemi",
+              "lastName": "Neubauerov\u00e1",
+              "jerseyNumber": 61,
+              "position": "F",
+              "birthDate": "",
+              "playerImageURL": "https:\/\/assets.leaguestat.com\/pwhl\/120x160\/214.jpg"
+            }
+          ]
+        },
+        {
+          "game_goal_id": "503",
+          "team": {
+            "id": 6,
+            "name": "Toronto Sceptres",
+            "city": "Toronto",
+            "nickname": "Sceptres",
+            "abbreviation": "TOR",
+            "logo": "https:\/\/assets.leaguestat.com\/pwhl\/logos\/6_5.png",
+            "divisionName": "PWHL"
+          },
+          "period": {
+            "id": "1",
+            "shortName": "",
+            "longName": "1st"
+          },
+          "time": "11:50",
+          "scorerGoalNumber": "1",
+          "scoredBy": {
+            "id": 75,
+            "firstName": "Sarah",
+            "lastName": "Nurse",
+            "jerseyNumber": 20,
+            "position": "F",
+            "birthDate": "",
+            "playerImageURL": "https:\/\/assets.leaguestat.com\/pwhl\/120x160\/75.jpg"
+          },
+          "assists": [
+            {
+              "id": 63,
+              "firstName": "Daryl",
+              "lastName": "Watts",
+              "jerseyNumber": 9,
+              "position": "F",
+              "birthDate": "",
+              "playerImageURL": "https:\/\/assets.leaguestat.com\/pwhl\/120x160\/63.jpg"
+            },
+            {
+              "id": 232,
+              "firstName": "Rylind",
+              "lastName": "MacKinnon",
+              "jerseyNumber": 55,
+              "position": "D",
+              "birthDate": "",
+              "playerImageURL": "https:\/\/assets.leaguestat.com\/pwhl\/120x160\/232.jpg"
+            }
+          ],
+          "assistNumbers": [
+            "1",
+            "1"
+          ],
+          "properties": {
+            "isPowerPlay": "0",
+            "isShortHanded": "1",
+            "isEmptyNet": "0",
+            "isPenaltyShot": "0",
+            "isInsuranceGoal": "0",
+            "isGameWinningGoal": "0"
+          },
+          "plus_players": [
+            {
+              "id": 71,
+              "firstName": "Jocelyne",
+              "lastName": "Larocque",
+              "jerseyNumber": 3,
+              "position": "D",
+              "birthDate": "",
+              "playerImageURL": "https:\/\/assets.leaguestat.com\/pwhl\/120x160\/71.jpg"
+            },
+            {
+              "id": 67,
+              "firstName": "Renata",
+              "lastName": "Fast",
+              "jerseyNumber": 14,
+              "position": "D",
+              "birthDate": "",
+              "playerImageURL": "https:\/\/assets.leaguestat.com\/pwhl\/120x160\/67.jpg"
+            },
+            {
+              "id": 75,
+              "firstName": "Sarah",
+              "lastName": "Nurse",
+              "jerseyNumber": 20,
+              "position": "F",
+              "birthDate": "",
+              "playerImageURL": "https:\/\/assets.leaguestat.com\/pwhl\/120x160\/75.jpg"
+            },
+            {
+              "id": 232,
+              "firstName": "Rylind",
+              "lastName": "MacKinnon",
+              "jerseyNumber": 55,
+              "position": "D",
+              "birthDate": "",
+              "playerImageURL": "https:\/\/assets.leaguestat.com\/pwhl\/120x160\/232.jpg"
+            }
+          ],
+          "minus_players": [
+            {
+              "id": 12,
+              "firstName": "Megan",
+              "lastName": "Keller",
+              "jerseyNumber": 5,
+              "position": "D",
+              "birthDate": "",
+              "playerImageURL": "https:\/\/assets.leaguestat.com\/pwhl\/120x160\/12.jpg"
+            },
+            {
+              "id": 15,
+              "firstName": "Alina",
+              "lastName": "M\u00fcller",
+              "jerseyNumber": 11,
+              "position": "F",
+              "birthDate": "",
+              "playerImageURL": "https:\/\/assets.leaguestat.com\/pwhl\/120x160\/15.jpg"
+            },
+            {
+              "id": 180,
+              "firstName": "Sydney",
+              "lastName": "Bard",
+              "jerseyNumber": 15,
+              "position": "D",
+              "birthDate": "",
+              "playerImageURL": "https:\/\/assets.leaguestat.com\/pwhl\/120x160\/180.jpg"
+            },
+            {
+              "id": 181,
+              "firstName": "Hannah",
+              "lastName": "Bilka",
+              "jerseyNumber": 19,
+              "position": "F",
+              "birthDate": "",
+              "playerImageURL": "https:\/\/assets.leaguestat.com\/pwhl\/120x160\/181.jpg"
+            },
+            {
+              "id": 13,
+              "firstName": "Hilary",
+              "lastName": "Knight",
+              "jerseyNumber": 21,
+              "position": "F",
+              "birthDate": "",
+              "playerImageURL": "https:\/\/assets.leaguestat.com\/pwhl\/120x160\/13.jpg"
+            }
+          ]
+        }
+      ],
+      "penalties": [
+        {
+          "game_penalty_id": 632,
+          "period": {
+            "id": "1",
+            "shortName": "",
+            "longName": "1st"
+          },
+          "time": "02:35",
+          "againstTeam": {
+            "id": 6,
+            "name": "Toronto Sceptres",
+            "city": "Toronto",
+            "nickname": "Sceptres",
+            "abbreviation": "TOR",
+            "logo": "https:\/\/assets.leaguestat.com\/pwhl\/logos\/6_5.png",
+            "divisionName": "PWHL"
+          },
+          "minutes": 2,
+          "description": "Tripping",
+          "ruleNumber": "",
+          "takenBy": {
+            "id": 66,
+            "firstName": "Maggie",
+            "lastName": "Connors",
+            "jerseyNumber": 22,
+            "position": "F",
+            "birthDate": "",
+            "playerImageURL": "https:\/\/assets.leaguestat.com\/pwhl\/120x160\/66.jpg"
+          },
+          "servedBy": {
+            "id": 66,
+            "firstName": "Maggie",
+            "lastName": "Connors",
+            "jerseyNumber": 22,
+            "position": "F",
+            "birthDate": "",
+            "playerImageURL": "https:\/\/assets.leaguestat.com\/pwhl\/120x160\/66.jpg"
+          },
+          "isPowerPlay": true,
+          "isBench": false
+        },
+        {
+          "game_penalty_id": 633,
+          "period": {
+            "id": "1",
+            "shortName": "",
+            "longName": "1st"
+          },
+          "time": "11:39",
+          "againstTeam": {
+            "id": 6,
+            "name": "Toronto Sceptres",
+            "city": "Toronto",
+            "nickname": "Sceptres",
+            "abbreviation": "TOR",
+            "logo": "https:\/\/assets.leaguestat.com\/pwhl\/logos\/6_5.png",
+            "divisionName": "PWHL"
+          },
+          "minutes": 2,
+          "description": "Tripping",
+          "ruleNumber": "",
+          "takenBy": {
+            "id": 209,
+            "firstName": "Izzy",
+            "lastName": "Daniel",
+            "jerseyNumber": 8,
+            "position": "F",
+            "birthDate": "",
+            "playerImageURL": "https:\/\/assets.leaguestat.com\/pwhl\/120x160\/209.jpg"
+          },
+          "servedBy": {
+            "id": 209,
+            "firstName": "Izzy",
+            "lastName": "Daniel",
+            "jerseyNumber": 8,
+            "position": "F",
+            "birthDate": "",
+            "playerImageURL": "https:\/\/assets.leaguestat.com\/pwhl\/120x160\/209.jpg"
+          },
+          "isPowerPlay": true,
+          "isBench": false
+        }
+      ]
+    },
+    {
+      "info": {
+        "id": "2",
+        "shortName": "2",
+        "longName": "2nd"
+      },
+      "stats": {
+        "homeGoals": "0",
+        "homeShots": "16",
+        "visitingGoals": "0",
+        "visitingShots": "6"
+      },
+      "goals": [],
+      "penalties": [
+        {
+          "game_penalty_id": 634,
+          "period": {
+            "id": "2",
+            "shortName": "",
+            "longName": "2nd"
+          },
+          "time": "04:59",
+          "againstTeam": {
+            "id": 1,
+            "name": "Boston Fleet",
+            "city": "Boston",
+            "nickname": "Fleet",
+            "abbreviation": "BOS",
+            "logo": "https:\/\/assets.leaguestat.com\/pwhl\/logos\/1_5.png",
+            "divisionName": "PWHL"
+          },
+          "minutes": 2,
+          "description": "Tripping",
+          "ruleNumber": "",
+          "takenBy": {
+            "id": 5,
+            "firstName": "Jessica",
+            "lastName": "Digirolamo",
+            "jerseyNumber": 22,
+            "position": "D",
+            "birthDate": "",
+            "playerImageURL": "https:\/\/assets.leaguestat.com\/pwhl\/120x160\/5.jpg"
+          },
+          "servedBy": {
+            "id": 5,
+            "firstName": "Jessica",
+            "lastName": "Digirolamo",
+            "jerseyNumber": 22,
+            "position": "D",
+            "birthDate": "",
+            "playerImageURL": "https:\/\/assets.leaguestat.com\/pwhl\/120x160\/5.jpg"
+          },
+          "isPowerPlay": true,
+          "isBench": false
+        },
+        {
+          "game_penalty_id": 637,
+          "period": {
+            "id": "2",
+            "shortName": "",
+            "longName": "2nd"
+          },
+          "time": "10:21",
+          "againstTeam": {
+            "id": 1,
+            "name": "Boston Fleet",
+            "city": "Boston",
+            "nickname": "Fleet",
+            "abbreviation": "BOS",
+            "logo": "https:\/\/assets.leaguestat.com\/pwhl\/logos\/1_5.png",
+            "divisionName": "PWHL"
+          },
+          "minutes": 2,
+          "description": "Boarding",
+          "ruleNumber": "",
+          "takenBy": {
+            "id": 9,
+            "firstName": "Taylor",
+            "lastName": "Girard",
+            "jerseyNumber": 17,
+            "position": "F",
+            "birthDate": "",
+            "playerImageURL": "https:\/\/assets.leaguestat.com\/pwhl\/120x160\/9.jpg"
+          },
+          "servedBy": {
+            "id": 18,
+            "firstName": "Sophie",
+            "lastName": "Shirley",
+            "jerseyNumber": 9,
+            "position": "F",
+            "birthDate": "",
+            "playerImageURL": "https:\/\/assets.leaguestat.com\/pwhl\/120x160\/18.jpg"
+          },
+          "isPowerPlay": true,
+          "isBench": false
+        },
+        {
+          "game_penalty_id": 636,
+          "period": {
+            "id": "2",
+            "shortName": "",
+            "longName": "2nd"
+          },
+          "time": "10:21",
+          "againstTeam": {
+            "id": 1,
+            "name": "Boston Fleet",
+            "city": "Boston",
+            "nickname": "Fleet",
+            "abbreviation": "BOS",
+            "logo": "https:\/\/assets.leaguestat.com\/pwhl\/logos\/1_5.png",
+            "divisionName": "PWHL"
+          },
+          "minutes": 2,
+          "description": "Roughing",
+          "ruleNumber": "",
+          "takenBy": {
+            "id": 9,
+            "firstName": "Taylor",
+            "lastName": "Girard",
+            "jerseyNumber": 17,
+            "position": "F",
+            "birthDate": "",
+            "playerImageURL": "https:\/\/assets.leaguestat.com\/pwhl\/120x160\/9.jpg"
+          },
+          "servedBy": {
+            "id": 9,
+            "firstName": "Taylor",
+            "lastName": "Girard",
+            "jerseyNumber": 17,
+            "position": "F",
+            "birthDate": "",
+            "playerImageURL": "https:\/\/assets.leaguestat.com\/pwhl\/120x160\/9.jpg"
+          },
+          "isPowerPlay": false,
+          "isBench": false
+        },
+        {
+          "game_penalty_id": 635,
+          "period": {
+            "id": "2",
+            "shortName": "",
+            "longName": "2nd"
+          },
+          "time": "10:21",
+          "againstTeam": {
+            "id": 6,
+            "name": "Toronto Sceptres",
+            "city": "Toronto",
+            "nickname": "Sceptres",
+            "abbreviation": "TOR",
+            "logo": "https:\/\/assets.leaguestat.com\/pwhl\/logos\/6_5.png",
+            "divisionName": "PWHL"
+          },
+          "minutes": 2,
+          "description": "Roughing",
+          "ruleNumber": "",
+          "takenBy": {
+            "id": 74,
+            "firstName": "Allie",
+            "lastName": "Munroe",
+            "jerseyNumber": 12,
+            "position": "D",
+            "birthDate": "",
+            "playerImageURL": "https:\/\/assets.leaguestat.com\/pwhl\/120x160\/74.jpg"
+          },
+          "servedBy": {
+            "id": 74,
+            "firstName": "Allie",
+            "lastName": "Munroe",
+            "jerseyNumber": 12,
+            "position": "D",
+            "birthDate": "",
+            "playerImageURL": "https:\/\/assets.leaguestat.com\/pwhl\/120x160\/74.jpg"
+          },
+          "isPowerPlay": false,
+          "isBench": false
+        },
+        {
+          "game_penalty_id": 638,
+          "period": {
+            "id": "2",
+            "shortName": "",
+            "longName": "2nd"
+          },
+          "time": "11:23",
+          "againstTeam": {
+            "id": 1,
+            "name": "Boston Fleet",
+            "city": "Boston",
+            "nickname": "Fleet",
+            "abbreviation": "BOS",
+            "logo": "https:\/\/assets.leaguestat.com\/pwhl\/logos\/1_5.png",
+            "divisionName": "PWHL"
+          },
+          "minutes": 2,
+          "description": "Interference",
+          "ruleNumber": "",
+          "takenBy": {
+            "id": 12,
+            "firstName": "Megan",
+            "lastName": "Keller",
+            "jerseyNumber": 5,
+            "position": "D",
+            "birthDate": "",
+            "playerImageURL": "https:\/\/assets.leaguestat.com\/pwhl\/120x160\/12.jpg"
+          },
+          "servedBy": {
+            "id": 12,
+            "firstName": "Megan",
+            "lastName": "Keller",
+            "jerseyNumber": 5,
+            "position": "D",
+            "birthDate": "",
+            "playerImageURL": "https:\/\/assets.leaguestat.com\/pwhl\/120x160\/12.jpg"
+          },
+          "isPowerPlay": true,
+          "isBench": false
+        }
+      ]
+    },
+    {
+      "info": {
+        "id": "3",
+        "shortName": "3",
+        "longName": "3rd"
+      },
+      "stats": {
+        "homeGoals": "2",
+        "homeShots": "16",
+        "visitingGoals": "0",
+        "visitingShots": "1"
+      },
+      "goals": [
+        {
+          "game_goal_id": "504",
+          "team": {
+            "id": 6,
+            "name": "Toronto Sceptres",
+            "city": "Toronto",
+            "nickname": "Sceptres",
+            "abbreviation": "TOR",
+            "logo": "https:\/\/assets.leaguestat.com\/pwhl\/logos\/6_5.png",
+            "divisionName": "PWHL"
+          },
+          "period": {
+            "id": "3",
+            "shortName": "",
+            "longName": "3rd"
+          },
+          "time": "18:22",
+          "scorerGoalNumber": "1",
+          "scoredBy": {
+            "id": 89,
+            "firstName": "Hannah",
+            "lastName": "Miller",
+            "jerseyNumber": 34,
+            "position": "F",
+            "birthDate": "",
+            "playerImageURL": "https:\/\/assets.leaguestat.com\/pwhl\/120x160\/89.jpg"
+          },
+          "assists": [
+            {
+              "id": 63,
+              "firstName": "Daryl",
+              "lastName": "Watts",
+              "jerseyNumber": 9,
+              "position": "F",
+              "birthDate": "",
+              "playerImageURL": "https:\/\/assets.leaguestat.com\/pwhl\/120x160\/63.jpg"
+            },
+            {
+              "id": 67,
+              "firstName": "Renata",
+              "lastName": "Fast",
+              "jerseyNumber": 14,
+              "position": "D",
+              "birthDate": "",
+              "playerImageURL": "https:\/\/assets.leaguestat.com\/pwhl\/120x160\/67.jpg"
+            }
+          ],
+          "assistNumbers": [
+            "2",
+            "1"
+          ],
+          "properties": {
+            "isPowerPlay": "1",
+            "isShortHanded": "0",
+            "isEmptyNet": "0",
+            "isPenaltyShot": "0",
+            "isInsuranceGoal": "0",
+            "isGameWinningGoal": "1"
+          },
+          "plus_players": [
+            {
+              "id": 63,
+              "firstName": "Daryl",
+              "lastName": "Watts",
+              "jerseyNumber": 9,
+              "position": "F",
+              "birthDate": "",
+              "playerImageURL": "https:\/\/assets.leaguestat.com\/pwhl\/120x160\/63.jpg"
+            },
+            {
+              "id": 67,
+              "firstName": "Renata",
+              "lastName": "Fast",
+              "jerseyNumber": 14,
+              "position": "D",
+              "birthDate": "",
+              "playerImageURL": "https:\/\/assets.leaguestat.com\/pwhl\/120x160\/67.jpg"
+            },
+            {
+              "id": 65,
+              "firstName": "Jesse",
+              "lastName": "Compher",
+              "jerseyNumber": 18,
+              "position": "F",
+              "birthDate": "",
+              "playerImageURL": "https:\/\/assets.leaguestat.com\/pwhl\/120x160\/65.jpg"
+            },
+            {
+              "id": 75,
+              "firstName": "Sarah",
+              "lastName": "Nurse",
+              "jerseyNumber": 20,
+              "position": "F",
+              "birthDate": "",
+              "playerImageURL": "https:\/\/assets.leaguestat.com\/pwhl\/120x160\/75.jpg"
+            },
+            {
+              "id": 89,
+              "firstName": "Hannah",
+              "lastName": "Miller",
+              "jerseyNumber": 34,
+              "position": "F",
+              "birthDate": "",
+              "playerImageURL": "https:\/\/assets.leaguestat.com\/pwhl\/120x160\/89.jpg"
+            }
+          ],
+          "minus_players": [
+            {
+              "id": 167,
+              "firstName": "Sidney",
+              "lastName": "Morin",
+              "jerseyNumber": 7,
+              "position": "D",
+              "birthDate": "",
+              "playerImageURL": "https:\/\/assets.leaguestat.com\/pwhl\/120x160\/167.jpg"
+            },
+            {
+              "id": 15,
+              "firstName": "Alina",
+              "lastName": "M\u00fcller",
+              "jerseyNumber": 11,
+              "position": "F",
+              "birthDate": "",
+              "playerImageURL": "https:\/\/assets.leaguestat.com\/pwhl\/120x160\/15.jpg"
+            },
+            {
+              "id": 181,
+              "firstName": "Hannah",
+              "lastName": "Bilka",
+              "jerseyNumber": 19,
+              "position": "F",
+              "birthDate": "",
+              "playerImageURL": "https:\/\/assets.leaguestat.com\/pwhl\/120x160\/181.jpg"
+            },
+            {
+              "id": 5,
+              "firstName": "Jessica",
+              "lastName": "Digirolamo",
+              "jerseyNumber": 22,
+              "position": "D",
+              "birthDate": "",
+              "playerImageURL": "https:\/\/assets.leaguestat.com\/pwhl\/120x160\/5.jpg"
+            }
+          ]
+        },
+        {
+          "game_goal_id": "505",
+          "team": {
+            "id": 6,
+            "name": "Toronto Sceptres",
+            "city": "Toronto",
+            "nickname": "Sceptres",
+            "abbreviation": "TOR",
+            "logo": "https:\/\/assets.leaguestat.com\/pwhl\/logos\/6_5.png",
+            "divisionName": "PWHL"
+          },
+          "period": {
+            "id": "3",
+            "shortName": "",
+            "longName": "3rd"
+          },
+          "time": "19:48",
+          "scorerGoalNumber": "1",
+          "scoredBy": {
+            "id": 73,
+            "firstName": "Emma",
+            "lastName": "Maltais",
+            "jerseyNumber": 27,
+            "position": "F",
+            "birthDate": "",
+            "playerImageURL": "https:\/\/assets.leaguestat.com\/pwhl\/120x160\/73.jpg"
+          },
+          "assists": [],
+          "assistNumbers": [
+            "0",
+            "0"
+          ],
+          "properties": {
+            "isPowerPlay": "0",
+            "isShortHanded": "0",
+            "isEmptyNet": "1",
+            "isPenaltyShot": "0",
+            "isInsuranceGoal": "1",
+            "isGameWinningGoal": "0"
+          },
+          "plus_players": [
+            {
+              "id": 71,
+              "firstName": "Jocelyne",
+              "lastName": "Larocque",
+              "jerseyNumber": 3,
+              "position": "D",
+              "birthDate": "",
+              "playerImageURL": "https:\/\/assets.leaguestat.com\/pwhl\/120x160\/71.jpg"
+            },
+            {
+              "id": 67,
+              "firstName": "Renata",
+              "lastName": "Fast",
+              "jerseyNumber": 14,
+              "position": "D",
+              "birthDate": "",
+              "playerImageURL": "https:\/\/assets.leaguestat.com\/pwhl\/120x160\/67.jpg"
+            },
+            {
+              "id": 73,
+              "firstName": "Emma",
+              "lastName": "Maltais",
+              "jerseyNumber": 27,
+              "position": "F",
+              "birthDate": "",
+              "playerImageURL": "https:\/\/assets.leaguestat.com\/pwhl\/120x160\/73.jpg"
+            },
+            {
+              "id": 76,
+              "firstName": "Blayre",
+              "lastName": "Turnbull",
+              "jerseyNumber": 40,
+              "position": "F",
+              "birthDate": "",
+              "playerImageURL": "https:\/\/assets.leaguestat.com\/pwhl\/120x160\/76.jpg"
+            },
+            {
+              "id": 125,
+              "firstName": "Victoria",
+              "lastName": "Bach",
+              "jerseyNumber": 51,
+              "position": "F",
+              "birthDate": "",
+              "playerImageURL": "https:\/\/assets.leaguestat.com\/pwhl\/120x160\/125.jpg"
+            }
+          ],
+          "minus_players": [
+            {
+              "id": 12,
+              "firstName": "Megan",
+              "lastName": "Keller",
+              "jerseyNumber": 5,
+              "position": "D",
+              "birthDate": "",
+              "playerImageURL": "https:\/\/assets.leaguestat.com\/pwhl\/120x160\/12.jpg"
+            },
+            {
+              "id": 15,
+              "firstName": "Alina",
+              "lastName": "M\u00fcller",
+              "jerseyNumber": 11,
+              "position": "F",
+              "birthDate": "",
+              "playerImageURL": "https:\/\/assets.leaguestat.com\/pwhl\/120x160\/15.jpg"
+            },
+            {
+              "id": 180,
+              "firstName": "Sydney",
+              "lastName": "Bard",
+              "jerseyNumber": 15,
+              "position": "D",
+              "birthDate": "",
+              "playerImageURL": "https:\/\/assets.leaguestat.com\/pwhl\/120x160\/180.jpg"
+            },
+            {
+              "id": 181,
+              "firstName": "Hannah",
+              "lastName": "Bilka",
+              "jerseyNumber": 19,
+              "position": "F",
+              "birthDate": "",
+              "playerImageURL": "https:\/\/assets.leaguestat.com\/pwhl\/120x160\/181.jpg"
+            },
+            {
+              "id": 13,
+              "firstName": "Hilary",
+              "lastName": "Knight",
+              "jerseyNumber": 21,
+              "position": "F",
+              "birthDate": "",
+              "playerImageURL": "https:\/\/assets.leaguestat.com\/pwhl\/120x160\/13.jpg"
+            },
+            {
+              "id": 78,
+              "firstName": "Susanna",
+              "lastName": "Tapani",
+              "jerseyNumber": 77,
+              "position": "F",
+              "birthDate": "",
+              "playerImageURL": "https:\/\/assets.leaguestat.com\/pwhl\/120x160\/78.jpg"
+            }
+          ]
+        }
+      ],
+      "penalties": [
+        {
+          "game_penalty_id": 639,
+          "period": {
+            "id": "3",
+            "shortName": "",
+            "longName": "3rd"
+          },
+          "time": "17:56",
+          "againstTeam": {
+            "id": 1,
+            "name": "Boston Fleet",
+            "city": "Boston",
+            "nickname": "Fleet",
+            "abbreviation": "BOS",
+            "logo": "https:\/\/assets.leaguestat.com\/pwhl\/logos\/1_5.png",
+            "divisionName": "PWHL"
+          },
+          "minutes": 2,
+          "description": "Boarding",
+          "ruleNumber": "",
+          "takenBy": {
+            "id": 13,
+            "firstName": "Hilary",
+            "lastName": "Knight",
+            "jerseyNumber": 21,
+            "position": "F",
+            "birthDate": "",
+            "playerImageURL": "https:\/\/assets.leaguestat.com\/pwhl\/120x160\/13.jpg"
+          },
+          "servedBy": {
+            "id": 13,
+            "firstName": "Hilary",
+            "lastName": "Knight",
+            "jerseyNumber": 21,
+            "position": "F",
+            "birthDate": "",
+            "playerImageURL": "https:\/\/assets.leaguestat.com\/pwhl\/120x160\/13.jpg"
+          },
+          "isPowerPlay": true,
+          "isBench": false
+        }
+      ]
+    }
+  ],
+  "penaltyShots": {
+    "homeTeam": [],
+    "visitingTeam": []
+  },
+  "featuredPlayer": {
+    "team": {
+      "id": 1,
+      "name": "Boston Fleet",
+      "city": "Boston",
+      "nickname": "Fleet",
+      "abbreviation": "BOS",
+      "logo": "https:\/\/assets.leaguestat.com\/pwhl\/logos\/1_5.png",
+      "divisionName": "PWHL"
+    },
+    "player": {
+      "info": {
+        "id": 0,
+        "firstName": null,
+        "lastName": null,
+        "jerseyNumber": 0,
+        "position": null,
+        "birthDate": null,
+        "playerImageURL": "https:\/\/assets.leaguestat.com\/pwhl\/120x160\/0.jpg"
+      },
+      "stats": {
+        "goals": 0,
+        "assists": 0,
+        "points": 0,
+        "penaltyMinutes": 0,
+        "plusMinus": 0,
+        "faceoffAttempts": 0,
+        "faceoffWins": 0,
+        "shots": 0,
+        "hits": 0,
+        "blockedShots": 0,
+        "toi": null
+      },
+      "starting": 0,
+      "status": null
+    },
+    "isGoalie": false,
+    "playerImage": null,
+    "sponsor": {
+      "name": null,
+      "image": null
+    }
+  }
+}

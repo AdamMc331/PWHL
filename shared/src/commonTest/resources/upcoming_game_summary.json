@@ -1,0 +1,179 @@
+{
+  "details": {
+    "id": 113,
+    "date": "Tuesday, December 17, 2024",
+    "gameNumber": "10",
+    "venue": "Tsongas Center",
+    "attendance": 0,
+    "startTime": " EST",
+    "endTime": " EST",
+    "duration": "",
+    "gameReportUrl": "https:\/\/lscluster.hockeytech.com\/game_reports\/official-game-report.php?lang_id=1&client_code=pwhl&game_id=113",
+    "textBoxscoreUrl": "https:\/\/lscluster.hockeytech.com\/game_reports\/text-game-report.php?lang_id=1&client_code=pwhl&game_id=113",
+    "ticketsUrl": "https:\/\/tsongascenter.evenue.net\/cgi-bin\/ncommerce3\/SEGetEventInfo?ticketCode=GS:GLOBAL-LOWELL:PW25:PW25GM03:&linkID=global-lowell&dataAccId=499&locale=en_US&siteId=ev_global-lowell",
+    "started": "0",
+    "final": "0",
+    "publicNotes": "",
+    "status": " 7:00 PM EST",
+    "seasonId": "5",
+    "floHockeyUrl": "",
+    "GameDateISO8601": "2024-12-17T19:00:00-05:00"
+  },
+  "referees": [],
+  "linesmen": [],
+  "scorekeepers": [],
+  "mostValuablePlayers": [],
+  "hasShootout": false,
+  "homeTeam": {
+    "info": {
+      "id": 1,
+      "name": "Boston Fleet",
+      "city": "Boston",
+      "nickname": "Fleet",
+      "abbreviation": "BOS",
+      "logo": "https:\/\/assets.leaguestat.com\/pwhl\/logos\/1_5.png",
+      "divisionName": "PWHL"
+    },
+    "stats": {
+      "shots": 0,
+      "goals": 0,
+      "hits": 0,
+      "powerPlayGoals": 0,
+      "powerPlayOpportunities": 0,
+      "goalCount": 0,
+      "assistCount": 0,
+      "penaltyMinuteCount": 0,
+      "infractionCount": 0
+    },
+    "media": {
+      "audioUrl": "",
+      "videoUrl": "",
+      "webcastUrl": ""
+    },
+    "coaches": [],
+    "skaters": [],
+    "goalies": [],
+    "goalieLog": [],
+    "seasonStats": {
+      "seasonId": null,
+      "teamRecord": {
+        "wins": 1,
+        "losses": 2,
+        "ties": 0,
+        "OTWins": 0,
+        "OTLosses": 0,
+        "SOLosses": 0,
+        "formattedRecord": "1-2-0-0"
+      },
+      "teamStats": []
+    }
+  },
+  "visitingTeam": {
+    "info": {
+      "id": 5,
+      "name": "Ottawa Charge",
+      "city": "Ottawa",
+      "nickname": "Charge",
+      "abbreviation": "OTT",
+      "logo": "https:\/\/assets.leaguestat.com\/pwhl\/logos\/5_5.png",
+      "divisionName": "PWHL"
+    },
+    "stats": {
+      "shots": 0,
+      "goals": 0,
+      "hits": 0,
+      "powerPlayGoals": 0,
+      "powerPlayOpportunities": 0,
+      "goalCount": 0,
+      "assistCount": 0,
+      "penaltyMinuteCount": 0,
+      "infractionCount": 0
+    },
+    "media": {
+      "audioUrl": "",
+      "videoUrl": "",
+      "webcastUrl": ""
+    },
+    "coaches": [],
+    "skaters": [],
+    "goalies": [],
+    "goalieLog": [],
+    "seasonStats": {
+      "seasonId": null,
+      "teamRecord": {
+        "wins": 1,
+        "losses": 1,
+        "ties": 0,
+        "OTWins": 0,
+        "OTLosses": 0,
+        "SOLosses": 1,
+        "formattedRecord": "1-1-0-1"
+      },
+      "teamStats": []
+    }
+  },
+  "periods": [
+    {
+      "info": {
+        "id": "1",
+        "shortName": "1",
+        "longName": "1st"
+      },
+      "stats": {
+        "homeGoals": "0",
+        "homeShots": "0",
+        "visitingGoals": "0",
+        "visitingShots": "0"
+      },
+      "goals": [],
+      "penalties": []
+    }
+  ],
+  "penaltyShots": {
+    "homeTeam": [],
+    "visitingTeam": []
+  },
+  "featuredPlayer": {
+    "team": {
+      "id": 5,
+      "name": "Ottawa Charge",
+      "city": "Ottawa",
+      "nickname": "Charge",
+      "abbreviation": "OTT",
+      "logo": "https:\/\/assets.leaguestat.com\/pwhl\/logos\/5_5.png",
+      "divisionName": "PWHL"
+    },
+    "player": {
+      "info": {
+        "id": 0,
+        "firstName": null,
+        "lastName": null,
+        "jerseyNumber": 0,
+        "position": null,
+        "birthDate": null,
+        "playerImageURL": "https:\/\/assets.leaguestat.com\/pwhl\/120x160\/0.jpg"
+      },
+      "stats": {
+        "goals": 0,
+        "assists": 0,
+        "points": 0,
+        "penaltyMinutes": 0,
+        "plusMinus": 0,
+        "faceoffAttempts": 0,
+        "faceoffWins": 0,
+        "shots": 0,
+        "hits": 0,
+        "blockedShots": 0,
+        "toi": null
+      },
+      "starting": 0,
+      "status": null
+    },
+    "isGoalie": false,
+    "playerImage": null,
+    "sponsor": {
+      "name": null,
+      "image": null
+    }
+  }
+}
