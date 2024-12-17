@@ -14,6 +14,7 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.unit.dp
 import com.adammcneilly.pwhl.mobile.shared.displaymodels.GameSummaryDisplayModel
 import com.adammcneilly.pwhl.mobile.shared.displaymodels.TeamDisplayModel
+import com.adammcneilly.pwhl.mobile.shared.displaymodels.TeamGameResultDisplayModelV2
 import com.adammcneilly.pwhl.mobile.shared.ui.components.ImageWrapper
 
 @Composable
@@ -23,12 +24,50 @@ fun GameDetailHeader(
 ) {
     Row(
         horizontalArrangement = Arrangement.SpaceBetween,
+        verticalAlignment = Alignment.CenterVertically,
         modifier = modifier,
     ) {
         TeamNameLogo(game.homeTeam.team)
 
+        TeamScore(game.homeTeam)
+
+        GameSummary(game)
+
+        TeamScore(game.awayTeam)
+
         TeamNameLogo(game.awayTeam.team)
     }
+}
+
+@Composable
+private fun GameSummary(
+    game: GameSummaryDisplayModel,
+    modifier: Modifier = Modifier,
+) {
+    Column(
+        verticalArrangement = Arrangement.spacedBy(4.dp),
+        horizontalAlignment = Alignment.CenterHorizontally,
+        modifier = modifier,
+    ) {
+        Text(
+            text = game.status,
+            style = MaterialTheme.typography.titleMedium,
+        )
+
+        Text(
+            text = game.dateString,
+        )
+    }
+}
+
+@Composable
+private fun TeamScore(
+    teamGameResult: TeamGameResultDisplayModelV2,
+) {
+    Text(
+        text = teamGameResult.stats.goals,
+        style = MaterialTheme.typography.displayMedium,
+    )
 }
 
 @Composable

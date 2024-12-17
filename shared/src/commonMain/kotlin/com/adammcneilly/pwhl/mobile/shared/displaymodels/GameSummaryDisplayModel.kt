@@ -19,9 +19,11 @@ data class GameSummaryDisplayModel(
         id = game.id,
         homeTeam = TeamGameResultDisplayModelV2(
             teamGameResult = game.homeTeam,
+            gameStarted = game.isStarted,
         ),
         awayTeam = TeamGameResultDisplayModelV2(
             teamGameResult = game.awayTeam,
+            gameStarted = game.isStarted,
         ),
         status = game.status,
         dateString = game.dateString(),
