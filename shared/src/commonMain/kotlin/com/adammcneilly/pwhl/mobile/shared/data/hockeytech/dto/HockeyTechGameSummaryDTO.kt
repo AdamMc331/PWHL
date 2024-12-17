@@ -25,11 +25,12 @@ data class HockeyTechGameSummaryDTO(
 
         return GameSummary(
             id = details?.id?.toString().orEmpty(),
-            homeTeam = homeTeam.parseTeam(),
-            awayTeam = visitingTeam.parseTeam(),
+            homeTeam = homeTeam.parseTeamGameResult(),
+            awayTeam = visitingTeam.parseTeamGameResult(),
             time = Instant.parse(details?.gameDateISO8601.orEmpty()),
             status = details?.status.orEmpty(),
-            isComplete = details?.status == "Final",
+            isComplete = details?.final == "1",
+            isStarted = details?.started == "1",
         )
     }
 }
