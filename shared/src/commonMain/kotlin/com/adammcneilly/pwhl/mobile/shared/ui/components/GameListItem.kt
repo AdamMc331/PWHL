@@ -1,5 +1,7 @@
 package com.adammcneilly.pwhl.mobile.shared.ui.components
 
+import androidx.compose.animation.ExperimentalSharedTransitionApi
+import androidx.compose.animation.SharedTransitionScope
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -15,11 +17,13 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
+import com.adammcneilly.pwhl.mobile.shared.LocalNavAnimatedVisibilityScope
+import com.adammcneilly.pwhl.mobile.shared.LocalSharedTransitionScope
 import com.adammcneilly.pwhl.mobile.shared.displaymodels.GameDisplayModel
-import com.adammcneilly.pwhl.mobile.shared.displaymodels.ImageDisplayModel
 import com.adammcneilly.pwhl.mobile.shared.displaymodels.TeamGameResultDisplayModel
 
 @Composable
+@OptIn(ExperimentalSharedTransitionApi::class)
 fun GameListItem(
     game: GameDisplayModel,
     modifier: Modifier = Modifier,
@@ -37,12 +41,19 @@ fun GameListItem(
                     .weight(2F),
             )
 
-            Text(
-                text = game.status,
-                textAlign = TextAlign.Center,
-                modifier = Modifier
-                    .weight(1F),
-            )
+            with(LocalSharedTransitionScope.current) {
+                Text(
+                    text = game.status,
+                    textAlign = TextAlign.Center,
+                    modifier = Modifier
+                        .weight(1F)
+                        .sharedBounds(
+                            sharedContentState = rememberSharedContentState(key = "${game.id}_status"),
+                            animatedVisibilityScope = LocalNavAnimatedVisibilityScope.current,
+                            resizeMode = SharedTransitionScope.ResizeMode.ScaleToBounds(),
+                        ),
+                )
+            }
         }
     }
 }
@@ -56,15 +67,23 @@ private fun TeamRows(
         verticalArrangement = Arrangement.spacedBy(8.dp),
         modifier = modifier,
     ) {
-        TeamRow(game.homeTeam)
+        TeamRow(
+            teamGameResult = game.homeTeam,
+            gameId = game.id,
+        )
 
-        TeamRow(game.awayTeam)
+        TeamRow(
+            teamGameResult = game.awayTeam,
+            gameId = game.id,
+        )
     }
 }
 
 @Composable
+@OptIn(ExperimentalSharedTransitionApi::class)
 private fun TeamRow(
     teamGameResult: TeamGameResultDisplayModel,
+    gameId: String,
 ) {
     val fontWeight = FontWeight.Bold.takeIf {
         teamGameResult.isWinner
@@ -73,31 +92,53 @@ private fun TeamRow(
     Row(
         verticalAlignment = Alignment.CenterVertically,
     ) {
-        ImageWrapper(
-            image = teamGameResult.team.image ?: ImageDisplayModel.Placeholder,
-            contentDescription = null,
-            modifier = Modifier
-                .size(24.dp),
-        )
+        with(LocalSharedTransitionScope.current) {
+            ImageWrapper(
+                image = teamGameResult.team.image,
+                contentDescription = null,
+                modifier = Modifier
+                    .size(24.dp)
+                    .sharedElement(
+                        state = rememberSharedContentState(key = "${teamGameResult.team.name}_${gameId}_image"),
+                        animatedVisibilityScope = LocalNavAnimatedVisibilityScope.current,
+                    ),
+            )
 
-        Spacer(
-            modifier = Modifier
-                .width(8.dp),
-        )
+            Spacer(
+                modifier = Modifier
+                    .width(8.dp),
+            )
 
-        Text(
-            text = teamGameResult.team.name,
-            fontWeight = fontWeight,
-        )
+            Text(
+                text = teamGameResult.team.name,
+                fontWeight = fontWeight,
+                modifier = Modifier
+                    .sharedBounds(
+                        sharedContentState = rememberSharedContentState(
+                            key = "${teamGameResult.team.name}_${gameId}_name",
+                        ),
+                        animatedVisibilityScope = LocalNavAnimatedVisibilityScope.current,
+                        resizeMode = SharedTransitionScope.ResizeMode.ScaleToBounds(),
+                    ),
+            )
 
-        Spacer(
-            modifier = Modifier
-                .weight(1F),
-        )
+            Spacer(
+                modifier = Modifier
+                    .weight(1F),
+            )
 
-        Text(
-            text = teamGameResult.goals.toString(),
-            fontWeight = fontWeight,
-        )
+            Text(
+                text = teamGameResult.goals.toString(),
+                fontWeight = fontWeight,
+                modifier = Modifier
+                    .sharedBounds(
+                        sharedContentState = rememberSharedContentState(
+                            key = "${teamGameResult.team.name}_${gameId}_score",
+                        ),
+                        animatedVisibilityScope = LocalNavAnimatedVisibilityScope.current,
+                        resizeMode = SharedTransitionScope.ResizeMode.ScaleToBounds(),
+                    ),
+            )
+        }
     }
 }
