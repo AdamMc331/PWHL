@@ -34,11 +34,17 @@ fun GameDetailHeader(
             gameId = game.id,
         )
 
-        TeamScore(game.homeTeam)
+        TeamScore(
+            teamGameResult = game.homeTeam,
+            gameId = game.id,
+        )
 
         GameSummary(game)
 
-        TeamScore(game.awayTeam)
+        TeamScore(
+            teamGameResult = game.awayTeam,
+            gameId = game.id,
+        )
 
         TeamNameLogo(
             team = game.awayTeam.team,
@@ -48,34 +54,53 @@ fun GameDetailHeader(
 }
 
 @Composable
+@OptIn(ExperimentalSharedTransitionApi::class)
 private fun GameSummary(
     game: GameSummaryDisplayModel,
     modifier: Modifier = Modifier,
 ) {
-    Column(
-        verticalArrangement = Arrangement.spacedBy(4.dp),
-        horizontalAlignment = Alignment.CenterHorizontally,
-        modifier = modifier,
-    ) {
-        Text(
-            text = game.status,
-            style = MaterialTheme.typography.titleMedium,
-        )
+    with(LocalSharedTransitionScope.current) {
+        Column(
+            verticalArrangement = Arrangement.spacedBy(4.dp),
+            horizontalAlignment = Alignment.CenterHorizontally,
+            modifier = modifier,
+        ) {
+            Text(
+                text = game.status,
+                style = MaterialTheme.typography.titleMedium,
+                modifier = Modifier
+                    .sharedBounds(
+                        sharedContentState = rememberSharedContentState(key = "${game.id}_status"),
+                        animatedVisibilityScope = LocalNavAnimatedVisibilityScope.current,
+                        resizeMode = SharedTransitionScope.ResizeMode.ScaleToBounds(),
+                    ),
+            )
 
-        Text(
-            text = game.dateString,
-        )
+            Text(
+                text = game.dateString,
+            )
+        }
     }
 }
 
 @Composable
+@OptIn(ExperimentalSharedTransitionApi::class)
 private fun TeamScore(
     teamGameResult: TeamGameResultDisplayModelV2,
+    gameId: String,
 ) {
-    Text(
-        text = teamGameResult.stats.goals,
-        style = MaterialTheme.typography.displayMedium,
-    )
+    with(LocalSharedTransitionScope.current) {
+        Text(
+            text = teamGameResult.stats.goals,
+            style = MaterialTheme.typography.displayMedium,
+            modifier = Modifier
+                .sharedBounds(
+                    sharedContentState = rememberSharedContentState(key = "${teamGameResult.team.name}_${gameId}_score"),
+                    animatedVisibilityScope = LocalNavAnimatedVisibilityScope.current,
+                    resizeMode = SharedTransitionScope.ResizeMode.ScaleToBounds(),
+                ),
+        )
+    }
 }
 
 @Composable

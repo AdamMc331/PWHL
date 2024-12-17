@@ -23,6 +23,7 @@ import com.adammcneilly.pwhl.mobile.shared.displaymodels.GameDisplayModel
 import com.adammcneilly.pwhl.mobile.shared.displaymodels.TeamGameResultDisplayModel
 
 @Composable
+@OptIn(ExperimentalSharedTransitionApi::class)
 fun GameListItem(
     game: GameDisplayModel,
     modifier: Modifier = Modifier,
@@ -40,12 +41,19 @@ fun GameListItem(
                     .weight(2F),
             )
 
-            Text(
-                text = game.status,
-                textAlign = TextAlign.Center,
-                modifier = Modifier
-                    .weight(1F),
-            )
+            with(LocalSharedTransitionScope.current) {
+                Text(
+                    text = game.status,
+                    textAlign = TextAlign.Center,
+                    modifier = Modifier
+                        .weight(1F)
+                        .sharedBounds(
+                            sharedContentState = rememberSharedContentState(key = "${game.id}_status"),
+                            animatedVisibilityScope = LocalNavAnimatedVisibilityScope.current,
+                            resizeMode = SharedTransitionScope.ResizeMode.ScaleToBounds(),
+                        ),
+                )
+            }
         }
     }
 }
@@ -120,6 +128,12 @@ private fun TeamRow(
             Text(
                 text = teamGameResult.goals.toString(),
                 fontWeight = fontWeight,
+                modifier = Modifier
+                    .sharedBounds(
+                        sharedContentState = rememberSharedContentState(key = "${teamGameResult.team.name}_${gameId}_score"),
+                        animatedVisibilityScope = LocalNavAnimatedVisibilityScope.current,
+                        resizeMode = SharedTransitionScope.ResizeMode.ScaleToBounds(),
+                    ),
             )
         }
     }
