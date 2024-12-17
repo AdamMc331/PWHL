@@ -50,5 +50,12 @@ private fun SuccessContent(
                 .fillMaxWidth()
                 .padding(16.dp),
         )
+
+        GameDetailTabRow(
+            selectedTab = GameDetailTab.Summary,
+            onTabClick = {},
+            modifier = Modifier
+                .fillMaxWidth(),
+        )
     }
 }

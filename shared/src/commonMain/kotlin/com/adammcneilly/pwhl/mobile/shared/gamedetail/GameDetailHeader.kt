@@ -3,6 +3,7 @@ package com.adammcneilly.pwhl.mobile.shared.gamedetail
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material3.MaterialTheme
@@ -11,6 +12,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import com.adammcneilly.pwhl.mobile.shared.displaymodels.GameSummaryDisplayModel
 import com.adammcneilly.pwhl.mobile.shared.displaymodels.TeamDisplayModel
@@ -52,6 +54,9 @@ private fun GameSummary(
         Text(
             text = game.status,
             style = MaterialTheme.typography.titleMedium,
+            textAlign = TextAlign.Center,
+            modifier = Modifier
+                .fillMaxWidth(0.50F),
         )
 
         Text(
