@@ -7,23 +7,22 @@ apollo = "4.1.0"
 buildKonfig = "0.15.2"
 coil = "3.0.4"
 compileSdk = "35"
-composeBom = "2024.11.00"
+composeBom = "2024.12.01"
 detektGradlePlugin = "1.23.7"
 espresso = "3.6.1"
 gradleVersionsPlugin = "0.51.0"
 junit = "4.13.2"
 kmpCompose = "1.7.1"
 koin = "4.0.0"
-kotlin = "2.0.21"
-kotlinter = "4.5.0"
+kotlin = "2.1.0"
+kotlinter = "5.0.1"
 kotlinxDatetime = "0.6.1"
-ksp = "2.0.21-1.0.28"
+ksp = "2.1.0-1.0.29"
 ktor = "3.0.2"
 leakCanary = "2.14"
 material = "1.12.0"
 materialKolor = "2.0.0"
 minSdk = "21"
-multiplatformSettings = "1.2.0"
 navigation = "2.8.0-alpha11"
 sortDependencies = "0.13"
 sqldelight = "2.0.2"
@@ -62,7 +61,6 @@ ktor-client-darwin = { module = "io.ktor:ktor-client-darwin", version.ref = "kto
 ktor-client-logging = { module = "io.ktor:ktor-client-logging", version.ref = "ktor" }
 ktor-serialization-kotlinx-json = { module = "io.ktor:ktor-serialization-kotlinx-json", version.ref = "ktor" }
 material-kolor = { module = "com.materialkolor:material-kolor", version.ref = "materialKolor" }
-multiplatform-settings-noArg = { module = "com.russhwolf:multiplatform-settings-no-arg", version.ref = "multiplatformSettings" }
 square-leakcanary = { module = "com.squareup.leakcanary:leakcanary-android", version.ref = "leakCanary" }
 
 [plugins]
