@@ -1,6 +1,7 @@
 package com.adammcneilly.pwhl.mobile.shared.gamedetail
 
 import androidx.compose.animation.ExperimentalSharedTransitionApi
+import androidx.compose.animation.SharedTransitionScope
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -100,11 +101,17 @@ private fun TeamNameLogo(
                         animatedVisibilityScope = LocalNavAnimatedVisibilityScope.current,
                     ),
             )
-        }
 
-        Text(
-            text = team.shortCode,
-            style = MaterialTheme.typography.titleSmall,
-        )
+            Text(
+                text = team.shortCode,
+                style = MaterialTheme.typography.titleSmall,
+                modifier = Modifier
+                    .sharedBounds(
+                        sharedContentState = rememberSharedContentState(key = "${team.name}_${gameId}_name"),
+                        animatedVisibilityScope = LocalNavAnimatedVisibilityScope.current,
+                        resizeMode = SharedTransitionScope.ResizeMode.ScaleToBounds(),
+                    ),
+            )
+        }
     }
 }

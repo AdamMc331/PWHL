@@ -1,6 +1,7 @@
 package com.adammcneilly.pwhl.mobile.shared.ui.components
 
 import androidx.compose.animation.ExperimentalSharedTransitionApi
+import androidx.compose.animation.SharedTransitionScope
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -84,38 +85,42 @@ private fun TeamRow(
         verticalAlignment = Alignment.CenterVertically,
     ) {
         with(LocalSharedTransitionScope.current) {
-            val teamName = teamGameResult.team.name
-
             ImageWrapper(
                 image = teamGameResult.team.image,
                 contentDescription = null,
                 modifier = Modifier
                     .size(24.dp)
                     .sharedElement(
-                        state = rememberSharedContentState(key = "${teamName}_${gameId}_image"),
+                        state = rememberSharedContentState(key = "${teamGameResult.team.name}_${gameId}_image"),
                         animatedVisibilityScope = LocalNavAnimatedVisibilityScope.current,
                     ),
             )
+
+            Spacer(
+                modifier = Modifier
+                    .width(8.dp),
+            )
+
+            Text(
+                text = teamGameResult.team.name,
+                fontWeight = fontWeight,
+                modifier = Modifier
+                    .sharedBounds(
+                        sharedContentState = rememberSharedContentState(key = "${teamGameResult.team.name}_${gameId}_name"),
+                        animatedVisibilityScope = LocalNavAnimatedVisibilityScope.current,
+                        resizeMode = SharedTransitionScope.ResizeMode.ScaleToBounds(),
+                    ),
+            )
+
+            Spacer(
+                modifier = Modifier
+                    .weight(1F),
+            )
+
+            Text(
+                text = teamGameResult.goals.toString(),
+                fontWeight = fontWeight,
+            )
         }
-
-        Spacer(
-            modifier = Modifier
-                .width(8.dp),
-        )
-
-        Text(
-            text = teamGameResult.team.name,
-            fontWeight = fontWeight,
-        )
-
-        Spacer(
-            modifier = Modifier
-                .weight(1F),
-        )
-
-        Text(
-            text = teamGameResult.goals.toString(),
-            fontWeight = fontWeight,
-        )
     }
 }
