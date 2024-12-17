@@ -101,7 +101,9 @@ private fun TeamScore(
             style = MaterialTheme.typography.displayMedium,
             modifier = Modifier
                 .sharedBounds(
-                    sharedContentState = rememberSharedContentState(key = "${teamGameResult.team.name}_${gameId}_score"),
+                    sharedContentState = rememberSharedContentState(
+                        key = "${teamGameResult.team.name}_${gameId}_score",
+                    ),
                     animatedVisibilityScope = LocalNavAnimatedVisibilityScope.current,
                     resizeMode = SharedTransitionScope.ResizeMode.ScaleToBounds(),
                 ),

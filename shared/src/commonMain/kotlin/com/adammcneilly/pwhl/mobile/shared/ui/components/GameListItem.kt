@@ -114,7 +114,9 @@ private fun TeamRow(
                 fontWeight = fontWeight,
                 modifier = Modifier
                     .sharedBounds(
-                        sharedContentState = rememberSharedContentState(key = "${teamGameResult.team.name}_${gameId}_name"),
+                        sharedContentState = rememberSharedContentState(
+                            key = "${teamGameResult.team.name}_${gameId}_name",
+                        ),
                         animatedVisibilityScope = LocalNavAnimatedVisibilityScope.current,
                         resizeMode = SharedTransitionScope.ResizeMode.ScaleToBounds(),
                     ),
@@ -130,7 +132,9 @@ private fun TeamRow(
                 fontWeight = fontWeight,
                 modifier = Modifier
                     .sharedBounds(
-                        sharedContentState = rememberSharedContentState(key = "${teamGameResult.team.name}_${gameId}_score"),
+                        sharedContentState = rememberSharedContentState(
+                            key = "${teamGameResult.team.name}_${gameId}_score",
+                        ),
                         animatedVisibilityScope = LocalNavAnimatedVisibilityScope.current,
                         resizeMode = SharedTransitionScope.ResizeMode.ScaleToBounds(),
                     ),
