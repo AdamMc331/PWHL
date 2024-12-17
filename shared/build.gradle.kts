@@ -85,7 +85,7 @@ kotlin {
 
 compose.resources {
     publicResClass = false
-    packageOfResClass = "com.pwhl.mobile.shared"
+    packageOfResClass = "com.adammcneilly.pwhl.mobile.shared"
     generateResClass = auto
 }
 
@@ -104,13 +104,13 @@ android {
         targetCompatibility = JavaVersion.VERSION_17
     }
 
-    namespace = "com.pwhl.mobile.shared"
+    namespace = "com.adammcneilly.pwhl.mobile.shared"
 }
 
 sqldelight {
     databases {
         create("AppDatabase") {
-            packageName.set("com.pwhl.mobile.shared")
+            packageName.set("com.adammcneilly.pwhl.mobile.shared")
         }
     }
 }
@@ -118,12 +118,12 @@ sqldelight {
 // NOTE: Replace the template schema.json with the schema for your apollo api.
 apollo {
     service("service") {
-        packageName.set("com.pwhl.mobile.shared")
+        packageName.set("com.adammcneilly.pwhl.mobile.shared")
     }
 }
 
 buildkonfig {
-    packageName = "com.pwhl.mobile.shared"
+    packageName = "com.adammcneilly.pwhl.mobile.shared"
 
     val properties = Properties()
     properties.load(FileInputStream(project.rootProject.file("local.properties")))

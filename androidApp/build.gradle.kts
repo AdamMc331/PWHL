@@ -12,7 +12,7 @@ android {
     compileSdk = libs.versions.compileSdk.get().toInt()
 
     defaultConfig {
-        applicationId = "com.pwhl.mobile"
+        applicationId = "com.adammcneilly.pwhl.mobile.android"
         minSdk = libs.versions.minSdk.get().toInt()
         targetSdk = libs.versions.compileSdk.get().toInt()
         versionCode = 1
@@ -50,7 +50,7 @@ android {
         }
     }
 
-    namespace = "com.pwhl.mobile"
+    namespace = "com.adammcneilly.pwhl.mobile.android"
 }
 
 dependencies {
