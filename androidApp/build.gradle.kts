@@ -50,7 +50,7 @@ android {
         }
     }
 
-    namespace = "com.adammcneilly.pwhl.mobile"
+    namespace = "com.adammcneilly.pwhl.mobile.android"
 }
 
 dependencies {
