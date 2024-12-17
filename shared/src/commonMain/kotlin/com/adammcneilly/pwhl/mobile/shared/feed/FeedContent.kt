@@ -1,5 +1,7 @@
 package com.adammcneilly.pwhl.mobile.shared.feed
 
+import androidx.compose.animation.ExperimentalSharedTransitionApi
+import androidx.compose.animation.SharedTransitionScope
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.padding
@@ -12,6 +14,8 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import com.adammcneilly.pwhl.mobile.shared.LocalNavAnimatedVisibilityScope
+import com.adammcneilly.pwhl.mobile.shared.LocalSharedTransitionScope
 import com.adammcneilly.pwhl.mobile.shared.displaymodels.GameDisplayModel
 import com.adammcneilly.pwhl.mobile.shared.ui.components.GameListItem
 import com.adammcneilly.pwhl.mobile.shared.ui.components.LoadingScreen
@@ -78,7 +82,7 @@ private fun LazyListScope.gamesByDateGroup(
 ) {
     gamesByDate.entries.forEach { (dateString, games) ->
         item {
-            SmallHeader(dateString)
+            GameDateHeader(dateString)
         }
 
         gameList(games, onGameClicked)
@@ -105,15 +109,23 @@ private fun LazyListScope.gameList(
 }
 
 @Composable
-fun SmallHeader(
+@OptIn(ExperimentalSharedTransitionApi::class)
+private fun GameDateHeader(
     text: String,
 ) {
-    Text(
-        text = text,
-        style = MaterialTheme.typography.titleSmall,
-        modifier = Modifier
-            .padding(8.dp),
-    )
+    with(LocalSharedTransitionScope.current) {
+        Text(
+            text = text,
+            style = MaterialTheme.typography.titleSmall,
+            modifier = Modifier
+                .padding(8.dp)
+                .sharedBounds(
+                    sharedContentState = rememberSharedContentState(key = "game_date_$text"),
+                    animatedVisibilityScope = LocalNavAnimatedVisibilityScope.current,
+                    resizeMode = SharedTransitionScope.ResizeMode.ScaleToBounds(),
+                ),
+        )
+    }
 }
 
 @Composable

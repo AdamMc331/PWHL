@@ -78,6 +78,12 @@ private fun GameSummary(
 
             Text(
                 text = game.dateString,
+                modifier = Modifier
+                    .sharedBounds(
+                        sharedContentState = rememberSharedContentState(key = "game_date_${game.dateString}"),
+                        animatedVisibilityScope = LocalNavAnimatedVisibilityScope.current,
+                        resizeMode = SharedTransitionScope.ResizeMode.ScaleToBounds(),
+                    ),
             )
         }
     }
