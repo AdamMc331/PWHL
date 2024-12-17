@@ -1,5 +1,6 @@
 package com.adammcneilly.pwhl.mobile.shared.ui.components
 
+import androidx.compose.animation.ExperimentalSharedTransitionApi
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -15,8 +16,9 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
+import com.adammcneilly.pwhl.mobile.shared.LocalNavAnimatedVisibilityScope
+import com.adammcneilly.pwhl.mobile.shared.LocalSharedTransitionScope
 import com.adammcneilly.pwhl.mobile.shared.displaymodels.GameDisplayModel
-import com.adammcneilly.pwhl.mobile.shared.displaymodels.ImageDisplayModel
 import com.adammcneilly.pwhl.mobile.shared.displaymodels.TeamGameResultDisplayModel
 
 @Composable
@@ -56,15 +58,23 @@ private fun TeamRows(
         verticalArrangement = Arrangement.spacedBy(8.dp),
         modifier = modifier,
     ) {
-        TeamRow(game.homeTeam)
+        TeamRow(
+            teamGameResult = game.homeTeam,
+            gameId = game.id,
+        )
 
-        TeamRow(game.awayTeam)
+        TeamRow(
+            teamGameResult = game.awayTeam,
+            gameId = game.id,
+        )
     }
 }
 
 @Composable
+@OptIn(ExperimentalSharedTransitionApi::class)
 private fun TeamRow(
     teamGameResult: TeamGameResultDisplayModel,
+    gameId: String,
 ) {
     val fontWeight = FontWeight.Bold.takeIf {
         teamGameResult.isWinner
@@ -73,12 +83,20 @@ private fun TeamRow(
     Row(
         verticalAlignment = Alignment.CenterVertically,
     ) {
-        ImageWrapper(
-            image = teamGameResult.team.image ?: ImageDisplayModel.Placeholder,
-            contentDescription = null,
-            modifier = Modifier
-                .size(24.dp),
-        )
+        with(LocalSharedTransitionScope.current) {
+            val teamName = teamGameResult.team.name
+
+            ImageWrapper(
+                image = teamGameResult.team.image,
+                contentDescription = null,
+                modifier = Modifier
+                    .size(24.dp)
+                    .sharedElement(
+                        state = rememberSharedContentState(key = "${teamName}_${gameId}_image"),
+                        animatedVisibilityScope = LocalNavAnimatedVisibilityScope.current,
+                    ),
+            )
+        }
 
         Spacer(
             modifier = Modifier

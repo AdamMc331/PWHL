@@ -1,17 +1,18 @@
 package com.adammcneilly.pwhl.mobile.shared.gamedetail
 
+import androidx.compose.animation.ExperimentalSharedTransitionApi
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.clip
 import androidx.compose.ui.unit.dp
+import com.adammcneilly.pwhl.mobile.shared.LocalNavAnimatedVisibilityScope
+import com.adammcneilly.pwhl.mobile.shared.LocalSharedTransitionScope
 import com.adammcneilly.pwhl.mobile.shared.displaymodels.GameSummaryDisplayModel
 import com.adammcneilly.pwhl.mobile.shared.displaymodels.TeamDisplayModel
 import com.adammcneilly.pwhl.mobile.shared.displaymodels.TeamGameResultDisplayModelV2
@@ -27,7 +28,10 @@ fun GameDetailHeader(
         verticalAlignment = Alignment.CenterVertically,
         modifier = modifier,
     ) {
-        TeamNameLogo(game.homeTeam.team)
+        TeamNameLogo(
+            team = game.homeTeam.team,
+            gameId = game.id,
+        )
 
         TeamScore(game.homeTeam)
 
@@ -35,7 +39,10 @@ fun GameDetailHeader(
 
         TeamScore(game.awayTeam)
 
-        TeamNameLogo(game.awayTeam.team)
+        TeamNameLogo(
+            team = game.awayTeam.team,
+            gameId = game.id,
+        )
     }
 }
 
@@ -71,8 +78,10 @@ private fun TeamScore(
 }
 
 @Composable
+@OptIn(ExperimentalSharedTransitionApi::class)
 private fun TeamNameLogo(
     team: TeamDisplayModel,
+    gameId: String,
     modifier: Modifier = Modifier,
 ) {
     Column(
@@ -80,13 +89,18 @@ private fun TeamNameLogo(
         verticalArrangement = Arrangement.spacedBy(8.dp),
         modifier = modifier,
     ) {
-        ImageWrapper(
-            image = team.image,
-            contentDescription = team.name,
-            modifier = Modifier
-                .size(48.dp)
-                .clip(CircleShape),
-        )
+        with(LocalSharedTransitionScope.current) {
+            ImageWrapper(
+                image = team.image,
+                contentDescription = team.name,
+                modifier = Modifier
+                    .size(48.dp)
+                    .sharedElement(
+                        state = rememberSharedContentState(key = "${team.name}_${gameId}_image"),
+                        animatedVisibilityScope = LocalNavAnimatedVisibilityScope.current,
+                    ),
+            )
+        }
 
         Text(
             text = team.shortCode,
