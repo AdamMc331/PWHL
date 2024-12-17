@@ -13,7 +13,7 @@
         android:theme="@style/Theme.AppTheme">
 
         <activity
-            android:name="com.pwhl.mobile.MainActivity"
+            android:name="com.adammcneilly.pwhl.mobile.MainActivity"
             android:exported="true"
             android:theme="@style/Theme.AppTheme.NoActionBar"
             android:windowSoftInputMode="adjustResize">
