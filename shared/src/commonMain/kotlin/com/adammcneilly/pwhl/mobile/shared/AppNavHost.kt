@@ -1,7 +1,16 @@
 package com.adammcneilly.pwhl.mobile.shared
 
+import androidx.compose.animation.AnimatedContentScope
+import androidx.compose.animation.AnimatedVisibilityScope
+import androidx.compose.animation.ExperimentalSharedTransitionApi
+import androidx.compose.animation.SharedTransitionLayout
+import androidx.compose.animation.SharedTransitionScope
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.CompositionLocalProvider
+import androidx.compose.runtime.compositionLocalOf
 import androidx.compose.ui.Modifier
+import androidx.navigation.NavBackStackEntry
+import androidx.navigation.NavGraphBuilder
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
@@ -15,48 +24,76 @@ import com.adammcneilly.pwhl.mobile.shared.standings.StandingsScreen
 import org.koin.compose.viewmodel.koinViewModel
 import org.koin.core.parameter.parametersOf
 
+@OptIn(ExperimentalSharedTransitionApi::class)
+val LocalSharedTransitionScope = compositionLocalOf<SharedTransitionScope> {
+    throw IllegalStateException("Local SharedTransitionScope required")
+}
+
+val LocalNavAnimatedVisibilityScope = compositionLocalOf<AnimatedVisibilityScope> {
+    throw IllegalStateException("Local AnimatedVisibilityScope required")
+}
+
+@OptIn(ExperimentalSharedTransitionApi::class)
 @Composable
 fun AppNavHost(
     navController: NavHostController,
     modifier: Modifier = Modifier,
 ) {
-    NavHost(
-        navController = navController,
-        startDestination = FeedScreen,
-        modifier = modifier,
-    ) {
-        composable<FeedScreen> {
-            FeedScreen(
-                onGameClicked = { gameId ->
-                    navController.navigate(GameDetailScreen(gameId))
-                },
-            )
+    SharedTransitionLayout {
+        CompositionLocalProvider(
+            LocalSharedTransitionScope provides this,
+        ) {
+            NavHost(
+                navController = navController,
+                startDestination = FeedScreen,
+                modifier = modifier,
+            ) {
+                animatedComposable<FeedScreen> {
+                    FeedScreen(
+                        onGameClicked = { gameId ->
+                            navController.navigate(GameDetailScreen(gameId))
+                        },
+                    )
+                }
+
+                animatedComposable<NewsScreen> {
+                    NewsScreen()
+                }
+
+                animatedComposable<StandingsScreen> {
+                    StandingsScreen()
+                }
+
+                animatedComposable<ProfileScreen> {
+                    ProfileScreen()
+                }
+
+                animatedComposable<GameDetailScreen> { backStackEntry ->
+                    val screen: GameDetailScreen = backStackEntry.toRoute()
+
+                    val viewModel: GameDetailViewModel = koinViewModel(
+                        parameters = {
+                            parametersOf(screen.gameId)
+                        },
+                    )
+
+                    GameDetailScreen(
+                        viewModel = viewModel,
+                    )
+                }
+            }
         }
+    }
+}
 
-        composable<NewsScreen> {
-            NewsScreen()
-        }
-
-        composable<StandingsScreen> {
-            StandingsScreen()
-        }
-
-        composable<ProfileScreen> {
-            ProfileScreen()
-        }
-
-        composable<GameDetailScreen> { backStackEntry ->
-            val screen: GameDetailScreen = backStackEntry.toRoute()
-
-            val viewModel: GameDetailViewModel = koinViewModel(
-                parameters = {
-                    parametersOf(screen.gameId)
-                },
-            )
-
-            GameDetailScreen(
-                viewModel = viewModel,
-            )
+private inline fun <reified T : Any> NavGraphBuilder.animatedComposable(
+    noinline content: @Composable AnimatedContentScope.(NavBackStackEntry) -> Unit,
+) {
+    composable<T> { backStackEntry ->
+        CompositionLocalProvider(
+            LocalNavAnimatedVisibilityScope provides this,
+        ) {
+            content(backStackEntry)
         }
     }
 }
