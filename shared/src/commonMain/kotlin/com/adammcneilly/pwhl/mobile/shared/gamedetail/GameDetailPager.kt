@@ -6,9 +6,12 @@ import androidx.compose.foundation.pager.HorizontalPager
 import androidx.compose.foundation.pager.rememberPagerState
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import com.adammcneilly.pwhl.mobile.shared.displaymodels.PlayByPlayEventDisplayModel
+import com.adammcneilly.pwhl.mobile.shared.gamedetail.playbyplay.PlayByPlayList
 
 @Composable
 fun GameDetailPager(
+    playByPlayEvents: List<PlayByPlayEventDisplayModel>,
     modifier: Modifier = Modifier,
 ) {
     val tabs = GameDetailTab.entries
@@ -37,7 +40,8 @@ fun GameDetailPager(
                 GameDetailTab.Stats -> GameDetailStatsTab(
                     modifier = pageModifier,
                 )
-                GameDetailTab.PlayByPlay -> GameDetailPlayByPlayTab(
+                GameDetailTab.PlayByPlay -> PlayByPlayList(
+                    events = playByPlayEvents,
                     modifier = pageModifier,
                 )
             }

@@ -18,6 +18,7 @@ val viewModelModule = module {
         GameDetailViewModel(
             gameId = parameters.get(),
             fetchGameSummaryUseCase = get(),
+            fetchPlayByPlayUseCase = get(),
         )
     }
 

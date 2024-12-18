@@ -1,5 +1,7 @@
 package com.adammcneilly.pwhl.mobile.shared.data.hockeytech.dto
 
+import com.adammcneilly.pwhl.mobile.shared.models.PlayerAndAssistCount
+import com.adammcneilly.pwhl.mobile.shared.models.PlayerAndGoalCount
 import com.adammcneilly.pwhl.mobile.shared.models.playbyplay.PlayByPlayEvent
 import com.adammcneilly.pwhl.mobile.shared.models.playbyplay.PlayByPlayGoalEvent
 import kotlinx.serialization.SerialName
@@ -30,9 +32,18 @@ data class HockeyTechGoalEventDTO(
         }
 
         return PlayByPlayGoalEvent(
-            scoredBy = details.scoredBy.parsePlayer(),
-            team = details.team.parseTeam(),
-            assists = details.assists.orEmpty().map(HockeyTechPlayerSummaryDTO::parsePlayer),
+            teamId = details.team.parseTeam().id,
+            assistingPlayers = details.assists.orEmpty().mapIndexed { index, player ->
+                val assistCount = details.assistNumbers?.get(index)?.toIntOrNull() ?: 0
+                PlayerAndAssistCount(
+                    player = player.parsePlayer(),
+                    assistCount = assistCount,
+                )
+            },
+            scoredBy = PlayerAndGoalCount(
+                player = details.scoredBy.parsePlayer(),
+                goalCount = details.scorerGoalNumber?.toIntOrNull() ?: 0,
+            ),
             period = details.period.parsePeriod(),
             time = details.time.orEmpty(),
         )

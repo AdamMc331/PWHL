@@ -34,6 +34,7 @@ data class HockeyTechBlockedShotEventDTO(
             goalie = details.goalie?.parsePlayer(),
             shooter = details.shooter.parsePlayer(),
             period = details.period.parsePeriod(),
+            shooterTeamId = details.shooterTeamId.orEmpty(),
             time = details.time.orEmpty(),
         )
     }

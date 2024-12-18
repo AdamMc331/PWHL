@@ -28,6 +28,7 @@ data class HockeyTechHitEventDTO(
         return PlayByPlayHitEvent(
             player = details.player.parsePlayer(),
             period = details.period.parsePeriod(),
+            teamId = details.teamId.orEmpty(),
             time = details.time.orEmpty(),
         )
     }

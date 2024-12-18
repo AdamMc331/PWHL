@@ -9,6 +9,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.adammcneilly.pwhl.mobile.shared.displaymodels.GameSummaryDisplayModel
+import com.adammcneilly.pwhl.mobile.shared.displaymodels.PlayByPlayEventDisplayModel
 import com.adammcneilly.pwhl.mobile.shared.ui.components.LoadingScreen
 
 @Composable
@@ -25,6 +26,7 @@ fun GameDetailContent(
         state.game != null -> {
             SuccessContent(
                 game = state.game,
+                playByPlayEvents = state.playByPlayEvents,
                 modifier = modifier,
             )
         }
@@ -40,6 +42,7 @@ fun GameDetailContent(
 @Composable
 private fun SuccessContent(
     game: GameSummaryDisplayModel,
+    playByPlayEvents: List<PlayByPlayEventDisplayModel>,
     modifier: Modifier = Modifier,
 ) {
     Column(
@@ -53,6 +56,7 @@ private fun SuccessContent(
         )
 
         GameDetailPager(
+            playByPlayEvents = playByPlayEvents,
             modifier = Modifier
                 .fillMaxSize(),
         )

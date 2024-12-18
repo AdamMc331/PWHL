@@ -30,7 +30,7 @@ data class HockeyTechPenaltyEventDTO(
         }
 
         return PlayByPlayPenaltyEvent(
-            againstTeam = details.againstTeam.parseTeam(),
+            againstTeamId = details.againstTeam.parseTeam().id,
             description = details.description.orEmpty(),
             minutes = details.minutes.orEmpty(),
             powerPlay = details.isPowerPlay == true,
