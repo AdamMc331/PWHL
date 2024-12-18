@@ -1,26 +1,32 @@
 package com.adammcneilly.pwhl.mobile.shared.gamedetail
 
+import androidx.compose.foundation.pager.PagerState
 import androidx.compose.material3.Tab
 import androidx.compose.material3.TabRow
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Modifier
+import kotlinx.coroutines.launch
 
 @Composable
 fun GameDetailTabRow(
-    selectedTab: GameDetailTab,
-    onTabClick: (GameDetailTab) -> Unit,
+    pagerState: PagerState,
     modifier: Modifier = Modifier,
 ) {
+    val coroutineScope = rememberCoroutineScope()
+
     TabRow(
-        selectedTabIndex = selectedTab.ordinal,
+        selectedTabIndex = pagerState.currentPage,
         modifier = modifier,
     ) {
-        GameDetailTab.entries.forEach { tab ->
+        GameDetailTab.entries.forEachIndexed { index, tab ->
             Tab(
-                selected = (tab == selectedTab),
+                selected = (index == pagerState.currentPage),
                 onClick = {
-                    onTabClick.invoke(tab)
+                    coroutineScope.launch {
+                        pagerState.animateScrollToPage(index)
+                    }
                 },
                 text = {
                     Text(

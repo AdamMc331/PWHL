@@ -1,6 +1,7 @@
 package com.adammcneilly.pwhl.mobile.shared.gamedetail
 
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Text
@@ -51,11 +52,9 @@ private fun SuccessContent(
                 .padding(16.dp),
         )
 
-        GameDetailTabRow(
-            selectedTab = GameDetailTab.Summary,
-            onTabClick = {},
+        GameDetailPager(
             modifier = Modifier
-                .fillMaxWidth(),
+                .fillMaxSize(),
         )
     }
 }
