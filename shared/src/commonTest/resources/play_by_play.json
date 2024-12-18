@@ -23,25 +23,25 @@
   },
   {
     "event": "goalie_change",
-    "details": {
-      "goalieComingIn": {
-        "id": 123,
-        "firstName": "Maddie",
-        "lastName": "Rooney",
-        "jerseyNumber": 35,
-        "position": "G",
-        "birthDate": "",
-        "playerImageURL": "https:\/\/assets.leaguestat.com\/pwhl\/120x160\/123.jpg"
-      },
-      "goalieGoingOut": null,
-      "team_id": "2",
-      "period": {
-        "id": "1",
-        "shortName": "1",
-        "longName": "1st"
-      },
-      "time": "0:00"
-    }
+      "details": {
+        "goalieComingIn": {
+          "id": 123,
+          "firstName": "Maddie",
+          "lastName": "Rooney",
+          "jerseyNumber": 35,
+          "position": "G",
+          "birthDate": "",
+          "playerImageURL": "https:\/\/assets.leaguestat.com\/pwhl\/120x160\/123.jpg"
+        },
+        "goalieGoingOut": null,
+        "team_id": "2",
+        "period": {
+          "id": "1",
+          "shortName": "1",
+          "longName": "1st"
+        },
+        "time": "0:00"
+      }
   },
   {
     "event": "faceoff",
