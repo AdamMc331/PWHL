@@ -1,7 +1,7 @@
 package com.adammcneilly.pwhl.mobile.shared.data.hockeytech
 
 import com.adammcneilly.pwhl.mobile.shared.data.hockeytech.dto.HockeyTechGameSummaryDTO
-import com.adammcneilly.pwhl.mobile.shared.data.hockeytech.dto.HockeyTechPlayByPlayEventDTO2
+import com.adammcneilly.pwhl.mobile.shared.data.hockeytech.dto.HockeyTechPlayByPlayEventDTO
 import com.adammcneilly.pwhl.mobile.shared.data.hockeytech.dto.HockeyTechScoreBarResponseDTO
 import com.adammcneilly.pwhl.mobile.shared.data.hockeytech.dto.HockeyTechStandingsListResponseDTO
 import com.adammcneilly.pwhl.mobile.shared.data.remote.BaseKtorClient
@@ -109,13 +109,11 @@ class HockeyTechPWHLService(
 
         val params = HockeyTechKtorClient.baseHockeyTechParams + gameParams
 
-        return apiClient.getResponse<List<HockeyTechPlayByPlayEventDTO2>>(
+        return apiClient.getResponse<List<HockeyTechPlayByPlayEventDTO>>(
             endpoint = endpoint,
             params = params,
-        ).map {
-            println("ADAMLOG - Play By Play: $it")
-
-            it.map(HockeyTechPlayByPlayEventDTO2::toPlayByPlayEvent)
+        ).map { eventList ->
+            eventList.map(HockeyTechPlayByPlayEventDTO::toPlayByPlayEvent)
         }
     }
 }
