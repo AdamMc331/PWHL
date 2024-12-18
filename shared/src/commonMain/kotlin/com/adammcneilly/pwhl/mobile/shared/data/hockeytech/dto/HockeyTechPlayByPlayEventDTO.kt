@@ -1,6 +1,6 @@
 package com.adammcneilly.pwhl.mobile.shared.data.hockeytech.dto
 
-import com.adammcneilly.pwhl.mobile.shared.models.PlayByPlayEvent
+import com.adammcneilly.pwhl.mobile.shared.models.playbyplay.PlayByPlayEvent
 import kotlinx.serialization.DeserializationStrategy
 import kotlinx.serialization.Serializable
 import kotlinx.serialization.json.JsonContentPolymorphicSerializer
@@ -12,7 +12,7 @@ import kotlinx.serialization.json.jsonPrimitive
     with = HockeyTechPlayByPlayEventDTOSerializer::class,
 )
 sealed interface HockeyTechPlayByPlayEventDTO {
-    fun toPlayByPlayEvent(): PlayByPlayEvent
+    fun parsePlayByPlayEvent(): PlayByPlayEvent
 }
 
 object HockeyTechPlayByPlayEventDTOSerializer : JsonContentPolymorphicSerializer<HockeyTechPlayByPlayEventDTO>(
@@ -24,6 +24,7 @@ object HockeyTechPlayByPlayEventDTOSerializer : JsonContentPolymorphicSerializer
     private const val GOALIE_CHANGE = "goalie_change"
     private const val HIT = "hit"
     private const val PENALTY = "penalty"
+    private const val SHOOTOUT = "shootout"
     private const val SHOT = "shot"
 
     override fun selectDeserializer(
@@ -40,6 +41,7 @@ object HockeyTechPlayByPlayEventDTOSerializer : JsonContentPolymorphicSerializer
             GOALIE_CHANGE -> HockeyTechGoalieChangeEventDTO.serializer()
             HIT -> HockeyTechHitEventDTO.serializer()
             PENALTY -> HockeyTechPenaltyEventDTO.serializer()
+            SHOOTOUT -> HockeyTechShootOutEventDTO.serializer()
             SHOT -> HockeyTechShotEventDTO.serializer()
             else -> error("Unknown play by play event: $event")
         }
