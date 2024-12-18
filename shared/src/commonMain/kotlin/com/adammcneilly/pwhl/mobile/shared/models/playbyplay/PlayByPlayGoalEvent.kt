@@ -8,18 +8,30 @@ import com.adammcneilly.pwhl.mobile.shared.models.Team
 
 data class PlayByPlayGoalEvent(
     val scoredBy: Player,
+    val scoredByGoalCount: Int,
     val team: Team,
-    val assists: List<Player>,
+    val assistingPlayers: List<Pair<Player, Int>>,
     override val period: Period,
     override val time: String,
 ) : PlayByPlayEvent {
     override fun toDisplayModel(): PlayByPlayEventDisplayModel {
-        // #13 Tereza Vanišová (1) ASST: #2 Aneta Tejralová (1)
+        val scoreDescription = "${scoredBy.fullNameWithNumber} ($scoredByGoalCount)"
+
+        val assistsWithCounts = assistingPlayers.joinToString(", ") { (player, assistCount) ->
+            "${player.fullNameWithNumber} ($assistCount)"
+        }
+
+        val assistDescription = if (assistsWithCounts.isEmpty()) {
+            "None"
+        } else {
+            assistsWithCounts
+        }
+
         return PlayByPlayEventDisplayModel(
             teamImage = TeamDisplayModel(team).image,
             time = time,
             title = "GOAL",
-            description = "TODO",
+            description = "$scoreDescription ASST: $assistDescription",
         )
     }
 }

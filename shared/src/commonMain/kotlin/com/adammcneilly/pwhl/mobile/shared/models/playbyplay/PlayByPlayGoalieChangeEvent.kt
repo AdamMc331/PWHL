@@ -13,11 +13,24 @@ data class PlayByPlayGoalieChangeEvent(
     override val time: String,
 ) : PlayByPlayEvent {
     override fun toDisplayModel(): PlayByPlayEventDisplayModel {
+        val goalieInDescription = goalieComingIn?.fullNameWithNumber?.let { player ->
+            "$player On"
+        }
+
+        val goalieOutDescription = goalieComingOut?.fullNameWithNumber?.let { player ->
+            "$player Off"
+        }
+
+        val description = listOfNotNull(
+            goalieInDescription,
+            goalieOutDescription,
+        ).joinToString("\n")
+
         return PlayByPlayEventDisplayModel(
             teamImage = LocalTeamImageProvider.getTeamImage(teamId),
             time = time,
             title = "GOALIE CHANGE",
-            description = "TODO",
+            description = description,
         )
     }
 }

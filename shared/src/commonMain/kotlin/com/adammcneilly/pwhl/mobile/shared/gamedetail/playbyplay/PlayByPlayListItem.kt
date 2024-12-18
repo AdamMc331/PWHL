@@ -1,7 +1,9 @@
 package com.adammcneilly.pwhl.mobile.shared.gamedetail.playbyplay
 
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
@@ -19,7 +21,9 @@ fun PlayByPlayListItem(
 ) {
     Row(
         verticalAlignment = Alignment.CenterVertically,
-        modifier = modifier,
+        horizontalArrangement = Arrangement.spacedBy(16.dp),
+        modifier = modifier
+            .padding(8.dp),
     ) {
         TeamImage(event)
 

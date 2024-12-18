@@ -20,7 +20,7 @@ data class PlayByPlayShootOutEvent(
             teamImage = TeamDisplayModel(shooterTeam).image,
             time = time,
             title = "SHOOTOUT",
-            description = "TODO",
+            description = "${shooter.fullNameWithNumber} Shootout Attempt On ${goalie.fullNameWithNumber}",
         )
     }
 }

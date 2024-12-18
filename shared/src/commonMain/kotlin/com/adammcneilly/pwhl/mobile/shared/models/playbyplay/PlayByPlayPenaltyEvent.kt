@@ -21,7 +21,7 @@ data class PlayByPlayPenaltyEvent(
             teamImage = TeamDisplayModel(againstTeam).image,
             time = time,
             title = "PENALTY",
-            description = "TODO",
+            description = "${takenBy?.fullNameWithNumber} – $description",
         )
     }
 }

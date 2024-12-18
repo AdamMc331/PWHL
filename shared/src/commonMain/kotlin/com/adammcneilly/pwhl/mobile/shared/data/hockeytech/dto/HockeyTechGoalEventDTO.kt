@@ -32,7 +32,11 @@ data class HockeyTechGoalEventDTO(
         return PlayByPlayGoalEvent(
             scoredBy = details.scoredBy.parsePlayer(),
             team = details.team.parseTeam(),
-            assists = details.assists.orEmpty().map(HockeyTechPlayerSummaryDTO::parsePlayer),
+            assistingPlayers = details.assists.orEmpty().mapIndexed { index, player ->
+                val assistCount = details.assistNumbers?.get(index)?.toIntOrNull() ?: 0
+                player.parsePlayer() to assistCount
+            },
+            scoredByGoalCount = details.scorerGoalNumber?.toIntOrNull() ?: 0,
             period = details.period.parsePeriod(),
             time = details.time.orEmpty(),
         )

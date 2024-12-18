@@ -18,7 +18,7 @@ data class PlayByPlayShotEvent(
             teamImage = LocalTeamImageProvider.getTeamImage(shooterTeamId),
             time = time,
             title = "SHOT",
-            description = "TODO",
+            description = "${shooter.fullNameWithNumber} Shoots On ${goalie.fullNameWithNumber}",
         )
     }
 }
