@@ -10,13 +10,16 @@ class FetchPlayByPlayUseCase(
 ) {
     suspend fun invoke(
         gameId: String,
-    ): Result<List<PlayByPlayEventDisplayModel>> {
+    ): Result<Map<String, List<PlayByPlayEventDisplayModel>>> {
         return repository.fetchPlayByPlay(gameId).map { eventList ->
             eventList
                 .filter { event ->
                     event !is PlayByPlayFaceOffEvent
                 }
                 .map(PlayByPlayEvent::toDisplayModel)
+                .groupBy { event ->
+                    event.period.longName
+                }
         }
     }
 }

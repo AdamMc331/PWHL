@@ -17,6 +17,7 @@ data class PlayByPlayHitEvent(
             time = time,
             title = "HIT",
             description = player.fullNameWithNumber,
+            period = period,
         )
     }
 }

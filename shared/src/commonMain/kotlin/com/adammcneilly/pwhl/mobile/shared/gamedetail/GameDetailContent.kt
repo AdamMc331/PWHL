@@ -42,7 +42,7 @@ fun GameDetailContent(
 @Composable
 private fun SuccessContent(
     game: GameSummaryDisplayModel,
-    playByPlayEvents: List<PlayByPlayEventDisplayModel>,
+    playByPlayEvents: Map<String, List<PlayByPlayEventDisplayModel>>,
     modifier: Modifier = Modifier,
 ) {
     Column(

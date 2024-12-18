@@ -32,6 +32,7 @@ data class PlayByPlayGoalEvent(
             title = "GOAL",
             description = "$scoreDescription ASST: $assistDescription",
             highlightTeamId = teamId,
+            period = period,
         )
     }
 }

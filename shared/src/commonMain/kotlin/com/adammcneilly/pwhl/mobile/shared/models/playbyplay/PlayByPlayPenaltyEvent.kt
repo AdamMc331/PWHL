@@ -21,6 +21,7 @@ data class PlayByPlayPenaltyEvent(
             time = time,
             title = "PENALTY",
             description = "${takenBy?.fullNameWithNumber} – $description",
+            period = period,
         )
     }
 }
