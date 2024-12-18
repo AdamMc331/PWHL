@@ -49,7 +49,7 @@ private fun EventInfo(
         )
 
         Text(
-            text = event.title,
+            text = event.description,
         )
     }
 }
@@ -59,8 +59,8 @@ private fun TeamImage(
     event: PlayByPlayEventDisplayModel,
 ) {
     ImageWrapper(
-        image = event.team.image,
-        contentDescription = event.team.name,
+        image = event.teamImage,
+        contentDescription = null,
         modifier = Modifier
             .size(36.dp),
     )

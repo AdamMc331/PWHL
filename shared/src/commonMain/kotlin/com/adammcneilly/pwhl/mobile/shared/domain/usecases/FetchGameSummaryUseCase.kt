@@ -9,10 +9,6 @@ class FetchGameSummaryUseCase(
     suspend fun invoke(
         gameId: String,
     ): Result<GameSummaryDisplayModel> {
-        val pbp = repository.fetchPlayByPlay(gameId)
-
-        println("ADAMLOG - PBP: $pbp")
-
         return repository.fetchGameSummary(gameId).map { game ->
             GameSummaryDisplayModel(game)
         }
