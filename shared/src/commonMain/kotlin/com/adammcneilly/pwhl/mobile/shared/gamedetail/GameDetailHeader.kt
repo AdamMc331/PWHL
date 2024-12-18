@@ -19,6 +19,8 @@ import com.adammcneilly.pwhl.mobile.shared.displaymodels.TeamDisplayModel
 import com.adammcneilly.pwhl.mobile.shared.displaymodels.TeamGameResultDisplayModelV2
 import com.adammcneilly.pwhl.mobile.shared.ui.components.ImageWrapper
 
+private const val GAME_STATUS_WIDTH_RATIO = 0.50F
+
 @Composable
 fun GameDetailHeader(
     game: GameSummaryDisplayModel,
@@ -56,7 +58,7 @@ private fun GameSummary(
             style = MaterialTheme.typography.titleMedium,
             textAlign = TextAlign.Center,
             modifier = Modifier
-                .fillMaxWidth(0.50F),
+                .fillMaxWidth(GAME_STATUS_WIDTH_RATIO),
         )
 
         Text(
