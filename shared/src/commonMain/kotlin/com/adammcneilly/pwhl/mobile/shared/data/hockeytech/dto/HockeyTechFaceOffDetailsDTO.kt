@@ -19,4 +19,4 @@ data class HockeyTechFaceOffDetailsDTO(
     val xLocation: Int? = null,
     @SerialName("yLocation")
     val yLocation: Int? = null,
-)
+) : HockeyTechPlayByPlayItemDetailsDTO

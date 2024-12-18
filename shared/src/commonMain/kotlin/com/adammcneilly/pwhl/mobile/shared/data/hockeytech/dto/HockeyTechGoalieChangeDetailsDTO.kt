@@ -15,4 +15,4 @@ data class HockeyTechGoalieChangeDetailsDTO(
     val teamId: String? = null,
     @SerialName("time")
     val time: String? = null,
-)
+) : HockeyTechPlayByPlayItemDetailsDTO
