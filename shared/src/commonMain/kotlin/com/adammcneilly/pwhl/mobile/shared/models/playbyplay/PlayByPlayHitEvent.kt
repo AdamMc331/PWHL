@@ -5,6 +5,6 @@ import com.adammcneilly.pwhl.mobile.shared.models.Player
 
 data class PlayByPlayHitEvent(
     val player: Player,
-    val period: Period,
-    val time: String,
-)
+    override val period: Period,
+    override val time: String,
+) : PlayByPlayEvent
