@@ -3,18 +3,18 @@ package com.adammcneilly.pwhl.mobile.shared.models.playbyplay
 import com.adammcneilly.pwhl.mobile.shared.LocalTeamImageProvider
 import com.adammcneilly.pwhl.mobile.shared.displaymodels.PlayByPlayEventDisplayModel
 import com.adammcneilly.pwhl.mobile.shared.models.Period
-import com.adammcneilly.pwhl.mobile.shared.models.Player
+import com.adammcneilly.pwhl.mobile.shared.models.PlayerAndAssistCount
+import com.adammcneilly.pwhl.mobile.shared.models.PlayerAndGoalCount
 
 data class PlayByPlayGoalEvent(
-    val scoredBy: Player,
-    val scoredByGoalCount: Int,
+    val scoredBy: PlayerAndGoalCount,
     val teamId: String,
-    val assistingPlayers: List<Pair<Player, Int>>,
+    val assistingPlayers: List<PlayerAndAssistCount>,
     override val period: Period,
     override val time: String,
 ) : PlayByPlayEvent {
     override fun toDisplayModel(): PlayByPlayEventDisplayModel {
-        val scoreDescription = "${scoredBy.fullNameWithNumber} ($scoredByGoalCount)"
+        val scoreDescription = "${scoredBy.player.fullNameWithNumber} (${scoredBy.goalCount})"
 
         val assistsWithCounts = assistingPlayers.joinToString(", ") { (player, assistCount) ->
             "${player.fullNameWithNumber} ($assistCount)"
@@ -25,8 +25,6 @@ data class PlayByPlayGoalEvent(
         } else {
             assistsWithCounts
         }
-
-        println("ADAMLOG - TEAM: $teamId")
 
         return PlayByPlayEventDisplayModel(
             teamImage = LocalTeamImageProvider.getTeamImage(teamId),
