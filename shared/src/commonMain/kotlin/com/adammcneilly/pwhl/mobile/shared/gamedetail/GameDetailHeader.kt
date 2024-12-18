@@ -5,12 +5,14 @@ import androidx.compose.animation.SharedTransitionScope
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.size
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import com.adammcneilly.pwhl.mobile.shared.LocalNavAnimatedVisibilityScope
 import com.adammcneilly.pwhl.mobile.shared.LocalSharedTransitionScope
@@ -18,6 +20,8 @@ import com.adammcneilly.pwhl.mobile.shared.displaymodels.GameSummaryDisplayModel
 import com.adammcneilly.pwhl.mobile.shared.displaymodels.TeamDisplayModel
 import com.adammcneilly.pwhl.mobile.shared.displaymodels.TeamGameResultDisplayModelV2
 import com.adammcneilly.pwhl.mobile.shared.ui.components.ImageWrapper
+
+private const val GAME_STATUS_WIDTH_RATIO = 0.50F
 
 @Composable
 fun GameDetailHeader(
@@ -68,7 +72,9 @@ private fun GameSummary(
             Text(
                 text = game.status,
                 style = MaterialTheme.typography.titleMedium,
+                textAlign = TextAlign.Center,
                 modifier = Modifier
+                    .fillMaxWidth(GAME_STATUS_WIDTH_RATIO)
                     .sharedBounds(
                         sharedContentState = rememberSharedContentState(key = "${game.id}_status"),
                         animatedVisibilityScope = LocalNavAnimatedVisibilityScope.current,
