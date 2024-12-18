@@ -1,5 +1,6 @@
 package com.adammcneilly.pwhl.mobile.shared.data.hockeytech.dto
 
+import com.adammcneilly.pwhl.mobile.shared.models.PlayByPlayEvent
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
@@ -19,4 +20,10 @@ data class HockeyTechFaceOffDetailsDTO(
     val xLocation: Int? = null,
     @SerialName("yLocation")
     val yLocation: Int? = null,
-) : HockeyTechPlayByPlayItemDetailsDTO
+) : HockeyTechPlayByPlayEventDTO2 {
+    override fun toPlayByPlayEvent(): PlayByPlayEvent {
+        return PlayByPlayEvent(
+            eventType = "faceoff",
+        )
+    }
+}

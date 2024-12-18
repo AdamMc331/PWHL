@@ -19,5 +19,5 @@ interface PWHLRepository {
 
     suspend fun fetchPlayByPlay(
         gameId: String,
-    ): Result<PlayByPlayEvent>
+    ): Result<List<PlayByPlayEvent>>
 }

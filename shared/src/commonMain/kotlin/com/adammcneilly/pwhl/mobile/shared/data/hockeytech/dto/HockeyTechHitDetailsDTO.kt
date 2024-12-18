@@ -5,21 +5,23 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 @Serializable
-data class HockeyTechGoalieChangeDetailsDTO(
-    @SerialName("goalieComingIn")
-    val goalieComingIn: HockeyTechPlayerSummaryDTO? = null,
-    @SerialName("goalieGoingOut")
-    val goalieGoingOut: HockeyTechPlayerSummaryDTO? = null,
+data class HockeyTechHitDetailsDTO(
     @SerialName("period")
     val period: HockeyTechPeriodDTO? = null,
-    @SerialName("team_id")
+    @SerialName("player")
+    val player: HockeyTechPlayerSummaryDTO? = null,
+    @SerialName("teamId")
     val teamId: String? = null,
     @SerialName("time")
     val time: String? = null,
+    @SerialName("xLocation")
+    val xLocation: Int? = null,
+    @SerialName("yLocation")
+    val yLocation: Int? = null,
 ) : HockeyTechPlayByPlayEventDTO2 {
     override fun toPlayByPlayEvent(): PlayByPlayEvent {
         return PlayByPlayEvent(
-            eventType = "goalie_change",
+            eventType = "hit",
         )
     }
 }

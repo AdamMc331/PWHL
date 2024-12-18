@@ -1,7 +1,7 @@
 package com.adammcneilly.pwhl.mobile.shared.data.hockeytech
 
 import com.adammcneilly.pwhl.mobile.shared.data.hockeytech.dto.HockeyTechGameSummaryDTO
-import com.adammcneilly.pwhl.mobile.shared.data.hockeytech.dto.HockeyTechPlayByPlayEventDTO
+import com.adammcneilly.pwhl.mobile.shared.data.hockeytech.dto.HockeyTechPlayByPlayEventDTO2
 import com.adammcneilly.pwhl.mobile.shared.data.hockeytech.dto.HockeyTechScoreBarResponseDTO
 import com.adammcneilly.pwhl.mobile.shared.data.hockeytech.dto.HockeyTechStandingsListResponseDTO
 import com.adammcneilly.pwhl.mobile.shared.data.remote.BaseKtorClient
@@ -98,7 +98,7 @@ class HockeyTechPWHLService(
 
     override suspend fun fetchPlayByPlay(
         gameId: String,
-    ): Result<PlayByPlayEvent> {
+    ): Result<List<PlayByPlayEvent>> {
         val endpoint = "feed/index.php"
 
         val gameParams = mapOf(
@@ -109,9 +109,13 @@ class HockeyTechPWHLService(
 
         val params = HockeyTechKtorClient.baseHockeyTechParams + gameParams
 
-        return apiClient.getResponse<HockeyTechPlayByPlayEventDTO<*>>(
+        return apiClient.getResponse<List<HockeyTechPlayByPlayEventDTO2>>(
             endpoint = endpoint,
             params = params,
-        ).map(HockeyTechPlayByPlayEventDTO<*>::toPlayByPlayEvent)
+        ).map {
+            println("ADAMLOG - Play By Play: $it")
+
+            it.map(HockeyTechPlayByPlayEventDTO2::toPlayByPlayEvent)
+        }
     }
 }
