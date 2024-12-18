@@ -1,16 +1,16 @@
 package com.adammcneilly.pwhl.mobile.shared.displaymodels
 
-import com.adammcneilly.pwhl.mobile.shared.models.GameStats
+import com.adammcneilly.pwhl.mobile.shared.models.GameTeamStats
 
 data class GameStatsDisplayModel(
     val goals: String,
 ) {
     constructor(
-        gameStats: GameStats,
+        gameTeamStats: GameTeamStats,
         gameStarted: Boolean,
     ) : this(
         goals = if (gameStarted) {
-            gameStats.goals.toString()
+            gameTeamStats.goals.toString()
         } else {
             "–"
         },

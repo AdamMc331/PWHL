@@ -10,7 +10,7 @@ data class HockeyTechPlayerGameResultDTO(
     @SerialName("starting")
     val starting: Int? = null,
     @SerialName("stats")
-    val stats: HockeyTechPlayerStatsDTO? = null,
+    val stats: HockeyTechGamePlayerStatsDTO? = null,
     @SerialName("status")
     val status: String? = null,
 )

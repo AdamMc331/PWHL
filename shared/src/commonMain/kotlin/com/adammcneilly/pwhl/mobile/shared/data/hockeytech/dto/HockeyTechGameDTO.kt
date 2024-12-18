@@ -30,6 +30,7 @@ data class HockeyTechGameDTO(
             homeTeam = homeTeam.parseTeamGameResult(),
             awayTeam = visitingTeam.parseTeamGameResult(),
             time = Instant.parse(details?.gameDateISO8601.orEmpty()),
+            mostValuablePlayers = mostValuablePlayers?.map(HockeyTechMVPDTO::parseMostValuablePlayer).orEmpty(),
             status = details?.status.orEmpty(),
             isComplete = details?.final == "1",
             isStarted = details?.started == "1",
