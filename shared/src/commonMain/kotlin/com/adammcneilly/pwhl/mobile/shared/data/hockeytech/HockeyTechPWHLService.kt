@@ -113,7 +113,7 @@ class HockeyTechPWHLService(
             endpoint = endpoint,
             params = params,
         ).map { eventList ->
-            eventList.map(HockeyTechPlayByPlayEventDTO::toPlayByPlayEvent)
+            eventList.map(HockeyTechPlayByPlayEventDTO::parsePlayByPlayEvent)
         }
     }
 }

@@ -12,7 +12,7 @@ data class HockeyTechBlockedShotEventDTO(
     @SerialName("event")
     val event: String? = null,
 ) : HockeyTechPlayByPlayEventDTO {
-    override fun toPlayByPlayEvent(): PlayByPlayEvent {
+    override fun parsePlayByPlayEvent(): PlayByPlayEvent {
         require(details != null) {
             "Cannot parse blocked shot event without details."
         }

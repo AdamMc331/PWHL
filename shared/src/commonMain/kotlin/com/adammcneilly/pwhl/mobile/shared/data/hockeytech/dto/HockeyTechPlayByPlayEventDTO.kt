@@ -12,7 +12,7 @@ import kotlinx.serialization.json.jsonPrimitive
     with = HockeyTechPlayByPlayEventDTOSerializer::class,
 )
 sealed interface HockeyTechPlayByPlayEventDTO {
-    fun toPlayByPlayEvent(): PlayByPlayEvent
+    fun parsePlayByPlayEvent(): PlayByPlayEvent
 }
 
 object HockeyTechPlayByPlayEventDTOSerializer : JsonContentPolymorphicSerializer<HockeyTechPlayByPlayEventDTO>(
