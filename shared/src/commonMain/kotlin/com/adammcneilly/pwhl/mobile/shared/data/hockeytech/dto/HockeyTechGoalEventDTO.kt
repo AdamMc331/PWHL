@@ -1,6 +1,7 @@
 package com.adammcneilly.pwhl.mobile.shared.data.hockeytech.dto
 
-import com.adammcneilly.pwhl.mobile.shared.models.PlayByPlayEvent
+import com.adammcneilly.pwhl.mobile.shared.models.playbyplay.PlayByPlayEvent
+import com.adammcneilly.pwhl.mobile.shared.models.playbyplay.PlayByPlayGoalEvent
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
@@ -11,9 +12,29 @@ data class HockeyTechGoalEventDTO(
     @SerialName("event")
     val event: String? = null,
 ) : HockeyTechPlayByPlayEventDTO {
-    override fun toPlayByPlayEvent(): PlayByPlayEvent {
-        return PlayByPlayEvent(
-            eventType = event.orEmpty(),
+    override fun parsePlayByPlayEvent(): PlayByPlayEvent {
+        require(details != null) {
+            "Cannot parse goal event without details."
+        }
+
+        require(details.scoredBy != null) {
+            "Cannot parse goal event without scorer."
+        }
+
+        require(details.period != null) {
+            "Cannot parse goal event without period info."
+        }
+
+        require(details.team != null) {
+            "Cannot parse goal event without team info."
+        }
+
+        return PlayByPlayGoalEvent(
+            scoredBy = details.scoredBy.parsePlayer(),
+            team = details.team.parseTeam(),
+            assists = details.assists.orEmpty().map(HockeyTechPlayerSummaryDTO::parsePlayer),
+            period = details.period.parsePeriod(),
+            time = details.time.orEmpty(),
         )
     }
 
