@@ -3,7 +3,9 @@ package com.adammcneilly.pwhl.mobile.shared.data.hockeytech.dto
 import com.adammcneilly.pwhl.mobile.shared.data.hockeytech.dto.HockeyTechPlayByPlayEventDTO.Companion.FACE_OFF
 import com.adammcneilly.pwhl.mobile.shared.data.hockeytech.dto.HockeyTechPlayByPlayEventDTO.Companion.GOALIE_CHANGE
 import com.adammcneilly.pwhl.mobile.shared.data.hockeytech.dto.HockeyTechPlayByPlayEventDTO.Companion.SHOT
+import com.adammcneilly.pwhl.mobile.shared.models.PlayByPlayEvent
 import kotlinx.serialization.DeserializationStrategy
+import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 import kotlinx.serialization.json.JsonContentPolymorphicSerializer
 import kotlinx.serialization.json.JsonElement
@@ -16,6 +18,12 @@ data class HockeyTechPlayByPlayEventDTO<T : HockeyTechPlayByPlayItemDetailsDTO?>
     val event: String,
     val data: T? = null,
 ) {
+    fun toPlayByPlayEvent(): PlayByPlayEvent {
+        return PlayByPlayEvent(
+            eventType = event,
+        )
+    }
+
     companion object {
         const val FACE_OFF = "faceoff"
         const val GOALIE_CHANGE = "goalie_change"
