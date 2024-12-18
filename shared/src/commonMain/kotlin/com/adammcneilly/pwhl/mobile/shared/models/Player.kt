@@ -7,5 +7,5 @@ data class Player(
     val lastName: String,
     val position: String,
     val birthDate: String,
-    val playerImageURL: String,
+    val playerImageURL: String?,
 )

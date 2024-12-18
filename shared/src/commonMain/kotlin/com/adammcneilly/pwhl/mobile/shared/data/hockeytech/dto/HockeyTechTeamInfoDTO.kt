@@ -1,5 +1,6 @@
 package com.adammcneilly.pwhl.mobile.shared.data.hockeytech.dto
 
+import com.adammcneilly.pwhl.mobile.shared.models.Team
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
@@ -21,4 +22,14 @@ data class HockeyTechTeamInfoDTO(
     val name: String? = null,
     @SerialName("nickname")
     val nickname: String? = null,
-)
+) {
+    fun parseTeam(): Team {
+        return Team(
+            id = id.toString(),
+            name = name.orEmpty(),
+            city = city.orEmpty(),
+            shortCode = abbreviation.orEmpty(),
+            imageUrl = logo,
+        )
+    }
+}

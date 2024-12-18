@@ -13,7 +13,7 @@ data class HockeyTechPeriodDTO(
     @SerialName("shortName")
     val shortName: String? = null,
 ) {
-    fun toPeriod(): Period {
+    fun parsePeriod(): Period {
         return Period(
             id = id.orEmpty(),
             longName = longName.orEmpty(),

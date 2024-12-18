@@ -1,3 +1,8 @@
 package com.adammcneilly.pwhl.mobile.shared.models.playbyplay
 
-sealed interface PlayByPlayEvent
+import com.adammcneilly.pwhl.mobile.shared.models.Period
+
+sealed interface PlayByPlayEvent {
+    val period: Period
+    val time: String
+}

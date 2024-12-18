@@ -1,6 +1,7 @@
 package com.adammcneilly.pwhl.mobile.shared.data.hockeytech.dto
 
 import com.adammcneilly.pwhl.mobile.shared.models.playbyplay.PlayByPlayEvent
+import com.adammcneilly.pwhl.mobile.shared.models.playbyplay.PlayByPlayPenaltyEvent
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
@@ -12,7 +13,32 @@ data class HockeyTechPenaltyEventDTO(
     val event: String? = null,
 ) : HockeyTechPlayByPlayEventDTO {
     override fun toPlayByPlayEvent(): PlayByPlayEvent {
-        TODO("Not Yet Implemented")
+        require(details != null) {
+            "Cannot parse penalty event without details."
+        }
+
+        require(details.againstTeam != null) {
+            "Cannot parse penalty event without team."
+        }
+
+        require(details.servedBy != null) {
+            "Cannot parse penalty event without served by player."
+        }
+
+        require(details.period != null) {
+            "Cannot parse penalty event without period info."
+        }
+
+        return PlayByPlayPenaltyEvent(
+            againstTeam = details.againstTeam.parseTeam(),
+            description = details.description.orEmpty(),
+            minutes = details.minutes.orEmpty(),
+            powerPlay = details.isPowerPlay == true,
+            servedBy = details.servedBy.parsePlayer(),
+            takenBy = details.takenBy?.parsePlayer(),
+            period = details.period.parsePeriod(),
+            time = details.time.orEmpty(),
+        )
     }
 
     @Serializable
