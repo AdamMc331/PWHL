@@ -2,6 +2,7 @@ package com.adammcneilly.pwhl.mobile.shared.data.hockeytech.dto
 
 import com.adammcneilly.pwhl.mobile.shared.data.hockeytech.dto.HockeyTechPlayByPlayItemDTO.Companion.FACE_OFF
 import com.adammcneilly.pwhl.mobile.shared.data.hockeytech.dto.HockeyTechPlayByPlayItemDTO.Companion.GOALIE_CHANGE
+import com.adammcneilly.pwhl.mobile.shared.data.hockeytech.dto.HockeyTechPlayByPlayItemDTO.Companion.SHOT
 import kotlinx.serialization.DeserializationStrategy
 import kotlinx.serialization.Serializable
 import kotlinx.serialization.json.JsonContentPolymorphicSerializer
@@ -15,8 +16,9 @@ data class HockeyTechPlayByPlayItemDTO<T : HockeyTechPlayByPlayItemDetailsDTO?>(
     val data: T? = null,
 ) {
     companion object {
-        const val GOALIE_CHANGE = "goalie_change"
         const val FACE_OFF = "faceoff"
+        const val GOALIE_CHANGE = "goalie_change"
+        const val SHOT = "shot"
     }
 }
 
@@ -33,6 +35,7 @@ object HockeyTechPlayByPlayItemDTOSerializer : JsonContentPolymorphicSerializer<
         return when (event) {
             GOALIE_CHANGE -> HockeyTechPlayByPlayItemDTO.serializer(HockeyTechGoalieChangeDetailsDTO.serializer())
             FACE_OFF -> HockeyTechPlayByPlayItemDTO.serializer(HockeyTechFaceOffDetailsDTO.serializer())
+            SHOT -> HockeyTechPlayByPlayItemDTO.serializer(HockeyTechPlayByPlayShotDetailsDTO.serializer())
             else -> error("Unknown play by play event: $event")
         }
     }
