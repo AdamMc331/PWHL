@@ -3,6 +3,7 @@ package com.adammcneilly.pwhl.mobile.shared.data.hockeytech.dto
 import com.adammcneilly.pwhl.mobile.shared.data.hockeytech.dto.HockeyTechPlayByPlayEventDTO.Companion.FACE_OFF
 import com.adammcneilly.pwhl.mobile.shared.data.hockeytech.dto.HockeyTechPlayByPlayEventDTO.Companion.GOALIE_CHANGE
 import com.adammcneilly.pwhl.mobile.shared.data.hockeytech.dto.HockeyTechPlayByPlayEventDTO.Companion.SHOT
+import com.adammcneilly.pwhl.mobile.shared.data.hockeytech.dto.HockeyTechPlayByPlayEventDTO2.Companion.BLOCKED_SHOT
 import com.adammcneilly.pwhl.mobile.shared.data.hockeytech.dto.HockeyTechPlayByPlayEventDTO2.Companion.HIT
 import com.adammcneilly.pwhl.mobile.shared.models.PlayByPlayEvent
 import kotlinx.serialization.DeserializationStrategy
@@ -19,6 +20,7 @@ sealed interface HockeyTechPlayByPlayEventDTO2 {
     fun toPlayByPlayEvent(): PlayByPlayEvent
 
     companion object {
+        const val BLOCKED_SHOT = "blocked_shot"
         const val FACE_OFF = "faceoff"
         const val GOALIE_CHANGE = "goalie_change"
         const val HIT = "hit"
@@ -37,6 +39,7 @@ object HockeyTechPlayByPlayEventDTOSerializer : JsonContentPolymorphicSerializer
         println("Found Play By Play event: $event")
 
         return when (event) {
+            BLOCKED_SHOT -> HockeyTechBlockedShotDetailsDTO.serializer()
             GOALIE_CHANGE -> HockeyTechGoalieChangeDetailsDTO.serializer()
             FACE_OFF -> HockeyTechFaceOffDetailsDTO.serializer()
             HIT -> HockeyTechHitDetailsDTO.serializer()
