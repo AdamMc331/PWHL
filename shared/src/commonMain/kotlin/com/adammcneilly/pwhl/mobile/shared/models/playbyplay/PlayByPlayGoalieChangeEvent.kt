@@ -4,9 +4,9 @@ import com.adammcneilly.pwhl.mobile.shared.models.Period
 import com.adammcneilly.pwhl.mobile.shared.models.Player
 
 data class PlayByPlayGoalieChangeEvent(
-    val goalieComingIn: Player,
-    val goalieGoingOut: Player?,
+    val goalieComingIn: Player?,
+    val goalieComingOut: Player?,
     val teamId: String,
-    val period: Period,
-    val time: String,
-)
+    override val period: Period,
+    override val time: String,
+) : PlayByPlayEvent
