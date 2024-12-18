@@ -32,8 +32,6 @@ object HockeyTechPlayByPlayEventDTOSerializer : JsonContentPolymorphicSerializer
     ): DeserializationStrategy<HockeyTechPlayByPlayEventDTO> {
         val event = element.jsonObject["event"]?.jsonPrimitive?.toString()?.replace("\"", "")
 
-        println("Found Play By Play event: $event")
-
         return when (event) {
             BLOCKED_SHOT -> HockeyTechBlockedShotEventDTO.serializer()
             FACE_OFF -> HockeyTechFaceOffEventDTO.serializer()

@@ -1,13 +1,12 @@
 package com.adammcneilly.pwhl.mobile.shared.models.playbyplay
 
+import com.adammcneilly.pwhl.mobile.shared.LocalTeamImageProvider
 import com.adammcneilly.pwhl.mobile.shared.displaymodels.PlayByPlayEventDisplayModel
-import com.adammcneilly.pwhl.mobile.shared.displaymodels.TeamDisplayModel
 import com.adammcneilly.pwhl.mobile.shared.models.Period
 import com.adammcneilly.pwhl.mobile.shared.models.Player
-import com.adammcneilly.pwhl.mobile.shared.models.Team
 
 data class PlayByPlayPenaltyEvent(
-    val againstTeam: Team,
+    val againstTeamId: String,
     val description: String,
     val minutes: String,
     val powerPlay: Boolean,
@@ -18,7 +17,7 @@ data class PlayByPlayPenaltyEvent(
 ) : PlayByPlayEvent {
     override fun toDisplayModel(): PlayByPlayEventDisplayModel {
         return PlayByPlayEventDisplayModel(
-            teamImage = TeamDisplayModel(againstTeam).image,
+            teamImage = LocalTeamImageProvider.getTeamImage(againstTeamId),
             time = time,
             title = "PENALTY",
             description = "${takenBy?.fullNameWithNumber} – $description",

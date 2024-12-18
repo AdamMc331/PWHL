@@ -31,7 +31,7 @@ data class HockeyTechGoalEventDTO(
 
         return PlayByPlayGoalEvent(
             scoredBy = details.scoredBy.parsePlayer(),
-            team = details.team.parseTeam(),
+            teamId = details.team.parseTeam().id,
             assistingPlayers = details.assists.orEmpty().mapIndexed { index, player ->
                 val assistCount = details.assistNumbers?.get(index)?.toIntOrNull() ?: 0
                 player.parsePlayer() to assistCount

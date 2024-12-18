@@ -1,15 +1,14 @@
 package com.adammcneilly.pwhl.mobile.shared.models.playbyplay
 
+import com.adammcneilly.pwhl.mobile.shared.LocalTeamImageProvider
 import com.adammcneilly.pwhl.mobile.shared.displaymodels.PlayByPlayEventDisplayModel
-import com.adammcneilly.pwhl.mobile.shared.displaymodels.TeamDisplayModel
 import com.adammcneilly.pwhl.mobile.shared.models.Period
 import com.adammcneilly.pwhl.mobile.shared.models.Player
-import com.adammcneilly.pwhl.mobile.shared.models.Team
 
 data class PlayByPlayGoalEvent(
     val scoredBy: Player,
     val scoredByGoalCount: Int,
-    val team: Team,
+    val teamId: String,
     val assistingPlayers: List<Pair<Player, Int>>,
     override val period: Period,
     override val time: String,
@@ -27,8 +26,10 @@ data class PlayByPlayGoalEvent(
             assistsWithCounts
         }
 
+        println("ADAMLOG - TEAM: $teamId")
+
         return PlayByPlayEventDisplayModel(
-            teamImage = TeamDisplayModel(team).image,
+            teamImage = LocalTeamImageProvider.getTeamImage(teamId),
             time = time,
             title = "GOAL",
             description = "$scoreDescription ASST: $assistDescription",

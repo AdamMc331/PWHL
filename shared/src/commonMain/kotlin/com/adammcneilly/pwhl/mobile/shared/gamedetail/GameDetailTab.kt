@@ -10,7 +10,7 @@ enum class GameDetailTab {
         return when (this) {
             Summary -> "Summary"
             Stats -> "Stats"
-            PlayByPlay -> "Play by Play"
+            PlayByPlay -> "Play By Play"
         }
     }
 }
