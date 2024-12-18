@@ -9,8 +9,8 @@ import com.adammcneilly.pwhl.mobile.shared.data.repositories.PWHLRepository
 import com.adammcneilly.pwhl.mobile.shared.data.requests.GameListRequest
 import com.adammcneilly.pwhl.mobile.shared.models.GameDetail
 import com.adammcneilly.pwhl.mobile.shared.models.GameSummary
-import com.adammcneilly.pwhl.mobile.shared.models.PlayByPlayEvent
 import com.adammcneilly.pwhl.mobile.shared.models.StandingsRow
+import com.adammcneilly.pwhl.mobile.shared.models.playbyplay.PlayByPlayEvent
 import com.adammcneilly.pwhl.mobile.shared.time.TimeProvider
 import kotlinx.datetime.TimeZone
 import kotlinx.datetime.daysUntil

@@ -1,6 +1,6 @@
 package com.adammcneilly.pwhl.mobile.shared.data.hockeytech.dto
 
-import com.adammcneilly.pwhl.mobile.shared.models.PlayByPlayEvent
+import com.adammcneilly.pwhl.mobile.shared.models.playbyplay.PlayByPlayEvent
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
@@ -12,9 +12,7 @@ data class HockeyTechGoalEventDTO(
     val event: String? = null,
 ) : HockeyTechPlayByPlayEventDTO {
     override fun toPlayByPlayEvent(): PlayByPlayEvent {
-        return PlayByPlayEvent(
-            eventType = event.orEmpty(),
-        )
+        TODO("Not Yet Implemented")
     }
 
     @Serializable
