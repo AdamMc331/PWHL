@@ -6,6 +6,7 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -13,29 +14,36 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.adammcneilly.pwhl.mobile.shared.displaymodels.PlayByPlayEventDisplayModel
 import com.adammcneilly.pwhl.mobile.shared.ui.components.ImageWrapper
+import com.adammcneilly.pwhl.mobile.shared.ui.theme.PWHLTeamTheme
 
 @Composable
 fun PlayByPlayListItem(
     event: PlayByPlayEventDisplayModel,
     modifier: Modifier = Modifier,
 ) {
-    Row(
-        verticalAlignment = Alignment.CenterVertically,
-        horizontalArrangement = Arrangement.spacedBy(16.dp),
-        modifier = modifier
-            .padding(8.dp),
+    PWHLTeamTheme(
+        teamId = event.highlightTeamId,
     ) {
-        TeamImage(event)
+        Surface {
+            Row(
+                verticalAlignment = Alignment.CenterVertically,
+                horizontalArrangement = Arrangement.spacedBy(16.dp),
+                modifier = modifier
+                    .padding(8.dp),
+            ) {
+                TeamImage(event)
 
-        EventInfo(
-            event = event,
-            modifier = Modifier
-                .weight(1F),
-        )
+                EventInfo(
+                    event = event,
+                    modifier = Modifier
+                        .weight(1F),
+                )
 
-        Text(
-            text = event.time,
-        )
+                Text(
+                    text = event.time,
+                )
+            }
+        }
     }
 }
 
