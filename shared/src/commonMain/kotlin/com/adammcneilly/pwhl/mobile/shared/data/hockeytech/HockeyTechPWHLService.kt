@@ -1,6 +1,6 @@
 package com.adammcneilly.pwhl.mobile.shared.data.hockeytech
 
-import com.adammcneilly.pwhl.mobile.shared.data.hockeytech.dto.HockeyTechGameSummaryDTO
+import com.adammcneilly.pwhl.mobile.shared.data.hockeytech.dto.HockeyTechGameDTO
 import com.adammcneilly.pwhl.mobile.shared.data.hockeytech.dto.HockeyTechPlayByPlayEventDTO
 import com.adammcneilly.pwhl.mobile.shared.data.hockeytech.dto.HockeyTechScoreBarResponseDTO
 import com.adammcneilly.pwhl.mobile.shared.data.hockeytech.dto.HockeyTechStandingsListResponseDTO
@@ -90,10 +90,10 @@ class HockeyTechPWHLService(
 
         val params = HockeyTechKtorClient.baseHockeyTechParams + gameParams
 
-        return apiClient.getResponse<HockeyTechGameSummaryDTO>(
+        return apiClient.getResponse<HockeyTechGameDTO>(
             endpoint = endpoint,
             params = params,
-        ).map(HockeyTechGameSummaryDTO::parseGameSummary)
+        ).map(HockeyTechGameDTO::parseGameSummary)
     }
 
     override suspend fun fetchPlayByPlay(

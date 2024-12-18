@@ -6,13 +6,15 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 @Serializable
-data class HockeyTechGameSummaryDTO(
+data class HockeyTechGameDTO(
     @SerialName("details")
     val details: HockeyTechGameDetailsDTO? = null,
     @SerialName("homeTeam")
     val homeTeam: HockeyTechGameSummaryTeamDTO? = null,
     @SerialName("visitingTeam")
     val visitingTeam: HockeyTechGameSummaryTeamDTO? = null,
+    @SerialName("mostValuablePlayers")
+    val mostValuablePlayers: List<HockeyTechMVPDTO>? = null,
 ) {
     fun parseGameSummary(): GameSummary {
         require(homeTeam != null) {
