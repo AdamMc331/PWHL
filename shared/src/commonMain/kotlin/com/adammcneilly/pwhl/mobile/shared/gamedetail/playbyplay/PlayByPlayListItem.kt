@@ -24,7 +24,15 @@ fun PlayByPlayListItem(
     PWHLTeamTheme(
         teamId = event.highlightTeamId,
     ) {
-        Surface {
+        val containerColor = if (event.highlightTeamId.isNotEmpty()) {
+            MaterialTheme.colorScheme.primaryContainer
+        } else {
+            MaterialTheme.colorScheme.surface
+        }
+
+        Surface(
+            color = containerColor,
+        ) {
             Row(
                 verticalAlignment = Alignment.CenterVertically,
                 horizontalArrangement = Arrangement.spacedBy(16.dp),
