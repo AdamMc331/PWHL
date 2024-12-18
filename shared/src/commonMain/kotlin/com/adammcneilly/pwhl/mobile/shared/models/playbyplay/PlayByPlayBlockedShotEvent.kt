@@ -30,6 +30,7 @@ data class PlayByPlayBlockedShotEvent(
             time = time,
             title = "BLOCKED SHOT",
             description = description,
+            period = period,
         )
     }
 }

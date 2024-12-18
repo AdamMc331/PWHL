@@ -26,6 +26,7 @@ data class PlayByPlayFaceOffEvent(
             time = time,
             title = "FACEOFF",
             description = "$matchUp\n$winnerName wins",
+            period = period,
         )
     }
 }

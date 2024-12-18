@@ -11,7 +11,7 @@ import com.adammcneilly.pwhl.mobile.shared.gamedetail.playbyplay.PlayByPlayList
 
 @Composable
 fun GameDetailPager(
-    playByPlayEvents: List<PlayByPlayEventDisplayModel>,
+    playByPlayEvents: Map<String, List<PlayByPlayEventDisplayModel>>,
     modifier: Modifier = Modifier,
 ) {
     val tabs = GameDetailTab.entries

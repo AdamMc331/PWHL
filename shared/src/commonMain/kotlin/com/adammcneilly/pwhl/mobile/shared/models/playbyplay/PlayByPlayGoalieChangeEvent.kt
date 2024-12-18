@@ -31,6 +31,7 @@ data class PlayByPlayGoalieChangeEvent(
             time = time,
             title = "GOALIE CHANGE",
             description = description,
+            period = period,
         )
     }
 }

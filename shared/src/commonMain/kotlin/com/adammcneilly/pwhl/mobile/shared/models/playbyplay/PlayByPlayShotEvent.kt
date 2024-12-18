@@ -19,6 +19,7 @@ data class PlayByPlayShotEvent(
             time = time,
             title = "SHOT",
             description = "${shooter.fullNameWithNumber} Shoots On ${goalie.fullNameWithNumber}",
+            period = period,
         )
     }
 }

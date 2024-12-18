@@ -6,13 +6,13 @@ import com.adammcneilly.pwhl.mobile.shared.displaymodels.PlayByPlayEventDisplayM
 data class GameDetailState(
     val isLoading: Boolean,
     val game: GameSummaryDisplayModel?,
-    val playByPlayEvents: List<PlayByPlayEventDisplayModel>,
+    val playByPlayEvents: Map<String, List<PlayByPlayEventDisplayModel>>,
 ) {
     companion object {
         val Default = GameDetailState(
             isLoading = false,
             game = null,
-            playByPlayEvents = emptyList(),
+            playByPlayEvents = emptyMap(),
         )
     }
 }
