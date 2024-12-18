@@ -22,7 +22,7 @@ data class HockeyTechBlockedShotEventDTO(
         @SerialName("goalie")
         val goalie: HockeyTechPlayerSummaryDTO? = null,
         @SerialName("period")
-        val period: HockeyTechPlayerSummaryDTO? = null,
+        val period: HockeyTechPeriodDTO? = null,
         @SerialName("shooter")
         val shooter: HockeyTechPlayerSummaryDTO? = null,
         @SerialName("shooterTeamId")
