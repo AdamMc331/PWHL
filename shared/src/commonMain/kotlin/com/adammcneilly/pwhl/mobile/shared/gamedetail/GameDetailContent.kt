@@ -56,6 +56,7 @@ private fun SuccessContent(
         )
 
         GameDetailPager(
+            game = game,
             playByPlayEvents = playByPlayEvents,
             modifier = Modifier
                 .fillMaxSize(),
