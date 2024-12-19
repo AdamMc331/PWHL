@@ -1,6 +1,6 @@
 package com.adammcneilly.pwhl.mobile.shared.models
 
-data class GameStats(
+data class GameTeamStats(
     val assists: Int,
     val goals: Int,
     val hits: Int,

@@ -6,11 +6,13 @@ import androidx.compose.foundation.pager.HorizontalPager
 import androidx.compose.foundation.pager.rememberPagerState
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import com.adammcneilly.pwhl.mobile.shared.displaymodels.GameSummaryDisplayModel
 import com.adammcneilly.pwhl.mobile.shared.displaymodels.PlayByPlayEventDisplayModel
 import com.adammcneilly.pwhl.mobile.shared.gamedetail.playbyplay.PlayByPlayList
 
 @Composable
 fun GameDetailPager(
+    game: GameSummaryDisplayModel,
     playByPlayEvents: Map<String, List<PlayByPlayEventDisplayModel>>,
     modifier: Modifier = Modifier,
 ) {
@@ -29,12 +31,14 @@ fun GameDetailPager(
 
         HorizontalPager(
             state = pagerState,
+            userScrollEnabled = false,
         ) { pageIndex ->
             val pageModifier = Modifier
                 .fillMaxSize()
 
             when (tabs[pageIndex]) {
                 GameDetailTab.Summary -> GameDetailSummaryTab(
+                    game = game,
                     modifier = pageModifier,
                 )
                 GameDetailTab.Stats -> GameDetailStatsTab(

@@ -25,7 +25,6 @@ fun FeedScreen(
             state = state.value,
             onGameClicked = onGameClicked,
             contentPadding = scaffoldPadding,
-            modifier = modifier,
         )
     }
 }

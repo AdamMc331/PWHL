@@ -1,6 +1,6 @@
 package com.adammcneilly.pwhl.mobile.shared.data.hockeytech.dto
 
-import com.adammcneilly.pwhl.mobile.shared.models.GameStats
+import com.adammcneilly.pwhl.mobile.shared.models.GameTeamStats
 import com.adammcneilly.pwhl.mobile.shared.models.Team
 import com.adammcneilly.pwhl.mobile.shared.models.TeamGameResultV2
 import kotlinx.serialization.SerialName
@@ -23,8 +23,8 @@ data class HockeyTechGameSummaryTeamDTO(
         )
     }
 
-    private fun parseStats(): GameStats {
-        return GameStats(
+    private fun parseStats(): GameTeamStats {
+        return GameTeamStats(
             assists = stats?.assistCount ?: 0,
             shots = stats?.shots ?: 0,
             goals = stats?.goals ?: 0,

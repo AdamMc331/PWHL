@@ -1,5 +1,7 @@
 package com.adammcneilly.pwhl.mobile.shared.displaymodels
 
+import com.adammcneilly.pwhl.mobile.shared.Res
+import com.adammcneilly.pwhl.mobile.shared.pwhl
 import org.jetbrains.compose.resources.DrawableResource
 
 sealed interface ImageDisplayModel {
@@ -11,5 +13,9 @@ sealed interface ImageDisplayModel {
         val resource: DrawableResource,
     ) : ImageDisplayModel
 
-    data object Placeholder : ImageDisplayModel
+    companion object {
+        val Placeholder = Local(
+            resource = Res.drawable.pwhl,
+        )
+    }
 }
