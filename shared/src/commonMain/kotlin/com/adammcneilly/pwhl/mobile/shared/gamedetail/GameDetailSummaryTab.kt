@@ -32,6 +32,10 @@ fun GameDetailSummaryTab(
 private fun LazyListScope.mvpSection(
     game: GameSummaryDisplayModel,
 ) {
+    if (game.mostValuablePlayers.isEmpty()) {
+        return
+    }
+
     item {
         Column {
             Text(
