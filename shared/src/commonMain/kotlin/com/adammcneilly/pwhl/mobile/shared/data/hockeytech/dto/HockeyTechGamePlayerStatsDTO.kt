@@ -35,7 +35,6 @@ data class HockeyTechGamePlayerStatsDTO(
     @SerialName("toi")
     val toi: String? = null,
 ) {
-
     fun parseGamePlayerStats(): GamePlayerStats {
         return GamePlayerStats(
             assists = assists ?: 0,

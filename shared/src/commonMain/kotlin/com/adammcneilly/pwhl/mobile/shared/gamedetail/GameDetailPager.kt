@@ -31,6 +31,7 @@ fun GameDetailPager(
 
         HorizontalPager(
             state = pagerState,
+            userScrollEnabled = false,
         ) { pageIndex ->
             val pageModifier = Modifier
                 .fillMaxSize()

@@ -5,7 +5,7 @@ import com.adammcneilly.pwhl.mobile.shared.models.MostValuablePlayer
 data class MostValuablePlayerDisplayModel(
     val team: TeamDisplayModel,
     val player: PlayerDisplayModel,
-    val highlightStats: Map<String, String>,
+    val highlightStats: List<StatDisplayModel>,
 ) {
     constructor(mvp: MostValuablePlayer) : this(
         team = TeamDisplayModel(mvp.team),
@@ -14,21 +14,21 @@ data class MostValuablePlayerDisplayModel(
     )
 }
 
-private fun MostValuablePlayer.highlightStats(): Map<String, String> {
+private fun MostValuablePlayer.highlightStats(): List<StatDisplayModel> {
     return if (this.isGoalie) {
         val saves = this.stats.saves?.toFloat() ?: 0F
         val shots = this.stats.shotsAgainst?.toFloat() ?: 0F
         val savePercentage = saves / shots
 
-        mapOf(
-            "GA" to this.stats.goalsAgainst.toString(),
-            "SV%" to savePercentage.toString(),
+        listOf(
+            StatDisplayModel("GA", this.stats.goalsAgainst.toString()),
+            StatDisplayModel("SV%", savePercentage.toString()),
         )
     } else {
-        mapOf(
-            "G" to stats.goals.toString(),
-            "A" to stats.assists.toString(),
-            "P" to stats.points.toString(),
+        listOf(
+            StatDisplayModel("G", stats.goals.toString()),
+            StatDisplayModel("A", stats.assists.toString()),
+            StatDisplayModel("P", stats.points.toString()),
         )
     }
 }
