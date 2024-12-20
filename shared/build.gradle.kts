@@ -65,6 +65,9 @@ kotlin {
         }
 
         androidMain.dependencies {
+            implementation(libs.androidx.xr.compose)
+            implementation(libs.androidx.xr.compose.material3)
+            implementation(libs.androidx.xr.scenecore)
             implementation(libs.cash.sqldelight.android.driver)
             implementation(libs.ktor.client.android)
         }
