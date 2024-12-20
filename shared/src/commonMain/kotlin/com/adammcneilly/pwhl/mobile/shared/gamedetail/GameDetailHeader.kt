@@ -16,16 +16,16 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import com.adammcneilly.pwhl.mobile.shared.LocalNavAnimatedVisibilityScope
 import com.adammcneilly.pwhl.mobile.shared.LocalSharedTransitionScope
-import com.adammcneilly.pwhl.mobile.shared.displaymodels.GameDetailDisplayModelV2
+import com.adammcneilly.pwhl.mobile.shared.displaymodels.GameDetailDisplayModel
 import com.adammcneilly.pwhl.mobile.shared.displaymodels.TeamDisplayModel
-import com.adammcneilly.pwhl.mobile.shared.displaymodels.TeamGameResultDisplayModelV2
+import com.adammcneilly.pwhl.mobile.shared.displaymodels.TeamGameDetailResultDisplayModel
 import com.adammcneilly.pwhl.mobile.shared.ui.components.ImageWrapper
 
 private const val GAME_STATUS_WIDTH_RATIO = 0.50F
 
 @Composable
 fun GameDetailHeader(
-    game: GameDetailDisplayModelV2,
+    game: GameDetailDisplayModel,
     modifier: Modifier = Modifier,
 ) {
     Row(
@@ -60,7 +60,7 @@ fun GameDetailHeader(
 @Composable
 @OptIn(ExperimentalSharedTransitionApi::class)
 private fun GameSummary(
-    game: GameDetailDisplayModelV2,
+    game: GameDetailDisplayModel,
     modifier: Modifier = Modifier,
 ) {
     with(LocalSharedTransitionScope.current) {
@@ -98,7 +98,7 @@ private fun GameSummary(
 @Composable
 @OptIn(ExperimentalSharedTransitionApi::class)
 private fun TeamScore(
-    teamGameResult: TeamGameResultDisplayModelV2,
+    teamGameResult: TeamGameDetailResultDisplayModel,
     gameId: String,
 ) {
     with(LocalSharedTransitionScope.current) {

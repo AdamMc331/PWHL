@@ -2,13 +2,11 @@ package com.adammcneilly.pwhl.mobile.shared.models
 
 import kotlinx.datetime.Instant
 
-data class GameDetailV2(
+data class GameSummary(
     val id: String,
-    val homeTeam: TeamGameResultV2,
-    val awayTeam: TeamGameResultV2,
-    val mostValuablePlayers: List<MostValuablePlayer>,
+    val homeTeam: TeamGameSummaryResult,
+    val awayTeam: TeamGameSummaryResult,
     val time: Instant,
     val status: String,
-    val isStarted: Boolean,
     val isComplete: Boolean,
 )

@@ -6,13 +6,13 @@ import androidx.compose.foundation.pager.HorizontalPager
 import androidx.compose.foundation.pager.rememberPagerState
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import com.adammcneilly.pwhl.mobile.shared.displaymodels.GameDetailDisplayModelV2
+import com.adammcneilly.pwhl.mobile.shared.displaymodels.GameDetailDisplayModel
 import com.adammcneilly.pwhl.mobile.shared.displaymodels.PlayByPlayEventDisplayModel
 import com.adammcneilly.pwhl.mobile.shared.gamedetail.playbyplay.PlayByPlayList
 
 @Composable
 fun GameDetailPager(
-    game: GameDetailDisplayModelV2,
+    game: GameDetailDisplayModel,
     playByPlayEvents: Map<String, List<PlayByPlayEventDisplayModel>>,
     modifier: Modifier = Modifier,
 ) {

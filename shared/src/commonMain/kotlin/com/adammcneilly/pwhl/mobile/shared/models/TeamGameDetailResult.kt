@@ -1,6 +1,6 @@
 package com.adammcneilly.pwhl.mobile.shared.models
 
-data class TeamGameResultV2(
+data class TeamGameDetailResult(
     val team: Team,
     val stats: GameTeamStats,
 )

@@ -16,7 +16,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.adammcneilly.pwhl.mobile.shared.LocalNavAnimatedVisibilityScope
 import com.adammcneilly.pwhl.mobile.shared.LocalSharedTransitionScope
-import com.adammcneilly.pwhl.mobile.shared.displaymodels.GameDisplayModel
+import com.adammcneilly.pwhl.mobile.shared.displaymodels.GameSummaryDisplayModel
 import com.adammcneilly.pwhl.mobile.shared.ui.components.GameListItem
 import com.adammcneilly.pwhl.mobile.shared.ui.components.LoadingScreen
 
@@ -77,7 +77,7 @@ private fun LazyListScope.upcomingGamesHeader() {
 }
 
 private fun LazyListScope.gamesByDateGroup(
-    gamesByDate: Map<String, List<GameDisplayModel>>,
+    gamesByDate: Map<String, List<GameSummaryDisplayModel>>,
     onGameClicked: (String) -> Unit,
 ) {
     gamesByDate.entries.forEach { (dateString, games) ->
@@ -90,7 +90,7 @@ private fun LazyListScope.gamesByDateGroup(
 }
 
 private fun LazyListScope.gameList(
-    games: List<GameDisplayModel>,
+    games: List<GameSummaryDisplayModel>,
     onGameClicked: (String) -> Unit,
 ) {
     itemsIndexed(games) { index, game ->
