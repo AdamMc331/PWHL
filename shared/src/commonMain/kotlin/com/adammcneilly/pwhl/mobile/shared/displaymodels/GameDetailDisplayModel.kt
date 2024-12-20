@@ -44,7 +44,7 @@ private fun GameDetail.dateString(): String {
         dayOfMonth(padding = Padding.NONE)
     }
 
-    val localDate = this.time.toLocalDateTime(TimeZone.currentSystemDefault())
+    val localDateTime = this.time.toLocalDateTime(TimeZone.currentSystemDefault())
 
-    return localDate.format(gameDateFormat)
+    return localDateTime.format(gameDateFormat)
 }
