@@ -8,21 +8,25 @@ import kotlinx.datetime.format.MonthNames
 import kotlinx.datetime.format.Padding
 import kotlinx.datetime.format.char
 
-data class GameDisplayModel(
+data class GameDetailDisplayModel(
     val id: String,
-    val homeTeam: TeamGameResultDisplayModel,
-    val awayTeam: TeamGameResultDisplayModel,
+    val homeTeam: TeamGameDetailResultDisplayModel,
+    val awayTeam: TeamGameDetailResultDisplayModel,
+    val mostValuablePlayers: List<MostValuablePlayerDisplayModel>,
     val status: String,
     val dateString: String,
 ) {
     constructor(game: GameDetail) : this(
         id = game.id,
-        homeTeam = TeamGameResultDisplayModel(
+        homeTeam = TeamGameDetailResultDisplayModel(
             teamGameResult = game.homeTeam,
+            gameStarted = game.isStarted,
         ),
-        awayTeam = TeamGameResultDisplayModel(
+        awayTeam = TeamGameDetailResultDisplayModel(
             teamGameResult = game.awayTeam,
+            gameStarted = game.isStarted,
         ),
+        mostValuablePlayers = game.mostValuablePlayers.map(::MostValuablePlayerDisplayModel),
         status = game.status,
         dateString = game.dateString(),
     )

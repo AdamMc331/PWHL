@@ -13,12 +13,12 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import com.adammcneilly.pwhl.mobile.shared.displaymodels.GameSummaryDisplayModel
+import com.adammcneilly.pwhl.mobile.shared.displaymodels.GameDetailDisplayModel
 import com.adammcneilly.pwhl.mobile.shared.gamedetail.mvp.MVPCard
 
 @Composable
 fun GameDetailSummaryTab(
-    game: GameSummaryDisplayModel,
+    game: GameDetailDisplayModel,
     modifier: Modifier = Modifier,
 ) {
     LazyColumn(
@@ -30,7 +30,7 @@ fun GameDetailSummaryTab(
 }
 
 private fun LazyListScope.mvpSection(
-    game: GameSummaryDisplayModel,
+    game: GameDetailDisplayModel,
 ) {
     if (game.mostValuablePlayers.isEmpty()) {
         return

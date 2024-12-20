@@ -1,8 +1,8 @@
 package com.adammcneilly.pwhl.mobile.shared.data.hockeytech.dto
 
-import com.adammcneilly.pwhl.mobile.shared.models.GameDetail
+import com.adammcneilly.pwhl.mobile.shared.models.GameSummary
 import com.adammcneilly.pwhl.mobile.shared.models.Team
-import com.adammcneilly.pwhl.mobile.shared.models.TeamGameResult
+import com.adammcneilly.pwhl.mobile.shared.models.TeamGameSummaryResult
 import kotlinx.datetime.Instant
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
@@ -143,8 +143,8 @@ data class HockeyTechScoreBarItemDTO(
     private val homeTeamWins: Boolean = (isComplete && homeTeamGoalsScored > awayTeamGoalsScored)
     private val awayTeamWins: Boolean = (isComplete && awayTeamGoalsScored > homeTeamGoalsScored)
 
-    fun parseGame(): GameDetail {
-        return GameDetail(
+    fun parseGame(): GameSummary {
+        return GameSummary(
             id = iD.orEmpty(),
             homeTeam = parseHomeTeamResult(),
             awayTeam = parseAwayTeamResult(),
@@ -154,16 +154,16 @@ data class HockeyTechScoreBarItemDTO(
         )
     }
 
-    private fun parseHomeTeamResult(): TeamGameResult {
-        return TeamGameResult(
+    private fun parseHomeTeamResult(): TeamGameSummaryResult {
+        return TeamGameSummaryResult(
             team = parseHomeTeam(),
             goals = homeTeamGoalsScored,
             isWinner = homeTeamWins,
         )
     }
 
-    private fun parseAwayTeamResult(): TeamGameResult {
-        return TeamGameResult(
+    private fun parseAwayTeamResult(): TeamGameSummaryResult {
+        return TeamGameSummaryResult(
             team = parseAwayTeam(),
             goals = awayTeamGoalsScored,
             isWinner = awayTeamWins,

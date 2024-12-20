@@ -2,12 +2,12 @@ package com.adammcneilly.pwhl.mobile.shared.data.hockeytech.dto
 
 import com.adammcneilly.pwhl.mobile.shared.models.GameTeamStats
 import com.adammcneilly.pwhl.mobile.shared.models.Team
-import com.adammcneilly.pwhl.mobile.shared.models.TeamGameResultV2
+import com.adammcneilly.pwhl.mobile.shared.models.TeamGameDetailResult
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 @Serializable
-data class HockeyTechGameSummaryTeamDTO(
+data class HockeyTechGameDetailTeamDTO(
     @SerialName("info")
     val teamInfo: HockeyTechTeamInfoDTO? = null,
     @SerialName("stats")
@@ -36,8 +36,8 @@ data class HockeyTechGameSummaryTeamDTO(
         )
     }
 
-    fun parseTeamGameResult(): TeamGameResultV2 {
-        return TeamGameResultV2(
+    fun parseTeamGameResult(): TeamGameDetailResult {
+        return TeamGameDetailResult(
             team = parseTeam(),
             stats = parseStats(),
         )

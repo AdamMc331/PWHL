@@ -21,7 +21,7 @@ class HockeyTechPWHLService(
 ) : PWHLRepository {
     override suspend fun fetchGames(
         request: GameListRequest,
-    ): Result<List<GameDetail>> {
+    ): Result<List<GameSummary>> {
         val endpoint = "feed/index.php"
 
         val now = timeProvider.now()
@@ -77,9 +77,9 @@ class HockeyTechPWHLService(
         }
     }
 
-    override suspend fun fetchGameSummary(
+    override suspend fun fetchGameDetail(
         gameId: String,
-    ): Result<GameSummary> {
+    ): Result<GameDetail> {
         val endpoint = "feed/index.php"
 
         val gameParams = mapOf(
@@ -93,7 +93,7 @@ class HockeyTechPWHLService(
         return apiClient.getResponse<HockeyTechGameDTO>(
             endpoint = endpoint,
             params = params,
-        ).map(HockeyTechGameDTO::parseGameSummary)
+        ).map(HockeyTechGameDTO::parseGameDetail)
     }
 
     override suspend fun fetchPlayByPlay(

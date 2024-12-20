@@ -19,13 +19,13 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import com.adammcneilly.pwhl.mobile.shared.LocalNavAnimatedVisibilityScope
 import com.adammcneilly.pwhl.mobile.shared.LocalSharedTransitionScope
-import com.adammcneilly.pwhl.mobile.shared.displaymodels.GameDisplayModel
-import com.adammcneilly.pwhl.mobile.shared.displaymodels.TeamGameResultDisplayModel
+import com.adammcneilly.pwhl.mobile.shared.displaymodels.GameSummaryDisplayModel
+import com.adammcneilly.pwhl.mobile.shared.displaymodels.TeamGameSummaryResultDisplayModel
 
 @Composable
 @OptIn(ExperimentalSharedTransitionApi::class)
 fun GameListItem(
-    game: GameDisplayModel,
+    game: GameSummaryDisplayModel,
     modifier: Modifier = Modifier,
 ) {
     Surface {
@@ -60,7 +60,7 @@ fun GameListItem(
 
 @Composable
 private fun TeamRows(
-    game: GameDisplayModel,
+    game: GameSummaryDisplayModel,
     modifier: Modifier = Modifier,
 ) {
     Column(
@@ -82,7 +82,7 @@ private fun TeamRows(
 @Composable
 @OptIn(ExperimentalSharedTransitionApi::class)
 private fun TeamRow(
-    teamGameResult: TeamGameResultDisplayModel,
+    teamGameResult: TeamGameSummaryResultDisplayModel,
     gameId: String,
 ) {
     val fontWeight = FontWeight.Bold.takeIf {

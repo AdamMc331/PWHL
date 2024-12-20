@@ -9,13 +9,13 @@ import com.adammcneilly.pwhl.mobile.shared.models.playbyplay.PlayByPlayEvent
 interface PWHLRepository {
     suspend fun fetchGames(
         request: GameListRequest,
-    ): Result<List<GameDetail>>
+    ): Result<List<GameSummary>>
 
     suspend fun fetchStandings(): Result<List<StandingsRow>>
 
-    suspend fun fetchGameSummary(
+    suspend fun fetchGameDetail(
         gameId: String,
-    ): Result<GameSummary>
+    ): Result<GameDetail>
 
     suspend fun fetchPlayByPlay(
         gameId: String,

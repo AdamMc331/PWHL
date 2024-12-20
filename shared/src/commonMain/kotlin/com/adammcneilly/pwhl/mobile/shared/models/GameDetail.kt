@@ -4,9 +4,11 @@ import kotlinx.datetime.Instant
 
 data class GameDetail(
     val id: String,
-    val homeTeam: TeamGameResult,
-    val awayTeam: TeamGameResult,
+    val homeTeam: TeamGameDetailResult,
+    val awayTeam: TeamGameDetailResult,
+    val mostValuablePlayers: List<MostValuablePlayer>,
     val time: Instant,
     val status: String,
+    val isStarted: Boolean,
     val isComplete: Boolean,
 )

@@ -1,6 +1,6 @@
 package com.adammcneilly.pwhl.mobile.shared.data.hockeytech.dto
 
-import com.adammcneilly.pwhl.mobile.shared.models.GameDetail
+import com.adammcneilly.pwhl.mobile.shared.models.GameSummary
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
@@ -9,7 +9,7 @@ data class HockeyTechScoreBarResponseDTO(
     @SerialName("SiteKit")
     val siteKit: HockeyTechSiteKitDTO? = null,
 ) {
-    fun parseGames(): List<GameDetail> {
+    fun parseGames(): List<GameSummary> {
         return siteKit
             ?.scoreBar
             ?.mapNotNull { scoreBarItem ->

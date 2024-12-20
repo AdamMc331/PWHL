@@ -1,6 +1,6 @@
 package com.adammcneilly.pwhl.mobile.shared.data.hockeytech.dto
 
-import com.adammcneilly.pwhl.mobile.shared.models.GameSummary
+import com.adammcneilly.pwhl.mobile.shared.models.GameDetail
 import kotlinx.datetime.Instant
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
@@ -10,13 +10,13 @@ data class HockeyTechGameDTO(
     @SerialName("details")
     val details: HockeyTechGameDetailsDTO? = null,
     @SerialName("homeTeam")
-    val homeTeam: HockeyTechGameSummaryTeamDTO? = null,
+    val homeTeam: HockeyTechGameDetailTeamDTO? = null,
     @SerialName("visitingTeam")
-    val visitingTeam: HockeyTechGameSummaryTeamDTO? = null,
+    val visitingTeam: HockeyTechGameDetailTeamDTO? = null,
     @SerialName("mostValuablePlayers")
     val mostValuablePlayers: List<HockeyTechMVPDTO>? = null,
 ) {
-    fun parseGameSummary(): GameSummary {
+    fun parseGameDetail(): GameDetail {
         require(homeTeam != null) {
             "Cannot parse game summary without home team."
         }
@@ -25,7 +25,7 @@ data class HockeyTechGameDTO(
             "Cannot parse game summary without visiting team."
         }
 
-        return GameSummary(
+        return GameDetail(
             id = details?.id?.toString().orEmpty(),
             homeTeam = homeTeam.parseTeamGameResult(),
             awayTeam = visitingTeam.parseTeamGameResult(),

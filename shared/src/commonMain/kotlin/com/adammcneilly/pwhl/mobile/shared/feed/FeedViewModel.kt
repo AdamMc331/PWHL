@@ -2,7 +2,7 @@ package com.adammcneilly.pwhl.mobile.shared.feed
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.adammcneilly.pwhl.mobile.shared.displaymodels.GameDisplayModel
+import com.adammcneilly.pwhl.mobile.shared.displaymodels.GameSummaryDisplayModel
 import com.adammcneilly.pwhl.mobile.shared.domain.usecases.FetchRecentGamesUseCase
 import com.adammcneilly.pwhl.mobile.shared.domain.usecases.FetchUpcomingGamesUseCase
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -35,8 +35,8 @@ class FeedViewModel(
             val recentGamesMap = result
                 .getOrNull()
                 .orEmpty()
-                .map(::GameDisplayModel)
-                .groupBy(GameDisplayModel::dateString)
+                .map(::GameSummaryDisplayModel)
+                .groupBy(GameSummaryDisplayModel::dateString)
 
             mutableState.update { currentState ->
                 currentState.copy(
@@ -60,8 +60,8 @@ class FeedViewModel(
             val upcomingGameListMap = result
                 .getOrNull()
                 .orEmpty()
-                .map(::GameDisplayModel)
-                .groupBy(GameDisplayModel::dateString)
+                .map(::GameSummaryDisplayModel)
+                .groupBy(GameSummaryDisplayModel::dateString)
 
             mutableState.update { currentState ->
                 currentState.copy(
