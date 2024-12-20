@@ -7,7 +7,7 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 @Serializable
-data class HockeyTechGameSummaryTeamDTO(
+data class HockeyTechGameDetailTeamDTO(
     @SerialName("info")
     val teamInfo: HockeyTechTeamInfoDTO? = null,
     @SerialName("stats")

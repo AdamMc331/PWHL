@@ -8,7 +8,7 @@ import com.adammcneilly.pwhl.mobile.shared.data.remote.BaseKtorClient
 import com.adammcneilly.pwhl.mobile.shared.data.repositories.PWHLRepository
 import com.adammcneilly.pwhl.mobile.shared.data.requests.GameListRequest
 import com.adammcneilly.pwhl.mobile.shared.models.GameDetail
-import com.adammcneilly.pwhl.mobile.shared.models.GameSummary
+import com.adammcneilly.pwhl.mobile.shared.models.GameDetailV2
 import com.adammcneilly.pwhl.mobile.shared.models.StandingsRow
 import com.adammcneilly.pwhl.mobile.shared.models.playbyplay.PlayByPlayEvent
 import com.adammcneilly.pwhl.mobile.shared.time.TimeProvider
@@ -77,9 +77,9 @@ class HockeyTechPWHLService(
         }
     }
 
-    override suspend fun fetchGameSummary(
+    override suspend fun fetchGameDetail(
         gameId: String,
-    ): Result<GameSummary> {
+    ): Result<GameDetailV2> {
         val endpoint = "feed/index.php"
 
         val gameParams = mapOf(
@@ -93,7 +93,7 @@ class HockeyTechPWHLService(
         return apiClient.getResponse<HockeyTechGameDTO>(
             endpoint = endpoint,
             params = params,
-        ).map(HockeyTechGameDTO::parseGameSummary)
+        ).map(HockeyTechGameDTO::parseGameDetail)
     }
 
     override suspend fun fetchPlayByPlay(

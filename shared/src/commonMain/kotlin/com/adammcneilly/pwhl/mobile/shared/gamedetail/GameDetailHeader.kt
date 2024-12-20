@@ -16,7 +16,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import com.adammcneilly.pwhl.mobile.shared.LocalNavAnimatedVisibilityScope
 import com.adammcneilly.pwhl.mobile.shared.LocalSharedTransitionScope
-import com.adammcneilly.pwhl.mobile.shared.displaymodels.GameSummaryDisplayModel
+import com.adammcneilly.pwhl.mobile.shared.displaymodels.GameDetailDisplayModelV2
 import com.adammcneilly.pwhl.mobile.shared.displaymodels.TeamDisplayModel
 import com.adammcneilly.pwhl.mobile.shared.displaymodels.TeamGameResultDisplayModelV2
 import com.adammcneilly.pwhl.mobile.shared.ui.components.ImageWrapper
@@ -25,7 +25,7 @@ private const val GAME_STATUS_WIDTH_RATIO = 0.50F
 
 @Composable
 fun GameDetailHeader(
-    game: GameSummaryDisplayModel,
+    game: GameDetailDisplayModelV2,
     modifier: Modifier = Modifier,
 ) {
     Row(
@@ -60,7 +60,7 @@ fun GameDetailHeader(
 @Composable
 @OptIn(ExperimentalSharedTransitionApi::class)
 private fun GameSummary(
-    game: GameSummaryDisplayModel,
+    game: GameDetailDisplayModelV2,
     modifier: Modifier = Modifier,
 ) {
     with(LocalSharedTransitionScope.current) {

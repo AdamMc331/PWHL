@@ -1,6 +1,6 @@
 package com.adammcneilly.pwhl.mobile.shared.displaymodels
 
-import com.adammcneilly.pwhl.mobile.shared.models.GameSummary
+import com.adammcneilly.pwhl.mobile.shared.models.GameDetailV2
 import kotlinx.datetime.format
 import kotlinx.datetime.format.DateTimeComponents
 import kotlinx.datetime.format.DayOfWeekNames
@@ -8,7 +8,7 @@ import kotlinx.datetime.format.MonthNames
 import kotlinx.datetime.format.Padding
 import kotlinx.datetime.format.char
 
-data class GameSummaryDisplayModel(
+data class GameDetailDisplayModelV2(
     val id: String,
     val homeTeam: TeamGameResultDisplayModelV2,
     val awayTeam: TeamGameResultDisplayModelV2,
@@ -16,7 +16,7 @@ data class GameSummaryDisplayModel(
     val status: String,
     val dateString: String,
 ) {
-    constructor(game: GameSummary) : this(
+    constructor(game: GameDetailV2) : this(
         id = game.id,
         homeTeam = TeamGameResultDisplayModelV2(
             teamGameResult = game.homeTeam,
@@ -32,7 +32,7 @@ data class GameSummaryDisplayModel(
     )
 }
 
-private fun GameSummary.dateString(): String {
+private fun GameDetailV2.dateString(): String {
     val gameDateFormat = DateTimeComponents.Format {
         dayOfWeek(DayOfWeekNames.ENGLISH_ABBREVIATED)
         char(',')

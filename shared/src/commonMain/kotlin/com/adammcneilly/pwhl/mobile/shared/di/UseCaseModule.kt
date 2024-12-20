@@ -1,6 +1,6 @@
 package com.adammcneilly.pwhl.mobile.shared.di
 
-import com.adammcneilly.pwhl.mobile.shared.domain.usecases.FetchGameSummaryUseCase
+import com.adammcneilly.pwhl.mobile.shared.domain.usecases.FetchGameDetailUseCase
 import com.adammcneilly.pwhl.mobile.shared.domain.usecases.FetchPlayByPlayUseCase
 import com.adammcneilly.pwhl.mobile.shared.domain.usecases.FetchRecentGamesUseCase
 import com.adammcneilly.pwhl.mobile.shared.domain.usecases.FetchStandingsUseCase
@@ -9,7 +9,7 @@ import org.koin.dsl.module
 
 val useCaseModule = module {
     single {
-        FetchGameSummaryUseCase(
+        FetchGameDetailUseCase(
             repository = get(),
         )
     }

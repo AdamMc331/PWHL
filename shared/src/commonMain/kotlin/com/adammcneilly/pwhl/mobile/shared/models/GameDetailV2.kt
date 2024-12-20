@@ -2,7 +2,7 @@ package com.adammcneilly.pwhl.mobile.shared.models
 
 import kotlinx.datetime.Instant
 
-data class GameSummary(
+data class GameDetailV2(
     val id: String,
     val homeTeam: TeamGameResultV2,
     val awayTeam: TeamGameResultV2,
