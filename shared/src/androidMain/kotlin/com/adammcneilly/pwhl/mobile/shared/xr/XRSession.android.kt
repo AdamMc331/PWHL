@@ -10,7 +10,7 @@ actual fun currentXRSession(): XRSession? {
     return LocalSession.current?.let(::AndroidXRSession)
 }
 
-class AndroidXRSession(
+private class AndroidXRSession(
     val xrSession: Session,
 ) : XRSession {
     override val isSpatialUiEnabled: Boolean
