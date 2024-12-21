@@ -103,7 +103,7 @@ private fun TeamScore(
 ) {
     with(LocalSharedTransitionScope.current) {
         Text(
-            text = teamGameResult.stats.goals,
+            text = teamGameResult.stats.goals.toString(),
             style = MaterialTheme.typography.displayMedium,
             modifier = Modifier
                 .sharedBounds(

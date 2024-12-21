@@ -1,6 +1,7 @@
 package com.adammcneilly.pwhl.mobile.shared.displaymodels
 
 import com.adammcneilly.pwhl.mobile.shared.models.GameDetail
+import com.adammcneilly.pwhl.mobile.shared.ui.theme.PWHLColors
 import kotlinx.datetime.format
 import kotlinx.datetime.format.DateTimeComponents
 import kotlinx.datetime.format.DayOfWeekNames
@@ -30,6 +31,21 @@ data class GameDetailDisplayModel(
         status = game.status,
         dateString = game.dateString(),
     )
+
+    fun getTeamStatComparisons(): List<StatComparisonDisplayModel> {
+        val homeTeamColor = PWHLColors.fromTeamId(this.homeTeam.team.id)
+        val awayTeamColor = PWHLColors.fromTeamId(this.awayTeam.team.id)
+
+        return listOf(
+            StatComparisonDisplayModel(
+                statName = "Shots on Goal",
+                leftValue = this.homeTeam.stats.shots,
+                rightValue = this.awayTeam.stats.shots,
+                leftColor = homeTeamColor,
+                rightColor = awayTeamColor,
+            ),
+        )
+    }
 }
 
 private fun GameDetail.dateString(): String {

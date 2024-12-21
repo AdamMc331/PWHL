@@ -15,6 +15,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.adammcneilly.pwhl.mobile.shared.displaymodels.GameDetailDisplayModel
 import com.adammcneilly.pwhl.mobile.shared.gamedetail.mvp.MVPCard
+import com.adammcneilly.pwhl.mobile.shared.ui.components.AnimatableStatComparison
 
 @Composable
 fun GameDetailSummaryTab(
@@ -26,6 +27,22 @@ fun GameDetailSummaryTab(
         modifier = modifier,
     ) {
         mvpSection(game)
+
+        statComparisonSection(game)
+    }
+}
+
+private fun LazyListScope.statComparisonSection(
+    game: GameDetailDisplayModel,
+) {
+    val statComparisons = game.getTeamStatComparisons()
+
+    statComparisons.forEach { statComparison ->
+        item {
+            AnimatableStatComparison(
+                statComparison = statComparison,
+            )
+        }
     }
 }
 
