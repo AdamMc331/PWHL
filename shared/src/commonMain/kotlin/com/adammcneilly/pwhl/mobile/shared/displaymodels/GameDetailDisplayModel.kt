@@ -36,11 +36,35 @@ data class GameDetailDisplayModel(
         val homeTeamColor = PWHLColors.fromTeamId(this.homeTeam.team.id)
         val awayTeamColor = PWHLColors.fromTeamId(this.awayTeam.team.id)
 
+        val homePowerPlayPercentage = (this.homeTeam.stats.powerPlayGoals.toFloat() / this.homeTeam.stats.powerPlayOpportunities)
+        val awayPowerPlayPercentage = (this.awayTeam.stats.powerPlayGoals.toFloat() / this.awayTeam.stats.powerPlayOpportunities)
+
         return listOf(
             StatComparisonDisplayModel(
                 statName = "Shots on Goal",
                 leftValue = this.homeTeam.stats.shots,
                 rightValue = this.awayTeam.stats.shots,
+                leftColor = homeTeamColor,
+                rightColor = awayTeamColor,
+            ),
+            StatComparisonDisplayModel(
+                statName = "Hits",
+                leftValue = this.homeTeam.stats.hits,
+                rightValue = this.awayTeam.stats.hits,
+                leftColor = homeTeamColor,
+                rightColor = awayTeamColor,
+            ),
+            StatComparisonDisplayModel(
+                statName = "Penalty Minutes",
+                leftValue = this.homeTeam.stats.penaltyMinutes,
+                rightValue = this.awayTeam.stats.penaltyMinutes,
+                leftColor = homeTeamColor,
+                rightColor = awayTeamColor,
+            ),
+            StatComparisonDisplayModel(
+                statName = "Power Play %",
+                leftValue = homePowerPlayPercentage,
+                rightValue = awayPowerPlayPercentage,
                 leftColor = homeTeamColor,
                 rightColor = awayTeamColor,
             ),
