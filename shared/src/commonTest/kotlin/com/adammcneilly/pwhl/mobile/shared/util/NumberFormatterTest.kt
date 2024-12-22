@@ -11,8 +11,8 @@ class NumberFormatterTest(
     private val numberFormatter = numberFormatter()
 
     @Test
-    fun formatFloatTwoDecimalPlaces() {
-        val output = numberFormatter.formatFloatTwoDecimalPlaces(
+    fun formatSavePercentage() {
+        val output = numberFormatter.formatSavePercentage(
             value = testInput.input,
         )
 
@@ -25,19 +25,23 @@ class NumberFormatterTest(
     ) {
         Integer(
             input = 1F,
-            expectedOutput = "1.00",
+            expectedOutput = "1.000",
         ),
         SingleDecimal(
             input = 1.2F,
-            expectedOutput = "1.20",
+            expectedOutput = "1.200",
         ),
         DoubleDecimal(
             input = 1.23F,
-            expectedOutput = "1.23",
+            expectedOutput = "1.230",
         ),
         TripleDecimal(
             input = 1.234F,
-            expectedOutput = "1.23",
+            expectedOutput = "1.234",
+        ),
+        FourDecimal(
+            input = 1.2345F,
+            expectedOutput = "1.235",
         ),
     }
 }

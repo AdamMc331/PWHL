@@ -25,7 +25,7 @@ private fun MostValuablePlayer.highlightStats(): List<StatDisplayModel> {
 
         listOf(
             StatDisplayModel("GA", this.stats.goalsAgainst.toString()),
-            StatDisplayModel("SV%", numberFormatter.formatFloatTwoDecimalPlaces(savePercentage)),
+            StatDisplayModel("SV%", numberFormatter.formatSavePercentage(savePercentage)),
         )
     } else {
         listOf(

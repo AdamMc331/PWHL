@@ -9,13 +9,13 @@ actual fun numberFormatter(): NumberFormatter {
 }
 
 class IOSNumberFormatter : NumberFormatter {
-    override fun formatFloatTwoDecimalPlaces(
+    override fun formatSavePercentage(
         value: Float,
     ): String {
         val numberFormatter = NSNumberFormatter()
         numberFormatter.numberStyle = NSNumberFormatterDecimalStyle
         numberFormatter.minimumFractionDigits = 0.toULong()
-        numberFormatter.maximumFractionDigits = 2.toULong()
+        numberFormatter.maximumFractionDigits = 3.toULong()
         return numberFormatter.stringFromNumber(NSNumber(value.toFloat())).orEmpty()
     }
 }

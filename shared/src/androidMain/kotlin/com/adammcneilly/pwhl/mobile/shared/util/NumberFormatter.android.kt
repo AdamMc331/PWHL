@@ -5,9 +5,9 @@ actual fun numberFormatter(): NumberFormatter {
 }
 
 private class AndroidNumberFormatter : NumberFormatter {
-    override fun formatFloatTwoDecimalPlaces(
+    override fun formatSavePercentage(
         value: Float,
     ): String {
-        return "%.2f".format(value)
+        return "%.3f".format(value)
     }
 }
