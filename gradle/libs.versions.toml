@@ -5,6 +5,7 @@ androidxLifecycle = "2.8.4"
 androidxTest = "1.2.1"
 apollo = "4.1.0"
 buildKonfig = "0.15.2"
+burst = "2.2.0"
 coil = "3.0.4"
 compileSdk = "35"
 composeBom = "2024.12.01"
@@ -26,7 +27,7 @@ minSdk = "32"
 navigation = "2.8.0-alpha11"
 sortDependencies = "0.13"
 sqldelight = "2.0.2"
-testParameterInjector = "1.18"
+truthish = "1.0.2"
 xr = "1.0.0-alpha01"
 
 [libraries]
@@ -51,7 +52,6 @@ compose-bom = { group = "androidx.compose", name = "compose-bom", version.ref = 
 compose-ui = { group = "androidx.compose.ui", name = "ui" }
 compose-ui-test-junit = { group = "androidx.compose.ui", name = "ui-test-junit4" }
 compose-ui-test-manifest = { group = "androidx.compose.ui", name = "ui-test-manifest" }
-google-testparameterinjector = { module = "com.google.testparameterinjector:test-parameter-injector", version.ref = "testParameterInjector" }
 junit = { module = "junit:junit", version.ref = "junit" }
 koin-compose = {module="io.insert-koin:koin-compose", version.ref = "koin"}
 koin-compose-viewmodel = { module = "io.insert-koin:koin-compose-viewmodel", version.ref = "koin" }
@@ -66,6 +66,7 @@ ktor-client-logging = { module = "io.ktor:ktor-client-logging", version.ref = "k
 ktor-serialization-kotlinx-json = { module = "io.ktor:ktor-serialization-kotlinx-json", version.ref = "ktor" }
 material-kolor = { module = "com.materialkolor:material-kolor", version.ref = "materialKolor" }
 square-leakcanary = { module = "com.squareup.leakcanary:leakcanary-android", version.ref = "leakCanary" }
+varabyte-truthish = { module = "com.varabyte.truthish:truthish", version.ref = "truthish" }
 
 [plugins]
 apollo-graphql = { id = "com.apollographql.apollo", version.ref = "apollo" }
@@ -73,6 +74,7 @@ android-application = { id = "com.android.application", version.ref = "agp" }
 android-library = { id = "com.android.library", version.ref = "agp" }
 benmanes-versions = { id = "com.github.ben-manes.versions", version.ref = "gradleVersionsPlugin" }
 buildKonfig = { id = "com.codingfeline.buildkonfig", version.ref = "buildKonfig" }
+cash-burst = { id = "app.cash.burst", version.ref = "burst" }
 cash-sqldelight = { id = "app.cash.sqldelight", version.ref = "sqldelight" }
 compose-compiler = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
 kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
