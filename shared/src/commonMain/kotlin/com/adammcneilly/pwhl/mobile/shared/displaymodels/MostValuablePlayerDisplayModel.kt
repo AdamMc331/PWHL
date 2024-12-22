@@ -1,6 +1,7 @@
 package com.adammcneilly.pwhl.mobile.shared.displaymodels
 
 import com.adammcneilly.pwhl.mobile.shared.models.MostValuablePlayer
+import com.adammcneilly.pwhl.mobile.shared.util.numberFormatter
 
 data class MostValuablePlayerDisplayModel(
     val team: TeamDisplayModel,
@@ -15,6 +16,8 @@ data class MostValuablePlayerDisplayModel(
 }
 
 private fun MostValuablePlayer.highlightStats(): List<StatDisplayModel> {
+    val numberFormatter = numberFormatter()
+
     return if (this.isGoalie) {
         val saves = this.stats.saves?.toFloat() ?: 0F
         val shots = this.stats.shotsAgainst?.toFloat() ?: 0F
@@ -22,7 +25,7 @@ private fun MostValuablePlayer.highlightStats(): List<StatDisplayModel> {
 
         listOf(
             StatDisplayModel("GA", this.stats.goalsAgainst.toString()),
-            StatDisplayModel("SV%", savePercentage.toString()),
+            StatDisplayModel("SV%", numberFormatter.formatFloatTwoDecimalPlaces(savePercentage)),
         )
     } else {
         listOf(
