@@ -80,7 +80,6 @@ kotlin {
 
         commonTest.dependencies {
             implementation(kotlin("test"))
-            implementation(libs.google.testparameterinjector)
             implementation(libs.koin.test)
             implementation(libs.varabyte.truthish)
         }
