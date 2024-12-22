@@ -6,6 +6,7 @@ plugins {
     alias(libs.plugins.apollo.graphql).apply(false)
     alias(libs.plugins.benmanes.versions).apply(false)
     alias(libs.plugins.buildKonfig).apply(false)
+    alias(libs.plugins.cash.burst).apply(false)
     alias(libs.plugins.cash.sqldelight).apply(false)
     alias(libs.plugins.compose.compiler).apply(false)
     alias(libs.plugins.detekt).apply(true) // Needs to be applied at the root, unlike others.

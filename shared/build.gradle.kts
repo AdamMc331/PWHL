@@ -10,6 +10,7 @@ plugins {
     alias(libs.plugins.android.library)
     alias(libs.plugins.apollo.graphql)
     alias(libs.plugins.buildKonfig)
+    alias(libs.plugins.cash.burst)
     alias(libs.plugins.cash.sqldelight)
     alias(libs.plugins.compose.compiler)
     alias(libs.plugins.kotlin.compose)
@@ -81,6 +82,7 @@ kotlin {
             implementation(kotlin("test"))
             implementation(libs.google.testparameterinjector)
             implementation(libs.koin.test)
+            implementation(libs.varabyte.truthish)
         }
     }
 }
