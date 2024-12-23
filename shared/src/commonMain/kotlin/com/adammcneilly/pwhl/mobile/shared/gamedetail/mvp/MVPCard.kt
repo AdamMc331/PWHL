@@ -65,12 +65,16 @@ private fun Stats(
         shape = MaterialTheme.shapes.large,
     ) {
         Row(
-            horizontalArrangement = Arrangement.SpaceEvenly,
+            horizontalArrangement = Arrangement.spacedBy(8.dp),
             modifier = Modifier
                 .fillMaxWidth(),
         ) {
             mvp.highlightStats.forEach { stat ->
-                StatItem(stat)
+                StatItem(
+                    stat = stat,
+                    modifier = Modifier
+                        .weight(1F),
+                )
             }
         }
     }
@@ -79,9 +83,11 @@ private fun Stats(
 @Composable
 private fun StatItem(
     stat: StatDisplayModel,
+    modifier: Modifier = Modifier,
 ) {
     Column(
         horizontalAlignment = Alignment.CenterHorizontally,
+        modifier = modifier,
     ) {
         val statText = if (currentWindowSizeClass().widthSizeClass == WindowWidthSizeClass.Expanded) {
             stat.fullName
