@@ -1,3 +1,5 @@
+@file:Suppress("MagicNumber")
+
 package com.adammcneilly.pwhl.mobile.shared.gamedetail.mvp
 
 import androidx.compose.foundation.layout.Arrangement
@@ -18,6 +20,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.unit.dp
@@ -25,24 +28,27 @@ import com.adammcneilly.pwhl.mobile.shared.displaymodels.ImageDisplayModel
 import com.adammcneilly.pwhl.mobile.shared.displaymodels.MostValuablePlayerDisplayModel
 import com.adammcneilly.pwhl.mobile.shared.displaymodels.StatDisplayModel
 import com.adammcneilly.pwhl.mobile.shared.ui.components.ImageWrapper
+import com.adammcneilly.pwhl.mobile.shared.ui.theme.PWHLTheme
 
 @Composable
 fun MVPCard(
     mvp: MostValuablePlayerDisplayModel,
     modifier: Modifier = Modifier,
+    shape: Shape = MaterialTheme.shapes.large,
 ) {
     Card(
-        shape = MaterialTheme.shapes.large,
+        shape = shape,
         modifier = modifier
             .width(IntrinsicSize.Max),
     ) {
         Column(
-            verticalArrangement = Arrangement.spacedBy(8.dp),
+            verticalArrangement = Arrangement.spacedBy(PWHLTheme.dimensions.componentVerticalPadding),
             modifier = Modifier
-                .padding(8.dp),
+                .padding(PWHLTheme.dimensions.componentPadding),
         ) {
             Row(
-                horizontalArrangement = Arrangement.spacedBy(4.dp),
+                horizontalArrangement = Arrangement.spacedBy(PWHLTheme.dimensions.componentHorizontalPadding),
+                verticalAlignment = Alignment.CenterVertically,
             ) {
                 PlayerImage(mvp)
 
@@ -107,9 +113,20 @@ private fun PlayerInfo(
 private fun PlayerName(
     mvp: MostValuablePlayerDisplayModel,
 ) {
+    val imageSize = PWHLTheme.dimensions.imageSizeDefault
+
+    val fontSize = with(LocalDensity.current) {
+        imageSize.div(3).toSp()
+    }
+
+    val textStyle = MaterialTheme.typography.titleSmall.copy(
+        fontSize = fontSize,
+        lineHeight = fontSize.times(1.25),
+    )
+
     Text(
         text = mvp.player.fullName,
-        style = MaterialTheme.typography.titleSmall,
+        style = textStyle,
     )
 }
 
@@ -121,19 +138,31 @@ private fun PlayerSubtitle(
         verticalAlignment = Alignment.CenterVertically,
         horizontalArrangement = Arrangement.spacedBy(4.dp),
     ) {
-        with(LocalDensity.current) {
-            ImageWrapper(
-                image = mvp.team.image,
-                contentDescription = mvp.team.name,
-                modifier = Modifier
-                    .size(LocalTextStyle.current.fontSize.toDp()),
-            )
+        val imageSize = PWHLTheme.dimensions.imageSizeDefault
+
+        val fontSizeDp = imageSize.div(4)
+
+        val fontSizeSp = with(LocalDensity.current) {
+            fontSizeDp.toSp()
         }
+
+        val textStyle = LocalTextStyle.current.copy(
+            fontSize = fontSizeSp,
+            lineHeight = fontSizeSp.times(1.25),
+        )
+
+        ImageWrapper(
+            image = mvp.team.image,
+            contentDescription = mvp.team.name,
+            modifier = Modifier
+                .size(fontSizeDp),
+        )
 
         val subtitle = "#${mvp.player.jerseyNumber} • ${mvp.player.position}"
 
         Text(
             text = subtitle,
+            style = textStyle,
         )
     }
 }
@@ -147,7 +176,7 @@ private fun PlayerImage(
         contentDescription = mvp.player.fullName,
         contentScale = ContentScale.Crop,
         modifier = Modifier
-            .size(48.dp)
+            .size(PWHLTheme.dimensions.imageSizeDefault)
             .clip(CircleShape),
     )
 }
