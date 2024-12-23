@@ -20,6 +20,7 @@ import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.drawscope.DrawScope
 import androidx.compose.ui.unit.dp
+import com.adammcneilly.pwhl.mobile.shared.displaymodels.StatComparisonDisplayModel
 import com.adammcneilly.pwhl.mobile.shared.ui.modifiers.whenInView
 import kotlinx.coroutines.launch
 
@@ -30,21 +31,13 @@ import kotlinx.coroutines.launch
 private const val LEADING_TEAM_STAT_WIDTH_SCALE = 1.5F
 
 /**
- * Shows the comparison between [homeTeamValue] and [awayTeamValue] by drawing lines on a canvas.
- *
- * Still to do: Don't provide integers here.
- * Ideally we make a `StatComparisonDisplayModel` that has the text UI value, plus the percentage of total between teams
- * and the color of the line.
+ * Shows the comparison between two teams by drawing lines on a canvas.
  */
 @Composable
 fun AnimatableStatComparison(
-    homeTeamValue: Int,
-    awayTeamValue: Int,
-    homeTeamColor: Color,
-    awayTeamColor: Color,
+    statComparison: StatComparisonDisplayModel,
     modifier: Modifier = Modifier,
     initialAnimationPercentage: Float = 0F,
-    showValues: Boolean = false,
 ) {
     val animationPercentage = remember {
         AnimationState(initialAnimationPercentage)
@@ -53,12 +46,8 @@ fun AnimatableStatComparison(
     val coroutineScope = rememberCoroutineScope()
 
     StatComparison(
-        homeTeamValue = homeTeamValue,
-        awayTeamValue = awayTeamValue,
-        homeTeamColor = homeTeamColor,
-        awayTeamColor = awayTeamColor,
+        statComparison = statComparison,
         percentageToRender = animationPercentage.value,
-        showValues = showValues,
         modifier = modifier
             .whenInView {
                 coroutineScope.launch {
@@ -75,20 +64,16 @@ fun AnimatableStatComparison(
 
 /**
  * Unlike [AnimatableStatComparison], this is a stateless way to render
- * a comparison between a [homeTeamValue] and [awayTeamValue].
+ * a comparison between the stats of two teams.
  *
  * If a caller doesn't care about animating a stat comparison, they can use this
  * composable directly and keep the default [percentageToRender] as 1.
  */
 @Composable
 fun StatComparison(
-    homeTeamValue: Int,
-    awayTeamValue: Int,
-    homeTeamColor: Color,
-    awayTeamColor: Color,
+    statComparison: StatComparisonDisplayModel,
     modifier: Modifier = Modifier,
     percentageToRender: Float = 1F,
-    showValues: Boolean = false,
 ) {
     Column(
         modifier = modifier,
@@ -100,23 +85,20 @@ fun StatComparison(
                 .fillMaxWidth(),
         ) {
             Text(
-                text = homeTeamValue.toString(),
+                text = statComparison.homeTeamValue,
             )
 
             Text(
-                text = "Goals",
+                text = statComparison.stat,
             )
 
             Text(
-                text = awayTeamValue.toString(),
+                text = statComparison.awayTeamValue,
             )
         }
 
         StatComparisonLines(
-            homeTeamValue = homeTeamValue,
-            awayTeamValue = awayTeamValue,
-            homeTeamColor = homeTeamColor,
-            awayTeamColor = awayTeamColor,
+            statComparison = statComparison,
             animationPercentage = percentageToRender,
             modifier = Modifier
                 .fillMaxWidth()
@@ -127,10 +109,7 @@ fun StatComparison(
 
 @Composable
 private fun StatComparisonLines(
-    homeTeamValue: Int,
-    awayTeamValue: Int,
-    homeTeamColor: Color,
-    awayTeamColor: Color,
+    statComparison: StatComparisonDisplayModel,
     animationPercentage: Float,
     modifier: Modifier = Modifier,
 ) {
@@ -140,19 +119,17 @@ private fun StatComparisonLines(
         modifier = modifier,
     ) {
         val yOffset = size.height.div(2)
-        val totalValue = homeTeamValue.plus(awayTeamValue)
-        val homeTeamPercentage = homeTeamValue.toFloat().div(totalValue)
-        val dividingPoint = size.width.times(homeTeamPercentage)
+        val dividingPoint = size.width.times(statComparison.homeTeamPercentage)
         val lineWidth = 6.dp.toPx()
         val leadingLineWidth = lineWidth * LEADING_TEAM_STAT_WIDTH_SCALE
 
-        val homeTeamLineWidth = if (homeTeamValue > awayTeamValue) {
+        val homeTeamLineWidth = if (statComparison.homeTeamPercentage > 0.5F) {
             leadingLineWidth
         } else {
             lineWidth
         }
 
-        val awayTeamLineWidth = if (awayTeamValue > homeTeamValue) {
+        val awayTeamLineWidth = if (statComparison.homeTeamPercentage < 0.5F) {
             leadingLineWidth
         } else {
             lineWidth
@@ -163,14 +140,14 @@ private fun StatComparisonLines(
             endXOffset = dividingPoint,
             lineWidth = homeTeamLineWidth,
             animationPercentage = animationPercentage,
-            color = homeTeamColor,
+            color = statComparison.homeTeamColor,
         )
         drawAwayTeamLine(
             startXOffset = dividingPoint,
             yOffset = yOffset,
             lineWidth = awayTeamLineWidth,
             animationPercentage = animationPercentage,
-            color = awayTeamColor,
+            color = statComparison.awayTeamColor,
         )
         drawDivider(
             xOffset = dividingPoint,
