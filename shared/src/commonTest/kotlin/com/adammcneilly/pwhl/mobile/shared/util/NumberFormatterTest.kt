@@ -4,22 +4,22 @@ import app.cash.burst.Burst
 import com.varabyte.truthish.assertThat
 import kotlin.test.Test
 
-@Burst
-class NumberFormatterTest(
-    private val testInput: TestInput,
-) {
+class NumberFormatterTest {
     private val numberFormatter = numberFormatter()
 
     @Test
-    fun formatSavePercentage() {
+    @Burst
+    fun formatSavePercentage(
+        testCase: SavePercentageTestCase,
+    ) {
         val output = numberFormatter.formatSavePercentage(
-            value = testInput.input,
+            value = testCase.input,
         )
 
-        assertThat(output).isEqualTo(testInput.expectedOutput)
+        assertThat(output).isEqualTo(testCase.expectedOutput)
     }
 
-    enum class TestInput(
+    enum class SavePercentageTestCase(
         val input: Float,
         val expectedOutput: String,
     ) {
