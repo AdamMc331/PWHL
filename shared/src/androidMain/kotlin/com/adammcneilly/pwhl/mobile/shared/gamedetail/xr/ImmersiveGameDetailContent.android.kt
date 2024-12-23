@@ -26,7 +26,6 @@ import androidx.xr.compose.spatial.Subspace
 import androidx.xr.compose.subspace.SpatialColumn
 import androidx.xr.compose.subspace.SpatialPanel
 import androidx.xr.compose.subspace.SpatialRow
-import androidx.xr.compose.subspace.SpatialRowScope
 import androidx.xr.compose.subspace.layout.SpatialRoundedCornerShape
 import androidx.xr.compose.subspace.layout.SubspaceModifier
 import androidx.xr.compose.subspace.layout.fillMaxWidth
@@ -41,8 +40,8 @@ import com.adammcneilly.pwhl.mobile.shared.gamedetail.playbyplay.PlayByPlayList
 import com.adammcneilly.pwhl.mobile.shared.ui.components.SpatialSurface
 import com.adammcneilly.pwhl.mobile.shared.xr.XRSession
 
-private val IMMERSIVE_GAME_DETAIL_WIDTH = 1200.dp
-private val IMMERSIVE_DETAIL_PANEL_HEIGHT = 600.dp
+private val IMMERSIVE_GAME_DETAIL_WIDTH = 1400.dp
+private val IMMERSIVE_DETAIL_PANEL_HEIGHT = 1000.dp
 
 @Composable
 @OptIn(ExperimentalMaterial3ExpressiveApi::class)
@@ -57,31 +56,43 @@ actual fun ImmersiveGameDetailContent(
     }
 
     Subspace {
-        SpatialColumn(
+        SpatialRow(
             modifier = SubspaceModifier
                 .width(IMMERSIVE_GAME_DETAIL_WIDTH),
         ) {
-            Header(xrSession, state.game)
+            StatsPanel(
+                modifier = SubspaceModifier
+                    .height(IMMERSIVE_DETAIL_PANEL_HEIGHT)
+                    .weight(1F),
+            )
 
-            GameDetailPanels(state.game, state)
+            SpatialColumn(
+                modifier = SubspaceModifier
+                    .height(IMMERSIVE_DETAIL_PANEL_HEIGHT)
+                    .weight(1F)
+                    .padding(
+                        horizontal = 16.dp,
+                    ),
+            ) {
+                Header(
+                    xrSession = xrSession,
+                    game = state.game,
+                )
+
+                MVPPanel(
+                    game = state.game,
+                    modifier = SubspaceModifier
+                        .weight(1F),
+                )
+            }
+
+            PlayByPlayPanel(
+                state = state,
+                modifier = SubspaceModifier
+                    .height(IMMERSIVE_DETAIL_PANEL_HEIGHT)
+                    .weight(1F),
+            )
         }
-    }
-}
-
-@Composable
-private fun GameDetailPanels(
-    game: GameDetailDisplayModel,
-    state: GameDetailState,
-) {
-    SpatialRow(
-        modifier = SubspaceModifier
-            .width(IMMERSIVE_GAME_DETAIL_WIDTH),
-    ) {
-        MVPPanel(game)
-
-        StatsPanel()
-
-        PlayByPlayPanel(state)
     }
 }
 
@@ -89,15 +100,16 @@ private fun GameDetailPanels(
 private fun Header(
     xrSession: XRSession,
     game: GameDetailDisplayModel,
+    modifier: SubspaceModifier = SubspaceModifier,
 ) {
     SpatialSurface(
-        modifier = SubspaceModifier
+        modifier = modifier
             .fillMaxWidth()
             .padding(bottom = 16.dp),
     ) {
         EnterHomeSpaceButton(xrSession)
 
-        SpatialGameDetailHeader(
+        ImmersiveGameDetailHeader(
             game = game,
         )
     }
@@ -139,14 +151,13 @@ private fun EnterHomeSpaceButton(
 }
 
 @Composable
-private fun SpatialRowScope.MVPPanel(
+private fun MVPPanel(
     game: GameDetailDisplayModel,
+    modifier: SubspaceModifier = SubspaceModifier,
 ) {
     SpatialPanel(
         shape = SpatialRoundedCornerShape(ZeroCornerSize),
-        modifier = SubspaceModifier
-            .height(IMMERSIVE_DETAIL_PANEL_HEIGHT)
-            .weight(1F),
+        modifier = modifier,
     ) {
         Column(
             verticalArrangement = Arrangement.spacedBy(16.dp),
@@ -164,25 +175,23 @@ private fun SpatialRowScope.MVPPanel(
 }
 
 @Composable
-private fun SpatialRowScope.StatsPanel() {
+private fun StatsPanel(
+    modifier: SubspaceModifier = SubspaceModifier,
+) {
     SpatialSurface(
-        modifier = SubspaceModifier
-            .height(IMMERSIVE_DETAIL_PANEL_HEIGHT)
-            .weight(1F)
-            .padding(horizontal = 16.dp),
+        modifier = modifier,
     ) {
         GameDetailStatsTab()
     }
 }
 
 @Composable
-private fun SpatialRowScope.PlayByPlayPanel(
+private fun PlayByPlayPanel(
     state: GameDetailState,
+    modifier: SubspaceModifier = SubspaceModifier,
 ) {
     SpatialSurface(
-        modifier = SubspaceModifier
-            .height(IMMERSIVE_DETAIL_PANEL_HEIGHT)
-            .weight(1F),
+        modifier = modifier,
     ) {
         PlayByPlayList(
             events = state.playByPlayEvents,

@@ -23,33 +23,55 @@ import com.adammcneilly.pwhl.mobile.shared.ui.theme.PWHLTheme
 private const val GAME_STATUS_WIDTH_RATIO = 0.50F
 
 @Composable
-fun SpatialGameDetailHeader(
+fun ImmersiveGameDetailHeader(
     game: GameDetailDisplayModel,
     modifier: Modifier = Modifier,
 ) {
-    Row(
-        horizontalArrangement = Arrangement.SpaceBetween,
-        verticalAlignment = Alignment.CenterVertically,
+    Column(
+        horizontalAlignment = Alignment.CenterHorizontally,
+        verticalArrangement = Arrangement.spacedBy(PWHLTheme.dimensions.componentVerticalPadding),
         modifier = modifier
-            .padding(32.dp),
+            .padding(PWHLTheme.dimensions.componentPadding),
     ) {
-        TeamNameLogo(
-            team = game.homeTeam.team,
-        )
-
-        TeamScore(
-            teamGameResult = game.homeTeam,
-        )
+        TeamScores(game)
 
         GameSummary(game)
+    }
+}
 
-        TeamScore(
-            teamGameResult = game.awayTeam,
-        )
+@Composable
+private fun TeamScores(
+    game: GameDetailDisplayModel,
+) {
+    Row(
+        horizontalArrangement = Arrangement.SpaceEvenly,
+        verticalAlignment = Alignment.CenterVertically,
+        modifier = Modifier
+            .fillMaxWidth(),
+    ) {
+        Row(
+            verticalAlignment = Alignment.CenterVertically,
+        ) {
+            TeamNameLogo(
+                team = game.homeTeam.team,
+            )
 
-        TeamNameLogo(
-            team = game.awayTeam.team,
-        )
+            TeamScore(
+                teamGameResult = game.homeTeam,
+            )
+        }
+
+        Row(
+            verticalAlignment = Alignment.CenterVertically,
+        ) {
+            TeamScore(
+                teamGameResult = game.awayTeam,
+            )
+
+            TeamNameLogo(
+                team = game.awayTeam.team,
+            )
+        }
     }
 }
 
@@ -59,17 +81,15 @@ private fun GameSummary(
     game: GameDetailDisplayModel,
     modifier: Modifier = Modifier,
 ) {
-    Column(
-        verticalArrangement = Arrangement.spacedBy(4.dp),
-        horizontalAlignment = Alignment.CenterHorizontally,
+    Row(
+        horizontalArrangement = Arrangement.spacedBy(4.dp),
+        verticalAlignment = Alignment.CenterVertically,
         modifier = modifier,
     ) {
         Text(
             text = game.status,
             style = MaterialTheme.typography.titleMedium,
             textAlign = TextAlign.Center,
-            modifier = Modifier
-                .fillMaxWidth(GAME_STATUS_WIDTH_RATIO),
         )
 
         Text(
