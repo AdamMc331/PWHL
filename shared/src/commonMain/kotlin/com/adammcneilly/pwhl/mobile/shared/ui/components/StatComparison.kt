@@ -4,9 +4,13 @@ import androidx.compose.animation.core.AnimationState
 import androidx.compose.animation.core.animateTo
 import androidx.compose.animation.core.tween
 import androidx.compose.foundation.Canvas
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.material3.LocalContentColor
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
@@ -27,6 +31,10 @@ private const val LEADING_TEAM_STAT_WIDTH_SCALE = 1.5F
 
 /**
  * Shows the comparison between [homeTeamValue] and [awayTeamValue] by drawing lines on a canvas.
+ *
+ * Still to do: Don't provide integers here.
+ * Ideally we make a `StatComparisonDisplayModel` that has the text UI value, plus the percentage of total between teams
+ * and the color of the line.
  */
 @Composable
 fun AnimatableStatComparison(
@@ -82,11 +90,28 @@ fun StatComparison(
     percentageToRender: Float = 1F,
     showValues: Boolean = false,
 ) {
-    Row(
-        modifier = modifier
-            .height(48.dp),
-        verticalAlignment = Alignment.CenterVertically,
+    Column(
+        modifier = modifier,
     ) {
+        Row(
+            horizontalArrangement = Arrangement.SpaceBetween,
+            verticalAlignment = Alignment.CenterVertically,
+            modifier = Modifier
+                .fillMaxWidth(),
+        ) {
+            Text(
+                text = homeTeamValue.toString(),
+            )
+
+            Text(
+                text = "Goals",
+            )
+
+            Text(
+                text = awayTeamValue.toString(),
+            )
+        }
+
         StatComparisonLines(
             homeTeamValue = homeTeamValue,
             awayTeamValue = awayTeamValue,
@@ -94,7 +119,8 @@ fun StatComparison(
             awayTeamColor = awayTeamColor,
             animationPercentage = percentageToRender,
             modifier = Modifier
-                .weight(1F),
+                .fillMaxWidth()
+                .height(48.dp),
         )
     }
 }
