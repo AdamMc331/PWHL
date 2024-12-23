@@ -23,4 +23,21 @@ data class Dimensions(
             horizontal = componentHorizontalPadding,
             vertical = componentVerticalPadding,
         )
+
+    companion object {
+        val compact = Dimensions(
+            componentHorizontalPadding = 8.dp,
+            componentVerticalPadding = 8.dp,
+        )
+
+        val medium = Dimensions(
+            componentHorizontalPadding = 8.dp,
+            componentVerticalPadding = 8.dp,
+        )
+
+        val expanded = Dimensions(
+            componentHorizontalPadding = 16.dp,
+            componentVerticalPadding = 16.dp,
+        )
+    }
 }

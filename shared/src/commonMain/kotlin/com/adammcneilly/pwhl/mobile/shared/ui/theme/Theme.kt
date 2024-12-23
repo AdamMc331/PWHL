@@ -20,13 +20,13 @@ fun PWHLTheme(
         isAmoled = false,
     )
 
-    val dimensions = Dimensions(
+    val compactDimensions = Dimensions(
         componentHorizontalPadding = 8.dp,
         componentVerticalPadding = 8.dp,
     )
 
     CompositionLocalProvider(
-        LocalDimensions provides dimensions,
+        LocalDimensions provides compactDimensions,
     ) {
         MaterialTheme(
             colorScheme = colorScheme,
