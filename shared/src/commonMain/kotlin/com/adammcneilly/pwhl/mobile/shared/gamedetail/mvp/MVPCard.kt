@@ -73,7 +73,11 @@ private fun Stats(
         Row(
             horizontalArrangement = Arrangement.spacedBy(8.dp),
             modifier = Modifier
-                .fillMaxWidth(),
+                .fillMaxWidth()
+                .padding(
+                    horizontal = 8.dp,
+                    vertical = 4.dp,
+                ),
         ) {
             mvp.highlightStats.forEach { stat ->
                 StatItem(
