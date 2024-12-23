@@ -1,5 +1,8 @@
 package com.adammcneilly.pwhl.mobile.shared.gamedetail.xr
 
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.CircleShape
@@ -20,6 +23,7 @@ import androidx.xr.compose.spatial.Orbiter
 import androidx.xr.compose.spatial.OrbiterEdge
 import androidx.xr.compose.spatial.Subspace
 import androidx.xr.compose.subspace.SpatialColumn
+import androidx.xr.compose.subspace.SpatialPanel
 import androidx.xr.compose.subspace.SpatialRow
 import androidx.xr.compose.subspace.SpatialRowScope
 import androidx.xr.compose.subspace.layout.SubspaceModifier
@@ -30,7 +34,7 @@ import androidx.xr.compose.subspace.layout.width
 import com.adammcneilly.pwhl.mobile.shared.displaymodels.GameDetailDisplayModel
 import com.adammcneilly.pwhl.mobile.shared.gamedetail.GameDetailState
 import com.adammcneilly.pwhl.mobile.shared.gamedetail.GameDetailStatsTab
-import com.adammcneilly.pwhl.mobile.shared.gamedetail.GameDetailSummaryTab
+import com.adammcneilly.pwhl.mobile.shared.gamedetail.mvp.MVPCard
 import com.adammcneilly.pwhl.mobile.shared.gamedetail.playbyplay.PlayByPlayList
 import com.adammcneilly.pwhl.mobile.shared.ui.components.SpatialSurface
 import com.adammcneilly.pwhl.mobile.shared.xr.XRSession
@@ -71,7 +75,7 @@ private fun GameDetailPanels(
         modifier = SubspaceModifier
             .width(IMMERSIVE_GAME_DETAIL_WIDTH),
     ) {
-        SummaryPanel(game)
+        MVPPanel(game)
 
         StatsPanel()
 
@@ -133,17 +137,25 @@ private fun EnterHomeSpaceButton(
 }
 
 @Composable
-private fun SpatialRowScope.SummaryPanel(
+private fun SpatialRowScope.MVPPanel(
     game: GameDetailDisplayModel,
 ) {
-    SpatialSurface(
+    SpatialPanel(
         modifier = SubspaceModifier
             .height(IMMERSIVE_DETAIL_PANEL_HEIGHT)
             .weight(1F),
     ) {
-        GameDetailSummaryTab(
-            game = game,
-        )
+        Column(
+            verticalArrangement = Arrangement.spacedBy(16.dp),
+        ) {
+            game.mostValuablePlayers.forEach { mvp ->
+                MVPCard(
+                    mvp = mvp,
+                    modifier = Modifier
+                        .fillMaxWidth(),
+                )
+            }
+        }
     }
 }
 
