@@ -1,3 +1,5 @@
+@file:Suppress("MagicNumber")
+
 package com.adammcneilly.pwhl.mobile.shared.gamedetail
 
 import androidx.compose.foundation.layout.Column
