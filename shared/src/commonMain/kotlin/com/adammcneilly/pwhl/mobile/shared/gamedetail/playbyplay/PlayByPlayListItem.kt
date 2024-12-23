@@ -15,6 +15,7 @@ import androidx.compose.ui.unit.dp
 import com.adammcneilly.pwhl.mobile.shared.displaymodels.PlayByPlayEventDisplayModel
 import com.adammcneilly.pwhl.mobile.shared.ui.components.ImageWrapper
 import com.adammcneilly.pwhl.mobile.shared.ui.theme.PWHLTeamTheme
+import com.adammcneilly.pwhl.mobile.shared.ui.theme.PWHLTheme
 
 @Composable
 fun PlayByPlayListItem(
@@ -37,7 +38,7 @@ fun PlayByPlayListItem(
                 verticalAlignment = Alignment.CenterVertically,
                 horizontalArrangement = Arrangement.spacedBy(16.dp),
                 modifier = modifier
-                    .padding(8.dp),
+                    .padding(PWHLTheme.dimensions.componentPadding),
             ) {
                 TeamImage(event)
 

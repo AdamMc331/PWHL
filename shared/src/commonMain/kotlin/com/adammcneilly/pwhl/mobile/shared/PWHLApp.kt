@@ -9,7 +9,10 @@ import androidx.compose.ui.Modifier
 import androidx.navigation.compose.rememberNavController
 import com.adammcneilly.pwhl.mobile.shared.appbars.PWHLBottomBar
 import com.adammcneilly.pwhl.mobile.shared.di.appModules
+import com.adammcneilly.pwhl.mobile.shared.ui.theme.Dimensions
+import com.adammcneilly.pwhl.mobile.shared.ui.theme.LocalDimensions
 import com.adammcneilly.pwhl.mobile.shared.ui.theme.PWHLTheme
+import com.adammcneilly.pwhl.mobile.shared.ui.util.currentWindowSizeClass
 import com.adammcneilly.pwhl.mobile.shared.xr.LocalXRSession
 import com.adammcneilly.pwhl.mobile.shared.xr.currentXRSession
 import org.koin.compose.KoinApplication
@@ -18,6 +21,7 @@ import org.koin.compose.KoinApplication
 fun PWHLApp() {
     CompositionLocalProvider(
         LocalXRSession provides currentXRSession(),
+        LocalDimensions provides Dimensions.get(currentWindowSizeClass()),
     ) {
         KoinApplication(
             application = {
