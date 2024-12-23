@@ -4,6 +4,7 @@ import com.adammcneilly.pwhl.mobile.shared.data.hockeytech.dto.HockeyTechGameDTO
 import com.adammcneilly.pwhl.mobile.shared.data.hockeytech.dto.HockeyTechPlayByPlayEventDTO
 import com.adammcneilly.pwhl.mobile.shared.data.hockeytech.dto.HockeyTechScoreBarResponseDTO
 import com.adammcneilly.pwhl.mobile.shared.data.hockeytech.dto.HockeyTechStandingsListResponseDTO
+import com.adammcneilly.pwhl.mobile.shared.data.remote.BaseKtorClient
 import com.adammcneilly.pwhl.mobile.shared.data.repositories.PWHLRepository
 import com.adammcneilly.pwhl.mobile.shared.data.requests.GameListRequest
 import com.adammcneilly.pwhl.mobile.shared.models.GameDetail
@@ -19,7 +20,7 @@ import kotlinx.datetime.daysUntil
  * hockey tech [apiClient].
  */
 class HockeyTechPWHLService(
-    private val apiClient: HockeyTechKtorClient,
+    private val apiClient: BaseKtorClient,
     private val timeProvider: TimeProvider,
 ) : PWHLRepository {
     override suspend fun fetchGames(
