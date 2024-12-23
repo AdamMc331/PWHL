@@ -1,5 +1,8 @@
 package com.adammcneilly.pwhl.mobile.shared.data.hockeytech
 
+/**
+ * Constant values for common query parameters in the hockey tech api.
+ */
 object HockeyTechParameterKeys {
     const val API_KEY = "key"
     const val CLIENT_CODE = "client_code"

@@ -5,6 +5,10 @@ import com.adammcneilly.pwhl.mobile.shared.displaymodels.PlayByPlayEventDisplayM
 import com.adammcneilly.pwhl.mobile.shared.models.playbyplay.PlayByPlayEvent
 import com.adammcneilly.pwhl.mobile.shared.models.playbyplay.PlayByPlayFaceOffEvent
 
+/**
+ * Fetches the play by play events for a specific game and maps
+ * them into their display model entities.
+ */
 class FetchPlayByPlayUseCase(
     private val repository: PWHLRepository,
 ) {

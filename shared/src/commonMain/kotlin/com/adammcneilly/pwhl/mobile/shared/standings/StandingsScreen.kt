@@ -29,5 +29,8 @@ fun StandingsScreen(
     }
 }
 
+/**
+ * Serializable route to the standings screen used by Compose navigation.
+ */
 @Serializable
 object StandingsScreen

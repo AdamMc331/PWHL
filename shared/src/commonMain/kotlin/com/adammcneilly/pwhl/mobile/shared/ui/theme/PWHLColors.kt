@@ -4,6 +4,9 @@ package com.adammcneilly.pwhl.mobile.shared.ui.theme
 
 import androidx.compose.ui.graphics.Color
 
+/**
+ * Defines hex code colors for PWHL teams and other branding situations.
+ */
 object PWHLColors {
     val Purple = Color(0xFF200255)
     val Boston = Color(0xFF173F34)

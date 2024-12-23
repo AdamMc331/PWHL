@@ -5,6 +5,8 @@ data class Period(
     val shortName: String,
     val longName: String,
 ) {
+    // Remove after Detekt is updated: https://github.com/detekt/detekt/pull/7635/
+    @Suppress("UndocumentedPublicClass")
     companion object {
         val Shootout = Period(
             id = "Shootout",

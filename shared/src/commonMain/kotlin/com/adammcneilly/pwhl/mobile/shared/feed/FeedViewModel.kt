@@ -10,6 +10,9 @@ import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 
+/**
+ * State container for the feed screen of the app.
+ */
 class FeedViewModel(
     private val recentGamesUseCase: FetchRecentGamesUseCase,
     private val upcomingGamesUseCase: FetchUpcomingGamesUseCase,
@@ -35,7 +38,6 @@ class FeedViewModel(
             val recentGamesMap = result
                 .getOrNull()
                 .orEmpty()
-                .map(::GameSummaryDisplayModel)
                 .groupBy(GameSummaryDisplayModel::dateString)
 
             mutableState.update { currentState ->
@@ -60,7 +62,6 @@ class FeedViewModel(
             val upcomingGameListMap = result
                 .getOrNull()
                 .orEmpty()
-                .map(::GameSummaryDisplayModel)
                 .groupBy(GameSummaryDisplayModel::dateString)
 
             mutableState.update { currentState ->

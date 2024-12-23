@@ -10,6 +10,10 @@ import com.adammcneilly.pwhl.mobile.shared.ui.components.SpatialModeSwitchFAB
 import kotlinx.serialization.Serializable
 import org.koin.core.annotation.KoinExperimentalAPI
 
+/**
+ * Stateful container for [GameDetailContent] that recomposes
+ * every time we get a new state from our [viewModel].
+ */
 @Composable
 @OptIn(KoinExperimentalAPI::class)
 fun GameDetailScreen(
@@ -33,6 +37,9 @@ fun GameDetailScreen(
     }
 }
 
+/**
+ * Serializable route to a game detail screen used by Compose navigation.
+ */
 @Serializable
 data class GameDetailScreen(
     val gameId: String,

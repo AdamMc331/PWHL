@@ -1,3 +1,5 @@
+@file:Suppress("UndocumentedPublicClass")
+
 package com.adammcneilly.pwhl.mobile.shared
 
 import androidx.compose.material.icons.Icons
@@ -12,6 +14,10 @@ import com.adammcneilly.pwhl.mobile.shared.profile.ProfileScreen
 import com.adammcneilly.pwhl.mobile.shared.standings.StandingsScreen
 import kotlinx.serialization.Serializable
 
+/**
+ * An enumeration of tabs that will appear as navigation items
+ * on the home screen of the application.
+ */
 @Serializable
 sealed class HomeTab<T>(
     val route: T,

@@ -23,5 +23,8 @@ fun ProfileScreen(
     }
 }
 
+/**
+ * Serializable route to the profile screen used by Compose navigation.
+ */
 @Serializable
 object ProfileScreen

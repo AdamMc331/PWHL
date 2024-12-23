@@ -4,7 +4,6 @@ import com.adammcneilly.pwhl.mobile.shared.data.hockeytech.dto.HockeyTechGameDTO
 import com.adammcneilly.pwhl.mobile.shared.data.hockeytech.dto.HockeyTechPlayByPlayEventDTO
 import com.adammcneilly.pwhl.mobile.shared.data.hockeytech.dto.HockeyTechScoreBarResponseDTO
 import com.adammcneilly.pwhl.mobile.shared.data.hockeytech.dto.HockeyTechStandingsListResponseDTO
-import com.adammcneilly.pwhl.mobile.shared.data.remote.BaseKtorClient
 import com.adammcneilly.pwhl.mobile.shared.data.repositories.PWHLRepository
 import com.adammcneilly.pwhl.mobile.shared.data.requests.GameListRequest
 import com.adammcneilly.pwhl.mobile.shared.models.GameDetail
@@ -15,8 +14,12 @@ import com.adammcneilly.pwhl.mobile.shared.time.TimeProvider
 import kotlinx.datetime.TimeZone
 import kotlinx.datetime.daysUntil
 
+/**
+ * This implementation of [PWHLRepository] makes all requests to the supplied
+ * hockey tech [apiClient].
+ */
 class HockeyTechPWHLService(
-    private val apiClient: BaseKtorClient,
+    private val apiClient: HockeyTechKtorClient,
     private val timeProvider: TimeProvider,
 ) : PWHLRepository {
     override suspend fun fetchGames(
@@ -36,12 +39,10 @@ class HockeyTechPWHLService(
             HockeyTechParameterKeys.TEAM_ID to request.teamId.orEmpty(),
         )
 
-        val params = HockeyTechKtorClient.baseHockeyTechParams + gameListParams
-
         return apiClient
             .getResponse<HockeyTechScoreBarResponseDTO>(
                 endpoint = endpoint,
-                params = params,
+                params = gameListParams,
             )
             .map(HockeyTechScoreBarResponseDTO::parseGames)
     }
@@ -59,11 +60,9 @@ class HockeyTechPWHLService(
             HockeyTechParameterKeys.SORT to "points",
         )
 
-        val params = HockeyTechKtorClient.baseHockeyTechParams + standingsParams
-
         return apiClient.getResponse<HockeyTechStandingsListResponseDTO>(
             endpoint = endpoint,
-            params = params,
+            params = standingsParams,
         ).map { standingsList ->
             standingsList
                 .firstOrNull()
@@ -88,11 +87,9 @@ class HockeyTechPWHLService(
             HockeyTechParameterKeys.GAME_ID to gameId,
         )
 
-        val params = HockeyTechKtorClient.baseHockeyTechParams + gameParams
-
         return apiClient.getResponse<HockeyTechGameDTO>(
             endpoint = endpoint,
-            params = params,
+            params = gameParams,
         ).map(HockeyTechGameDTO::parseGameDetail)
     }
 
@@ -107,11 +104,9 @@ class HockeyTechPWHLService(
             HockeyTechParameterKeys.GAME_ID to gameId,
         )
 
-        val params = HockeyTechKtorClient.baseHockeyTechParams + gameParams
-
         return apiClient.getResponse<List<HockeyTechPlayByPlayEventDTO>>(
             endpoint = endpoint,
-            params = params,
+            params = gameParams,
         ).map { eventList ->
             eventList.map(HockeyTechPlayByPlayEventDTO::parsePlayByPlayEvent)
         }

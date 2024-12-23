@@ -8,7 +8,7 @@ actual fun numberFormatter(): NumberFormatter {
     return IOSNumberFormatter()
 }
 
-class IOSNumberFormatter : NumberFormatter {
+private class IOSNumberFormatter : NumberFormatter {
     override fun formatSavePercentage(
         value: Float,
     ): String {
