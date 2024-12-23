@@ -10,12 +10,26 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.adammcneilly.pwhl.mobile.shared.displaymodels.GameDetailDisplayModel
 import com.adammcneilly.pwhl.mobile.shared.displaymodels.PlayByPlayEventDisplayModel
+import com.adammcneilly.pwhl.mobile.shared.gamedetail.xr.ImmersiveGameDetailContent
 import com.adammcneilly.pwhl.mobile.shared.ui.components.LoadingScreen
+import com.adammcneilly.pwhl.mobile.shared.xr.LocalXRSession
 
 @Composable
 fun GameDetailContent(
     state: GameDetailState,
     modifier: Modifier = Modifier,
+) {
+    if (LocalXRSession.current?.isSpatialUiEnabled == true) {
+        ImmersiveGameDetailContent(state)
+    } else {
+        NonImmersiveContent(state, modifier)
+    }
+}
+
+@Composable
+private fun NonImmersiveContent(
+    state: GameDetailState,
+    modifier: Modifier,
 ) {
     when {
         state.isLoading -> {
@@ -23,6 +37,7 @@ fun GameDetailContent(
                 modifier = modifier,
             )
         }
+
         state.game != null -> {
             SuccessContent(
                 game = state.game,
@@ -30,6 +45,7 @@ fun GameDetailContent(
                 modifier = modifier,
             )
         }
+
         else -> {
             Text(
                 text = "Something went wrong.",
