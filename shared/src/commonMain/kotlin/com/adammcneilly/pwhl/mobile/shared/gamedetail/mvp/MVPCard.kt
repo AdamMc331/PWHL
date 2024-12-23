@@ -18,6 +18,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.unit.dp
@@ -25,24 +26,26 @@ import com.adammcneilly.pwhl.mobile.shared.displaymodels.ImageDisplayModel
 import com.adammcneilly.pwhl.mobile.shared.displaymodels.MostValuablePlayerDisplayModel
 import com.adammcneilly.pwhl.mobile.shared.displaymodels.StatDisplayModel
 import com.adammcneilly.pwhl.mobile.shared.ui.components.ImageWrapper
+import com.adammcneilly.pwhl.mobile.shared.ui.theme.PWHLTheme
 
 @Composable
 fun MVPCard(
     mvp: MostValuablePlayerDisplayModel,
     modifier: Modifier = Modifier,
+    shape: Shape = MaterialTheme.shapes.large,
 ) {
     Card(
-        shape = MaterialTheme.shapes.large,
+        shape = shape,
         modifier = modifier
             .width(IntrinsicSize.Max),
     ) {
         Column(
-            verticalArrangement = Arrangement.spacedBy(8.dp),
+            verticalArrangement = Arrangement.spacedBy(PWHLTheme.dimensions.componentVerticalPadding),
             modifier = Modifier
-                .padding(8.dp),
+                .padding(PWHLTheme.dimensions.componentPadding),
         ) {
             Row(
-                horizontalArrangement = Arrangement.spacedBy(4.dp),
+                horizontalArrangement = Arrangement.spacedBy(PWHLTheme.dimensions.componentHorizontalPadding),
             ) {
                 PlayerImage(mvp)
 
@@ -147,7 +150,7 @@ private fun PlayerImage(
         contentDescription = mvp.player.fullName,
         contentScale = ContentScale.Crop,
         modifier = Modifier
-            .size(48.dp)
+            .size(PWHLTheme.dimensions.imageSizeDefault)
             .clip(CircleShape),
     )
 }

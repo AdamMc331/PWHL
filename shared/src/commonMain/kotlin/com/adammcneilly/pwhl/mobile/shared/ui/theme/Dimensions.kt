@@ -12,6 +12,7 @@ val LocalDimensions = staticCompositionLocalOf {
     Dimensions(
         componentHorizontalPadding = 0.dp,
         componentVerticalPadding = 0.dp,
+        imageSizeDefault = 0.dp,
     )
 }
 
@@ -19,6 +20,7 @@ val LocalDimensions = staticCompositionLocalOf {
 data class Dimensions(
     val componentHorizontalPadding: Dp,
     val componentVerticalPadding: Dp,
+    val imageSizeDefault: Dp,
 ) {
     val componentPadding: PaddingValues
         get() = PaddingValues(
@@ -30,16 +32,25 @@ data class Dimensions(
         private val compact = Dimensions(
             componentHorizontalPadding = 8.dp,
             componentVerticalPadding = 8.dp,
+            imageSizeDefault = 48.dp,
         )
 
         private val medium = Dimensions(
             componentHorizontalPadding = 8.dp,
             componentVerticalPadding = 8.dp,
+            imageSizeDefault = 48.dp,
         )
 
         private val expanded = Dimensions(
             componentHorizontalPadding = 16.dp,
             componentVerticalPadding = 16.dp,
+            imageSizeDefault = 72.dp,
+        )
+
+        val immersive = Dimensions(
+            componentHorizontalPadding = 16.dp,
+            componentVerticalPadding = 16.dp,
+            imageSizeDefault = 96.dp,
         )
 
         fun get(

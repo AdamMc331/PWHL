@@ -6,6 +6,7 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.foundation.shape.ZeroCornerSize
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.CloseFullscreen
 import androidx.compose.material3.ExperimentalMaterial3ExpressiveApi
@@ -26,6 +27,7 @@ import androidx.xr.compose.subspace.SpatialColumn
 import androidx.xr.compose.subspace.SpatialPanel
 import androidx.xr.compose.subspace.SpatialRow
 import androidx.xr.compose.subspace.SpatialRowScope
+import androidx.xr.compose.subspace.layout.SpatialRoundedCornerShape
 import androidx.xr.compose.subspace.layout.SubspaceModifier
 import androidx.xr.compose.subspace.layout.fillMaxWidth
 import androidx.xr.compose.subspace.layout.height
@@ -141,6 +143,7 @@ private fun SpatialRowScope.MVPPanel(
     game: GameDetailDisplayModel,
 ) {
     SpatialPanel(
+        shape = SpatialRoundedCornerShape(ZeroCornerSize),
         modifier = SubspaceModifier
             .height(IMMERSIVE_DETAIL_PANEL_HEIGHT)
             .weight(1F),
@@ -151,6 +154,7 @@ private fun SpatialRowScope.MVPPanel(
             game.mostValuablePlayers.forEach { mvp ->
                 MVPCard(
                     mvp = mvp,
+                    shape = MaterialTheme.shapes.extraLarge,
                     modifier = Modifier
                         .fillMaxWidth(),
                 )
