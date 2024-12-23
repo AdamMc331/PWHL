@@ -46,6 +46,7 @@ fun MVPCard(
         ) {
             Row(
                 horizontalArrangement = Arrangement.spacedBy(PWHLTheme.dimensions.componentHorizontalPadding),
+                verticalAlignment = Alignment.CenterVertically,
             ) {
                 PlayerImage(mvp)
 
@@ -110,9 +111,20 @@ private fun PlayerInfo(
 private fun PlayerName(
     mvp: MostValuablePlayerDisplayModel,
 ) {
+    val imageSize = PWHLTheme.dimensions.imageSizeDefault
+
+    val fontSize = with(LocalDensity.current) {
+        imageSize.div(3).toSp()
+    }
+
+    val textStyle = MaterialTheme.typography.titleSmall.copy(
+        fontSize = fontSize,
+        lineHeight = fontSize.times(1.25),
+    )
+
     Text(
         text = mvp.player.fullName,
-        style = MaterialTheme.typography.titleSmall,
+        style = textStyle,
     )
 }
 
@@ -124,19 +136,31 @@ private fun PlayerSubtitle(
         verticalAlignment = Alignment.CenterVertically,
         horizontalArrangement = Arrangement.spacedBy(4.dp),
     ) {
-        with(LocalDensity.current) {
-            ImageWrapper(
-                image = mvp.team.image,
-                contentDescription = mvp.team.name,
-                modifier = Modifier
-                    .size(LocalTextStyle.current.fontSize.toDp()),
-            )
+        val imageSize = PWHLTheme.dimensions.imageSizeDefault
+
+        val fontSizeDp = imageSize.div(4)
+
+        val fontSizeSp = with(LocalDensity.current) {
+            fontSizeDp.toSp()
         }
+
+        val textStyle = LocalTextStyle.current.copy(
+            fontSize = fontSizeSp,
+            lineHeight = fontSizeSp.times(1.25),
+        )
+
+        ImageWrapper(
+            image = mvp.team.image,
+            contentDescription = mvp.team.name,
+            modifier = Modifier
+                .size(fontSizeDp),
+        )
 
         val subtitle = "#${mvp.player.jerseyNumber} • ${mvp.player.position}"
 
         Text(
             text = subtitle,
+            style = textStyle,
         )
     }
 }
