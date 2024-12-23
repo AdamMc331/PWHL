@@ -16,6 +16,7 @@ import androidx.compose.material3.LocalTextStyle
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
+import androidx.compose.material3.windowsizeclass.WindowWidthSizeClass
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -29,6 +30,7 @@ import com.adammcneilly.pwhl.mobile.shared.displaymodels.MostValuablePlayerDispl
 import com.adammcneilly.pwhl.mobile.shared.displaymodels.StatDisplayModel
 import com.adammcneilly.pwhl.mobile.shared.ui.components.ImageWrapper
 import com.adammcneilly.pwhl.mobile.shared.ui.theme.PWHLTheme
+import com.adammcneilly.pwhl.mobile.shared.ui.util.currentWindowSizeClass
 
 @Composable
 fun MVPCard(
@@ -69,12 +71,20 @@ private fun Stats(
         shape = MaterialTheme.shapes.large,
     ) {
         Row(
-            horizontalArrangement = Arrangement.SpaceEvenly,
+            horizontalArrangement = Arrangement.spacedBy(8.dp),
             modifier = Modifier
-                .fillMaxWidth(),
+                .fillMaxWidth()
+                .padding(
+                    horizontal = 8.dp,
+                    vertical = 4.dp,
+                ),
         ) {
             mvp.highlightStats.forEach { stat ->
-                StatItem(stat)
+                StatItem(
+                    stat = stat,
+                    modifier = Modifier
+                        .weight(1F),
+                )
             }
         }
     }
@@ -83,12 +93,20 @@ private fun Stats(
 @Composable
 private fun StatItem(
     stat: StatDisplayModel,
+    modifier: Modifier = Modifier,
 ) {
     Column(
         horizontalAlignment = Alignment.CenterHorizontally,
+        modifier = modifier,
     ) {
+        val statText = if (currentWindowSizeClass().widthSizeClass == WindowWidthSizeClass.Expanded) {
+            stat.fullName
+        } else {
+            stat.shortCode
+        }
+
         Text(
-            text = stat.key,
+            text = statText,
             style = MaterialTheme.typography.titleMedium,
         )
 
