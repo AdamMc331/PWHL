@@ -14,6 +14,7 @@ import androidx.compose.material3.LocalTextStyle
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
+import androidx.compose.material3.windowsizeclass.WindowWidthSizeClass
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -25,6 +26,7 @@ import com.adammcneilly.pwhl.mobile.shared.displaymodels.ImageDisplayModel
 import com.adammcneilly.pwhl.mobile.shared.displaymodels.MostValuablePlayerDisplayModel
 import com.adammcneilly.pwhl.mobile.shared.displaymodels.StatDisplayModel
 import com.adammcneilly.pwhl.mobile.shared.ui.components.ImageWrapper
+import com.adammcneilly.pwhl.mobile.shared.ui.util.currentWindowSizeClass
 
 @Composable
 fun MVPCard(
@@ -81,8 +83,14 @@ private fun StatItem(
     Column(
         horizontalAlignment = Alignment.CenterHorizontally,
     ) {
+        val statText = if (currentWindowSizeClass().widthSizeClass == WindowWidthSizeClass.Expanded) {
+            stat.fullName
+        } else {
+            stat.shortCode
+        }
+
         Text(
-            text = stat.key,
+            text = statText,
             style = MaterialTheme.typography.titleMedium,
         )
 

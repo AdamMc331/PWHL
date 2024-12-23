@@ -24,14 +24,34 @@ private fun MostValuablePlayer.highlightStats(): List<StatDisplayModel> {
         val savePercentage = saves / shots
 
         listOf(
-            StatDisplayModel("GA", this.stats.goalsAgainst.toString()),
-            StatDisplayModel("SV%", numberFormatter.formatSavePercentage(savePercentage)),
+            StatDisplayModel(
+                shortCode = "GA",
+                fullName = "Goals Against",
+                value = this.stats.goalsAgainst.toString(),
+            ),
+            StatDisplayModel(
+                shortCode = "SV%",
+                fullName = "Save Percentage",
+                value = numberFormatter.formatSavePercentage(savePercentage),
+            ),
         )
     } else {
         listOf(
-            StatDisplayModel("G", stats.goals.toString()),
-            StatDisplayModel("A", stats.assists.toString()),
-            StatDisplayModel("P", stats.points.toString()),
+            StatDisplayModel(
+                shortCode = "G",
+                fullName = "Goals",
+                value = stats.goals.toString(),
+            ),
+            StatDisplayModel(
+                shortCode = "A",
+                fullName = "Assists",
+                value = stats.assists.toString(),
+            ),
+            StatDisplayModel(
+                shortCode = "P",
+                fullName = "Points",
+                value = stats.points.toString(),
+            ),
         )
     }
 }
