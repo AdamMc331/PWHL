@@ -25,3 +25,9 @@ fun PWHLTheme(
         content = content,
     )
 }
+
+object PWHLTheme {
+    val dimensions: Dimensions
+        @Composable
+        get() = LocalDimensions.current
+}

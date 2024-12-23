@@ -63,6 +63,7 @@ kotlin {
             implementation(libs.ktor.client.logging)
             implementation(libs.ktor.serialization.kotlinx.json)
             implementation(libs.material.kolor)
+            implementation(libs.material3.window.size.class1)
         }
 
         androidMain.dependencies {
