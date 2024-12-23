@@ -1,6 +1,8 @@
 package com.adammcneilly.pwhl.mobile.shared.ui.theme
 
 import androidx.compose.foundation.layout.PaddingValues
+import androidx.compose.material3.windowsizeclass.WindowSizeClass
+import androidx.compose.material3.windowsizeclass.WindowWidthSizeClass
 import androidx.compose.runtime.Immutable
 import androidx.compose.runtime.staticCompositionLocalOf
 import androidx.compose.ui.unit.Dp
@@ -25,19 +27,30 @@ data class Dimensions(
         )
 
     companion object {
-        val compact = Dimensions(
+        private val compact = Dimensions(
             componentHorizontalPadding = 8.dp,
             componentVerticalPadding = 8.dp,
         )
 
-        val medium = Dimensions(
+        private val medium = Dimensions(
             componentHorizontalPadding = 8.dp,
             componentVerticalPadding = 8.dp,
         )
 
-        val expanded = Dimensions(
+        private val expanded = Dimensions(
             componentHorizontalPadding = 16.dp,
             componentVerticalPadding = 16.dp,
         )
+
+        fun get(
+            windowSizeClass: WindowSizeClass,
+        ): Dimensions {
+            return when (windowSizeClass.widthSizeClass) {
+                WindowWidthSizeClass.Compact -> compact
+                WindowWidthSizeClass.Medium -> medium
+                WindowWidthSizeClass.Expanded -> expanded
+                else -> compact
+            }
+        }
     }
 }
