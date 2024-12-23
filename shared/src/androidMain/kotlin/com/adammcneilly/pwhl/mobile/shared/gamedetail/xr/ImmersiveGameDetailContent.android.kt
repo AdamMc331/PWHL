@@ -21,17 +21,22 @@ import androidx.xr.compose.spatial.OrbiterEdge
 import androidx.xr.compose.spatial.Subspace
 import androidx.xr.compose.subspace.SpatialColumn
 import androidx.xr.compose.subspace.SpatialRow
+import androidx.xr.compose.subspace.SpatialRowScope
 import androidx.xr.compose.subspace.layout.SubspaceModifier
 import androidx.xr.compose.subspace.layout.fillMaxWidth
 import androidx.xr.compose.subspace.layout.height
 import androidx.xr.compose.subspace.layout.padding
 import androidx.xr.compose.subspace.layout.width
+import com.adammcneilly.pwhl.mobile.shared.displaymodels.GameDetailDisplayModel
 import com.adammcneilly.pwhl.mobile.shared.gamedetail.GameDetailState
 import com.adammcneilly.pwhl.mobile.shared.gamedetail.GameDetailStatsTab
 import com.adammcneilly.pwhl.mobile.shared.gamedetail.GameDetailSummaryTab
 import com.adammcneilly.pwhl.mobile.shared.gamedetail.playbyplay.PlayByPlayList
 import com.adammcneilly.pwhl.mobile.shared.ui.components.SpatialSurface
 import com.adammcneilly.pwhl.mobile.shared.xr.XRSession
+
+private val IMMERSIVE_GAME_DETAIL_WIDTH = 1200.dp
+private val IMMERSIVE_DETAIL_PANEL_HEIGHT = 600.dp
 
 @Composable
 @OptIn(ExperimentalMaterial3ExpressiveApi::class)
@@ -48,80 +53,123 @@ actual fun ImmersiveGameDetailContent(
     Subspace {
         SpatialColumn(
             modifier = SubspaceModifier
-                .width(1200.dp), // Determine where this number came from and how to set a practical default
+                .width(IMMERSIVE_GAME_DETAIL_WIDTH),
         ) {
-            SpatialSurface(
-                modifier = SubspaceModifier
-                    .fillMaxWidth()
-                    .padding(bottom = 16.dp),
-            ) {
-                Orbiter(
-                    position = OrbiterEdge.Top,
-                    offset = inner(8.dp),
-                    alignment = Alignment.End,
-                ) {
-                    Surface(
-                        shape = CircleShape,
-                        modifier = Modifier
-                            .padding(end = 16.dp),
-                    ) {
-                        IconButton(
-                            onClick = {
-                                session.requestHomeSpaceMode()
-                            },
-                            colors = IconButtonDefaults.iconButtonColors(
-                                containerColor = MaterialTheme.colorScheme.surface,
-                                contentColor = MaterialTheme.colorScheme.onSurface,
-                            ),
-                            modifier = Modifier
-                                .size(IconButtonDefaults.mediumContainerSize()),
-                        ) {
-                            Icon(
-                                imageVector = Icons.Default.CloseFullscreen,
-                                contentDescription = "Exit Full Space Mode",
-                            )
-                        }
-                    }
-                }
+            Header(xrSession, state.game)
 
-                SpatialGameDetailHeader(
-                    game = state.game,
+            GameDetailPanels(state.game, state)
+        }
+    }
+}
+
+@Composable
+private fun GameDetailPanels(
+    game: GameDetailDisplayModel,
+    state: GameDetailState,
+) {
+    SpatialRow(
+        modifier = SubspaceModifier
+            .width(IMMERSIVE_GAME_DETAIL_WIDTH),
+    ) {
+        SummaryPanel(game)
+
+        StatsPanel()
+
+        PlayByPlayPanel(state)
+    }
+}
+
+@Composable
+private fun Header(
+    xrSession: XRSession,
+    game: GameDetailDisplayModel,
+) {
+    SpatialSurface(
+        modifier = SubspaceModifier
+            .fillMaxWidth()
+            .padding(bottom = 16.dp),
+    ) {
+        EnterHomeSpaceButton(xrSession)
+
+        SpatialGameDetailHeader(
+            game = game,
+        )
+    }
+}
+
+@Composable
+@OptIn(ExperimentalMaterial3ExpressiveApi::class)
+private fun EnterHomeSpaceButton(
+    xrSession: XRSession,
+) {
+    Orbiter(
+        position = OrbiterEdge.Top,
+        offset = inner(8.dp),
+        alignment = Alignment.End,
+    ) {
+        Surface(
+            shape = CircleShape,
+            modifier = Modifier
+                .padding(end = 16.dp),
+        ) {
+            IconButton(
+                onClick = {
+                    xrSession.requestHomeSpaceMode()
+                },
+                colors = IconButtonDefaults.iconButtonColors(
+                    containerColor = MaterialTheme.colorScheme.surface,
+                    contentColor = MaterialTheme.colorScheme.onSurface,
+                ),
+                modifier = Modifier
+                    .size(IconButtonDefaults.mediumContainerSize()),
+            ) {
+                Icon(
+                    imageVector = Icons.Default.CloseFullscreen,
+                    contentDescription = "Exit Full Space Mode",
                 )
             }
-
-            SpatialRow(
-                modifier = SubspaceModifier
-                    .width(1200.dp), // Determine where this number came from and how to set a practical default
-            ) {
-                SpatialSurface(
-                    modifier = SubspaceModifier
-                        .height(600.dp)
-                        .weight(1F),
-                ) {
-                    GameDetailSummaryTab(
-                        game = state.game,
-                    )
-                }
-
-                SpatialSurface(
-                    modifier = SubspaceModifier
-                        .height(600.dp)
-                        .weight(1F)
-                        .padding(horizontal = 16.dp),
-                ) {
-                    GameDetailStatsTab()
-                }
-
-                SpatialSurface(
-                    modifier = SubspaceModifier
-                        .height(600.dp)
-                        .weight(1F),
-                ) {
-                    PlayByPlayList(
-                        events = state.playByPlayEvents,
-                    )
-                }
-            }
         }
+    }
+}
+
+@Composable
+private fun SpatialRowScope.SummaryPanel(
+    game: GameDetailDisplayModel,
+) {
+    SpatialSurface(
+        modifier = SubspaceModifier
+            .height(IMMERSIVE_DETAIL_PANEL_HEIGHT)
+            .weight(1F),
+    ) {
+        GameDetailSummaryTab(
+            game = game,
+        )
+    }
+}
+
+@Composable
+private fun SpatialRowScope.StatsPanel() {
+    SpatialSurface(
+        modifier = SubspaceModifier
+            .height(IMMERSIVE_DETAIL_PANEL_HEIGHT)
+            .weight(1F)
+            .padding(horizontal = 16.dp),
+    ) {
+        GameDetailStatsTab()
+    }
+}
+
+@Composable
+private fun SpatialRowScope.PlayByPlayPanel(
+    state: GameDetailState,
+) {
+    SpatialSurface(
+        modifier = SubspaceModifier
+            .height(IMMERSIVE_DETAIL_PANEL_HEIGHT)
+            .weight(1F),
+    ) {
+        PlayByPlayList(
+            events = state.playByPlayEvents,
+        )
     }
 }
