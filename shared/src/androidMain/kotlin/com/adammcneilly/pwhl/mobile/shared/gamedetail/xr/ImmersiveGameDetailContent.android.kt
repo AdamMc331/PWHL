@@ -31,17 +31,14 @@ import com.adammcneilly.pwhl.mobile.shared.gamedetail.GameDetailStatsTab
 import com.adammcneilly.pwhl.mobile.shared.gamedetail.GameDetailSummaryTab
 import com.adammcneilly.pwhl.mobile.shared.gamedetail.playbyplay.PlayByPlayList
 import com.adammcneilly.pwhl.mobile.shared.ui.components.SpatialSurface
-import com.adammcneilly.pwhl.mobile.shared.xr.LocalXRSession
+import com.adammcneilly.pwhl.mobile.shared.xr.XRSession
 
 @Composable
 @OptIn(ExperimentalMaterial3ExpressiveApi::class)
 actual fun ImmersiveGameDetailContent(
     state: GameDetailState,
+    xrSession: XRSession,
 ) {
-    // Session should not be null to even get here, so
-    // maybe we modify the funciton to consume a non nullable session.
-    val session = LocalXRSession.current ?: return
-
     if (state.game == null) {
         // Need to handle loading/error state.
         // Ideally we don't even allow entering immersive UI without game.

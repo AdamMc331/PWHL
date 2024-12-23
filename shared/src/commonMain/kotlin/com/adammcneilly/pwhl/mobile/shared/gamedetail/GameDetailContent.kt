@@ -19,8 +19,10 @@ fun GameDetailContent(
     state: GameDetailState,
     modifier: Modifier = Modifier,
 ) {
-    if (LocalXRSession.current?.isSpatialUiEnabled == true) {
-        ImmersiveGameDetailContent(state)
+    val xrSession = LocalXRSession.current
+
+    if (xrSession?.isSpatialUiEnabled == true) {
+        ImmersiveGameDetailContent(state, xrSession)
     } else {
         NonImmersiveContent(state, modifier)
     }
