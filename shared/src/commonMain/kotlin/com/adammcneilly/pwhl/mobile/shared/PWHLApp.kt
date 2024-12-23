@@ -19,9 +19,20 @@ import org.koin.compose.KoinApplication
 
 @Composable
 fun PWHLApp() {
+    val xrSession = currentXRSession()
+
+    // This is a temporary work around to provide a special dimension to be used in an immersive situation.
+    // Ideally we don't set dimensions based on capabilities, but window size, and there will hopefully
+    // be updates to Android XR in the future that make that decision easier.
+    val dimensions = if (xrSession?.isSpatialUiEnabled == true) {
+        Dimensions.immersive
+    } else {
+        Dimensions.get(currentWindowSizeClass())
+    }
+
     CompositionLocalProvider(
-        LocalXRSession provides currentXRSession(),
-        LocalDimensions provides Dimensions.get(currentWindowSizeClass()),
+        LocalXRSession provides xrSession,
+        LocalDimensions provides dimensions,
     ) {
         KoinApplication(
             application = {
