@@ -160,7 +160,7 @@ private fun MVPPanel(
         modifier = modifier,
     ) {
         Column(
-            verticalArrangement = Arrangement.spacedBy(16.dp),
+            verticalArrangement = Arrangement.spacedBy(8.dp),
         ) {
             game.mostValuablePlayers.forEach { mvp ->
                 MVPCard(

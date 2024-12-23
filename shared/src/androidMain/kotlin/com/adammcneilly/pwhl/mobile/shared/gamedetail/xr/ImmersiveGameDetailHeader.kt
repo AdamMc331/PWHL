@@ -49,6 +49,7 @@ private fun TeamScores(
     ) {
         Row(
             verticalAlignment = Alignment.CenterVertically,
+            horizontalArrangement = Arrangement.spacedBy(8.dp),
         ) {
             TeamNameLogo(
                 team = game.homeTeam.team,
@@ -61,6 +62,7 @@ private fun TeamScores(
 
         Row(
             verticalAlignment = Alignment.CenterVertically,
+            horizontalArrangement = Arrangement.spacedBy(8.dp),
         ) {
             TeamScore(
                 teamGameResult = game.awayTeam,
