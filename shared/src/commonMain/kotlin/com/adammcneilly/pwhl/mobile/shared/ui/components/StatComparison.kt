@@ -92,7 +92,7 @@ fun StatComparison(
             awayTeamValue = awayTeamValue,
             homeTeamColor = homeTeamColor,
             awayTeamColor = awayTeamColor,
-            percentageToRender = percentageToRender,
+            animationPercentage = percentageToRender,
             modifier = Modifier
                 .weight(1F),
         )
@@ -103,9 +103,9 @@ fun StatComparison(
 private fun StatComparisonLines(
     homeTeamValue: Int,
     awayTeamValue: Int,
-    percentageToRender: Float,
     homeTeamColor: Color,
     awayTeamColor: Color,
+    animationPercentage: Float,
     modifier: Modifier = Modifier,
 ) {
     val dividerColor = LocalContentColor.current
@@ -113,34 +113,52 @@ private fun StatComparisonLines(
     Canvas(
         modifier = modifier,
     ) {
-        val midHeight = size.height.div(2)
+        val yOffset = size.height.div(2)
         val totalValue = homeTeamValue.plus(awayTeamValue)
-        val blueTeamPercentage = homeTeamValue.toFloat().div(totalValue)
-        val dividingPoint = size.width.times(blueTeamPercentage)
-        val lineWidth = 4.dp.toPx()
+        val homeTeamPercentage = homeTeamValue.toFloat().div(totalValue)
+        val dividingPoint = size.width.times(homeTeamPercentage)
+        val lineWidth = 6.dp.toPx()
         val leadingLineWidth = lineWidth * LEADING_TEAM_STAT_WIDTH_SCALE
 
-        val blueLineWidth = if (homeTeamValue > awayTeamValue) {
+        val homeTeamLineWidth = if (homeTeamValue > awayTeamValue) {
             leadingLineWidth
         } else {
             lineWidth
         }
 
-        val orangeLineWidth = if (awayTeamValue > homeTeamValue) {
+        val awayTeamLineWidth = if (awayTeamValue > homeTeamValue) {
             leadingLineWidth
         } else {
             lineWidth
         }
 
-        drawHomeTeamLine(midHeight, dividingPoint, blueLineWidth, percentageToRender, homeTeamColor)
-        drawAwayTeamLine(dividingPoint, midHeight, orangeLineWidth, percentageToRender, awayTeamColor)
-        drawDivider(dividingPoint, midHeight, lineWidth, dividerColor, percentageToRender)
+        drawHomeTeamLine(
+            yOffset = yOffset,
+            endXOffset = dividingPoint,
+            lineWidth = homeTeamLineWidth,
+            animationPercentage = animationPercentage,
+            color = homeTeamColor,
+        )
+        drawAwayTeamLine(
+            startXOffset = dividingPoint,
+            yOffset = yOffset,
+            lineWidth = awayTeamLineWidth,
+            animationPercentage = animationPercentage,
+            color = awayTeamColor,
+        )
+        drawDivider(
+            xOffset = dividingPoint,
+            yOffset = yOffset,
+            lineWidth = lineWidth,
+            dividerColor = dividerColor,
+            animationPercentage = animationPercentage,
+        )
     }
 }
 
 private fun DrawScope.drawDivider(
-    dividingPoint: Float,
-    midHeight: Float,
+    xOffset: Float,
+    yOffset: Float,
     lineWidth: Float,
     dividerColor: Color,
     animationPercentage: Float,
@@ -151,61 +169,73 @@ private fun DrawScope.drawDivider(
     drawLine(
         color = dividerColor,
         start = Offset(
-            x = dividingPoint,
-            y = midHeight.minus(dividerOffset),
+            x = xOffset,
+            y = yOffset.minus(dividerOffset),
         ),
         end = Offset(
-            x = dividingPoint,
-            y = midHeight.plus(dividerOffset),
+            x = xOffset,
+            y = yOffset.plus(dividerOffset),
         ),
         strokeWidth = lineWidth,
     )
 }
 
+/**
+ * Draw a filled line with the supplied [color] that represents the portion of this statistic
+ * earned by the away team.
+ *
+ * @param[startXOffset] The value in pixels that defines where the start of the away team stat line is.
+ */
 private fun DrawScope.drawAwayTeamLine(
-    dividingPoint: Float,
-    midHeight: Float,
+    startXOffset: Float,
+    yOffset: Float,
     lineWidth: Float,
     animationPercentage: Float,
     color: Color,
 ) {
-    val totalLength = (size.width - dividingPoint)
+    val totalLength = (size.width - startXOffset)
     val lengthToRender = totalLength * animationPercentage
-    val endingX = dividingPoint + lengthToRender
+    val endingX = startXOffset + lengthToRender
 
     drawLine(
         color = color,
         start = Offset(
-            x = dividingPoint,
-            y = midHeight,
+            x = startXOffset,
+            y = yOffset,
         ),
         end = Offset(
             x = endingX,
-            y = midHeight,
+            y = yOffset,
         ),
         strokeWidth = lineWidth,
     )
 }
 
+/**
+ * Draw a filled line with the supplied [color] that represents the portion of this statistic
+ * earned by the home team.
+ *
+ * @param[endXOffset] The value in pixels that defines where the end of the home team stat line is.
+ */
 private fun DrawScope.drawHomeTeamLine(
-    midHeight: Float,
-    dividingPoint: Float,
+    yOffset: Float,
+    endXOffset: Float,
     lineWidth: Float,
     animationPercentage: Float,
     color: Color,
 ) {
-    val lineLengthToRender = animationPercentage * dividingPoint
-    val startingX = (dividingPoint - lineLengthToRender)
+    val lineLengthToRender = animationPercentage * endXOffset
+    val startingX = (endXOffset - lineLengthToRender)
 
     drawLine(
         color = color,
         start = Offset(
             x = startingX,
-            y = midHeight,
+            y = yOffset,
         ),
         end = Offset(
-            x = dividingPoint,
-            y = midHeight,
+            x = endXOffset,
+            y = yOffset,
         ),
         strokeWidth = lineWidth,
     )
