@@ -1,5 +1,8 @@
 package com.adammcneilly.pwhl.mobile.shared.data.hockeytech
 
+/**
+ * Constant values for common parameter values used in the hockey tech api.
+ */
 object HockeyTechParameterValues {
     const val CLIENT_CODE = "pwhl"
     const val ENGLISH = "en"

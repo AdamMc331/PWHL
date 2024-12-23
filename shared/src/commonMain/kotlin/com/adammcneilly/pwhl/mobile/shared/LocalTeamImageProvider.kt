@@ -2,6 +2,10 @@ package com.adammcneilly.pwhl.mobile.shared
 
 import com.adammcneilly.pwhl.mobile.shared.displaymodels.ImageDisplayModel
 
+/**
+ * Helper object that will provide a local image resource for a specific
+ * team id.
+ */
 object LocalTeamImageProvider {
     fun getTeamImage(
         teamId: String,

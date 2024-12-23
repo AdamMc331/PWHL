@@ -82,7 +82,7 @@ private fun StatItem(
         horizontalAlignment = Alignment.CenterHorizontally,
     ) {
         Text(
-            text = stat.key,
+            text = stat.statShortCode,
             style = MaterialTheme.typography.titleMedium,
         )
 

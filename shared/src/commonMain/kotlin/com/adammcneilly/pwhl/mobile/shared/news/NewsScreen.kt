@@ -23,5 +23,8 @@ fun NewsScreen(
     }
 }
 
+/**
+ * Serializable route to the news screen used by Compose navigation.
+ */
 @Serializable
 object NewsScreen

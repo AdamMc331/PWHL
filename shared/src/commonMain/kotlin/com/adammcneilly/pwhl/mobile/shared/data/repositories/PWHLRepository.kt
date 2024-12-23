@@ -6,6 +6,13 @@ import com.adammcneilly.pwhl.mobile.shared.models.GameSummary
 import com.adammcneilly.pwhl.mobile.shared.models.StandingsRow
 import com.adammcneilly.pwhl.mobile.shared.models.playbyplay.PlayByPlayEvent
 
+/**
+ * This interface defines all data requests for the PWHL application.
+ * As this grows, we may consider splitting these repositories into different domains.
+ *
+ * Note that all functions return a domain model type. Any mapping into a display model
+ * should be done inside of a use case for that feature.
+ */
 interface PWHLRepository {
     suspend fun fetchGames(
         request: GameListRequest,

@@ -9,6 +9,10 @@ import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 
+/**
+ * This is the state container for a game detail screen, managing data requests
+ * for a specific [gameId].
+ */
 class GameDetailViewModel(
     private val gameId: String,
     fetchGameDetailUseCase: FetchGameDetailUseCase,

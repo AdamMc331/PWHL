@@ -8,6 +8,9 @@ import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 
+/**
+ * State container for the standings screen.
+ */
 class StandingsViewModel(
     private val fetchStandingsUseCase: FetchStandingsUseCase,
 ) : ViewModel() {

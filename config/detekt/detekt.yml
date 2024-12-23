@@ -2,14 +2,33 @@
 # want to override for our application. This is done by using `buildUponDefaultConfig` in the gradle
 # configuration.
 
+comments:
+  UndocumentedPublicClass:
+    active: true
+    excludes: [
+      '**/dto/**',
+      '**/models/**',
+      '**/displaymodels/**',
+      '**/test/**',
+      '**/androidTest/**',
+      '**/commonTest/**',
+      '**/androidUnitTest/**',
+      '**/androidInstrumentedTest/**',
+      '**/iosTest/**'
+    ]
+    # Coming soon
+#    ignoreDefaultCompanionObject: true
+    searchInNestedClass: true
+    searchInInnerClass: true
+    searchInInnerObject: true
+    searchInInnerInterface: true
 naming:
-  active: true
   FunctionNaming:
     active: true
-    excludes: ['**/test/**', '**/androidTest/**', '**/commonTest/**', '**/jvmTest/**', '**/androidUnitTest/**', '**/androidInstrumentedTest/**', '**/jsTest/**', '**/iosTest/**']
+    excludes: [ '**/test/**', '**/androidTest/**', '**/commonTest/**', '**/jvmTest/**', '**/androidUnitTest/**', '**/androidInstrumentedTest/**', '**/jsTest/**', '**/iosTest/**' ]
     functionPattern: '[a-z][a-zA-Z0-9]*'
     excludeClassPattern: '$^'
-    ignoreAnnotated: ['Composable']
+    ignoreAnnotated: [ 'Composable' ]
   MatchingDeclarationName:
     active: true
-    excludes: ['**/androidMain/**', '**/iosMain/**', '**/desktopMain/**']
+    excludes: [ '**/androidMain/**', '**/iosMain/**', '**/desktopMain/**' ]

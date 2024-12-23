@@ -8,6 +8,10 @@ import kotlinx.serialization.Serializable
 import org.koin.compose.viewmodel.koinViewModel
 import org.koin.core.annotation.KoinExperimentalAPI
 
+/**
+ * Stateful component for [FeedContent] that observes the state
+ * from the supplied [viewModel].
+ */
 @Composable
 @OptIn(KoinExperimentalAPI::class)
 fun FeedScreen(
@@ -29,5 +33,8 @@ fun FeedScreen(
     }
 }
 
+/**
+ * Serializable route to the feed screen for Compose navigation.
+ */
 @Serializable
 object FeedScreen
