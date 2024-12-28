@@ -32,3 +32,15 @@ naming:
   MatchingDeclarationName:
     active: true
     excludes: [ '**/androidMain/**', '**/iosMain/**', '**/desktopMain/**' ]
+style:
+  MagicNumber:
+    excludes: [ '**/test/**', '**/*Test.kt', '**/*Spec.kt' ]
+    ignorePropertyDeclaration: true
+    ignoreAnnotation: true
+    ignoreEnums: true
+    ignoreNumbers:
+      - '-1'
+      - '0'
+      - '1'
+      - '2'
+      - '0.5'

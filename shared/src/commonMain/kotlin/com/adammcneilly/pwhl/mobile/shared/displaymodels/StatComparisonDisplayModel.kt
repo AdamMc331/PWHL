@@ -6,7 +6,7 @@ data class StatComparisonDisplayModel(
     val stat: String,
     val homeTeamValue: String,
     val awayTeamValue: String,
-    val homeTeamPercentage: Float,
     val homeTeamColor: Color,
     val awayTeamColor: Color,
+    val homeTeamPercentage: Float,
 )

@@ -112,9 +112,8 @@ private fun StatComparisonLines(
     statComparison: StatComparisonDisplayModel,
     animationPercentage: Float,
     modifier: Modifier = Modifier,
+    dividerColor: Color = LocalContentColor.current,
 ) {
-    val dividerColor = LocalContentColor.current
-
     Canvas(
         modifier = modifier,
     ) {
@@ -142,6 +141,7 @@ private fun StatComparisonLines(
             animationPercentage = animationPercentage,
             color = statComparison.homeTeamColor,
         )
+
         drawAwayTeamLine(
             startXOffset = dividingPoint,
             yOffset = yOffset,
@@ -149,6 +149,7 @@ private fun StatComparisonLines(
             animationPercentage = animationPercentage,
             color = statComparison.awayTeamColor,
         )
+
         drawDivider(
             xOffset = dividingPoint,
             yOffset = yOffset,
