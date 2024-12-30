@@ -73,3 +73,7 @@ tasks.register<GradleBuild>("prChecks") {
         "test",
     )
 }
+
+tasks.withType<Detekt> {
+    dependsOn(":detekt-rules:assemble")
+}
