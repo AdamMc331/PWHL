@@ -1,4 +1,4 @@
 pwhl-rules:
   active: true
   DpImportRule:
-    active: true
+    active: false
