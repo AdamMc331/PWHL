@@ -164,7 +164,7 @@ private fun MVPPanel(
         ) {
             game.mostValuablePlayers.forEach { mvp ->
                 PlayerHighlightCard(
-                    mvp = mvp,
+                    playerHighlight = mvp,
                     shape = MaterialTheme.shapes.extraLarge,
                     modifier = Modifier
                         .fillMaxWidth(),

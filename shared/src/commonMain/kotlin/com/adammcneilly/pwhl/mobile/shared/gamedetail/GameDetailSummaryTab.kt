@@ -56,7 +56,7 @@ private fun LazyListScope.mvpSection(
             ) {
                 items(game.mostValuablePlayers) { mvp ->
                     PlayerHighlightCard(
-                        mvp = mvp,
+                        playerHighlight = mvp,
                     )
                 }
             }
