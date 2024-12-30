@@ -13,7 +13,7 @@ class RuleProvider : RuleSetProvider {
         return RuleSet(
             id = ruleSetId,
             rules = listOf(
-                DpImportRule(config),
+                DpUsageRule(config),
             ),
         )
     }
