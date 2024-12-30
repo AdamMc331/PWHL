@@ -1,3 +1,5 @@
+import io.gitlab.arturbosch.detekt.Detekt
+
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 
 plugins {
@@ -21,10 +23,15 @@ apply(from = "buildscripts/githooks.gradle")
 apply(from = "buildscripts/versionsplugin.gradle")
 
 subprojects {
-    apply(from = "../buildscripts/detekt.gradle")
-
     apply(plugin = "com.squareup.sort-dependencies")
+    apply(plugin = "io.gitlab.arturbosch.detekt")
     apply(plugin = "org.jmailen.kotlinter")
+}
+
+dependencies {
+    // Has to be at the root, since detekt is applied at the root
+    // https://github.com/detekt/detekt/issues/3989#issuecomment-890331512
+    detektPlugins(project(":detekt-rules"))
 }
 
 tasks.register("clean", Delete::class) {
@@ -46,7 +53,7 @@ tasks {
      * https://proandroiddev.com/how-to-use-detekt-in-a-multi-module-android-project-6781937fbef2
      */
     @Suppress("UnusedPrivateMember")
-    val detektAll by registering(io.gitlab.arturbosch.detekt.Detekt::class) {
+    val detektAll by registering(Detekt::class) {
         parallel = true
         setSource(files(projectDir))
         include("**/*.kt")
@@ -55,6 +62,7 @@ tasks {
         exclude("**/build/**")
         config.setFrom(files("$rootDir/config/detekt/detekt.yml"))
         buildUponDefaultConfig = true
+        dependsOn(":detekt-rules:assemble")
     }
 }
 

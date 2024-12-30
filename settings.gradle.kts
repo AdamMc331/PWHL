@@ -14,4 +14,5 @@ dependencyResolutionManagement {
 }
 rootProject.name = "PWHL"
 include(":androidApp")
+include(":detekt-rules")
 include(":shared")
