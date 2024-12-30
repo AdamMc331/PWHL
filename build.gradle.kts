@@ -26,11 +26,12 @@ subprojects {
     apply(plugin = "com.squareup.sort-dependencies")
     apply(plugin = "io.gitlab.arturbosch.detekt")
     apply(plugin = "org.jmailen.kotlinter")
+}
 
-    //Add rules module as custom-detekt dependency for every module
-    dependencies {
-        detektPlugins(project(":detekt-rules"))
-    }
+dependencies {
+    // Has to be at the root, since detekt is applied at the root
+    // https://github.com/detekt/detekt/issues/3989#issuecomment-890331512
+    detektPlugins(project(":detekt-rules"))
 }
 
 tasks.register("clean", Delete::class) {
