@@ -1,8 +1,0 @@
-apply plugin: "io.gitlab.arturbosch.detekt"
-
-afterEvaluate {
-    //Add rules module as custom-detekt dependency for every module
-    dependencies {
-        detektPlugins(project(":detekt-rules"))
-    }
-}
