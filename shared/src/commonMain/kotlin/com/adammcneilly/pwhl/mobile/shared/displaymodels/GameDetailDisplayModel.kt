@@ -14,7 +14,7 @@ data class GameDetailDisplayModel(
     val id: String,
     val homeTeam: TeamGameDetailResultDisplayModel,
     val awayTeam: TeamGameDetailResultDisplayModel,
-    val mostValuablePlayers: List<MostValuablePlayerDisplayModel>,
+    val mostValuablePlayers: List<PlayerHighlightDisplayModel>,
     val status: String,
     val dateString: String,
 ) {
@@ -28,7 +28,7 @@ data class GameDetailDisplayModel(
             teamGameResult = game.awayTeam,
             gameStarted = game.isStarted,
         ),
-        mostValuablePlayers = game.mostValuablePlayers.map(::MostValuablePlayerDisplayModel),
+        mostValuablePlayers = game.mostValuablePlayers.map(::PlayerHighlightDisplayModel),
         status = game.status,
         dateString = game.dateString(),
     )

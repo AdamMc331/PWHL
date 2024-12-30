@@ -1,6 +1,6 @@
 @file:Suppress("MagicNumber")
 
-package com.adammcneilly.pwhl.mobile.shared.gamedetail.mvp
+package com.adammcneilly.pwhl.mobile.shared.ui.components
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -26,15 +26,14 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.unit.dp
 import com.adammcneilly.pwhl.mobile.shared.displaymodels.ImageDisplayModel
-import com.adammcneilly.pwhl.mobile.shared.displaymodels.MostValuablePlayerDisplayModel
+import com.adammcneilly.pwhl.mobile.shared.displaymodels.PlayerHighlightDisplayModel
 import com.adammcneilly.pwhl.mobile.shared.displaymodels.StatDisplayModel
-import com.adammcneilly.pwhl.mobile.shared.ui.components.ImageWrapper
 import com.adammcneilly.pwhl.mobile.shared.ui.theme.PWHLTheme
 import com.adammcneilly.pwhl.mobile.shared.ui.util.currentWindowSizeClass
 
 @Composable
-fun MVPCard(
-    mvp: MostValuablePlayerDisplayModel,
+fun PlayerHighlightCard(
+    playerHighlight: PlayerHighlightDisplayModel,
     modifier: Modifier = Modifier,
     shape: Shape = MaterialTheme.shapes.large,
 ) {
@@ -52,19 +51,19 @@ fun MVPCard(
                 horizontalArrangement = Arrangement.spacedBy(PWHLTheme.dimensions.componentHorizontalPadding),
                 verticalAlignment = Alignment.CenterVertically,
             ) {
-                PlayerImage(mvp)
+                PlayerImage(playerHighlight)
 
-                PlayerInfo(mvp)
+                PlayerInfo(playerHighlight)
             }
 
-            Stats(mvp)
+            Stats(playerHighlight)
         }
     }
 }
 
 @Composable
 private fun Stats(
-    mvp: MostValuablePlayerDisplayModel,
+    playerHighlight: PlayerHighlightDisplayModel,
 ) {
     Surface(
         color = MaterialTheme.colorScheme.secondaryContainer,
@@ -79,7 +78,7 @@ private fun Stats(
                     vertical = 4.dp,
                 ),
         ) {
-            mvp.highlightStats.forEach { stat ->
+            playerHighlight.highlightStats.forEach { stat ->
                 StatItem(
                     stat = stat,
                     modifier = Modifier
@@ -118,18 +117,18 @@ private fun StatItem(
 
 @Composable
 private fun PlayerInfo(
-    mvp: MostValuablePlayerDisplayModel,
+    playerHighlight: PlayerHighlightDisplayModel,
 ) {
     Column {
-        PlayerName(mvp)
+        PlayerName(playerHighlight)
 
-        PlayerSubtitle(mvp)
+        PlayerSubtitle(playerHighlight)
     }
 }
 
 @Composable
 private fun PlayerName(
-    mvp: MostValuablePlayerDisplayModel,
+    playerHighlight: PlayerHighlightDisplayModel,
 ) {
     val imageSize = PWHLTheme.dimensions.imageSizeDefault
 
@@ -143,14 +142,14 @@ private fun PlayerName(
     )
 
     Text(
-        text = mvp.player.fullName,
+        text = playerHighlight.player.fullName,
         style = textStyle,
     )
 }
 
 @Composable
 private fun PlayerSubtitle(
-    mvp: MostValuablePlayerDisplayModel,
+    playerHighlight: PlayerHighlightDisplayModel,
 ) {
     Row(
         verticalAlignment = Alignment.CenterVertically,
@@ -170,13 +169,13 @@ private fun PlayerSubtitle(
         )
 
         ImageWrapper(
-            image = mvp.team.image,
-            contentDescription = mvp.team.name,
+            image = playerHighlight.team.image,
+            contentDescription = playerHighlight.team.name,
             modifier = Modifier
                 .size(fontSizeDp),
         )
 
-        val subtitle = "#${mvp.player.jerseyNumber} • ${mvp.player.position}"
+        val subtitle = "#${playerHighlight.player.jerseyNumber} • ${playerHighlight.player.position}"
 
         Text(
             text = subtitle,
@@ -187,11 +186,11 @@ private fun PlayerSubtitle(
 
 @Composable
 private fun PlayerImage(
-    mvp: MostValuablePlayerDisplayModel,
+    playerHighlight: PlayerHighlightDisplayModel,
 ) {
     ImageWrapper(
-        image = mvp.player.playerImage ?: ImageDisplayModel.Placeholder,
-        contentDescription = mvp.player.fullName,
+        image = playerHighlight.player.playerImage ?: ImageDisplayModel.Placeholder,
+        contentDescription = playerHighlight.player.fullName,
         contentScale = ContentScale.Crop,
         modifier = Modifier
             .size(PWHLTheme.dimensions.imageSizeDefault)

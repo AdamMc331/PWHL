@@ -1,21 +1,21 @@
 package com.adammcneilly.pwhl.mobile.shared.displaymodels
 
-import com.adammcneilly.pwhl.mobile.shared.models.MostValuablePlayer
+import com.adammcneilly.pwhl.mobile.shared.models.PlayerStats
 import com.adammcneilly.pwhl.mobile.shared.util.numberFormatter
 
-data class MostValuablePlayerDisplayModel(
+data class PlayerHighlightDisplayModel(
     val team: TeamDisplayModel,
     val player: PlayerDisplayModel,
     val highlightStats: List<StatDisplayModel>,
 ) {
-    constructor(mvp: MostValuablePlayer) : this(
-        team = TeamDisplayModel(mvp.team),
-        player = PlayerDisplayModel(mvp.player),
-        highlightStats = mvp.highlightStats(),
+    constructor(playerStats: PlayerStats) : this(
+        team = TeamDisplayModel(playerStats.team),
+        player = PlayerDisplayModel(playerStats.player),
+        highlightStats = playerStats.highlightStats(),
     )
 }
 
-private fun MostValuablePlayer.highlightStats(): List<StatDisplayModel> {
+private fun PlayerStats.highlightStats(): List<StatDisplayModel> {
     val numberFormatter = numberFormatter()
 
     return if (this.isGoalie) {

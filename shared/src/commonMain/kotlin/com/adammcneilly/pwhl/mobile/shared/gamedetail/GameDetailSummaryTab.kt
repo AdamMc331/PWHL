@@ -14,7 +14,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.adammcneilly.pwhl.mobile.shared.displaymodels.GameDetailDisplayModel
-import com.adammcneilly.pwhl.mobile.shared.gamedetail.mvp.MVPCard
+import com.adammcneilly.pwhl.mobile.shared.ui.components.PlayerHighlightCard
 
 @Composable
 fun GameDetailSummaryTab(
@@ -55,8 +55,8 @@ private fun LazyListScope.mvpSection(
                 horizontalArrangement = Arrangement.spacedBy(16.dp),
             ) {
                 items(game.mostValuablePlayers) { mvp ->
-                    MVPCard(
-                        mvp = mvp,
+                    PlayerHighlightCard(
+                        playerHighlight = mvp,
                     )
                 }
             }

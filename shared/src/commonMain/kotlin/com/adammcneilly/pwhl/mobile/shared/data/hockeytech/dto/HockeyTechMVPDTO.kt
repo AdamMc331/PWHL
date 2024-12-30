@@ -1,6 +1,6 @@
 package com.adammcneilly.pwhl.mobile.shared.data.hockeytech.dto
 
-import com.adammcneilly.pwhl.mobile.shared.models.MostValuablePlayer
+import com.adammcneilly.pwhl.mobile.shared.models.PlayerStats
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
@@ -15,7 +15,7 @@ data class HockeyTechMVPDTO(
     @SerialName("team")
     val team: HockeyTechTeamInfoDTO? = null,
 ) {
-    fun parseMostValuablePlayer(): MostValuablePlayer {
+    fun parseMostValuablePlayer(): PlayerStats {
         require(team != null) {
             "Cannot parse MVP without team."
         }
@@ -28,7 +28,7 @@ data class HockeyTechMVPDTO(
             "Cannot parse MVP without player stats."
         }
 
-        return MostValuablePlayer(
+        return PlayerStats(
             team = team.parseTeam(),
             player = player.info.parsePlayer(),
             stats = player.stats.parseGamePlayerStats(),

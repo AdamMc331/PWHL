@@ -6,7 +6,7 @@ data class GameDetail(
     val id: String,
     val homeTeam: TeamGameDetailResult,
     val awayTeam: TeamGameDetailResult,
-    val mostValuablePlayers: List<MostValuablePlayer>,
+    val mostValuablePlayers: List<PlayerStats>,
     val time: Instant,
     val status: String,
     val isStarted: Boolean,
