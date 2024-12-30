@@ -1,5 +1,6 @@
 plugins {
     id("kotlin")
+    alias(libs.plugins.detekt)
 }
 
 dependencies {

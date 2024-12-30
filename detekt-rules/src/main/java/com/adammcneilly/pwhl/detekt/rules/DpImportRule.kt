@@ -23,6 +23,8 @@ class DpImportRule(
     override fun visitImportDirective(
         importDirective: KtImportDirective,
     ) {
+        println("ADAMLOG - visitImportDirective")
+        report(CodeSmell(issue, Entity.from(importDirective), issue.description))
         if (importDirective.importedFqName?.asString() == "androidx.compose.ui.unit.dp") {
             report(CodeSmell(issue, Entity.from(importDirective), issue.description))
         }
