@@ -15,7 +15,6 @@ plugins {
     alias(libs.plugins.kotlin.multiplatform).apply(false)
     alias(libs.plugins.kotlinter).apply(false)
     alias(libs.plugins.square.sortDependencies).apply(false)
-    alias(libs.plugins.jetbrains.kotlin.jvm) apply false
 }
 
 apply(from = "buildscripts/githooks.gradle")

@@ -29,7 +29,6 @@ sortDependencies = "0.13"
 sqldelight = "2.0.2"
 truthish = "1.0.2"
 xr = "1.0.0-alpha01"
-jetbrainsKotlinJvm = "2.1.0"
 
 [libraries]
 android-material = { module = "com.google.android.material:material", version.ref = "material" }
@@ -88,4 +87,3 @@ kotlinter = { id = "org.jmailen.kotlinter", version.ref = "kotlinter" }
 google-devtools-ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
 square-sortDependencies = { id = "com.squareup.sort-dependencies", version.ref = "sortDependencies" }
 detekt = { id = "io.gitlab.arturbosch.detekt", version.ref = "detektGradlePlugin" }
-jetbrains-kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "jetbrainsKotlinJvm" }
