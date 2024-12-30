@@ -5,4 +5,8 @@ plugins {
 
 dependencies {
     compileOnly(libs.detekt.api)
+
+    testImplementation(kotlin("test"))
+    testImplementation(libs.assertj.core)
+    testImplementation(libs.detekt.test)
 }
