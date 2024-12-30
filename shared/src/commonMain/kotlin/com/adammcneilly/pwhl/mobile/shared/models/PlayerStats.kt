@@ -1,8 +1,8 @@
 package com.adammcneilly.pwhl.mobile.shared.models
 
-data class MostValuablePlayer(
+data class PlayerStats(
     val team: Team,
     val player: Player,
-    val stats: GamePlayerStats,
+    val stats: Stats,
     val isGoalie: Boolean,
 )

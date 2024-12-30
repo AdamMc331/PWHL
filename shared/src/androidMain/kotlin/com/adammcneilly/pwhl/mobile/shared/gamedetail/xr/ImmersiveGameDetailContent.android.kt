@@ -35,8 +35,8 @@ import androidx.xr.compose.subspace.layout.width
 import com.adammcneilly.pwhl.mobile.shared.displaymodels.GameDetailDisplayModel
 import com.adammcneilly.pwhl.mobile.shared.gamedetail.GameDetailState
 import com.adammcneilly.pwhl.mobile.shared.gamedetail.GameDetailStatsTab
-import com.adammcneilly.pwhl.mobile.shared.gamedetail.mvp.MVPCard
 import com.adammcneilly.pwhl.mobile.shared.gamedetail.playbyplay.PlayByPlayList
+import com.adammcneilly.pwhl.mobile.shared.ui.components.PlayerHighlightCard
 import com.adammcneilly.pwhl.mobile.shared.ui.components.SpatialSurface
 import com.adammcneilly.pwhl.mobile.shared.xr.XRSession
 
@@ -163,7 +163,7 @@ private fun MVPPanel(
             verticalArrangement = Arrangement.spacedBy(8.dp),
         ) {
             game.mostValuablePlayers.forEach { mvp ->
-                MVPCard(
+                PlayerHighlightCard(
                     mvp = mvp,
                     shape = MaterialTheme.shapes.extraLarge,
                     modifier = Modifier

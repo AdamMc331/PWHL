@@ -1,6 +1,6 @@
 package com.adammcneilly.pwhl.mobile.shared.data.hockeytech.dto
 
-import com.adammcneilly.pwhl.mobile.shared.models.GamePlayerStats
+import com.adammcneilly.pwhl.mobile.shared.models.Stats
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
@@ -35,8 +35,8 @@ data class HockeyTechGamePlayerStatsDTO(
     @SerialName("toi")
     val toi: String? = null,
 ) {
-    fun parseGamePlayerStats(): GamePlayerStats {
-        return GamePlayerStats(
+    fun parseGamePlayerStats(): Stats {
+        return Stats(
             assists = assists ?: 0,
             goals = goals ?: 0,
             points = points ?: 0,

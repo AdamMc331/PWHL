@@ -1,6 +1,6 @@
 @file:Suppress("MagicNumber")
 
-package com.adammcneilly.pwhl.mobile.shared.gamedetail.mvp
+package com.adammcneilly.pwhl.mobile.shared.ui.components
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -26,15 +26,14 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.unit.dp
 import com.adammcneilly.pwhl.mobile.shared.displaymodels.ImageDisplayModel
-import com.adammcneilly.pwhl.mobile.shared.displaymodels.MostValuablePlayerDisplayModel
+import com.adammcneilly.pwhl.mobile.shared.displaymodels.PlayerHighlightDisplayModel
 import com.adammcneilly.pwhl.mobile.shared.displaymodels.StatDisplayModel
-import com.adammcneilly.pwhl.mobile.shared.ui.components.ImageWrapper
 import com.adammcneilly.pwhl.mobile.shared.ui.theme.PWHLTheme
 import com.adammcneilly.pwhl.mobile.shared.ui.util.currentWindowSizeClass
 
 @Composable
-fun MVPCard(
-    mvp: MostValuablePlayerDisplayModel,
+fun PlayerHighlightCard(
+    mvp: PlayerHighlightDisplayModel,
     modifier: Modifier = Modifier,
     shape: Shape = MaterialTheme.shapes.large,
 ) {
@@ -64,7 +63,7 @@ fun MVPCard(
 
 @Composable
 private fun Stats(
-    mvp: MostValuablePlayerDisplayModel,
+    mvp: PlayerHighlightDisplayModel,
 ) {
     Surface(
         color = MaterialTheme.colorScheme.secondaryContainer,
@@ -118,7 +117,7 @@ private fun StatItem(
 
 @Composable
 private fun PlayerInfo(
-    mvp: MostValuablePlayerDisplayModel,
+    mvp: PlayerHighlightDisplayModel,
 ) {
     Column {
         PlayerName(mvp)
@@ -129,7 +128,7 @@ private fun PlayerInfo(
 
 @Composable
 private fun PlayerName(
-    mvp: MostValuablePlayerDisplayModel,
+    mvp: PlayerHighlightDisplayModel,
 ) {
     val imageSize = PWHLTheme.dimensions.imageSizeDefault
 
@@ -150,7 +149,7 @@ private fun PlayerName(
 
 @Composable
 private fun PlayerSubtitle(
-    mvp: MostValuablePlayerDisplayModel,
+    mvp: PlayerHighlightDisplayModel,
 ) {
     Row(
         verticalAlignment = Alignment.CenterVertically,
@@ -187,7 +186,7 @@ private fun PlayerSubtitle(
 
 @Composable
 private fun PlayerImage(
-    mvp: MostValuablePlayerDisplayModel,
+    mvp: PlayerHighlightDisplayModel,
 ) {
     ImageWrapper(
         image = mvp.player.playerImage ?: ImageDisplayModel.Placeholder,
