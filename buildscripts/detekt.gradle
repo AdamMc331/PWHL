@@ -1,11 +1,8 @@
 apply plugin: "io.gitlab.arturbosch.detekt"
 
-detekt {
-    config = files("${rootProject.projectDir}/config/detekt/detekt.yml")
-
-    reports {
-        html.enabled = true
-        xml.enabled = true
-        txt.enabled = true
+afterEvaluate {
+    //Add rules module as custom-detekt dependency for every module
+    dependencies {
+        detektPlugins(project(":detekt-rules"))
     }
 }
