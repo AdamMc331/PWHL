@@ -38,6 +38,8 @@ data class HockeyTechPenaltyEventDTO(
             takenBy = details.takenBy?.parsePlayer(),
             period = details.period.parsePeriod(),
             time = details.time.orEmpty(),
+            xLocation = null,
+            yLocation = null,
         )
     }
 
