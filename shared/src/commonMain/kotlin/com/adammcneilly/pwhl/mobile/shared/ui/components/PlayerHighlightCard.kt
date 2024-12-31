@@ -24,7 +24,6 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalDensity
-import androidx.compose.ui.unit.dp
 import com.adammcneilly.pwhl.mobile.shared.displaymodels.ImageDisplayModel
 import com.adammcneilly.pwhl.mobile.shared.displaymodels.PlayerHighlightDisplayModel
 import com.adammcneilly.pwhl.mobile.shared.displaymodels.StatDisplayModel
@@ -70,12 +69,12 @@ private fun Stats(
         shape = MaterialTheme.shapes.large,
     ) {
         Row(
-            horizontalArrangement = Arrangement.spacedBy(8.dp),
+            horizontalArrangement = Arrangement.spacedBy(PWHLTheme.dimensions.itemSpacingCompact),
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(
-                    horizontal = 8.dp,
-                    vertical = 4.dp,
+                    horizontal = PWHLTheme.dimensions.itemSpacingCompact,
+                    vertical = PWHLTheme.dimensions.itemSpacingUltraCompact,
                 ),
         ) {
             playerHighlight.highlightStats.forEach { stat ->
@@ -153,7 +152,7 @@ private fun PlayerSubtitle(
 ) {
     Row(
         verticalAlignment = Alignment.CenterVertically,
-        horizontalArrangement = Arrangement.spacedBy(4.dp),
+        horizontalArrangement = Arrangement.spacedBy(PWHLTheme.dimensions.itemSpacingUltraCompact),
     ) {
         val imageSize = PWHLTheme.dimensions.imageSizeDefault
 

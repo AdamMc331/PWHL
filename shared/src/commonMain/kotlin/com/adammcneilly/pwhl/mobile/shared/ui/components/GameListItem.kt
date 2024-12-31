@@ -16,11 +16,11 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
-import androidx.compose.ui.unit.dp
 import com.adammcneilly.pwhl.mobile.shared.LocalNavAnimatedVisibilityScope
 import com.adammcneilly.pwhl.mobile.shared.LocalSharedTransitionScope
 import com.adammcneilly.pwhl.mobile.shared.displaymodels.GameSummaryDisplayModel
 import com.adammcneilly.pwhl.mobile.shared.displaymodels.TeamGameSummaryResultDisplayModel
+import com.adammcneilly.pwhl.mobile.shared.ui.theme.PWHLTheme
 
 @Composable
 @OptIn(ExperimentalSharedTransitionApi::class)
@@ -31,9 +31,9 @@ fun GameListItem(
     Surface {
         Row(
             verticalAlignment = Alignment.CenterVertically,
-            horizontalArrangement = Arrangement.spacedBy(16.dp),
+            horizontalArrangement = Arrangement.spacedBy(PWHLTheme.dimensions.itemSpacingDefault),
             modifier = modifier
-                .padding(16.dp),
+                .padding(PWHLTheme.dimensions.componentPadding),
         ) {
             TeamRows(
                 game = game,
@@ -64,7 +64,7 @@ private fun TeamRows(
     modifier: Modifier = Modifier,
 ) {
     Column(
-        verticalArrangement = Arrangement.spacedBy(8.dp),
+        verticalArrangement = Arrangement.spacedBy(PWHLTheme.dimensions.itemSpacingCompact),
         modifier = modifier,
     ) {
         TeamRow(
@@ -97,7 +97,7 @@ private fun TeamRow(
                 image = teamGameResult.team.image,
                 contentDescription = null,
                 modifier = Modifier
-                    .size(24.dp)
+                    .size(PWHLTheme.dimensions.imageSizeUltraCompact)
                     .sharedElement(
                         state = rememberSharedContentState(key = "${teamGameResult.team.name}_${gameId}_image"),
                         animatedVisibilityScope = LocalNavAnimatedVisibilityScope.current,
@@ -106,7 +106,7 @@ private fun TeamRow(
 
             Spacer(
                 modifier = Modifier
-                    .width(8.dp),
+                    .width(PWHLTheme.dimensions.itemSpacingCompact),
             )
 
             Text(

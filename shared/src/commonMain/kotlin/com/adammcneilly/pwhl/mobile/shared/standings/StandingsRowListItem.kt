@@ -12,9 +12,9 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.unit.dp
 import com.adammcneilly.pwhl.mobile.shared.displaymodels.StandingsRowDisplayModel
 import com.adammcneilly.pwhl.mobile.shared.ui.components.ImageWrapper
+import com.adammcneilly.pwhl.mobile.shared.ui.theme.PWHLTheme
 
 @Composable
 fun StandingsRowListItem(
@@ -23,9 +23,9 @@ fun StandingsRowListItem(
 ) {
     Row(
         verticalAlignment = Alignment.CenterVertically,
-        horizontalArrangement = Arrangement.spacedBy(8.dp),
+        horizontalArrangement = Arrangement.spacedBy(PWHLTheme.dimensions.itemSpacingCompact),
         modifier = modifier
-            .padding(16.dp),
+            .padding(PWHLTheme.dimensions.componentPadding),
     ) {
         Text(
             text = standingsRow.rank.toString(),
@@ -36,7 +36,7 @@ fun StandingsRowListItem(
             image = standingsRow.team.image,
             contentDescription = null,
             modifier = Modifier
-                .size(36.dp),
+                .size(PWHLTheme.dimensions.imageSizeCompact),
         )
 
         Column {
