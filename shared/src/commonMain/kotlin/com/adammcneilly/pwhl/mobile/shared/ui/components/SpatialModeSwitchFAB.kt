@@ -8,7 +8,7 @@ import androidx.compose.material3.FloatingActionButton
 import androidx.compose.material3.Icon
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.unit.dp
+import com.adammcneilly.pwhl.mobile.shared.ui.theme.PWHLTheme
 import com.adammcneilly.pwhl.mobile.shared.xr.LocalXRSession
 
 @Composable
@@ -28,7 +28,7 @@ fun SpatialModeSwitchFAB(
             }
         },
         modifier = modifier
-            .padding(32.dp),
+            .padding(PWHLTheme.dimensions.floatingButtonPadding),
     ) {
         Icon(
             imageVector = if (hasSpatialUi) {

@@ -12,9 +12,9 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.unit.dp
 import com.adammcneilly.pwhl.mobile.shared.displaymodels.GameDetailDisplayModel
 import com.adammcneilly.pwhl.mobile.shared.ui.components.PlayerHighlightCard
+import com.adammcneilly.pwhl.mobile.shared.ui.theme.PWHLTheme
 
 @Composable
 fun GameDetailSummaryTab(
@@ -22,7 +22,7 @@ fun GameDetailSummaryTab(
     modifier: Modifier = Modifier,
 ) {
     LazyColumn(
-        verticalArrangement = Arrangement.spacedBy(16.dp),
+        verticalArrangement = Arrangement.spacedBy(PWHLTheme.dimensions.itemSpacingDefault),
         modifier = modifier,
     ) {
         mvpSection(game)
@@ -43,16 +43,16 @@ private fun LazyListScope.mvpSection(
                 style = MaterialTheme.typography.titleLarge,
                 modifier = Modifier
                     .padding(
-                        horizontal = 16.dp,
-                        vertical = 8.dp,
+                        horizontal = PWHLTheme.dimensions.itemSpacingDefault,
+                        vertical = PWHLTheme.dimensions.itemSpacingCompact,
                     ),
             )
 
             LazyRow(
                 contentPadding = PaddingValues(
-                    horizontal = 16.dp,
+                    horizontal = PWHLTheme.dimensions.screenPaddingHorizontal,
                 ),
-                horizontalArrangement = Arrangement.spacedBy(16.dp),
+                horizontalArrangement = Arrangement.spacedBy(PWHLTheme.dimensions.itemSpacingDefault),
             ) {
                 items(game.mostValuablePlayers) { mvp ->
                     PlayerHighlightCard(

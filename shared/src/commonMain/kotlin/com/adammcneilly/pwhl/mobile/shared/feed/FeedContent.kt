@@ -13,12 +13,12 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.unit.dp
 import com.adammcneilly.pwhl.mobile.shared.LocalNavAnimatedVisibilityScope
 import com.adammcneilly.pwhl.mobile.shared.LocalSharedTransitionScope
 import com.adammcneilly.pwhl.mobile.shared.displaymodels.GameSummaryDisplayModel
 import com.adammcneilly.pwhl.mobile.shared.ui.components.GameListItem
 import com.adammcneilly.pwhl.mobile.shared.ui.components.LoadingScreen
+import com.adammcneilly.pwhl.mobile.shared.ui.theme.PWHLTheme
 
 @Composable
 fun FeedContent(
@@ -118,7 +118,7 @@ private fun GameDateHeader(
             text = text,
             style = MaterialTheme.typography.titleSmall,
             modifier = Modifier
-                .padding(8.dp)
+                .padding(PWHLTheme.dimensions.headerPaddingDefault)
                 .sharedBounds(
                     sharedContentState = rememberSharedContentState(key = "game_date_$text"),
                     animatedVisibilityScope = LocalNavAnimatedVisibilityScope.current,
@@ -136,6 +136,6 @@ private fun LargeHeader(
         text = text,
         style = MaterialTheme.typography.titleLarge,
         modifier = Modifier
-            .padding(8.dp),
+            .padding(PWHLTheme.dimensions.headerPaddingDefault),
     )
 }

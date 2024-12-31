@@ -19,9 +19,11 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.drawscope.DrawScope
+import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import com.adammcneilly.pwhl.mobile.shared.displaymodels.StatComparisonDisplayModel
 import com.adammcneilly.pwhl.mobile.shared.ui.modifiers.whenInView
+import com.adammcneilly.pwhl.mobile.shared.ui.theme.PWHLTheme
 import kotlinx.coroutines.launch
 
 /**
@@ -97,6 +99,8 @@ fun StatComparison(
             )
         }
 
+        // Need to make more robust here, since this height includes line and text.
+        @Suppress("DpUsageRule")
         StatComparisonLines(
             statComparison = statComparison,
             animationPercentage = percentageToRender,
@@ -113,25 +117,26 @@ private fun StatComparisonLines(
     animationPercentage: Float,
     modifier: Modifier = Modifier,
     dividerColor: Color = LocalContentColor.current,
+    lineWidthDp: Dp = PWHLTheme.dimensions.statLineWidth,
 ) {
     Canvas(
         modifier = modifier,
     ) {
         val yOffset = size.height.div(2)
         val dividingPoint = size.width.times(statComparison.homeTeamPercentage)
-        val lineWidth = 6.dp.toPx()
-        val leadingLineWidth = lineWidth * LEADING_TEAM_STAT_WIDTH_SCALE
+        val lineWidthPx = lineWidthDp.toPx()
+        val leadingLineWidth = lineWidthPx * LEADING_TEAM_STAT_WIDTH_SCALE
 
         val homeTeamLineWidth = if (statComparison.homeTeamPercentage > 0.5F) {
             leadingLineWidth
         } else {
-            lineWidth
+            lineWidthPx
         }
 
         val awayTeamLineWidth = if (statComparison.homeTeamPercentage < 0.5F) {
             leadingLineWidth
         } else {
-            lineWidth
+            lineWidthPx
         }
 
         drawHomeTeamLine(
@@ -153,7 +158,7 @@ private fun StatComparisonLines(
         drawDivider(
             xOffset = dividingPoint,
             yOffset = yOffset,
-            lineWidth = lineWidth,
+            lineWidth = lineWidthPx,
             dividerColor = dividerColor,
             animationPercentage = animationPercentage,
         )
