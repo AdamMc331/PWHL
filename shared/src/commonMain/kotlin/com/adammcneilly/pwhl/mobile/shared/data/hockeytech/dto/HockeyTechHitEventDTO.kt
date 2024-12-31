@@ -30,6 +30,8 @@ data class HockeyTechHitEventDTO(
             period = details.period.parsePeriod(),
             teamId = details.teamId.orEmpty(),
             time = details.time.orEmpty(),
+            xLocation = details.xLocation,
+            yLocation = details.yLocation,
         )
     }
 

@@ -35,6 +35,8 @@ data class HockeyTechFaceOffEventDTO(
             homeWin = details.homeWin == "1",
             period = details.period.parsePeriod(),
             time = details.time.orEmpty(),
+            xLocation = details.xLocation,
+            yLocation = details.yLocation,
         )
     }
 
