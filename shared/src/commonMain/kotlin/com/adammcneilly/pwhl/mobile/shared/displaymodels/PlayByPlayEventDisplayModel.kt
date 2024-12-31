@@ -8,5 +8,7 @@ data class PlayByPlayEventDisplayModel(
     val title: String,
     val description: String,
     val period: Period,
+    val xLocation: Int?,
+    val yLocation: Int?,
     val highlightTeamId: String = "",
 )
