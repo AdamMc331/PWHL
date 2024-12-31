@@ -38,6 +38,8 @@ data class HockeyTechShootOutEventDTO(
             isGameWinningGoal = details.isGameWinningGoal == true,
             period = Period.Shootout,
             time = "",
+            xLocation = null,
+            yLocation = null,
         )
     }
 

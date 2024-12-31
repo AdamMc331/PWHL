@@ -46,6 +46,8 @@ data class HockeyTechGoalEventDTO(
             ),
             period = details.period.parsePeriod(),
             time = details.time.orEmpty(),
+            xLocation = details.xLocation,
+            yLocation = details.yLocation,
         )
     }
 

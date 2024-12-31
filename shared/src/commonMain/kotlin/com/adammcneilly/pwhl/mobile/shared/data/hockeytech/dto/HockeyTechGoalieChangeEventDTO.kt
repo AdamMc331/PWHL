@@ -27,6 +27,8 @@ data class HockeyTechGoalieChangeEventDTO(
             teamId = details.teamId.orEmpty(),
             period = details.period.parsePeriod(),
             time = details.time.orEmpty(),
+            xLocation = null,
+            yLocation = null,
         )
     }
 
