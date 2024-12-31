@@ -11,6 +11,8 @@ data class PlayByPlayGoalieChangeEvent(
     val teamId: String,
     override val period: Period,
     override val time: String,
+    override val xLocation: Int?,
+    override val yLocation: Int?,
 ) : PlayByPlayEvent {
     override fun toDisplayModel(): PlayByPlayEventDisplayModel {
         val goalieInDescription = goalieComingIn?.fullNameWithNumber?.let { player ->

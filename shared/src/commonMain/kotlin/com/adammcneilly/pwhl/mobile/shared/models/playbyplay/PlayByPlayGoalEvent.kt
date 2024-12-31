@@ -12,6 +12,8 @@ data class PlayByPlayGoalEvent(
     val assistingPlayers: List<PlayerAndAssistCount>,
     override val period: Period,
     override val time: String,
+    override val xLocation: Int?,
+    override val yLocation: Int?,
 ) : PlayByPlayEvent {
     override fun toDisplayModel(): PlayByPlayEventDisplayModel {
         val scoreDescription = "${scoredBy.player.fullNameWithNumber} (${scoredBy.goalCount})"

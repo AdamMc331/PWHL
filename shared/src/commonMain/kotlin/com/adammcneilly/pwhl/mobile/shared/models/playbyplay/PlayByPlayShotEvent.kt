@@ -12,6 +12,8 @@ data class PlayByPlayShotEvent(
     val isGoal: Boolean,
     override val period: Period,
     override val time: String,
+    override val xLocation: Int?,
+    override val yLocation: Int?,
 ) : PlayByPlayEvent {
     override fun toDisplayModel(): PlayByPlayEventDisplayModel {
         return PlayByPlayEventDisplayModel(
