@@ -11,7 +11,6 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.unit.dp
 import com.adammcneilly.pwhl.mobile.shared.displaymodels.PlayByPlayEventDisplayModel
 import com.adammcneilly.pwhl.mobile.shared.ui.components.ImageWrapper
 import com.adammcneilly.pwhl.mobile.shared.ui.theme.PWHLTeamTheme
@@ -36,7 +35,7 @@ fun PlayByPlayListItem(
         ) {
             Row(
                 verticalAlignment = Alignment.CenterVertically,
-                horizontalArrangement = Arrangement.spacedBy(16.dp),
+                horizontalArrangement = Arrangement.spacedBy(PWHLTheme.dimensions.itemSpacingDefault),
                 modifier = modifier
                     .padding(PWHLTheme.dimensions.componentPadding),
             ) {
@@ -83,6 +82,6 @@ private fun TeamImage(
         image = event.teamImage,
         contentDescription = null,
         modifier = Modifier
-            .size(36.dp),
+            .size(PWHLTheme.dimensions.imageSizeCompact),
     )
 }

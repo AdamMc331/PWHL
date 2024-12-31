@@ -7,11 +7,11 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.unit.dp
 import com.adammcneilly.pwhl.mobile.shared.displaymodels.GameDetailDisplayModel
 import com.adammcneilly.pwhl.mobile.shared.displaymodels.PlayByPlayEventDisplayModel
 import com.adammcneilly.pwhl.mobile.shared.gamedetail.xr.ImmersiveGameDetailContent
 import com.adammcneilly.pwhl.mobile.shared.ui.components.LoadingScreen
+import com.adammcneilly.pwhl.mobile.shared.ui.theme.PWHLTheme
 import com.adammcneilly.pwhl.mobile.shared.xr.LocalXRSession
 
 @Composable
@@ -70,7 +70,7 @@ private fun SuccessContent(
             game = game,
             modifier = Modifier
                 .fillMaxWidth()
-                .padding(16.dp),
+                .padding(PWHLTheme.dimensions.componentPadding),
         )
 
         GameDetailPager(

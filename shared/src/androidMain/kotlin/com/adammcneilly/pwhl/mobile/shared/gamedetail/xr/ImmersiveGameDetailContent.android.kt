@@ -38,9 +38,13 @@ import com.adammcneilly.pwhl.mobile.shared.gamedetail.GameDetailStatsTab
 import com.adammcneilly.pwhl.mobile.shared.gamedetail.playbyplay.PlayByPlayList
 import com.adammcneilly.pwhl.mobile.shared.ui.components.PlayerHighlightCard
 import com.adammcneilly.pwhl.mobile.shared.ui.components.SpatialSurface
+import com.adammcneilly.pwhl.mobile.shared.ui.theme.PWHLTheme
 import com.adammcneilly.pwhl.mobile.shared.xr.XRSession
 
+@Suppress("DpUsageRule")
 private val IMMERSIVE_GAME_DETAIL_WIDTH = 1400.dp
+
+@Suppress("DpUsageRule")
 private val IMMERSIVE_DETAIL_PANEL_HEIGHT = 1000.dp
 
 @Composable
@@ -71,7 +75,7 @@ actual fun ImmersiveGameDetailContent(
                     .height(IMMERSIVE_DETAIL_PANEL_HEIGHT)
                     .weight(1F)
                     .padding(
-                        horizontal = 16.dp,
+                        horizontal = PWHLTheme.dimensions.itemSpacingDefault,
                     ),
             ) {
                 Header(
@@ -105,7 +109,7 @@ private fun Header(
     SpatialSurface(
         modifier = modifier
             .fillMaxWidth()
-            .padding(bottom = 16.dp),
+            .padding(bottom = PWHLTheme.dimensions.itemSpacingDefault),
     ) {
         EnterHomeSpaceButton(xrSession)
 
@@ -122,13 +126,13 @@ private fun EnterHomeSpaceButton(
 ) {
     Orbiter(
         position = OrbiterEdge.Top,
-        offset = inner(8.dp),
+        offset = inner(PWHLTheme.dimensions.itemSpacingCompact),
         alignment = Alignment.End,
     ) {
         Surface(
             shape = CircleShape,
             modifier = Modifier
-                .padding(end = 16.dp),
+                .padding(end = PWHLTheme.dimensions.screenPaddingHorizontal),
         ) {
             IconButton(
                 onClick = {
@@ -160,7 +164,7 @@ private fun MVPPanel(
         modifier = modifier,
     ) {
         Column(
-            verticalArrangement = Arrangement.spacedBy(8.dp),
+            verticalArrangement = Arrangement.spacedBy(PWHLTheme.dimensions.itemSpacingCompact),
         ) {
             game.mostValuablePlayers.forEach { mvp ->
                 PlayerHighlightCard(
