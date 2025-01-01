@@ -15,6 +15,8 @@ data class PlayByPlayShotEvent(
     override val xLocation: Int?,
     override val yLocation: Int?,
 ) : PlayByPlayEvent {
+    override val type: PlayByPlayEvent.Type = PlayByPlayEvent.Type.SHOT
+
     override fun toDisplayModel(): PlayByPlayEventDisplayModel {
         return PlayByPlayEventDisplayModel(
             teamImage = LocalTeamImageProvider.getTeamImage(shooterTeamId),
@@ -25,6 +27,7 @@ data class PlayByPlayShotEvent(
             xLocation = xLocation,
             yLocation = yLocation,
             teamId = shooterTeamId,
+            type = type,
         )
     }
 }

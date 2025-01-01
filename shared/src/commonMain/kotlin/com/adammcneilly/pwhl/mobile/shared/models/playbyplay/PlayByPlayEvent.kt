@@ -8,6 +8,18 @@ sealed interface PlayByPlayEvent {
     val time: String
     val xLocation: Int?
     val yLocation: Int?
+    val type: Type
 
     fun toDisplayModel(): PlayByPlayEventDisplayModel
+
+    enum class Type {
+        BLOCKED_SHOT,
+        FACE_OFF,
+        GOAL,
+        GOALIE_CHANGE,
+        HIT,
+        PENALTY,
+        SHOT,
+        SHOOTOUT,
+    }
 }

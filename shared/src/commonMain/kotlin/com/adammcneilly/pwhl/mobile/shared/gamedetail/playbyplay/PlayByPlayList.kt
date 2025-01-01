@@ -15,6 +15,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.adammcneilly.pwhl.mobile.shared.displaymodels.PlayByPlayEventDisplayModel
+import com.adammcneilly.pwhl.mobile.shared.models.playbyplay.PlayByPlayEvent
 import com.adammcneilly.pwhl.mobile.shared.ui.components.PlayByPlayMap
 import com.adammcneilly.pwhl.mobile.shared.ui.theme.PWHLTheme
 
@@ -28,7 +29,9 @@ fun PlayByPlayList(
         modifier = modifier,
     ) {
         PlayByPlayMap(
-            events = events.flatMap { it.value },
+            events = events.flatMap { it.value }.filter {
+                it.type == PlayByPlayEvent.Type.SHOT || it.type == PlayByPlayEvent.Type.GOAL
+            },
             modifier = Modifier
                 .fillMaxWidth()
                 .height(200.dp)

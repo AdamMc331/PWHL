@@ -15,6 +15,8 @@ data class PlayByPlayGoalEvent(
     override val xLocation: Int?,
     override val yLocation: Int?,
 ) : PlayByPlayEvent {
+    override val type: PlayByPlayEvent.Type = PlayByPlayEvent.Type.GOAL
+
     override fun toDisplayModel(): PlayByPlayEventDisplayModel {
         val scoreDescription = "${scoredBy.player.fullNameWithNumber} (${scoredBy.goalCount})"
 
@@ -38,6 +40,7 @@ data class PlayByPlayGoalEvent(
             xLocation = xLocation,
             yLocation = yLocation,
             teamId = teamId,
+            type = type,
         )
     }
 }
