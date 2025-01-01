@@ -26,6 +26,7 @@ data class PlayByPlayShootOutEvent(
             period = period,
             xLocation = xLocation,
             yLocation = yLocation,
+            teamId = shooterTeam.id,
         )
     }
 }

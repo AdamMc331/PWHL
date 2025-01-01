@@ -26,6 +26,7 @@ data class PlayByPlayPenaltyEvent(
             period = period,
             xLocation = xLocation,
             yLocation = yLocation,
+            teamId = againstTeamId,
         )
     }
 }

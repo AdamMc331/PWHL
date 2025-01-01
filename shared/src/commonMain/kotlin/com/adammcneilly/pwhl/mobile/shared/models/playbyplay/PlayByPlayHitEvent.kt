@@ -22,6 +22,7 @@ data class PlayByPlayHitEvent(
             period = period,
             xLocation = xLocation,
             yLocation = yLocation,
+            teamId = teamId,
         )
     }
 }

@@ -37,6 +37,7 @@ data class PlayByPlayGoalEvent(
             period = period,
             xLocation = xLocation,
             yLocation = yLocation,
+            teamId = teamId,
         )
     }
 }

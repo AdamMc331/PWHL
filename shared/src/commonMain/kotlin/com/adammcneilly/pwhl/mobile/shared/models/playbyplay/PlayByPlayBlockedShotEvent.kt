@@ -35,6 +35,7 @@ data class PlayByPlayBlockedShotEvent(
             period = period,
             xLocation = xLocation,
             yLocation = yLocation,
+            teamId = shooterTeamId,
         )
     }
 }

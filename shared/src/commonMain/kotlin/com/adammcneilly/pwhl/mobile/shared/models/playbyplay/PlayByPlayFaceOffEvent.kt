@@ -31,6 +31,7 @@ data class PlayByPlayFaceOffEvent(
             period = period,
             xLocation = xLocation,
             yLocation = yLocation,
+            teamId = "",
         )
     }
 }
