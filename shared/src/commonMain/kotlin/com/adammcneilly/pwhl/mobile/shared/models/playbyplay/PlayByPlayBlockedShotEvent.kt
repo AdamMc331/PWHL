@@ -33,6 +33,8 @@ data class PlayByPlayBlockedShotEvent(
             title = "BLOCKED SHOT",
             description = description,
             period = period,
+            xLocation = xLocation,
+            yLocation = yLocation,
         )
     }
 }

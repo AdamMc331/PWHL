@@ -20,6 +20,8 @@ data class PlayByPlayHitEvent(
             title = "HIT",
             description = player.fullNameWithNumber,
             period = period,
+            xLocation = xLocation,
+            yLocation = yLocation,
         )
     }
 }

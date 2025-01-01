@@ -29,6 +29,8 @@ data class PlayByPlayFaceOffEvent(
             title = "FACEOFF",
             description = "$matchUp\n$winnerName wins",
             period = period,
+            xLocation = xLocation,
+            yLocation = yLocation,
         )
     }
 }

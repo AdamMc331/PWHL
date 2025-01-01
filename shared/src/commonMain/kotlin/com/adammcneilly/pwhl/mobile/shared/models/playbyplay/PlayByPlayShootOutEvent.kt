@@ -24,6 +24,8 @@ data class PlayByPlayShootOutEvent(
             title = "SHOOTOUT",
             description = "${shooter.fullNameWithNumber} Shootout Attempt On ${goalie.fullNameWithNumber}",
             period = period,
+            xLocation = xLocation,
+            yLocation = yLocation,
         )
     }
 }
