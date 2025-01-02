@@ -28,6 +28,7 @@ fun PlayByPlayList(
     Column(
         modifier = modifier,
     ) {
+        @Suppress("DpUsageRule")
         PlayByPlayMap(
             events = events.flatMap { it.value }.filter {
                 it.type == PlayByPlayEvent.Type.SHOT || it.type == PlayByPlayEvent.Type.GOAL
