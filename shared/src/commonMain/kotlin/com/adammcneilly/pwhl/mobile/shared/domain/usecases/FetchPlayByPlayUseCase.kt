@@ -21,12 +21,6 @@ class FetchPlayByPlayUseCase(
                     event !is PlayByPlayFaceOffEvent
                 }
                 .map(PlayByPlayEvent::toDisplayModel)
-                .also { pbpEvents ->
-                    println("ADAMLOG - MAX X: ${pbpEvents.maxOf { it.xLocation ?: 0 }}")
-                    println("ADAMLOG - MAX Y: ${pbpEvents.maxOf { it.yLocation ?: 0 }}")
-                    println("ADAMLOG - MIN X: ${pbpEvents.minOf { it.xLocation ?: 0 }}")
-                    println("ADAMLOG - MIN Y: ${pbpEvents.minOf { it.yLocation ?: 0 }}")
-                }
                 .groupBy { event ->
                     event.period.longName
                 }
