@@ -17,6 +17,8 @@ data class PlayByPlayPenaltyEvent(
     override val xLocation: Int?,
     override val yLocation: Int?,
 ) : PlayByPlayEvent {
+    override val type: PlayByPlayEvent.Type = PlayByPlayEvent.Type.PENALTY
+
     override fun toDisplayModel(): PlayByPlayEventDisplayModel {
         return PlayByPlayEventDisplayModel(
             teamImage = LocalTeamImageProvider.getTeamImage(againstTeamId),
@@ -26,6 +28,8 @@ data class PlayByPlayPenaltyEvent(
             period = period,
             xLocation = xLocation,
             yLocation = yLocation,
+            teamId = againstTeamId,
+            type = type,
         )
     }
 }

@@ -13,6 +13,8 @@ data class PlayByPlayHitEvent(
     override val xLocation: Int?,
     override val yLocation: Int?,
 ) : PlayByPlayEvent {
+    override val type: PlayByPlayEvent.Type = PlayByPlayEvent.Type.HIT
+
     override fun toDisplayModel(): PlayByPlayEventDisplayModel {
         return PlayByPlayEventDisplayModel(
             teamImage = LocalTeamImageProvider.getTeamImage(teamId),
@@ -22,6 +24,8 @@ data class PlayByPlayHitEvent(
             period = period,
             xLocation = xLocation,
             yLocation = yLocation,
+            teamId = teamId,
+            type = type,
         )
     }
 }

@@ -15,6 +15,8 @@ data class PlayByPlayBlockedShotEvent(
     override val xLocation: Int?,
     override val yLocation: Int?,
 ) : PlayByPlayEvent {
+    override val type: PlayByPlayEvent.Type = PlayByPlayEvent.Type.BLOCKED_SHOT
+
     override fun toDisplayModel(): PlayByPlayEventDisplayModel {
         val shooterNumber = shooter.jerseyNumber
         val blockerNumber = blocker.jerseyNumber
@@ -35,6 +37,8 @@ data class PlayByPlayBlockedShotEvent(
             period = period,
             xLocation = xLocation,
             yLocation = yLocation,
+            teamId = shooterTeamId,
+            type = type,
         )
     }
 }

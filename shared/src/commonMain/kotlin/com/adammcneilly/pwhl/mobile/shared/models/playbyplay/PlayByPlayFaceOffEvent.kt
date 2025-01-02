@@ -14,6 +14,8 @@ data class PlayByPlayFaceOffEvent(
     override val xLocation: Int?,
     override val yLocation: Int?,
 ) : PlayByPlayEvent {
+    override val type: PlayByPlayEvent.Type = PlayByPlayEvent.Type.FACE_OFF
+
     override fun toDisplayModel(): PlayByPlayEventDisplayModel {
         val winnerName = if (homeWin) {
             homePlayer.fullName
@@ -31,6 +33,8 @@ data class PlayByPlayFaceOffEvent(
             period = period,
             xLocation = xLocation,
             yLocation = yLocation,
+            teamId = "",
+            type = type,
         )
     }
 }
