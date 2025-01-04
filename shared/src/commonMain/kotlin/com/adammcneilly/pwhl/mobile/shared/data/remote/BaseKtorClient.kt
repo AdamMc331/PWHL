@@ -2,6 +2,7 @@ package com.adammcneilly.pwhl.mobile.shared.data.remote
 
 import io.ktor.client.HttpClient
 import io.ktor.client.call.body
+import io.ktor.client.engine.HttpClientEngine
 import io.ktor.client.plugins.contentnegotiation.ContentNegotiation
 import io.ktor.client.plugins.logging.LogLevel
 import io.ktor.client.plugins.logging.Logger
@@ -42,13 +43,14 @@ private typealias RemoteParams = Map<String, Any?>
  */
 open class BaseKtorClient(
     val baseURL: String,
+    val engine: HttpClientEngine,
 ) {
     /**
      * A collection of query parameters that should be applied to all requests by this client.
      */
     open val baseParams: RemoteParams = emptyMap()
 
-    val httpClient = HttpClient {
+    val httpClient = HttpClient(engine) {
         install(ContentNegotiation) {
             val converter = KotlinxSerializationConverter(
                 Json {

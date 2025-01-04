@@ -2,12 +2,14 @@ package com.adammcneilly.pwhl.mobile.shared.data.hockeytech
 
 import com.adammcneilly.pwhl.mobile.shared.BuildKonfig
 import com.adammcneilly.pwhl.mobile.shared.data.remote.BaseKtorClient
+import com.adammcneilly.pwhl.mobile.shared.data.remote.provideHttpClientEngine
 
 /**
  * Custom implementation of [BaseKtorClient] that makes all requests to the hockeytech api url.
  */
 object HockeyTechKtorClient : BaseKtorClient(
     baseURL = "https://lscluster.hockeytech.com/",
+    engine = provideHttpClientEngine(),
 ) {
     override val baseParams = mapOf(
         HockeyTechParameterKeys.API_KEY to BuildKonfig.PWHL_API_KEY,
