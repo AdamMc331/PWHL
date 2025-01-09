@@ -26,6 +26,30 @@ class GameDetailViewModel(
         fetchPlayByPlayEvents(fetchPlayByPlayUseCase)
     }
 
+    fun handleEvent(
+        event: GameDetailUiEvent,
+    ) {
+        when (event) {
+            is GameDetailUiEvent.MvpClicked -> selectMvp(event)
+        }
+    }
+
+    private fun selectMvp(
+        event: GameDetailUiEvent.MvpClicked,
+    ) {
+        mutableState.update { currentState ->
+            val newPlayerId = if (currentState.selectedMvpId == event.playerId) {
+                null
+            } else {
+                event.playerId
+            }
+
+            currentState.copy(
+                selectedMvpId = newPlayerId,
+            )
+        }
+    }
+
     private fun fetchPlayByPlayEvents(
         fetchPlayByPlayUseCase: FetchPlayByPlayUseCase,
     ) {

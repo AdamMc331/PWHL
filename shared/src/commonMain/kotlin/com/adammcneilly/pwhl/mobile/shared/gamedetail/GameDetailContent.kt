@@ -17,12 +17,13 @@ import com.adammcneilly.pwhl.mobile.shared.xr.LocalXRSession
 @Composable
 fun GameDetailContent(
     state: GameDetailState,
+    eventHandler: (GameDetailUiEvent) -> Unit,
     modifier: Modifier = Modifier,
 ) {
     val xrSession = LocalXRSession.current
 
     if (xrSession?.isSpatialUiEnabled == true) {
-        ImmersiveGameDetailContent(state, xrSession)
+        ImmersiveGameDetailContent(state, xrSession, eventHandler)
     } else {
         NonImmersiveContent(state, modifier)
     }
