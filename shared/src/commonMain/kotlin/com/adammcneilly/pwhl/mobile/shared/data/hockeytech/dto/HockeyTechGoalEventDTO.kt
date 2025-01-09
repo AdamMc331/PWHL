@@ -44,6 +44,8 @@ data class HockeyTechGoalEventDTO(
                 player = details.scoredBy.parsePlayer(),
                 goalCount = details.scorerGoalNumber?.toIntOrNull() ?: 0,
             ),
+            plusPlayers = details.plusPlayers?.map(HockeyTechPlayerSummaryDTO::parsePlayer).orEmpty(),
+            minusPlayers = details.minusPlayers?.map(HockeyTechPlayerSummaryDTO::parsePlayer).orEmpty(),
             period = details.period.parsePeriod(),
             time = details.time.orEmpty(),
             xLocation = details.xLocation,

@@ -1,5 +1,6 @@
 package com.adammcneilly.pwhl.mobile.shared.gamedetail.playbyplay
 
+import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -67,6 +68,14 @@ private fun EventInfo(
         Text(
             text = event.description,
         )
+
+        AnimatedVisibility(
+            visible = event.isExpanded,
+        ) {
+            Text(
+                text = event.expandedDescription,
+            )
+        }
     }
 }
 

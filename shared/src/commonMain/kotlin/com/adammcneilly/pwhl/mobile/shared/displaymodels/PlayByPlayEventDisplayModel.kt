@@ -13,4 +13,6 @@ data class PlayByPlayEventDisplayModel(
     val yLocation: Int?,
     val teamId: String,
     val type: PlayByPlayEvent.Type,
+    val isExpanded: Boolean = false,
+    val expandedDescription: String = "",
 )

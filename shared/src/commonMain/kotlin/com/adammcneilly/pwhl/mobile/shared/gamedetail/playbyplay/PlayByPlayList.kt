@@ -60,9 +60,13 @@ fun PlayByPlayList(
                 }
 
                 items(pbpEvents) { event ->
+                    val isSelected = (event == selectedEvent)
+
                     val itemContent = @Composable {
                         PlayByPlayListItem(
-                            event = event,
+                            event = event.copy(
+                                isExpanded = isSelected && event.expandedDescription != "",
+                            ),
                             modifier = Modifier
                                 .clickable {
                                     onClick.invoke(event)
@@ -70,7 +74,7 @@ fun PlayByPlayList(
                         )
                     }
 
-                    val spatialElevationLevel = if (event == selectedEvent) {
+                    val spatialElevationLevel = if (isSelected) {
                         XRSpatialElevationLevel.Five
                     } else {
                         XRSpatialElevationLevel.Zero

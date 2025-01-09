@@ -15,6 +15,7 @@ fun GameDetailPager(
     game: GameDetailDisplayModel,
     playByPlayEvents: Map<String, List<PlayByPlayEventDisplayModel>>,
     selectedPlayByPlayEvent: PlayByPlayEventDisplayModel?,
+    eventHandler: (GameDetailUiEvent) -> Unit,
     modifier: Modifier = Modifier,
 ) {
     val tabs = GameDetailTab.entries
@@ -48,8 +49,9 @@ fun GameDetailPager(
                 GameDetailTab.PlayByPlay -> PlayByPlayList(
                     events = playByPlayEvents,
                     selectedEvent = selectedPlayByPlayEvent,
-                    onClick = {
-                        // Not handled in non-immersive UI yet
+                    onClick = { pbpEvent ->
+                        val event = GameDetailUiEvent.PlayByPlayClicked(pbpEvent)
+                        eventHandler.invoke(event)
                     },
                     modifier = pageModifier,
                 )

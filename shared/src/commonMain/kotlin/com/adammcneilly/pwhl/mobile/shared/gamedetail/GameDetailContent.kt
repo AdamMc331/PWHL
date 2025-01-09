@@ -25,13 +25,14 @@ fun GameDetailContent(
     if (xrSession?.isSpatialUiEnabled == true) {
         ImmersiveGameDetailContent(state, xrSession, eventHandler)
     } else {
-        NonImmersiveContent(state, modifier)
+        NonImmersiveContent(state, eventHandler, modifier)
     }
 }
 
 @Composable
 private fun NonImmersiveContent(
     state: GameDetailState,
+    eventHandler: (GameDetailUiEvent) -> Unit,
     modifier: Modifier,
 ) {
     when {
@@ -46,6 +47,7 @@ private fun NonImmersiveContent(
                 game = state.game,
                 playByPlayEvents = state.playByPlayEvents,
                 selectedPlayByPlayEvent = state.selectedPlayByPlayEvent,
+                eventHandler = eventHandler,
                 modifier = modifier,
             )
         }
@@ -64,6 +66,7 @@ private fun SuccessContent(
     game: GameDetailDisplayModel,
     playByPlayEvents: Map<String, List<PlayByPlayEventDisplayModel>>,
     selectedPlayByPlayEvent: PlayByPlayEventDisplayModel?,
+    eventHandler: (GameDetailUiEvent) -> Unit,
     modifier: Modifier = Modifier,
 ) {
     Column(
@@ -80,6 +83,7 @@ private fun SuccessContent(
             game = game,
             playByPlayEvents = playByPlayEvents,
             selectedPlayByPlayEvent = selectedPlayByPlayEvent,
+            eventHandler = eventHandler,
             modifier = Modifier
                 .fillMaxSize(),
         )
