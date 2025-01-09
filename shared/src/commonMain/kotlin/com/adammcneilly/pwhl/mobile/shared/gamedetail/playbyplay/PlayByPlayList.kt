@@ -70,9 +70,15 @@ fun PlayByPlayList(
                         )
                     }
 
-                    if (event == selectedEvent) {
+                    val spatialElevationLevel = if (event == selectedEvent) {
+                        XRSpatialElevationLevel.Five
+                    } else {
+                        XRSpatialElevationLevel.Zero
+                    }
+
+                    if (event.type == PlayByPlayEvent.Type.GOAL) {
                         XRSpatialElevation(
-                            spatialElevationLevel = XRSpatialElevationLevel.Five,
+                            spatialElevationLevel = spatialElevationLevel,
                         ) {
                             itemContent()
                         }
