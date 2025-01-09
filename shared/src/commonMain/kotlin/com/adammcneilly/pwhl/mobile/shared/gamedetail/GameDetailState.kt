@@ -11,6 +11,9 @@ data class GameDetailState(
     val game: GameDetailDisplayModel?,
     val playByPlayEvents: Map<String, List<PlayByPlayEventDisplayModel>>,
     val selectedMvpId: String?,
+    // TODO: Can we use an Id somehow rather than track the entire displaymodel?
+    //  Or some other shortcut into comparing pbp items.
+    val selectedPlayByPlayEvent: PlayByPlayEventDisplayModel?,
 ) {
     // Remove after Detekt is updated: https://github.com/detekt/detekt/pull/7635/
     @Suppress("UndocumentedPublicClass")
@@ -24,6 +27,7 @@ data class GameDetailState(
             game = null,
             playByPlayEvents = emptyMap(),
             selectedMvpId = null,
+            selectedPlayByPlayEvent = null,
         )
     }
 }

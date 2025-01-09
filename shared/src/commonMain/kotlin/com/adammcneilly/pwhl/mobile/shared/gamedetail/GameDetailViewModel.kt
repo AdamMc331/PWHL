@@ -31,6 +31,23 @@ class GameDetailViewModel(
     ) {
         when (event) {
             is GameDetailUiEvent.MvpClicked -> selectMvp(event)
+            is GameDetailUiEvent.PlayByPlayClicked -> selectPlayByPlayEvent(event)
+        }
+    }
+
+    private fun selectPlayByPlayEvent(
+        event: GameDetailUiEvent.PlayByPlayClicked,
+    ) {
+        mutableState.update { currentState ->
+            val newPlayByPlayEvent = if (currentState.selectedPlayByPlayEvent == event.item) {
+                null
+            } else {
+                event.item
+            }
+
+            currentState.copy(
+                selectedPlayByPlayEvent = newPlayByPlayEvent,
+            )
         }
     }
 

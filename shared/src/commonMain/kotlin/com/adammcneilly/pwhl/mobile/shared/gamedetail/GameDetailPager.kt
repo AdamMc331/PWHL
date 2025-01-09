@@ -14,6 +14,7 @@ import com.adammcneilly.pwhl.mobile.shared.gamedetail.playbyplay.PlayByPlayList
 fun GameDetailPager(
     game: GameDetailDisplayModel,
     playByPlayEvents: Map<String, List<PlayByPlayEventDisplayModel>>,
+    selectedPlayByPlayEvent: PlayByPlayEventDisplayModel?,
     modifier: Modifier = Modifier,
 ) {
     val tabs = GameDetailTab.entries
@@ -46,6 +47,10 @@ fun GameDetailPager(
                 )
                 GameDetailTab.PlayByPlay -> PlayByPlayList(
                     events = playByPlayEvents,
+                    selectedEvent = selectedPlayByPlayEvent,
+                    onClick = {
+                        // Not handled in non-immersive UI yet
+                    },
                     modifier = pageModifier,
                 )
             }

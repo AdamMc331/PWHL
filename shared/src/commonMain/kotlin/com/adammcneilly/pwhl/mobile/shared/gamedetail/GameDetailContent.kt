@@ -45,6 +45,7 @@ private fun NonImmersiveContent(
             SuccessContent(
                 game = state.game,
                 playByPlayEvents = state.playByPlayEvents,
+                selectedPlayByPlayEvent = state.selectedPlayByPlayEvent,
                 modifier = modifier,
             )
         }
@@ -62,6 +63,7 @@ private fun NonImmersiveContent(
 private fun SuccessContent(
     game: GameDetailDisplayModel,
     playByPlayEvents: Map<String, List<PlayByPlayEventDisplayModel>>,
+    selectedPlayByPlayEvent: PlayByPlayEventDisplayModel?,
     modifier: Modifier = Modifier,
 ) {
     Column(
@@ -77,6 +79,7 @@ private fun SuccessContent(
         GameDetailPager(
             game = game,
             playByPlayEvents = playByPlayEvents,
+            selectedPlayByPlayEvent = selectedPlayByPlayEvent,
             modifier = Modifier
                 .fillMaxSize(),
         )

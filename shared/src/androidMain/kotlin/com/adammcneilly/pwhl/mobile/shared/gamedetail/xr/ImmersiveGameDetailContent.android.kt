@@ -36,6 +36,7 @@ import androidx.xr.compose.subspace.layout.height
 import androidx.xr.compose.subspace.layout.padding
 import androidx.xr.compose.subspace.layout.width
 import com.adammcneilly.pwhl.mobile.shared.displaymodels.GameDetailDisplayModel
+import com.adammcneilly.pwhl.mobile.shared.displaymodels.PlayByPlayEventDisplayModel
 import com.adammcneilly.pwhl.mobile.shared.gamedetail.GameDetailState
 import com.adammcneilly.pwhl.mobile.shared.gamedetail.GameDetailStatsTab
 import com.adammcneilly.pwhl.mobile.shared.gamedetail.GameDetailUiEvent
@@ -102,6 +103,10 @@ actual fun ImmersiveGameDetailContent(
 
             PlayByPlayPanel(
                 state = state,
+                onPbpClicked = { event ->
+                    val uiEvent = GameDetailUiEvent.PlayByPlayClicked(event)
+                    eventHandler.invoke(uiEvent)
+                },
                 modifier = SubspaceModifier
                     .height(IMMERSIVE_DETAIL_PANEL_HEIGHT)
                     .weight(1F),
@@ -217,6 +222,7 @@ private fun StatsPanel(
 @Composable
 private fun PlayByPlayPanel(
     state: GameDetailState,
+    onPbpClicked: (PlayByPlayEventDisplayModel) -> Unit,
     modifier: SubspaceModifier = SubspaceModifier,
 ) {
     SpatialSurface(
@@ -224,6 +230,8 @@ private fun PlayByPlayPanel(
     ) {
         PlayByPlayList(
             events = state.playByPlayEvents,
+            selectedEvent = state.selectedPlayByPlayEvent,
+            onClick = onPbpClicked,
         )
     }
 }

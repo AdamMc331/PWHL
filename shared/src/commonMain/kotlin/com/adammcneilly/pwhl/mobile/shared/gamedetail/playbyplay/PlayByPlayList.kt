@@ -2,6 +2,7 @@ package com.adammcneilly.pwhl.mobile.shared.gamedetail.playbyplay
 
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
@@ -18,11 +19,15 @@ import com.adammcneilly.pwhl.mobile.shared.displaymodels.PlayByPlayEventDisplayM
 import com.adammcneilly.pwhl.mobile.shared.models.playbyplay.PlayByPlayEvent
 import com.adammcneilly.pwhl.mobile.shared.ui.components.PlayByPlayMap
 import com.adammcneilly.pwhl.mobile.shared.ui.theme.PWHLTheme
+import com.adammcneilly.pwhl.mobile.shared.xr.components.XRSpatialElevation
+import com.adammcneilly.pwhl.mobile.shared.xr.components.XRSpatialElevationLevel
 
 @Composable
 @OptIn(ExperimentalFoundationApi::class)
 fun PlayByPlayList(
     events: Map<String, List<PlayByPlayEventDisplayModel>>,
+    selectedEvent: PlayByPlayEventDisplayModel?,
+    onClick: (PlayByPlayEventDisplayModel) -> Unit,
     modifier: Modifier = Modifier,
 ) {
     Column(
@@ -55,7 +60,25 @@ fun PlayByPlayList(
                 }
 
                 items(pbpEvents) { event ->
-                    PlayByPlayListItem(event)
+                    val itemContent = @Composable {
+                        PlayByPlayListItem(
+                            event = event,
+                            modifier = Modifier
+                                .clickable {
+                                    onClick.invoke(event)
+                                },
+                        )
+                    }
+
+                    if (event == selectedEvent) {
+                        XRSpatialElevation(
+                            spatialElevationLevel = XRSpatialElevationLevel.Five,
+                        ) {
+                            itemContent()
+                        }
+                    } else {
+                        itemContent()
+                    }
 
                     HorizontalDivider()
                 }
