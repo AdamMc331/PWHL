@@ -10,6 +10,7 @@ data class GameDetailState(
     val isLoading: Boolean,
     val game: GameDetailDisplayModel?,
     val playByPlayEvents: Map<String, List<PlayByPlayEventDisplayModel>>,
+    val selectedMvpId: String?,
 ) {
     // Remove after Detekt is updated: https://github.com/detekt/detekt/pull/7635/
     @Suppress("UndocumentedPublicClass")
@@ -22,6 +23,7 @@ data class GameDetailState(
             isLoading = false,
             game = null,
             playByPlayEvents = emptyMap(),
+            selectedMvpId = null,
         )
     }
 }

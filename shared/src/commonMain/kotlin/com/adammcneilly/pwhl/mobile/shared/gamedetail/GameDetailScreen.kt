@@ -28,6 +28,7 @@ fun GameDetailScreen(
     ) {
         GameDetailContent(
             state = state.value,
+            eventHandler = viewModel::handleEvent,
         )
 
         SpatialModeSwitchFAB(

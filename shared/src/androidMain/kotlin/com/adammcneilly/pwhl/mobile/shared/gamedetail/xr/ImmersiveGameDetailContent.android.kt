@@ -1,5 +1,6 @@
 package com.adammcneilly.pwhl.mobile.shared.gamedetail.xr
 
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -22,6 +23,8 @@ import androidx.compose.ui.unit.dp
 import androidx.xr.compose.spatial.EdgeOffset.Companion.inner
 import androidx.xr.compose.spatial.Orbiter
 import androidx.xr.compose.spatial.OrbiterEdge
+import androidx.xr.compose.spatial.SpatialElevation
+import androidx.xr.compose.spatial.SpatialElevationLevel
 import androidx.xr.compose.spatial.Subspace
 import androidx.xr.compose.subspace.SpatialColumn
 import androidx.xr.compose.subspace.SpatialPanel
@@ -35,6 +38,7 @@ import androidx.xr.compose.subspace.layout.width
 import com.adammcneilly.pwhl.mobile.shared.displaymodels.GameDetailDisplayModel
 import com.adammcneilly.pwhl.mobile.shared.gamedetail.GameDetailState
 import com.adammcneilly.pwhl.mobile.shared.gamedetail.GameDetailStatsTab
+import com.adammcneilly.pwhl.mobile.shared.gamedetail.GameDetailUiEvent
 import com.adammcneilly.pwhl.mobile.shared.gamedetail.playbyplay.PlayByPlayList
 import com.adammcneilly.pwhl.mobile.shared.ui.components.PlayerHighlightCard
 import com.adammcneilly.pwhl.mobile.shared.ui.components.SpatialSurface
@@ -52,6 +56,7 @@ private val IMMERSIVE_DETAIL_PANEL_HEIGHT = 1000.dp
 actual fun ImmersiveGameDetailContent(
     state: GameDetailState,
     xrSession: XRSession,
+    eventHandler: (GameDetailUiEvent) -> Unit,
 ) {
     if (state.game == null) {
         // Need to handle loading/error state.
@@ -85,6 +90,11 @@ actual fun ImmersiveGameDetailContent(
 
                 MVPPanel(
                     game = state.game,
+                    selectedMvpId = state.selectedMvpId,
+                    onMvpClicked = { mvpId ->
+                        val event = GameDetailUiEvent.MvpClicked(mvpId)
+                        eventHandler.invoke(event)
+                    },
                     modifier = SubspaceModifier
                         .weight(1F),
                 )
@@ -157,6 +167,8 @@ private fun EnterHomeSpaceButton(
 @Composable
 private fun MVPPanel(
     game: GameDetailDisplayModel,
+    selectedMvpId: String?,
+    onMvpClicked: (String) -> Unit,
     modifier: SubspaceModifier = SubspaceModifier,
 ) {
     SpatialPanel(
@@ -167,12 +179,25 @@ private fun MVPPanel(
             verticalArrangement = Arrangement.spacedBy(PWHLTheme.dimensions.itemSpacingCompact),
         ) {
             game.mostValuablePlayers.forEach { mvp ->
-                PlayerHighlightCard(
-                    playerHighlight = mvp,
-                    shape = MaterialTheme.shapes.extraLarge,
-                    modifier = Modifier
-                        .fillMaxWidth(),
-                )
+                val spatialElevationLevel = if (mvp.player.id == selectedMvpId) {
+                    SpatialElevationLevel.Level5
+                } else {
+                    SpatialElevationLevel.Level0
+                }
+
+                SpatialElevation(
+                    spatialElevationLevel = spatialElevationLevel,
+                ) {
+                    PlayerHighlightCard(
+                        playerHighlight = mvp,
+                        shape = MaterialTheme.shapes.extraLarge,
+                        modifier = Modifier
+                            .clickable {
+                                onMvpClicked.invoke(mvp.player.id)
+                            }
+                            .fillMaxWidth(),
+                    )
+                }
             }
         }
     }
